@@ -11,11 +11,7 @@ export class AppComponent {
   title = 'FrontEnd02';
   project: any;
 
-  constructor(private http: HttpClient) {
-    this.http.get('http://localhost:8080/project/0').subscribe(data => {
-      console.log(data);
-    });
-  }
+  constructor(private http: HttpClient) {}
 
 
   get_post(){

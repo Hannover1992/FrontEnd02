@@ -18,4 +18,7 @@ describe('ProjectSService', () => {
     expect(service).toBeTruthy();
   });
 
+  it(' expect project to be defined', () => {
+    expect(service.project).toBeDefined();
+  });
 });

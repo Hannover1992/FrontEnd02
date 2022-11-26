@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Project} from '../project/project';
 import {Observable, Subscription} from "rxjs";
-import {URL} from "../settings";
 import {HttpClient} from "@angular/common/http";
 import {ProjectSService} from "../Services/project-s.service";
 

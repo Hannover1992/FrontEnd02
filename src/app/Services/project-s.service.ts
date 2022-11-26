@@ -13,13 +13,13 @@ export class ProjectSService {
     this.project = new Observable<Project>();
   }
 
-async getProject( number: number = 0) {
-  this.project =  this.http.get<Project>(this.generateURL(number));
-}
+  async getProject( number: number = 0) {
+    this.project =  this.http.get<Project>(this.generateURL(number))
+  }
 
-generateURL(number: number) {
-  return URL + '/project/' + String(number);
-}
+  generateURL(number: number) {
+    return URL + '/project/' + String(number);
+  }
 }
 
 

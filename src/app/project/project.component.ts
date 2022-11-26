@@ -3,6 +3,7 @@ import {Project} from '../project/project';
 import {Observable, Subscription} from "rxjs";
 import {URL} from "../settings";
 import {HttpClient} from "@angular/common/http";
+import {ProjectSService} from "../Services/project-s.service";
 
 @Component({
   selector: 'app-project',
@@ -13,19 +14,14 @@ export class ProjectComponent implements OnInit {
   title = 'Project';
   project: Observable<Project>;
 
-  constructor( private http: HttpClient) {
-    this.project = new Observable<Project>();
+  constructor( private http: HttpClient, private projectService: ProjectSService) {
+    this.project = projectService.project;
   }
 
   ngOnInit(): void {
-  }
-
-  getProject() {
-    this.project = this.http.get<Project>(this.generateURL());
-    console.log(this.project);
-  }
-
-  generateURL(number: number = 0) {
-    return URL + '/project/' + String(number);
+    this.projectService.getProject()
+      .then ( () => {
+        this.project = this.projectService.project;
+      });
   }
 }

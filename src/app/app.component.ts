@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +7,7 @@ import {Observable} from "rxjs";
 })
 export class AppComponent {
   title = 'FrontEnd02';
-  project: any;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-
-  get_post(){
-    this.http.get('http://localhost:8080/project/0')
-      .subscribe(data => {
-        this.project = data;
-      })
-  }
 }

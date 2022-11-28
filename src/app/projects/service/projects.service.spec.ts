@@ -21,4 +21,8 @@ describe('ProjectsService', () => {
     expect(service.getProjects).toBeDefined();
   });
 
+  it(' the function get projects should return an array', () => {
+    expect(service.getProjects).toEqual([]);
+  });
+
 });

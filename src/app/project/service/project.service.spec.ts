@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProjectService } from './project.service';
 import {HttpClientModule} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 describe('ProjectSService', () => {
   let service: ProjectService;
@@ -20,5 +21,15 @@ describe('ProjectSService', () => {
 
   it(' expect project to be defined', () => {
     expect(service.project).toBeDefined();
+  });
+
+
+  it(' the project should be an observable', () => {
+    expect(service.project).toEqual(jasmine.any(Observable));
+  });
+
+  it( ' after rund the function get Project, the project should be an object', () => {
+    service.getProject();
+    expect(service.project).toEqual(jasmine.any(Object));
   });
 });

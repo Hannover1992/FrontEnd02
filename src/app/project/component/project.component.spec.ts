@@ -3,8 +3,8 @@ import { By } from '@angular/platform-browser';
 
 import { ProjectComponent } from './project.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ProjectService} from "./project.service";
-import {AppComponent} from "../app.component";
+import {ProjectService} from "../service/project.service";
+import {AppComponent} from "../../app.component";
 // test commit
 describe('ProjectComponent', () => {
   let component: ProjectComponent;

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from '../Services/project';
+import {Project} from '../Services/project/project';
 import {Observable, Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ProjectSService} from "../Services/project-s.service";
+import {ProjectSService} from "../Services/project/project-s.service";
 
 @Component({
   selector: 'app-project',

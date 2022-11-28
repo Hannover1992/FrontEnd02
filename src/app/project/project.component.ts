@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from '../Services/project';
+import {Project} from './project.interface';
 import {Observable, Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ProjectSService} from "../Services/project-s.service";
+import {ProjectService} from "./project.service";
 
 @Component({
   selector: 'app-project',
@@ -13,7 +13,7 @@ export class ProjectComponent implements OnInit {
   title = 'Project';
   project: Observable<Project>;
 
-  constructor( private http: HttpClient, private projectService: ProjectSService) {
+  constructor( private http: HttpClient, private projectService: ProjectService) {
     this.project = projectService.project;
   }
 

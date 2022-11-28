@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {URL} from '../settings';
-import {Project} from './project';
+import {Project} from './project.interface';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectSService {
+export class ProjectService {
   project: Observable<Project>;
   constructor( private http: HttpClient) {
     this.project = new Observable<Project>();

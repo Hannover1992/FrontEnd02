@@ -3,23 +3,25 @@ import { By } from '@angular/platform-browser';
 
 import { ProjectComponent } from './project.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ProjectSService} from "../Services/project-s.service";
+import {ProjectService} from "./project.service";
+import {AppComponent} from "../app.component";
 // test commit
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
-  let projectService: ProjectSService;
+  let projectService: ProjectService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports : [HttpClientModule],
-      declarations: [ ProjectComponent ],
-      providers: [ProjectSService]
+      declarations: [ ProjectComponent,
+        AppComponent],
+      providers: [ProjectService]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(ProjectComponent);
-    projectService = TestBed.inject(ProjectSService);
+    projectService = TestBed.inject(ProjectService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

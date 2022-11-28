@@ -1,1 +1,13 @@
 <p>projects works!</p>
+
+<!--<div *ngFor="let project of projects | async">-->
+<!--  {{ project | json }}-->
+<!--</div>-->
+
+<h1>
+  {{this.projectsService.projects_observable | async | json}}
+</h1>
+
+<!--<div *ngFor="let project of this.projectsService.projects_observable | async">-->
+<!--  {{ project | json }}  -->
+<!--</div>-->

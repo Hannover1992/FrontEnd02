@@ -15,7 +15,7 @@ export class ProjectComponent implements OnInit {
   projectObservable: Observable<Project>;
   project: Project;
 
-  constructor( private http: HttpClient, private projectService: ProjectService ) {
+  constructor(  private projectService: ProjectService ) {
     this.projectObservable = projectService.project_observable;
     this.project = projectService.project;
   }
@@ -24,9 +24,7 @@ export class ProjectComponent implements OnInit {
     this.projectObservable = await this.projectService.getProject();
     this.projectObservable.subscribe( (project) => {
       this.project = project;
-
     });
-    this.projectService.getProject(9);
   }
 
   //create function to get the project
@@ -34,7 +32,6 @@ export class ProjectComponent implements OnInit {
     this.projectObservable = await this.projectService.getProject(7);
     this.projectObservable.subscribe( (project) => {
       this.project = project;
-      console.log(this.project);
     });
   }
 

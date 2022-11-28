@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ProjectsService} from "../service/projects.service";
+import {Project} from "../../project/project";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-projects',
@@ -6,8 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  // project : Project[];
+  projects: Project[];
+  constructor(private http: HttpClient , public projectsService : ProjectsService ) {
+    // this.projects = this.http.get<Project[]>(this.projectsService.generateURL());
+    this.projectsService.projects_observable.subscribe(
+      (projects) => {
+        this.projects = projects.projects;
+      });
+    this.projects = [];
+  }
 
-  constructor() { }
+
 
   ngOnInit(): void {
   }

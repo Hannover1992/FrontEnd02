@@ -17,17 +17,14 @@ export class ProjectComponent implements OnInit {
 
   constructor( private http: HttpClient, private projectService: ProjectService) {
     this.projectObservable = projectService.project_observable;
-    this.project = new Project();
+    this.project = projectService.project;
   }
 
   ngOnInit(): void {
-    this.projectService.getProject()
-      .then ( () => {
-        this.projectObservable = this.projectService.project_observable;
-        this.projectObservable.subscribe( (project) => {
-          this.project = project;
-        });
-      });
+    this.projectService.getProject();
+    this.projectService.project_observable.subscribe( (project) => {
+      this.project = project;
+    });
   }
 }
 

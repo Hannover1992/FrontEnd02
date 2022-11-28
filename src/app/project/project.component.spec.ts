@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { ProjectComponent } from './project.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ProjectSService} from "../Services/project-s.service";
-
+// test commit
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;

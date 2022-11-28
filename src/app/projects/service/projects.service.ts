@@ -4,22 +4,24 @@ import {ProjectsInterface} from '../projects.interface';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Projects} from "../projects";
+import {Project} from "../../project/project";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
-  projects: Projects;
-  projects_observable: Observable<Projects>;
+  //toDo: Aufraumen
+  projects: Project[];
+  projects_observable: Observable<Project[]>;
 
   constructor( private http: HttpClient ) {
-    this. projects_observable = this.http.get<Projects>(this.generateURL());
+    this.projects_observable = this.http.get<Project[]>(this.generateURL());
     this.projects_observable.subscribe(
-      (projects) => {
-        this.projects = projects;
+      (project_arr) => {
+        this.projects = project_arr;
         console.log(this.projects);
       });
-    this.projects = new Projects();
+    this.projects = []
   }
 
   generateURL() {

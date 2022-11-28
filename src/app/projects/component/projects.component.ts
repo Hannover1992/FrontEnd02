@@ -13,11 +13,11 @@ import {HttpClient} from "@angular/common/http";
 export class ProjectsComponent implements OnInit {
   // project : Project[];
   projects: Project[];
-  constructor(private http: HttpClient , public projectsService : ProjectsService ) {
+  constructor(public projectsService : ProjectsService ) {
     // this.projects = this.http.get<Project[]>(this.projectsService.generateURL());
     this.projectsService.projects_observable.subscribe(
       (projects) => {
-        this.projects = projects.projects;
+        this.projects = projects;
       });
     this.projects = [];
   }

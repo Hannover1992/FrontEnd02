@@ -4,10 +4,10 @@
 <!--  {{ project | json }}-->
 <!--</div>-->
 
-<h1>
-  {{this.projectsService.projects_observable | async | json}}
-</h1>
+<!--<h1>-->
+<!--  {{this.projectsService.projects_observable | async | json}}-->
+<!--</h1>-->
 
-<!--<div *ngFor="let project of this.projectsService.projects_observable | async">-->
-<!--  {{ project | json }}  -->
-<!--</div>-->
+<H3 *ngFor="let project of this.projectsService.projects_observable | async">
+  {{ project | json }}
+</H3>

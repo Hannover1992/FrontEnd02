@@ -11,16 +11,21 @@ import {ProjectService} from "../service/project.service";
 })
 export class ProjectComponent implements OnInit {
   title = 'Project';
-  project: Observable<Project>;
+  projectObservable: Observable<Project>;
+  project: Project;
 
   constructor( private http: HttpClient, private projectService: ProjectService) {
-    this.project = projectService.project;
+    this.projectObservable = projectService.project_observable;
+    this.project = new Project();
   }
 
   ngOnInit(): void {
     this.projectService.getProject()
       .then ( () => {
-        this.project = this.projectService.project;
+        this.projectObservable = this.projectService.project_observable;
+        this.projectObservable.subscribe( (project) => {
+          this.project = project;
+        });
       });
   }
 }

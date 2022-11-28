@@ -1,6 +1,14 @@
-<p>project works!</p>
+<p>roject works!</p>
 <h1> {{title}}</h1>
 <div>
-  {{ project | async | json }}
+  {{ projectObservable | async | json }}
 </div>
+<!--if defined then print-->
+<H1 *ngIf="projectObservable | async as project">
+  {{ project.Standort | json }}
+</H1>
+
+<H1 *ngIf="title">
+  {{ project| json }}
+</H1>
 <!--<button  (click)="getProject()"> Get ProjectInterface</button>-->

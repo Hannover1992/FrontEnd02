@@ -30,8 +30,11 @@ describe('ProjectComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('test fi the project service get injected' , () => {
+  it('test fi the roject service get injected' , () => {
     expect(projectService).toBeTruthy();
   });
 
+  it(' test if this.project is defined', () => {
+    expect(component.project).toBeDefined();
+  });
 });

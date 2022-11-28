@@ -8,13 +8,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ProjectService {
-  project: Observable<ProjectInterface>;
+  project_observable: Observable<ProjectInterface>;
   constructor( private http: HttpClient) {
-    this.project = new Observable<ProjectInterface>();
+    this.project_observable = new Observable<ProjectInterface>();
   }
 
   async getProject( number: number = 0) {
-    this.project =  this.http.get<ProjectInterface>(this.generateURL(number));
+    this.project_observable =  this.http.get<ProjectInterface>(this.generateURL(number));
   }
 
   generateURL(number: number) {

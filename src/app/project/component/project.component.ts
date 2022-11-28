@@ -24,23 +24,18 @@ export class ProjectComponent implements OnInit {
     this.projectObservable = await this.projectService.getProject();
     this.projectObservable.subscribe( (project) => {
       this.project = project;
+
     });
     this.projectService.getProject(9);
-    //wait 200 ms
-    setTimeout(() => {
-      this.projectObservable.subscribe( (project) => {
-        this.project = project;
-      });
-    }, 200);
   }
 
   //create function to get the project
   async getProject() {
-    this.projectService.getProject(9);
-    this.projectObservable.subscribe((project) => {
-      this.project = project;
-    })
     this.projectObservable = await this.projectService.getProject(7);
+    this.projectObservable.subscribe( (project) => {
+      this.project = project;
+      console.log(this.project);
+    });
   }
 
 }

@@ -27,7 +27,7 @@ export class ProjectService {
     this.project_observable =  this.http.get<ProjectInterface>(this.generateURL(number));
     this.project_observable.subscribe( (project) => {
       this.project = project;
-      console.log(this.project);
+      // console.log(this.project);
     });
     return this.project_observable;
   }

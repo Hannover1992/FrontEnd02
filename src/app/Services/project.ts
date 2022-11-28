@@ -17,3 +17,7 @@ export interface Project {
   PM_1:                   String;
   PM_2:                   String;
 }
+
+export interface Projects {
+  projects: Project[];
+}

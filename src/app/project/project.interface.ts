@@ -1,20 +1,20 @@
-export interface Project {
+export interface ProjectInterface {
   ID:                     number;
-  Standort:               String;
-  Niederlassung:          String;
-  Auftragsart:            String;
-  Status:                 String;
-  Logistikkoordinator:    String;
-  LK_1:                   String;
-  LK_2:                   String;
-  ZuKo:                   String;
+  Standort:               string;
+  Niederlassung:          string;
+  Auftragsart:            string;
+  Status:                 string;
+  Logistikkoordinator:    string;
+  LK_1:                   string;
+  LK_2:                   string;
+  ZuKo:                   string;
   Auftragsdatum:          Date;
   Startdatum:             Date;
   Endtermin:              Date;
-  Netto_Auftragswert:     String;
-  Kommentar:              String;
+  Netto_Auftragswert:     string;
+  Kommentar:              string;
   Anlagenummer:           number;
-  PM_1:                   String;
-  PM_2:                   String;
+  PM_1:                   string;
+  PM_2:                   string;
 }
 

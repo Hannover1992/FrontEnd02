@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {URL} from '../../settings';
-import {Project} from '../project.interface';
+import {ProjectInterface} from '../project.interface';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -8,13 +8,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ProjectService {
-  project: Observable<Project>;
+  project: Observable<ProjectInterface>;
   constructor( private http: HttpClient) {
-    this.project = new Observable<Project>();
+    this.project = new Observable<ProjectInterface>();
   }
 
   async getProject( number: number = 0) {
-    this.project =  this.http.get<Project>(this.generateURL(number));
+    this.project =  this.http.get<ProjectInterface>(this.generateURL(number));
   }
 
   generateURL(number: number) {

@@ -15,17 +15,34 @@ export class ProjectComponent implements OnInit {
   projectObservable: Observable<Project>;
   project: Project;
 
-  constructor( private http: HttpClient, private projectService: ProjectService) {
+  constructor( private http: HttpClient, private projectService: ProjectService ) {
     this.projectObservable = projectService.project_observable;
     this.project = projectService.project;
   }
 
-  ngOnInit(): void {
-    this.projectService.getProject();
-    this.projectService.project_observable.subscribe( (project) => {
+  async ngOnInit(): Promise<void> {
+    this.projectObservable = await this.projectService.getProject();
+    this.projectObservable.subscribe( (project) => {
       this.project = project;
     });
+    this.projectService.getProject(9);
+    //wait 200 ms
+    setTimeout(() => {
+      this.projectObservable.subscribe( (project) => {
+        this.project = project;
+      });
+    }, 200);
   }
+
+  //create function to get the project
+  async getProject() {
+    this.projectService.getProject(9);
+    this.projectObservable.subscribe((project) => {
+      this.project = project;
+    })
+    this.projectObservable = await this.projectService.getProject(7);
+  }
+
 }
 
 

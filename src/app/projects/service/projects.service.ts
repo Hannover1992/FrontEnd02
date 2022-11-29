@@ -15,13 +15,17 @@ export class ProjectsService {
   projects_observable: Observable<Project[]>;
 
   constructor( private http: HttpClient ) {
+    this.projects = []
     this.projects_observable = this.http.get<Project[]>(this.generateURL());
+    this.subscribe_to_all_project();
+  }
+
+  private subscribe_to_all_project() {
     this.projects_observable.subscribe(
       (project_arr) => {
         this.projects = project_arr;
         console.log(this.projects);
       });
-    this.projects = []
   }
 
   generateURL() {

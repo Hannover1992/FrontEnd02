@@ -1,6 +1,5 @@
 import {ProjectInterface} from "./project.interface";
 
-//i have to add PRisma null hiere toDo:
 export class Project implements ProjectInterface {
   ID:                     number;
   Standort:               string;

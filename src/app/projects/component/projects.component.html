@@ -8,6 +8,9 @@
 <!--  {{this.projectsService.projects_observable | async | json}}-->
 <!--</h1>-->
 
-<H3 *ngFor="let project of this.projectsService.projects_observable | async">
+<H1>
+  {{this.projects  | json}}
+</H1>
+<H3 style="color: blue" *ngFor="let project of this.projectsService.projects_observable | async">
   {{ project | json }}
 </H3>

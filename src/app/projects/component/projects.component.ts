@@ -11,20 +11,25 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  // project : Project[];
   projects: Project[];
+  projects_observable: Observable<Project[]>;
+
   constructor(public projectsService : ProjectsService ) {
-    // this.projects = this.http.get<Project[]>(this.projectsService.generateURL());
-    this.projectsService.projects_observable.subscribe(
-      (projects) => {
-        this.projects = projects;
-      });
-    this.projects = [];
+    this.projects = projectsService.projects;
+    this.projects_observable = this.projectsService.projects_observable;
   }
 
 
+  private subscribe_to_project_observeble() {
+    this.projects_observable.subscribe(
+      (project_arr) => {
+        this.projects = project_arr;
+      }
+    )
+  }
 
   ngOnInit(): void {
+    this.subscribe_to_project_observeble();
   }
 
 }

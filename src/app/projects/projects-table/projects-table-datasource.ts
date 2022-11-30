@@ -8,6 +8,7 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export interface ProjectsTableItem {
   name: string;
   id: number;
+  //just to pusch
 }
 
 // TODO: replace this with real data from your application

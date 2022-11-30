@@ -7,4 +7,4 @@ export class Projects implements ProjectsInterface {
   constructor(projects: ProjectInterface[] = []) {
     this.projects = projects;
   }
-}
+}//end of class

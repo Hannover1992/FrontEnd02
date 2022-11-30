@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectsService} from "../service/projects.service";
-import {Project} from "../../project/project";
+import{ProjectsService} from "../service/projects.service";
+import {Project} from  "../../project/project";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -17,11 +17,12 @@ export class ProjectsComponent implements OnInit {
   constructor(public projectsService : ProjectsService ) {
     this.projects = projectsService.projects;
     this.projects_observable = this.projectsService.projects_observable;
+    this.getProjects()
   }
 
 
-  private subscribe_to_project_observeble() {
-    this.projects_observable.subscribe(
+  getProjects() {
+    return this.projects_observable.subscribe(
       (project_arr) => {
         this.projects = project_arr;
       }
@@ -29,7 +30,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscribe_to_project_observeble();
+    this.getProjects();
   }
 
 }

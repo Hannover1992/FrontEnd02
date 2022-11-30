@@ -14,17 +14,17 @@ export class ProjectsService {
   projects: Project[];
   projects_observable: Observable<Project[]>;
 
-  constructor( private http: HttpClient ) {
+  constructor(public http: HttpClient ) {
     this.projects = []
     this.projects_observable = this.http.get<Project[]>(this.generateURL());
-    this.subscribe_to_all_project();
+    this.getProjects();
   }
 
-  private subscribe_to_all_project() {
+  public getProjects() {
     this.projects_observable.subscribe(
       (project_arr) => {
         this.projects = project_arr;
-        console.log(this.projects);
+        // console.log(this.projects);
       });
   }
 

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProjectsService } from './projects.service';
 import {HttpClientModule} from "@angular/common/http";
+import {Project} from "../../project/project";
 
 describe('ProjectsService', () => {
   let service: ProjectsService;
@@ -21,8 +22,15 @@ describe('ProjectsService', () => {
     expect(service.getProjects).toBeDefined();
   });
 
-  it(' the function get projects should return an array', () => {
-    expect(service.getProjects).toEqual([]);
+  it('returns simple value', (done: DoneFn) => {
+    service.projects_observable.subscribe((value) => {
+      expect(value.length).toEqual(10);
+      expect(value[1].ID).toEqual(1);
+      expect(value[1].Standort).toEqual("Standort1");
+      expect(service.projects.length).toEqual(10);
+      done();
+    });
+
   });
 
 });

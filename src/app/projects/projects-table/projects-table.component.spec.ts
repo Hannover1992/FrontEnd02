@@ -5,25 +5,33 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { ProjectsTableComponent } from './projects-table.component';
+import {ProjectService} from "../../project/service/project.service";
+import {ProjectComponent} from "../../project/component/project.component";
+import {HttpClientModule} from "@angular/common/http";
 
 describe('ProjectsTableComponent', () => {
   let component: ProjectsTableComponent;
   let fixture: ComponentFixture<ProjectsTableComponent>;
+  let projectService: ProjectService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ProjectsTableComponent ],
       imports: [
+        HttpClientModule,
         NoopAnimationsModule,
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
-      ]
+      ],
+      providers: [ProjectService]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProjectsTableComponent);
+
+    projectService = TestBed.inject(ProjectService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

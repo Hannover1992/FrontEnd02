@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { ProjectsTableDataSource } from './projects-table-datasource';
 import {ProjectInterface} from "../../project/project.interface";
+import {ProjectsService} from "../service/projects.service";
 
 @Component({
   selector: 'app-projects-table',
@@ -38,8 +39,10 @@ export class ProjectsTableComponent implements AfterViewInit {
     'PM_2'
   ];
 
+// TODO: replace this with real data from your application
 
-  constructor() {
+  constructor(  private projectsService: ProjectsService  ) {
+    this.projectsService = projectsService;
     this.dataSource = new ProjectsTableDataSource();
   }
 
@@ -47,5 +50,15 @@ export class ProjectsTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+    this.lead_the_data_from_database()
+  }
+
+  lead_the_data_from_database(){
+    this.projectsService.projects_observable.subscribe((data) => {
+      this.dataSource = new ProjectsTableDataSource(data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+    });
   }
 }

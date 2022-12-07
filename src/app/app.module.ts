@@ -5,7 +5,6 @@ import { HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/component/project.component';
-import { ProjectsComponent } from './projects/component/projects.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import { ProjectsTableComponent } from './projects/projects-table/projects-table.component';
@@ -17,7 +16,6 @@ import { MatSortModule } from '@angular/material/sort';
   declarations: [
     AppComponent,
     ProjectComponent,
-    ProjectsComponent,
     ProjectsTableComponent,
   ],
   imports: [

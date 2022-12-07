@@ -10,7 +10,6 @@ import {Project} from "../../project/project";
   providedIn: 'root'
 })
 export class ProjectsService {
-  //toDo: Aufraumen
   projects: Project[];
   projects_observable: Observable<Project[]>;
 

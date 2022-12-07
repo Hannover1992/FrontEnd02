@@ -16,7 +16,7 @@ export class ProjectComponent implements OnInit {
   project: Project;
 
   constructor(  private projectService: ProjectService ) {
-    this.projectObservable = projectService.project_observable;
+      this.projectObservable = projectService.project_observable;
     this.project = projectService.project;
   }
 

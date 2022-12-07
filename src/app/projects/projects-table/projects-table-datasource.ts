@@ -1,9 +1,13 @@
+import { OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import {ProjectInterface} from "../../project/project.interface";
+import {ProjectService} from "../../project/service/project.service";
+import {ProjectsService} from "../service/projects.service";
+import {Project} from "../../project/project";
 
 // TODO: Replace this with your own data model type
 // export interface ProjectInterface {
@@ -29,9 +33,19 @@ export class ProjectsTableDataSource extends DataSource<ProjectInterface> {
   data: ProjectInterface[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
+  project_observable: Observable<Project[]>;
 
-  constructor() {
+  constructor(  private projectsService: ProjectsService  ) {
     super();
+    this.project_observable = this.projectsService.projects_observable;
+  }
+
+
+  async ngOnInit(): Promise<void> {
+    this.project_observable = await this.projectsService.projects_observable;
+    this.project_observable.subscribe((projects) => {
+      this.data = projects
+    });
   }
 
   /**

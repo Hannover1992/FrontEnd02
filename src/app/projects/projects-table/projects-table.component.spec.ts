@@ -31,4 +31,6 @@ describe('ProjectsTableComponent', () => {
   it('should compile', () => {
     expect(component).toBeTruthy();
   });
+
+  it('test if the component')
 });

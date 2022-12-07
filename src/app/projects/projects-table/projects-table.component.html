@@ -1,16 +1,130 @@
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+
+<!--     export interface ProjectInterface {-->
+<!--       name: string;-->
+<!--       id: number;-->
+<!--       //just to pusch2-->
+<!--     }-->
+<!--    &lt;!&ndash; Id Column &ndash;&gt;-->
+<!--    <ng-container matColumnDef="id">-->
+<!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>-->
+<!--      <td mat-cell *matCellDef="let row">{{row.id}}</td>-->
+<!--    </ng-container>-->
+
+<!--    &lt;!&ndash; Name Column &ndash;&gt;-->
+<!--    <ng-container matColumnDef="name">-->
+<!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>-->
+<!--      <td mat-cell *matCellDef="let row">{{row.name}}</td>-->
+<!--    </ng-container>-->
+
+<!--    export interface ProjectInterface {-->
+<!--    ID:                     number;-->
+<!--    Standort:               string;-->
+<!--    Niederlassung:          string;-->
+<!--    Auftragsart:            string;-->
+<!--    Status:                 string;-->
+<!--    Logistikkoordinator:    string;-->
+<!--    LK_1:                   string;-->
+<!--    LK_2:                   string;-->
+<!--    ZuKo:                   string;-->
+<!--    Auftragsdatum:          Date;-->
+<!--    Startdatum:             Date;-->
+<!--    Endtermin:              Date;-->
+<!--    Netto_Auftragswert:     string;-->
+<!--    Kommentar:              string;-->
+<!--    Anlagenummer:           number;-->
+<!--    PM_1:                   string;-->
+<!--    PM_2:                   string;-->
+<!--    }-->
+
+    <!--    &lt;!&ndash; Id Column &ndash;&gt;-->
+<!--    %lt;%ndash; ID Column &ndash;%gt;-->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{row.ID}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="Standort">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Standort</th>
+      <td mat-cell *matCellDef="let row">{{row.Standort}}</td>
     </ng-container>
+
+    <ng-container matColumnDef="Niederlassung">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Niederlassung</th>
+      <td mat-cell *matCellDef="let row">{{row.Niederlassung}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Auftragsart">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsart</th>
+      <td mat-cell *matCellDef="let row">{{row.Auftragsart}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{row.Status}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Logistikkoordinator">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Logistikkoordinator</th>
+      <td mat-cell *matCellDef="let row">{{row.Logistikkoordinator}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="LK_1">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_1</th>
+      <td mat-cell *matCellDef="let row">{{row.LK_1}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="LK_2">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_2</th>
+      <td mat-cell *matCellDef="let row">{{row.LK_2}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ZuKo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ZuKo</th>
+      <td mat-cell *matCellDef="let row">{{row.ZuKo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Auftragsdatum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsdatum</th>
+      <td mat-cell *matCellDef="let row">{{row.Auftragsdatum}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Startdatum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Startdatum</th>
+      <td mat-cell *matCellDef="let row">{{row.Startdatum}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Endtermin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Endtermin</th>
+      <td mat-cell *matCellDef="let row">{{row.Endtermin}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Netto_Auftragswert">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Netto_Auftragswert</th>
+      <td mat-cell *matCellDef="let row">{{row.Netto_Auftragswert}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Kommentar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kommentar</th>
+      <td mat-cell *matCellDef="let row">{{row.Kommentar}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Anlagenummer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Anlagenummer</th>
+      <td mat-cell *matCellDef="let row">{{row.Anlagenummer}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="PM_1">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_1</th>
+      <td mat-cell *matCellDef="let row">{{row.PM_1}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="PM_2">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_2</th>
+      <td mat-cell *matCellDef="let row">{{row.PM_2}}</td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

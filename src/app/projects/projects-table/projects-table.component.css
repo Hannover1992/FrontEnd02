@@ -3,3 +3,13 @@
   /*margin overall 30%*/
   margin: 0 auto;
 }
+
+.mdc-data-table__header-cell {
+  padding: 0 8px 0 8px;
+}
+
+.Kommentar
+{
+
+  padding: 0 32px 0 32px;
+}

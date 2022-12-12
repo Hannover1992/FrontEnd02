@@ -1,17 +1,36 @@
 import {ProjectInterface} from "./project.interface";
 
-export class Project implements ProjectInterface {
-  ID:                     number;
-  Standort:               string;
-  Niederlassung:          string;
-  Auftragsart:            string;
-  Status:                 string;
-  Logistikkoordinator:    string;
-  LK_1:                   string;
-  LK_2:                   string;
-  ZuKo:                   string;
-  Auftragsdatum:          Date;
-  Startdatum:             Date;
+//toDo: refactor to use the interface
+//   ID: number,
+//   Anlagenummer: number,
+//   Auftragsart: string,
+//   Standort: string,
+//   Niederlassung: string,
+//   Status: string,
+//   Auftragsdatum: Date,
+//   Startdatum: Date,
+//   Endtermin: Date,
+//   Netto_Auftragswert: string,
+//   Kommentar: string,
+//   Logistikkoordinator: string,
+//   LK_1: string,
+//   LK_2: string,
+//   ZuKo: string,
+//   PM_1: string,
+//   PM_2: string) {
+
+  export class Project implements ProjectInterface {
+    ID:                     number;
+    Standort:               string;
+    Niederlassung:          string;
+    Auftragsart:            string;
+    Status:                 string;
+    Logistikkoordinator:    string;
+    LK_1:                   string;
+    LK_2:                   string;
+    ZuKo:                   string;
+    Auftragsdatum:          Date;
+    Startdatum:             Date;
   Endtermin:              Date;
   Netto_Auftragswert:     string;
   Kommentar:              string;

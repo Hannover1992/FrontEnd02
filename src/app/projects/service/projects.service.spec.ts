@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { ProjectsService } from './projects.service';
 import {HttpClientModule} from "@angular/common/http";
 import {Project} from "../../project/project";
+import {Observable} from "rxjs";
 
 describe('ProjectsService', () => {
   let service: ProjectsService;
@@ -30,7 +31,8 @@ describe('ProjectsService', () => {
       expect(service.projects.length).toEqual(10);
       done();
     });
-
   });
+
+
 
 });

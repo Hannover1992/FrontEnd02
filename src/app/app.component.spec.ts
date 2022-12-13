@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ProjectComponent} from "./project/component/project.component";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +8,6 @@ describe('AppComponent', () => {
       imports : [HttpClientModule],
       declarations: [
         AppComponent,
-        ProjectComponent
       ],
     }).compileComponents();
   });

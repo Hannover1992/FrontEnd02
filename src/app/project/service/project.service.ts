@@ -9,32 +9,46 @@ import {Project} from "../project";
   providedIn: 'root'
 })
 export class ProjectService {
-  project_observable: Observable<ProjectInterface>;
   project: ProjectInterface;
+  project_observable: Observable<ProjectInterface>;
+  project_to_send: Observable<ProjectInterface>;
 
   constructor(private http: HttpClient) {
-    this.project_observable = this.http.get<ProjectInterface>(this.generateURL(0));
+    this.project_observable = this.http.get<ProjectInterface>(this.getURL(0));
     this.project = new Project();
+    this.project_to_send = new Observable<ProjectInterface>();
     this.project_observable.subscribe(
       (project) => {
         this.project = project;
-        // console.log(this.project);
       }
     );
   }
 
   async getProject( number: number = 0) {
-    this.project_observable =  this.http.get<ProjectInterface>(this.generateURL(number));
+    this.project_observable =  this.http.get<ProjectInterface>(this.getURL(number));
     this.project_observable.subscribe( (project) => {
       this.project = project;
-      // console.log(this.project);
+      console.log(this.project);
     });
     return this.project_observable;
   }
 
-  generateURL(number: number) {
+  async create(project: Project) {
+    this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project)
+    return this.project_to_send.subscribe( (project) => {
+      this.project = project;
+      console.log("project create sucefully")
+    })
+  }
+
+  getURL(number: number) {
     return URL + '/project/' + String(number);
   }
+
+  sendURL() {
+    return URL + '/project';
+  }
+
 }
 
 

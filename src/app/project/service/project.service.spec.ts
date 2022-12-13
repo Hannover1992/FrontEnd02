@@ -3,6 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { ProjectService } from './project.service';
 import {HttpClientModule} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ProjectInterface} from "../project.interface";
+import {Project} from "../project";
 
 describe('ProjectSService', () => {
   let service: ProjectService;
@@ -31,5 +33,43 @@ describe('ProjectSService', () => {
   it( ' after rund the function get Project, the project should be an object', () => {
     service.getProject();
     expect(service.project_observable).toEqual(jasmine.any(Object));
+  });
+
+
+  function extracted() {
+  }
+
+  it( ' after rund the function create, the project should be an object', async () => {
+    function create_temp_project_13() {
+      let project = new Project();
+      project.ID = 13;
+      project.Standort = "Standort13";
+      project.Logistikkoordinator = "Name13";
+      return project;
+    }
+    let project = create_temp_project_13();
+    await service.create(project)
+      .then( (project) => {
+        expect(project).toEqual(jasmine.any(Object));
+      })
+  });
+
+  it(' after service.create, should throw error project exists ', async () => {
+
+    function create_temp_project_13() {
+      let project = new Project();
+      project.ID = 13;
+      project.Standort = "Standort13";
+      project.Logistikkoordinator = "Name13";
+      return project;
+    }
+    let project = create_temp_project_13();
+    await service.create(project)
+      .then( (project) => {
+        expect(project).toEqual(jasmine.any(Object));
+      })
+      .catch( (error) => {
+        expect(error).toEqual(jasmine.any(Error));
+      })
   });
 });

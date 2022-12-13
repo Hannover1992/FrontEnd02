@@ -6,7 +6,6 @@ import { MatTableModule } from '@angular/material/table';
 
 import { ProjectsTableComponent } from './projects-table.component';
 import {ProjectService} from "../../project/service/project.service";
-import {ProjectComponent} from "../../project/component/project.component";
 import {HttpClientModule} from "@angular/common/http";
 
 describe('ProjectsTableComponent', () => {

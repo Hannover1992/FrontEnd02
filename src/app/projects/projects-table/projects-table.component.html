@@ -19,87 +19,103 @@
 <!--    </ng-container>-->
 
 
-<!--    %lt;%ndash; ID Column &ndash;%gt;-->
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="ID">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
       <td mat-cell *matCellDef="let row">{{row.ID}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Standort">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Standort</th>
       <td mat-cell *matCellDef="let row">{{row.Standort}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Niederlassung">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Niederlassung</th>
       <td mat-cell *matCellDef="let row">{{row.Niederlassung}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Auftragsart">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsart</th>
       <td mat-cell *matCellDef="let row">{{row.Auftragsart}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
       <td mat-cell *matCellDef="let row">{{row.Status}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Logistikkoordinator">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Logistikkoordinator</th>
       <td mat-cell *matCellDef="let row">{{row.Logistikkoordinator}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="LK_1">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_1</th>
       <td mat-cell *matCellDef="let row">{{row.LK_1}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="LK_2">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_2</th>
       <td mat-cell *matCellDef="let row">{{row.LK_2}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="ZuKo">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ZuKo</th>
       <td mat-cell *matCellDef="let row">{{row.ZuKo}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Auftragsdatum">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsdatum</th>
       <td mat-cell *matCellDef="let row">{{row.Auftragsdatum | date}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Startdatum">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Startdatum</th>
       <td mat-cell *matCellDef="let row">{{row.Startdatum | date}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Endtermin">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Endtermin</th>
       <td mat-cell *matCellDef="let row">{{row.Endtermin | date}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Netto_Auftragswert">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Netto_Auftragswert</th>
       <td mat-cell *matCellDef="let row">{{row.Netto_Auftragswert}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Kommentar">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="Kommentar">Kommentar</th>
       <td mat-cell *matCellDef="let row">{{row.Kommentar}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="Anlagenummer">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Anlagenummer</th>
       <td mat-cell *matCellDef="let row">{{row.Anlagenummer}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="PM_1">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_1</th>
       <td mat-cell *matCellDef="let row">{{row.PM_1}}</td>
     </ng-container>
 
+    %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="PM_2">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_2</th>
       <td mat-cell *matCellDef="let row">{{row.PM_2}}</td>
@@ -111,10 +127,10 @@
   </table>
 
   <mat-paginator #paginator
-      [pageIndex]="0"
-      [pageSize]="10"
-      [pageSizeOptions]="[5, 10, 20]"
-      aria-label="Select page">
+    [length]="dataSource.data.length"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page">
   </mat-paginator>
 </div>
 <!--/`-->

@@ -25,10 +25,10 @@ describe('ProjectsService', () => {
 
   it('returns simple value', (done: DoneFn) => {
     service.projects_observable.subscribe((value) => {
-      expect(value.length).toEqual(10);
+      expect(value.length).toEqual(12);
       expect(value[1].ID).toEqual(1);
       expect(value[1].Standort).toEqual("Standort1");
-      expect(service.projects.length).toEqual(10);
+      expect(service.projects.length).toEqual(12);
       done();
     });
   });

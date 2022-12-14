@@ -10,18 +10,17 @@
 
 .Kommentar
 {
-
   padding: 0 32px 0 32px;
 }
 .example-spacer {
   flex: 1 1 auto;
 }
 
-.mat-toolbar
-{
-  padding: 0 0 0 0;
-  height: 80px;
-  background: #424242;
-}
+/*.mat-toolbar*/
+/*{*/
+/*  padding: 0 0 0 0;*/
+/*  height: 80px;*/
+/*  !*background: #424242;*!*/
+/*}*/
 
 

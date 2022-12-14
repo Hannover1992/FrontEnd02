@@ -12,5 +12,4 @@ export class DialogCreateNewProjectComponent {
   project_local = new Project();
   constructor() { }
 
-
 }

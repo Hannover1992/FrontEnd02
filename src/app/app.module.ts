@@ -14,7 +14,12 @@ import {ButtonInputProjectComponent} from "./project/button-input-project/button
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { DialogCreateNewProjectComponent } from './project/button-input-project/dialog-create-new-project/dialog-create-new-project.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ProjectInputFormComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import {FormsModule} from "@angular/forms";
     ProjectsTableComponent,
     ButtonInputProjectComponent,
     DialogCreateNewProjectComponent,
+    ProjectInputFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,11 @@ import {FormsModule} from "@angular/forms";
     MatFormFieldModule,
     MatDialogModule,
     FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

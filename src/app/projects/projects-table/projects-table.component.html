@@ -130,9 +130,7 @@
 
   <mat-toolbar id="project_toll_bar">
     <span class="example-spacer"></span>
-    <button mat-mini-fab color="accent" aria-label="Example icon button with a delete icon">
-      <mat-icon >add</mat-icon>
-    </button>
+    <app-button-input-project></app-button-input-project>
     <span class="example-spacer"></span>
     <mat-paginator #paginator
                    [length]="dataSource.data.length"

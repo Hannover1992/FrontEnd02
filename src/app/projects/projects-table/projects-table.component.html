@@ -1,4 +1,6 @@
 <div class="mat-elevation-z8">
+
+<!--  <app-project-toolbar></app-project-toolbar>-->
   <table mat-table class="full-width-table" matSort aria-label="Elements">
 
 <!--     export interface ProjectInterface {-->
@@ -126,11 +128,19 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator #paginator
-    [length]="dataSource.data.length"
-    [pageSize]="10"
-    [pageSizeOptions]="[5, 10, 20]"
-    aria-label="Select page">
-  </mat-paginator>
+  <mat-toolbar id="project_toll_bar">
+    <span class="example-spacer"></span>
+    <button mat-fab color="accent" aria-label="Example icon button with a delete icon">
+      <mat-icon >add</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <mat-paginator #paginator
+                   [length]="dataSource.data.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   aria-label="Select page">
+    </mat-paginator>
+  </mat-toolbar>
+
 </div>
 <!--/`-->

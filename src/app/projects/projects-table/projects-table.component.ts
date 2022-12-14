@@ -25,18 +25,18 @@ export class ProjectsTableComponent implements AfterViewInit {
     'Niederlassung',
     'Auftragsart',
     'Status',
-    'Logistikkoordinator',
-    'LK_1',
-    'LK_2',
-    'ZuKo',
     'Auftragsdatum',
     'Startdatum',
     'Endtermin',
     'Netto_Auftragswert',
-    'Kommentar',
     'Anlagenummer',
+    'Logistikkoordinator',
+    'LK_1',
+    'LK_2',
     'PM_1',
-    'PM_2'
+    'PM_2',
+    'ZuKo',
+    'Kommentar',
   ];
 
 // TODO: replace this with real data from your application

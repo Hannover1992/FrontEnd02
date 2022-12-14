@@ -1,25 +1,11 @@
 <div class="mat-elevation-z8">
 
-<!--  <app-project-toolbar></app-project-toolbar>-->
+  <mat-toolbar id="project_toll_bar">
+    <span class="example-spacer"></span>
+    <app-button-input-project></app-button-input-project>
+  </mat-toolbar>
+
   <table mat-table class="full-width-table" matSort aria-label="Elements">
-
-<!--     export interface ProjectInterface {-->
-<!--       name: string;-->
-<!--       id: number;-->
-<!--       //just to pusch2-->
-<!--     }-->
-<!--    &lt;!&ndash; Id Column &ndash;&gt;-->
-<!--    <ng-container matColumnDef="id">-->
-<!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>-->
-<!--      <td mat-cell *matCellDef="let row">{{row.id}}</td>-->
-<!--    </ng-container>-->
-
-<!--    &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--    <ng-container matColumnDef="name">-->
-<!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>-->
-<!--      <td mat-cell *matCellDef="let row">{{row.name}}</td>-->
-<!--    </ng-container>-->
-
 
     %lt;%ndash; ID Column &ndash;%gt;
     <ng-container matColumnDef="ID">
@@ -128,17 +114,13 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-toolbar id="project_toll_bar">
-    <span class="example-spacer"></span>
-    <app-button-input-project></app-button-input-project>
-    <span class="example-spacer"></span>
-    <mat-paginator #paginator
-                   [length]="dataSource.data.length"
-                   [pageSize]="15"
-                   [pageSizeOptions]="[5, 10, 15]"
-                   aria-label="Select page">
-    </mat-paginator>
-  </mat-toolbar>
+  <mat-paginator #paginator
+                 [length]="dataSource.data.length"
+                 [pageSize]="15"
+                 [pageSizeOptions]="[5, 10, 15]"
+                 aria-label="Select page">
+  </mat-paginator>
+
 
 </div>
 <!--/`-->

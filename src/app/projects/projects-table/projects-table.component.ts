@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
+import {MatTable, MatTableDataSource} from '@angular/material/table';
 import { ProjectsTableDataSource } from './projects-table-datasource';
 import {ProjectInterface} from "../../project/project.interface";
 import {ProjectsService} from "../service/projects.service";
+import {Project} from "../../project/project";
 
 @Component({
   selector: 'app-projects-table',
@@ -15,7 +16,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<ProjectInterface>;
-  dataSource: ProjectsTableDataSource;
+  dataSource: MatTableDataSource<Project>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   // displayedColumns = ['id', 'name'];
@@ -48,7 +49,7 @@ export class ProjectsTableComponent implements AfterViewInit {
 
   constructor(  private projectsService: ProjectsService  ) {
     this.projectsService = projectsService;
-    this.dataSource = new ProjectsTableDataSource();
+    this.dataSource = new MatTableDataSource(projectsService.projects);
   }
 
   ngAfterViewInit(): void {
@@ -60,12 +61,21 @@ export class ProjectsTableComponent implements AfterViewInit {
 
   lead_the_data_from_database(){
     this.projectsService.projects_observable.subscribe((data) => {
-      this.dataSource = new ProjectsTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
     });
+
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
 }

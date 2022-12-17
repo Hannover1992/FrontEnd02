@@ -21,15 +21,20 @@ export class ProjectsTableComponent implements AfterViewInit {
   // displayedColumns = ['id', 'name'];
   displayedColumns = [
     'ID',
+    'Anlagenummer',
+
     'Standort',
     'Niederlassung',
+
     'Auftragsart',
     'Status',
+
     'Auftragsdatum',
     'Startdatum',
     'Endtermin',
+
     'Netto_Auftragswert',
-    'Anlagenummer',
+
     'Logistikkoordinator',
     'LK_1',
     'LK_2',
@@ -61,4 +66,6 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.table.dataSource = this.dataSource;
     });
   }
+
+
 }

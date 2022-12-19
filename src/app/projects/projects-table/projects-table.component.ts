@@ -78,4 +78,12 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
+  addProject1() {
+    let project_temp: ProjectInterface = new Project();
+    project_temp.ID = 666;
+    project_temp.Anlagenummer = 666;
+    project_temp.Standort = "666";
+    this.dataSource.data.push(project_temp)
+    // this.dataSource = new MatTableDataSource(this.dataSource.data);
+  }
 }

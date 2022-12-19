@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ProjectInputFormComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -29,25 +30,26 @@ import { ProjectInputFormComponent } from './project/button-input-project/dialog
     DialogCreateNewProjectComponent,
     ProjectInputFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    FormsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        FormsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

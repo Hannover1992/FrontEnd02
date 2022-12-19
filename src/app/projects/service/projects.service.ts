@@ -3,7 +3,6 @@ import {URL} from '../../settings';
 import {ProjectsInterface} from '../projects.interface';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {Projects} from "../projects";
 import {Project} from "../../project/project";
 
 @Injectable({

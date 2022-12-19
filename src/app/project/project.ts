@@ -18,6 +18,7 @@ import {ProjectInterface} from "./project.interface";
   Anlagenummer:           number;
   PM_1:                   string;
   PM_2:                   string;
+  detailRow: any;
   constructor(
     ID:                     number = 0,
     Standort:               string = '',

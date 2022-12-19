@@ -43,6 +43,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     'PM_2',
     'ZuKo',
     'Kommentar',
+    // skdfj
   ];
 
 // TODO: replace this with real data from your application

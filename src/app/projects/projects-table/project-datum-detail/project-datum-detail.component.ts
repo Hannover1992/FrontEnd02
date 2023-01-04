@@ -10,8 +10,8 @@ export class ProjectDatumDetailComponent {
   @Input() Startdatum     :Date;
   @Input() Endtermin      :Date;
   constructor() {
-    this.Auftragsdatum = new Date(1992);
-    this.Startdatum = new Date(1992);
-    this.Endtermin = new Date(1992);
+    this.Auftragsdatum = new Date(2222);
+    this.Startdatum = new Date(2222);
+    this.Endtermin = new Date(2222);
   }
 }

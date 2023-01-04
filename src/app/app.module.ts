@@ -21,6 +21,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ProjectInputFormComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { ProjectAuftragsDetailComponent } from './projects/projects-table/project-auftrags-detail/project-auftrags-detail.component';
+import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -29,27 +32,30 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ButtonInputProjectComponent,
     DialogCreateNewProjectComponent,
     ProjectInputFormComponent,
+    ProjectAuftragsDetailComponent,
+    ProjectDatumDetailComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatDialogModule,
-        FormsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatExpansionModule,
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -19,6 +19,7 @@ import {Project} from "../../project/project";
     ]),
   ],
 })
+
 export class ProjectsTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -29,30 +30,32 @@ export class ProjectsTableComponent implements AfterViewInit {
   // displayedColumns = ['id', 'name'];
   displayedColumns = [
     'ID',
-    'Anlagenummer',
+    // 'Anlagenummer',
 
     'Standort',
     'Niederlassung',
-
-    'Auftragsart',
-    'Status',
-
-    'Auftragsdatum',
-    'Startdatum',
-    'Endtermin',
-
-    'Netto_Auftragswert',
-
-    'Logistikkoordinator',
-    'LK_1',
-    'LK_2',
-    'PM_1',
-    'PM_2',
-    'ZuKo',
     'Kommentar',
-    // skdfj
+
+    // 'Auftragsart',
+    // 'Status',
+    // 'Netto_Auftragswert',
+    //
+    // 'Auftragsdatum',
+    // 'Startdatum',
+    // 'Endtermin',
+    //
+    //
+    // 'Logistikkoordinator',
+    // 'LK_1',
+    // 'LK_2',
+    // 'PM_1',
+    // 'PM_2',
+    // 'ZuKo',
   ];
-  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
+  columnsToDisplayWithExpand = [
+    ...this.displayedColumns,
+    'expand',
+  ];
 // TODO: replace this with real data from your application
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');

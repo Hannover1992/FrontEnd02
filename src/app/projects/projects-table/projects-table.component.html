@@ -9,129 +9,50 @@
     <app-button-input-project></app-button-input-project>
   </mat-toolbar>
 
-
-  <table mat-table multiTemplateDataRows class="full-width-table" matSort aria-label="Elements">
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="ID">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-      <td mat-cell *matCellDef="let row">{{row.ID}}</td>
+  <table mat-table
+         [dataSource]="dataSource" multiTemplateDataRows
+         class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
     </ng-container>
 
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Standort">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Standort</th>
-      <td mat-cell *matCellDef="let row">{{row.Standort}}</td>
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+          <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Niederlassung">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Niederlassung</th>
-      <td mat-cell *matCellDef="let row">{{row.Niederlassung}}</td>
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+        <div class="example-element-detail"
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <app-project-auftrags-detail
+            [Auftragsart]="element.Auftragsart"
+            [Status]="element.Status"
+            [Netto_Auftragswert]="element.Netto_Auftragswert"
+          ></app-project-auftrags-detail>
+<!--          <app-project-datum-detail [Auftragsdatum]="element.Auftragsdatum"></app-project-datum-detail>-->
+<!--            [Auftragsdatum]="element.Auftragsdatum"-->
+<!--            [Startdatum]="element.Startdatum"-->
+<!--            [Endtermin]="element.Endtermin"-->
+        </div>
+      </td>
     </ng-container>
 
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Auftragsart">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsart</th>
-      <td mat-cell *matCellDef="let row">{{row.Auftragsart}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-      <td mat-cell *matCellDef="let row">{{row.Status}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Logistikkoordinator">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Logistikkoordinator</th>
-      <td mat-cell *matCellDef="let row">{{row.Logistikkoordinator}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="LK_1">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_1</th>
-      <td mat-cell *matCellDef="let row">{{row.LK_1}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="LK_2">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>LK_2</th>
-      <td mat-cell *matCellDef="let row">{{row.LK_2}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="ZuKo">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ZuKo</th>
-      <td mat-cell *matCellDef="let row">{{row.ZuKo}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Auftragsdatum">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Auftragsdatum</th>
-      <td mat-cell *matCellDef="let row">{{row.Auftragsdatum | date}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Startdatum">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Startdatum</th>
-      <td mat-cell *matCellDef="let row">{{row.Startdatum | date}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Endtermin">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Endtermin</th>
-      <td mat-cell *matCellDef="let row">{{row.Endtermin | date}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Netto_Auftragswert">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Netto_Auftragswert</th>
-      <td mat-cell *matCellDef="let row">{{row.Netto_Auftragswert}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Kommentar">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="Kommentar">Kommentar</th>
-      <td mat-cell *matCellDef="let row">{{row.Kommentar}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="Anlagenummer">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Anlagenummer</th>
-      <td mat-cell *matCellDef="let row">{{row.Anlagenummer}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="PM_1">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_1</th>
-      <td mat-cell *matCellDef="let row">{{row.PM_1}}</td>
-    </ng-container>
-
-    %lt;%ndash; ID Column &ndash;%gt;
-    <ng-container matColumnDef="PM_2">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>PM_2</th>
-      <td mat-cell *matCellDef="let row">{{row.PM_2}}</td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
   </table>
-
-
-  <ng-container matColumnDef="expandedDetail">
-    <mat-cell *matCellDef="let element">
-      <mat-expansion-panel [expanded]="expandedElement === element">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Expanded Content
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Expanded content goes here</p>
-      </mat-expansion-panel>
-    </mat-cell>
-  </ng-container>
 
   <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"></mat-row>
 
@@ -145,52 +66,5 @@
 
 <button (click)="addProject1()">Add Project</button>
 
-<table mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-  </ng-container>
-  <ng-container matColumnDef="expand">
-    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
-        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
-      <div class="example-element-detail"
-           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="example-element-diagram">
-          <div class="example-element-position"> {{element.position}} </div>
-          <div class="example-element-symbol"> {{element.symbol}} </div>
-          <div class="example-element-name"> {{element.name}} </div>
-          <div class="example-element-weight"> {{element.weight}} </div>
-        </div>
-        <div class="example-element-description">
-          {{element.ID}}
-          {{element.ID}}
-          {{element.ID}}
-          {{element.ID}}
-          <span class="example-element-description-attribution"> -- Wikipedia </span>
-        </div>
-      </div>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
-      class="example-element-row"
-      [class.example-expanded-row]="expandedElement === element"
-      (click)="expandedElement = expandedElement === element ? null : element">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
 
 </div>

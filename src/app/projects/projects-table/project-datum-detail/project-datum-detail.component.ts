@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-project-datum-detail',
@@ -6,22 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./project-datum-detail.component.css']
 })
 export class ProjectDatumDetailComponent {
-
-  @Input() Auftragsdatum: Date | null;
-  // @Input() Startdatum: Date| null;
-  // @Input() Endtermin: Date| null;
+  selected: Date | null | undefined;
   //
   constructor() {
-    this.Auftragsdatum = new Date(
-      1992, 1, 1
-    );
-  //   this.Startdatum = new Date(
-  //     1992, 1, 1
-  //   );
-  //   this.Endtermin = new Date(
-  //     1992, 1, 1
-  //   );
+    this.selected = new Date();
   }
-
-
 }

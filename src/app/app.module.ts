@@ -22,8 +22,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ProjectInputFormComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { ProjectAuftragsDetailComponent } from './projects/projects-table/project-auftrags-detail/project-auftrags-detail.component';
-import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
 
 @NgModule({
   declarations: [

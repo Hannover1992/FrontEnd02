@@ -47,6 +47,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-detail {
   overflow: hidden;
   display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
 }
 
 .example-element-diagram {

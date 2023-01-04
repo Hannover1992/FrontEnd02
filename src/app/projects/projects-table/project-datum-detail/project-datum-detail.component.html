@@ -1,26 +1,33 @@
-<div>
-  <mat-form-field>
-    <mat-label>Auftragsdatum</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="Auftragsdatum" disabled>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
 
-<div>
-  <mat-form-field appearance="fill" class="example-form-field">
-    <mat-label>Startdatum - Enddatum</mat-label>
-    <mat-date-range-input [rangePicker]="rangePicker" [(ngModel)]="dateRange">
-      <input matStartDate placeholder="Start date" [(ngModel)]="Startdatum" (ngModelChange)="Startdatum=$event">
-      <input matEndDate placeholder="End date" [(ngModel)]="Endtermin" (ngModelChange)="Endtermin=$event">
-    </mat-date-range-input>
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
-    <mat-date-range-picker #rangePicker>
-      <mat-date-range-picker-actions>
-        <button mat-button matDateRangePickerCancel>Cancel</button>
-        <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
-      </mat-date-range-picker-actions>
-    </mat-date-range-picker>
-  </mat-form-field>
-</div>
+<mat-card>
+  <mat-card-content>
+    <div>
+
+    <mat-form-field>
+      <mat-label>Auftragsdatum</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="Auftragsdatum" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    </div>
+    <div>
+      <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label>Startdatum - Enddatum</mat-label>
+        <mat-date-range-input [rangePicker]="rangePicker" [(ngModel)]="dateRange" disabled>
+          <input matStartDate placeholder="Start date" [(ngModel)]="Startdatum" (ngModelChange)="Startdatum=$event">
+          <input matEndDate placeholder="End date" [(ngModel)]="Endtermin" (ngModelChange)="Endtermin=$event">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #rangePicker>
+          <mat-date-range-picker-actions>
+            <button mat-button matDateRangePickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+          </mat-date-range-picker-actions>
+        </mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+

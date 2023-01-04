@@ -24,6 +24,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { ProjectAuftragsDetailComponent } from './projects/projects-table/project-auftrags-detail/project-auftrags-detail.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import {MatNativeDateModule} from "@angular/material/core";
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { ProjectDatumDetailComponent } from './projects/projects-table/project-d
     ProjectInputFormComponent,
     ProjectAuftragsDetailComponent,
     ProjectDatumDetailComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { ProjectDatumDetailComponent } from './projects/projects-table/project-d
     ReactiveFormsModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],

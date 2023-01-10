@@ -1,11 +1,12 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import {MatSort, Sort} from '@angular/material/sort';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
 import {ProjectInterface} from "../../project/project.interface";
 import {ProjectsService} from "../service/projects.service";
 import {Project} from "../../project/project";
+import {LiveAnnouncer} from "@angular/cdk/a11y";
 
 @Component({
   selector: 'app-projects-table',
@@ -54,13 +55,13 @@ export class ProjectsTableComponent implements AfterViewInit {
   ];
   columnsToDisplayWithExpand = [
     ...this.displayedColumns,
-    'expand',
+    // 'expand',
   ];
 // TODO: replace this with real data from your application
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(  private projectsService: ProjectsService  ) {
+  constructor(  private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer  ) {
     this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects);
     this.expandedElement = null;
@@ -69,8 +70,6 @@ export class ProjectsTableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
-    this.lead_the_data_from_database();
     this.create_detailed_view();
   }
 
@@ -87,7 +86,7 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
+      // this.table.dataSource = this.dataSource;
     });
 
   }
@@ -110,5 +109,17 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource.data.push(project_temp)
     }
     // this.dataSource = new MatTableDataSource(this.dataSource.data);
+  }
+
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 }

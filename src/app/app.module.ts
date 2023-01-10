@@ -25,7 +25,6 @@ import { ProjectAuftragsDetailComponent } from './projects/projects-table/projec
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
 import {MatNativeDateModule} from "@angular/material/core";
-import { ProjectsTableFinalComponent } from './projects/projects-table-final/projects-table-final.component';
 
 
 @NgModule({
@@ -37,7 +36,6 @@ import { ProjectsTableFinalComponent } from './projects/projects-table-final/pro
     ProjectInputFormComponent,
     ProjectAuftragsDetailComponent,
     ProjectDatumDetailComponent,
-    ProjectsTableFinalComponent,
   ],
   imports: [
     BrowserModule,

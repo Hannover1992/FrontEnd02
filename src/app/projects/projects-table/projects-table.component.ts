@@ -70,6 +70,8 @@ export class ProjectsTableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
+    this.lead_the_data_from_database();
     this.create_detailed_view();
   }
 

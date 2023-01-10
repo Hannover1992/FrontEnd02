@@ -15,6 +15,7 @@
       <mat-form-field appearance="fill" >
         <mat-label>Startdatum - Enddatum</mat-label>
 
+<!--        the error is here, but it works perfectly-->
         <mat-date-range-input [rangePicker]="rangePicker" [(ngModel)]="dateRange" disabled>
           <input matStartDate placeholder="Start date" [(ngModel)]="Startdatum" (ngModelChange)="Startdatum=$event">
           <input matEndDate placeholder="End date" [(ngModel)]="Endtermin" (ngModelChange)="Endtermin=$event">

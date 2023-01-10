@@ -88,7 +88,7 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      // this.table.dataSource = this.dataSource;
+      this.table.dataSource = this.dataSource;
     });
 
   }
@@ -109,6 +109,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     project_temp.Standort = "666";
     if (project_temp instanceof Project) {
       this.dataSource.data.push(project_temp)
+      this.dataSource._updateChangeSubscription();
     }
     // this.dataSource = new MatTableDataSource(this.dataSource.data);
   }

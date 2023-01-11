@@ -5,11 +5,9 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './project-auftrags-detail.component.html',
   styleUrls: ['./project-auftrags-detail.component.css']
 })
+
 export class ProjectAuftragsDetailComponent {
 
-  // 'Auftragsart',
-  // 'Status',
-  // 'Netto_Auftragswert',
   @Input() Auftragsart: string;
   @Input() Status: string;
   @Input() Netto_Auftragswert: string;

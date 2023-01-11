@@ -11,28 +11,10 @@
     </mat-form-field>
 
     </div>
-    <div>
-      <mat-form-field appearance="fill" >
-        <mat-label>Startdatum - Enddatum</mat-label>
-
-<!--        the error is here, but it works perfectly-->
-        <mat-date-range-input [rangePicker]="rangePicker" [(ngModel)]="dateRange" disabled>
-          <input matStartDate placeholder="Start date" [(ngModel)]="Startdatum" (ngModelChange)="Startdatum=$event">
-          <input matEndDate placeholder="End date" [(ngModel)]="Endtermin" (ngModelChange)="Endtermin=$event">
-        </mat-date-range-input>
-
-        <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
-
-        <mat-date-range-picker #rangePicker>
-          <mat-date-range-picker-actions>
-            <button mat-button matDateRangePickerCancel>Cancel</button>
-            <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
-          </mat-date-range-picker-actions>
-        </mat-date-range-picker>
-
-      </mat-form-field>
-    </div>
-
+    <app-datum-range-picker
+      [Startdatum]    ="Startdatum"
+      [Endtermin]     ="Endtermin"
+    ></app-datum-range-picker>
   </mat-card-content>
 </mat-card>
 

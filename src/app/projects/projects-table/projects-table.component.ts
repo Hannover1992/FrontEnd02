@@ -28,10 +28,9 @@ export class ProjectsTableComponent implements AfterViewInit {
   dataSource: MatTableDataSource<Project>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  // displayedColumns = ['id', 'name'];
-  displayedColumns = [
-    'ID',
-    // 'Anlagenummer',
+    // displayedColumns = ['id', 'name'];
+  displayedColumns = [ 'ID',
+    'Anlagenummer',
 
     'Standort',
     'Niederlassung',
@@ -53,15 +52,17 @@ export class ProjectsTableComponent implements AfterViewInit {
     // 'PM_2',
     // 'ZuKo',
   ];
+
   columnsToDisplayWithExpand = [
     ...this.displayedColumns,
     // 'expand',
   ];
+
 // TODO: replace this with real data from your application
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(  private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer  ) {
+  constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer) {
     this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects);
     this.expandedElement = null;
@@ -83,14 +84,13 @@ export class ProjectsTableComponent implements AfterViewInit {
   }
 
 
-  lead_the_data_from_database(){
+  lead_the_data_from_database() {
     this.projectsService.projects_observable.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
     });
-
   }
 
   applyFilter(event: Event) {
@@ -102,7 +102,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
-  addProject1() {
+  addProject1(){
     let project_temp: ProjectInterface = new Project();
     project_temp.ID = 666;
     project_temp.Anlagenummer = 666;
@@ -114,7 +114,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     // this.dataSource = new MatTableDataSource(this.dataSource.data);
   }
 
-  announceSortChange(sortState: Sort) {
+  announceSortChange(sortState: Sort){
     // This example uses English messages. If your application supports
     // multiple language, you would internationalize these strings.
     // Furthermore, you can customize the message to add additional

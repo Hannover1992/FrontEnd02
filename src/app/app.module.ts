@@ -26,6 +26,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
 import {MatNativeDateModule} from "@angular/material/core";
 import { DatumRangePickerComponent } from './projects/projects-table/project-datum-detail/datum-range-picker/datum-range-picker.component';
+import { TestCompponentComponent } from './test-compponent/test-compponent.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DatumRangePickerComponent } from './projects/projects-table/project-dat
     ProjectAuftragsDetailComponent,
     ProjectDatumDetailComponent,
     DatumRangePickerComponent,
+    TestCompponentComponent,
   ],
   imports: [
     BrowserModule,

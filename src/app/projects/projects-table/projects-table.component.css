@@ -8,6 +8,7 @@
   padding: 0 8px 0 8px;
 }
 
+
 .Kommentar
 {
   padding: 0 32px 0 32px;
@@ -50,6 +51,11 @@ tr.example-element-row:not(.example-expanded-row):active {
   align-items: center;
   align-content: center;
   justify-content: space-around;
+}
+
+.card {
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .example-element-diagram {

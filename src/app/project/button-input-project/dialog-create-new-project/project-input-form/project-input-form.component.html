@@ -4,20 +4,64 @@
       <mat-card-title>Neues Projekt Anlegen</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
+      <mat-card-subtitle>Projekt Details</mat-card-subtitle>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="First name" formControlName="ID">
+            <input matInput placeholder="Projekt Nummer" formControlName="ID">
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Last name" formControlName="lastName">
-            <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
-              Last name is <strong>required</strong>
-            </mat-error>
+            <input matInput placeholder="Anlage Nummer" formControlName="Anlagenummer">
           </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Standort" formControlName="Standort">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Niederlassung" formControlName="Niederlassung">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-card-subtitle>Auftragsart</mat-card-subtitle>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="Status">
+            <mat-radio-button value="Operative">Operative</mat-radio-button>
+            <mat-radio-button value="Planerich">Planerich</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <mat-card-subtitle>Status</mat-card-subtitle>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="Status">
+            <mat-radio-button value="Inaktiv">Inaktiv</mat-radio-button>
+            <mat-radio-button value="Aktive">Aktive</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <mat-card-subtitle>Auftragsdatum</mat-card-subtitle>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Projekt Nummer" formControlName="ID">
+          </mat-form-field>
+
+<!--          <mat-form-field>-->
+<!--            <mat-label style="color: dimgray">Auftragsdatum</mat-label>-->
+<!--            <input matInput [matDatepicker]="picker" [(ngModel)]="addressForm.controls.Auftragsdatum" disabled style="color: black">-->
+<!--            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--            <mat-datepicker #picker></mat-datepicker>-->
+<!--          </mat-form-field>-->
         </div>
       </div>
 

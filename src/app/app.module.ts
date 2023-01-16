@@ -26,7 +26,6 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { ProjectDatumDetailComponent } from './projects/projects-table/project-datum-detail/project-datum-detail.component';
 import {MatNativeDateModule} from "@angular/material/core";
 import { DatumRangePickerComponent } from './projects/projects-table/project-datum-detail/datum-range-picker/datum-range-picker.component';
-import { TestCompponentComponent } from './test-compponent/test-compponent.component';
 import { PersonalCardComponent } from './projects/projects-table/personal-card/personal-card.component';
 
 
@@ -40,7 +39,6 @@ import { PersonalCardComponent } from './projects/projects-table/personal-card/p
     ProjectAuftragsDetailComponent,
     ProjectDatumDetailComponent,
     DatumRangePickerComponent,
-    TestCompponentComponent,
     PersonalCardComponent,
   ],
   imports: [

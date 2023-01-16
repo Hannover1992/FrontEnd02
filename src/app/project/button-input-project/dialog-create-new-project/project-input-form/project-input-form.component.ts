@@ -9,6 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ProjectInputFormComponent {
   // 0	Standort0	Niederlassung0	Auftragsart0	Status0	Logistikkoordinator0	LK_10	LK_20	ZuKo0	Jan 1, 1970	Jan 1, 1970	Jan 1, 1970	Netto_Auftragswert0	I'm Pickle Rick!	0	PM_10	PM_20
   addressForm = this.fb.group({
+    ID: 3011,
     name: null,
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
@@ -21,6 +22,26 @@ export class ProjectInputFormComponent {
     ],
     shipping: ['free', Validators.required]
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   hasUnitNumber = false;
 

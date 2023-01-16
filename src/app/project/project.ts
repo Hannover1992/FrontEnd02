@@ -12,13 +12,14 @@ import {ProjectInterface} from "./project.interface";
     ZuKo:                   string;
     Auftragsdatum:          Date;
     Startdatum:             Date;
-  Endtermin:              Date;
-  Netto_Auftragswert:     string;
-  Kommentar:              string;
-  Anlagenummer:           number;
-  PM_1:                   string;
-  PM_2:                   string;
-  detailRow: any;
+    Endtermin:              Date;
+    Netto_Auftragswert:     string;
+    Kommentar:              string;
+    Anlagenummer:           number;
+    PM_1:                   string;
+    PM_2:                   string;
+    detailRow: any;
+
   constructor(
     ID:                     number = 0,
     Standort:               string = '',

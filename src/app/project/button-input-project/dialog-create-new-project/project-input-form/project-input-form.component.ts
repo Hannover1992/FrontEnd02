@@ -16,7 +16,7 @@ export class ProjectInputFormComponent {
     ],
     Anlagenummer: [null, Validators.pattern('^[0-9]*$')],
 
-    Standort:               null,
+    Standort:               [null],
     Niederlassung:          null,
     Auftragsart:            null,
     Status:                 null,

@@ -3,8 +3,8 @@
     <mat-card-header>
       <mat-card-title>Neues Projekt Anlegen</mat-card-title>
     </mat-card-header>
-    <app-project-details-input  ></app-project-details-input>
     <mat-card-content>
+      <app-project-details [project_details]="addressForm"></app-project-details>
       <mat-card-subtitle>Projekt Details</mat-card-subtitle>
       <div class="row">
         <div class="col">

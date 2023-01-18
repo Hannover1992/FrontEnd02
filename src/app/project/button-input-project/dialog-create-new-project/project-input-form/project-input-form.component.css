@@ -32,3 +32,14 @@
 .col:last-child {
   margin-right: 0;
 }
+
+.mat-radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify_even{
+  display: flex;
+  justify-content: space-evenly;
+}

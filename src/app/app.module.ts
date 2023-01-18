@@ -29,6 +29,7 @@ import { DatumRangePickerComponent } from './projects/projects-table/project-dat
 import { PersonalCardComponent } from './projects/projects-table/personal-card/personal-card.component';
 import { ProjectDetailsComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-details/project-details.component';
 import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
+import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ProjectDatumComponent } from './project/button-input-project/dialog-cre
     PersonalCardComponent,
     ProjectDetailsComponent,
     ProjectDatumComponent,
+    PersonalProjectComponent,
   ],
   imports: [
     BrowserModule,

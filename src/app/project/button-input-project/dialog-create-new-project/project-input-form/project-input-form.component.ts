@@ -31,21 +31,17 @@ export class ProjectInputFormComponent {
       Endtermin: null,
     }),
 
-    PM_1:                   null,
-    PM_2:                   null,
-    Logistikkoordinator:    null,
-    LK_1:                   null,
-    LK_2:                   null,
-    ZuKo:                   null,
+    personal: this.fb.group({
+      PM_1:                   null,
+      PM_2:                   null,
+      Logistikkoordinator:    null,
+      LK_1:                   null,
+      LK_2:                   null,
+      ZuKo:                   null,
+    }),
 
     Kommentar:              null,
   });
-
-  hasUnitNumber = false;
-
-  states = [
-    {name: 'Alabama', abbreviation: 'AL'},
-  ];
 
   constructor(private fb: FormBuilder) {}
 

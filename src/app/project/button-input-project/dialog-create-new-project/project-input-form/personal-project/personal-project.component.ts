@@ -2,14 +2,13 @@ import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-project-datum',
-  templateUrl: './project-datum.component.html',
+  selector: 'app-personal-project',
+  templateUrl: './personal-project.component.html',
   styleUrls: ['../project-input-form.component.css']
 })
-export class ProjectDatumComponent {
-  @Input() datum: FormGroup;
+export class PersonalProjectComponent {
+  @Input() personal: FormGroup;
   constructor( private fb: FormBuilder) {
-    this.datum = this.fb.group({ })
+    this.personal = this.fb.group({ })
   }
 }
-

@@ -16,12 +16,8 @@ export class ProjectInputFormComponent {
 
   addressForm = this.fb.group({
     project_details: this.fb.group({
-      ID:
-        [null, Validators.compose(
-          [Validators.required, Validators.pattern('^[0-9]*$')])
-        ],
+      ID: [null, Validators.compose( [Validators.required, Validators.pattern('^[0-9]*$')]) ],
       Anlagenummer: [null, Validators.pattern('^[0-9]*$')],
-
       Standort:               [null],
       Niederlassung:          null,
       Auftragsart:            null,
@@ -29,9 +25,11 @@ export class ProjectInputFormComponent {
       Netto_Auftragswert:     null,
     }),
 
-    Auftragsdatum:          null,
-    Startdatum:             null,
-    Endtermin:              null,
+    datum: this.fb.group({
+      Auftragsdatum: null,
+      Startdatum: null,
+      Endtermin: null,
+    }),
 
     PM_1:                   null,
     PM_2:                   null,
@@ -41,20 +39,6 @@ export class ProjectInputFormComponent {
     ZuKo:                   null,
 
     Kommentar:              null,
-
-
-
-    name: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
-      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-    ],
-    shipping: ['free', Validators.required]
   });
 
   hasUnitNumber = false;

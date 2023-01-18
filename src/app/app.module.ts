@@ -28,6 +28,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import { DatumRangePickerComponent } from './projects/projects-table/project-datum-detail/datum-range-picker/datum-range-picker.component';
 import { PersonalCardComponent } from './projects/projects-table/personal-card/personal-card.component';
 import { ProjectDetailsComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-details/project-details.component';
+import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ProjectDetailsComponent } from './project/button-input-project/dialog-c
     DatumRangePickerComponent,
     PersonalCardComponent,
     ProjectDetailsComponent,
+    ProjectDatumComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,17 +28,6 @@ export class ProjectInputFormComponent {
       Status:                 null,
       Netto_Auftragswert:     null,
     }),
-    ID:
-      [null, Validators.compose(
-      [Validators.required, Validators.pattern('^[0-9]*$')])
-    ],
-    Anlagenummer: [null, Validators.pattern('^[0-9]*$')],
-
-    Standort:               [null],
-    Niederlassung:          null,
-    Auftragsart:            null,
-    Status:                 null,
-    Netto_Auftragswert:     null,
 
     Auftragsdatum:          null,
     Startdatum:             null,

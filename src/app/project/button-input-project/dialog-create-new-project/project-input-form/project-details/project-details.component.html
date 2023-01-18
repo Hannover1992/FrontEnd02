@@ -15,12 +15,19 @@
         </mat-error>
       </mat-form-field>
     </div>
+
     <div class="col">
       <mat-form-field class="full-width">
         <input matInput placeholder="Anlage Nummer" formControlName="Anlagenummer">
         <mat-error *ngIf="project_details.controls['Anlagenummer'].hasError('required')">
           Projekt Nummer muss ein <strong>Nummer</strong> sein!
         </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Auftragswert Netto" formControlName="Netto_Auftragswert">
       </mat-form-field>
     </div>
   </div>
@@ -37,17 +44,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Auftragswert Netto" formControlName="Netto_Auftragswert">
-      </mat-form-field>
-    </div>
   </div>
 
   <!--      <mat-card-subtitle>Auftragsart</mat-card-subtitle>-->
   <div class="row">
     <div class="col">
-      <mat-radio-group formControlName="Status">
+      <mat-radio-group formControlName="Status" class="space_evenly">
         <mat-radio-button value="Operative">Operative</mat-radio-button>
         <mat-radio-button value="Planerich">Planerich</mat-radio-button>
       </mat-radio-group>

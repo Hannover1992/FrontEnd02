@@ -1,5 +1,5 @@
-<div [formGroup]="datum">
-  <mat-card-subtitle>Zeit</mat-card-subtitle>
+<mat-card-subtitle>Zeit</mat-card-subtitle>
+<div [formGroup]="datum" class="space_evenly">
   <div class="row">
     <div class="col">
       <mat-form-field appearance="fill">
@@ -7,13 +7,11 @@
         <input matInput [matDatepicker]="picker_Auftragsdatum" formControlName="Auftragsdatum">
         <mat-datepicker-toggle matSuffix [for]="picker_Auftragsdatum"></mat-datepicker-toggle>
         <mat-datepicker #picker_Auftragsdatum></mat-datepicker>
-      </mat-form-field>        </div>
-  </div>
-  <div class="row">
+      </mat-form-field>
+    </div>
+    <div class="row">
     <mat-form-field appearance="fill">
-      <mat-label style="color: dimgray">Projektzeitraum</mat-label>
-
-<!--      <mat-date-range-input [formGroup]="range" [rangePicker]="picker" disabled >-->
+      <mat-label>Projektzeitraum</mat-label>
         <mat-date-range-input [rangePicker]="picker_range_start_to_end" >
         <input matStartDate formControlName="Startdatum" placeholder="Startdatum">
         <input matEndDate formControlName="Endtermin" placeholder="Endtermin">
@@ -21,5 +19,6 @@
       <mat-datepicker-toggle matIconSuffix [for]="picker_range_start_to_end"></mat-datepicker-toggle>
       <mat-date-range-picker #picker_range_start_to_end></mat-date-range-picker>
     </mat-form-field>
+    </div>
   </div>
 </div>

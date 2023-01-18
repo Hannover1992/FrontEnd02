@@ -4,7 +4,7 @@
       <mat-card-title>Neues Projekt Anlegen</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <app-project-details [project_details]="addressForm"></app-project-details>
+      <app-project-details (message)="receive_project_details_change($event)" [project_details]="addressForm.controls['project_details'] "></app-project-details>
       <mat-card-subtitle>Projekt Details</mat-card-subtitle>
       <div class="row">
         <div class="col">

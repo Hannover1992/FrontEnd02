@@ -9,7 +9,25 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 export class ProjectInputFormComponent {
   // 0	Standort0	Niederlassung0	Auftragsart0	Status0	Logistikkoordinator0	LK_10	LK_20	ZuKo0	Jan 1, 1970	Jan 1, 1970	Jan 1, 1970	Netto_Auftragswert0	I'm Pickle Rick!	0	PM_10	PM_20
+  receive_project_details_change($event: any) {
+    console.log("hier");
+    this.addressForm.controls['project_details'].setValue($event);
+  }
+
   addressForm = this.fb.group({
+    project_details: this.fb.group({
+      ID:
+        [null, Validators.compose(
+          [Validators.required, Validators.pattern('^[0-9]*$')])
+        ],
+      Anlagenummer: [null, Validators.pattern('^[0-9]*$')],
+
+      Standort:               [null],
+      Niederlassung:          null,
+      Auftragsart:            null,
+      Status:                 null,
+      Netto_Auftragswert:     null,
+    }),
     ID:
       [null, Validators.compose(
       [Validators.required, Validators.pattern('^[0-9]*$')])

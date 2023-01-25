@@ -7,6 +7,11 @@
       <app-project-details  [project_details] ="addressForm.controls['project_details'] "></app-project-details>
       <app-project-datum    [datum]           ="addressForm.controls['datum']           " ></app-project-datum>
       <app-personal-project [personal]        ="addressForm.controls['personal']        " ></app-personal-project>
+      <div [formGroup]="addressForm.controls['Kommentar']">
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Kommentar" formControlName="Kommentar"></textarea>
+        </mat-form-field>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Submit</button>

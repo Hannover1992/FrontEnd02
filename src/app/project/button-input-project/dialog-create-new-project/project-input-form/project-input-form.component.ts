@@ -49,6 +49,7 @@ export class ProjectInputFormComponent {
   onSubmit(): void {
     alert('Thanks!');
     console.log(this.addressForm.value);
+    console.log(this.addressForm.value.project_details?.Auftragsart);
   }
 
 }

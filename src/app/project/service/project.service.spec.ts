@@ -54,7 +54,7 @@ describe('ProjectSService', () => {
       })
   });
 
-  it(' after service.create, should throw error project exists ', async () => {
+  it(' after service.create, should throw error project exists ', async (done) => {
 
     function create_temp_project_13() {
       let project = new Project();
@@ -70,6 +70,15 @@ describe('ProjectSService', () => {
       })
       .catch( (error) => {
         expect(error).toEqual(jasmine.any(Error));
+      })
+
+    await service.create(project)
+      .then( (project) => {
+        expect(project).toEqual(jasmine.any(Object));
+      })
+      .catch( (error) => {
+        expect(error).toEqual(jasmine.any(Error));
+        done();
       })
   });
 });

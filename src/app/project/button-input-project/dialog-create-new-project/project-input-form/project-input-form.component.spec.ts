@@ -12,6 +12,7 @@ import { ProjectInputFormComponent } from './project-input-form.component';
 describe('ProjectInputFormComponent', () => {
   let component: ProjectInputFormComponent;
   let fixture: ComponentFixture<ProjectInputFormComponent>;
+  let debugElement: any;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -26,15 +27,20 @@ describe('ProjectInputFormComponent', () => {
         MatSelectModule,
       ]
     }).compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(ProjectInputFormComponent);
     component = fixture.componentInstance;
+    debugElement = fixture.debugElement;
     fixture.detectChanges();
-  });
+  }));
+
 
   it('should compile', () => {
     expect(component).toBeTruthy();
   });
+
+  it(' should be able to delete a project', () => {
+    expect(component).toBeTruthy();
+    component.onSubmit();
+  });
+
 });

@@ -51,13 +51,11 @@ describe('ProjectSService', () => {
     let project = create_temp_project_13();
 
     let something =  await service.create(project);
-    // let something = service.http.post<ProjectInterface>(service.sendURL(), project)
     something.subscribe(
       (response) => {
-        console.log(response);
+        console.log(response.message);
       },
       (error) => {
-        console.log(error);
         console.log(error.error.message);
       }
     )

@@ -34,7 +34,7 @@ export class ProjectService {
   }
 
   async create(project: ProjectInterface) {
-    return this.http.post<ProjectInterface>(this.sendURL(), project);
+    return this.http.post<any>(this.sendURL(), project);
     // try{
     //   this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
     //   return this.project_to_send;

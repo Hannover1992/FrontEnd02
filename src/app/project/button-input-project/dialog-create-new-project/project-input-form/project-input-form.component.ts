@@ -47,20 +47,19 @@ export class ProjectInputFormComponent {
     })
   });
 
-  constructor(private fb: FormBuilder, private projectsService: ProjectService) {}
+  constructor(private fb: FormBuilder, private projectService: ProjectService) {}
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    console.log(project_to_send);
-    this.projectsService.create(project_to_send)
-      .then(() => {
-        console.log('Project created');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    //toDo: send project_to_send to the server
-    //toDo: if PRIMARY so show error message
+    let something = await this.projectService.create(project_to_send);
+    something.subscribe(
+      (response) => {
+        console.log(response.message);
+      },
+      (error) => {
+        console.log(error.error.message);
+      }
+    )
   }
 
   create_an_project_to_send_from_the_form() {

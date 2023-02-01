@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import {ProjectInterface} from "../../../project.interface";
+import {ProjectsService} from "../../../../projects/service/projects.service";
+import {ProjectService} from "../../../service/project.service";
 
 @Component({
   selector: 'app-project-input-form',
@@ -44,11 +47,12 @@ export class ProjectInputFormComponent {
     })
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private projectsService: ProjectService) {}
 
   onSubmit(): void {
     let project_to_send = this.create_an_project_to_send_from_the_form();
     console.log(project_to_send);
+    this.projectsService.create(project_to_send);
     //toDo: send project_to_send to the server
     //toDo: if PRIMARY so show error message
   }
@@ -71,9 +75,8 @@ export class ProjectInputFormComponent {
     let Anlagenummer = this.addressForm.value.project_details?.Anlagenummer ?? 0;
     let PM_1 = this.addressForm.value.personal?.PM_1 ?? '';
     let PM_2 = this.addressForm.value.personal?.PM_2 ?? '';
-    let detailRow = this.addressForm.value.Kommentar?.Kommentar ?? '';
 
-    let project_to_send = {
+    let project_to_send : ProjectInterface = {
       ID: ID,
       Standort: Standort,
       Niederlassung: Niederlassung,
@@ -91,7 +94,6 @@ export class ProjectInputFormComponent {
       Anlagenummer: Anlagenummer,
       PM_1: PM_1,
       PM_2: PM_2,
-      detailRow: detailRow
     };
     return project_to_send;
   }

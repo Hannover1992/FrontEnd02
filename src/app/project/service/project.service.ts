@@ -33,12 +33,18 @@ export class ProjectService {
     return this.project_observable;
   }
 
-  async create(project: Project) {
-    this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project)
-    return this.project_to_send.subscribe( (project) => {
-      this.project = project;
-      console.log("project create sucefully")
-    })
+  async create(project: ProjectInterface) {
+    this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
+    this.project_to_send.subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+        console.log(error.error.message);
+        // throw new Error(error.error.message);
+      });
+    return this.project_to_send;
   }
 
   getURL(number: number) {

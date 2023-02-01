@@ -49,22 +49,18 @@ describe('ProjectSService', () => {
       return project;
     }
     let project = create_temp_project_13();
-    try{
-      let promise = service.create(project).catch((error) => {
+
+    let something =  await service.create(project);
+    // let something = service.http.post<ProjectInterface>(service.sendURL(), project)
+    something.subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
         console.log(error);
-      });
-      // promise.then(
-      //   () => {
-      //     console.log("hier");
-      //   }
-      // ).catch(
-      //   (error) => {
-      //     console.log(error);
-      //   }
-      // )
-    } catch (e){
-      console.log(e);
-    }
+        console.log(error.error.message);
+      }
+    )
   });
 
   it(' after service.create, should throw error project exists ', async (done) => {

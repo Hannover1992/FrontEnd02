@@ -52,7 +52,13 @@ export class ProjectInputFormComponent {
   onSubmit(): void {
     let project_to_send = this.create_an_project_to_send_from_the_form();
     console.log(project_to_send);
-    this.projectsService.create(project_to_send);
+    this.projectsService.create(project_to_send)
+      .then(() => {
+        console.log('Project created');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     //toDo: send project_to_send to the server
     //toDo: if PRIMARY so show error message
   }

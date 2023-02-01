@@ -13,7 +13,7 @@ export class ProjectService {
   project_observable: Observable<ProjectInterface>;
   project_to_send: Observable<ProjectInterface>;
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.project_observable = this.http.get<ProjectInterface>(this.getURL(0));
     this.project = new Project();
     this.project_to_send = new Observable<ProjectInterface>();
@@ -34,17 +34,24 @@ export class ProjectService {
   }
 
   async create(project: ProjectInterface) {
-    this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
-    this.project_to_send.subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-        console.log(error.error.message);
-        // throw new Error(error.error.message);
-      });
-    return this.project_to_send;
+    return this.http.post<ProjectInterface>(this.sendURL(), project);
+    // try{
+    //   this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
+    //   return this.project_to_send;
+    // } catch (e) {
+    //   console.log(e);
+    //   return e;
+    // };
+    // this.project_to_send.subscribe(
+    //   (response) => {
+    //     // console.log(response);
+    //   },
+    //   (error) => {
+    //     // console.log(error);
+    //     // console.log(error.error.message);
+    //     // throw new Error(error.error.message);
+    //   });
+    // return this.project_to_send;
   }
 
   getURL(number: number) {

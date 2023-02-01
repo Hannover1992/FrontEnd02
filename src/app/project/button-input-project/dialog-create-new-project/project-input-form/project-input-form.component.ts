@@ -51,6 +51,7 @@ export class ProjectInputFormComponent {
 
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
+    console.log(project_to_send);
     let something = await this.projectService.create(project_to_send);
     something.subscribe(
       (response) => {
@@ -63,7 +64,8 @@ export class ProjectInputFormComponent {
   }
 
   create_an_project_to_send_from_the_form() {
-    let ID = this.addressForm.value.project_details?.ID ?? 0;
+    //con... from ...details.ID "string to number"
+    let ID = Number(this.addressForm.value.project_details?.ID ?? 0);
     let Standort = this.addressForm.value.project_details?.Standort ?? '';
     let Niederlassung = this.addressForm.value.project_details?.Niederlassung ?? '';
     let Auftragsart = this.addressForm.value.project_details?.Auftragsart ?? '';
@@ -77,7 +79,7 @@ export class ProjectInputFormComponent {
     let Endtermin = this.addressForm.value.datum?.Endtermin ?? new Date();
     let Netto_Auftragswert = this.addressForm.value.project_details?.Netto_Auftragswert ?? '';
     let Kommentar = this.addressForm.value.Kommentar?.Kommentar ?? '';
-    let Anlagenummer = this.addressForm.value.project_details?.Anlagenummer ?? 0;
+    let Anlagenummer = Number(this.addressForm.value.project_details?.Anlagenummer ?? 0);
     let PM_1 = this.addressForm.value.personal?.PM_1 ?? '';
     let PM_2 = this.addressForm.value.personal?.PM_2 ?? '';
 

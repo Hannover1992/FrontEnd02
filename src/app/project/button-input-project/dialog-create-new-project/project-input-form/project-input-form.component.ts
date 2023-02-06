@@ -6,13 +6,6 @@ import {ProjectService} from "../../../service/project.service";
 import {observable, Observable, Observer} from "rxjs";
 import {Project} from "../../../project";
 
-function creat_an_project_from_project_to_send(project_to_send: ProjectInterface) {
-  let project = new Project(0);
-  project.ID = project_to_send.ID;
-  project.Kommentar = project_to_send.Logistikkoordinator;
-  project.Standort = project_to_send.Standort;
-  return project;
-}
 
 @Component({
   selector: 'app-project-input-form',
@@ -63,11 +56,13 @@ export class ProjectInputFormComponent {
   async onSubmit(): Promise<void> {
 
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    console.log(project_to_send);
     let something = await this.projectService.create(project_to_send);
     something.subscribe(
       (response) => {
-        console.log(response.message);
+        let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
+        this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
+        //@ts-ignore
+        this.projectsService.setProjects(this.projectsService.projects);
       },
       (error) => {
         console.log(error.error.message);
@@ -77,18 +72,6 @@ export class ProjectInputFormComponent {
     //toDo: refactor
     //toDo: catch it in if else, when error
 
-    // this.projectsService.getProjects();
-    let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
-    this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
-    //@ts-ignore
-    this.projectsService.setProjects(this.projectsService.projects);
-
-    // let project_to_send = this.create_an_project_to_send_from_the_form();
-    //
-    // this.projectService.create(project_to_send);
-    // let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
-    // this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
-    // this.projectsService.getProjects();
   }
 
   create_an_project_to_send_from_the_form() {
@@ -133,4 +116,25 @@ export class ProjectInputFormComponent {
     return project_to_send;
   }
 
+
+}
+
+function creat_an_project_from_project_to_send(project_to_send: ProjectInterface) {
+  let project = new Project(0);
+  project.ID = project_to_send.ID;
+  project.Kommentar = project_to_send.Logistikkoordinator;
+  project.Standort = project_to_send.Standort;
+  project.Logistikkoordinator = project_to_send.Logistikkoordinator;
+  project.LK_1 = project_to_send.LK_1;
+  project.LK_2 = project_to_send.LK_2;
+  project.ZuKo = project_to_send.ZuKo;
+  project.Auftragsdatum = project_to_send.Auftragsdatum;
+  project.Startdatum = project_to_send.Startdatum;
+  project.Endtermin = project_to_send.Endtermin;
+  project.Netto_Auftragswert = project_to_send.Netto_Auftragswert;
+  project.Kommentar = project_to_send.Kommentar;
+  project.Anlagenummer = project_to_send.Anlagenummer;
+  project.PM_1 = project_to_send.PM_1;
+  project.PM_2 = project_to_send.PM_2;
+  return project;
 }

@@ -3,6 +3,16 @@ import { FormBuilder, Validators } from '@angular/forms';
 import {ProjectInterface} from "../../../project.interface";
 import {ProjectsService} from "../../../../projects/service/projects.service";
 import {ProjectService} from "../../../service/project.service";
+import {observable, Observable, Observer} from "rxjs";
+import {Project} from "../../../project";
+
+function creat_an_project_from_project_to_send(project_to_send: ProjectInterface) {
+  let project = new Project(0);
+  project.ID = project_to_send.ID;
+  project.Kommentar = project_to_send.Logistikkoordinator;
+  project.Standort = project_to_send.Standort;
+  return project;
+}
 
 @Component({
   selector: 'app-project-input-form',
@@ -47,9 +57,11 @@ export class ProjectInputFormComponent {
     })
   });
 
-  constructor(private fb: FormBuilder, private projectService: ProjectService) {}
+  constructor(private fb: FormBuilder, private projectService: ProjectService,
+              private projectsService: ProjectsService) {}
 
   async onSubmit(): Promise<void> {
+
     let project_to_send = this.create_an_project_to_send_from_the_form();
     console.log(project_to_send);
     let something = await this.projectService.create(project_to_send);
@@ -61,6 +73,22 @@ export class ProjectInputFormComponent {
         console.log(error.error.message);
       }
     )
+
+    //toDo: refactor
+    //toDo: catch it in if else, when error
+
+    // this.projectsService.getProjects();
+    let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
+    this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
+    //@ts-ignore
+    this.projectsService.setProjects(this.projectsService.projects);
+
+    // let project_to_send = this.create_an_project_to_send_from_the_form();
+    //
+    // this.projectService.create(project_to_send);
+    // let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
+    // this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
+    // this.projectsService.getProjects();
   }
 
   create_an_project_to_send_from_the_form() {

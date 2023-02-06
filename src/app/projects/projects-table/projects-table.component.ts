@@ -65,6 +65,14 @@ export class ProjectsTableComponent implements AfterViewInit {
   constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer) {
     this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects);
+    this.projectsService.projects_subject.subscribe(
+      (data) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.table.dataSource = this.dataSource;
+      }
+    )
     this.expandedElement = null;
   }
 

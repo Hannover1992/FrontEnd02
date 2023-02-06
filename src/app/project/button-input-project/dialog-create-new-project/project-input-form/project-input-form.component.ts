@@ -21,6 +21,7 @@ export class ProjectInputFormComponent {
     this.addressForm.controls['project_details'].setValue($event);
   }
   primary_error: boolean = false;
+  success: boolean = false;
 
 
   customValidator(control: FormControl) {
@@ -67,16 +68,21 @@ export class ProjectInputFormComponent {
               private projectsService: ProjectsService) {
       this.projectService.projects_error_subject.subscribe(
         (error) => {
-          this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
+          if(error){
+            this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
+          } else {
+            //create a dialog eveything is fine
+            this.success = true;
+          }
         });
   }
 
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
 
-    await this.projectService.create(project_to_send)
+    this.projectService.create(project_to_send);
 
-    this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
+    // this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
 
 
   }

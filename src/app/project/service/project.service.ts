@@ -5,6 +5,7 @@ import {Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Project} from "../project";
 import {ProjectsService} from "../../projects/service/projects.service";
+// import {fromPromise} from "rxjs/dist/types/internal/observable/innerFrom";
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class ProjectService {
   }
 
   async create(project: ProjectInterface) {
-    // return this.http.post<any>(this.sendURL(), project);
+
       this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
       this.project_to_send.subscribe(
         (response) => {
@@ -55,10 +56,10 @@ export class ProjectService {
         , (error) => {
           this.projects_error_subject.next(true);
           console.log("wir haben einen Fehler");
+          return error;
         }
 
       );
-      return this.project_to_send;
   }
 
   getURL(number: number) {

@@ -23,12 +23,8 @@ export class ButtonInputProjectComponent {
   open_input_form(){
 
     //open dialog
-    this.dialogRef = this.dialog.open(ProjectInputFormComponent);
+    this.dialog.open(ProjectInputFormComponent);
   }
 
-  close_dialog() {
-    //close the dialog
-    this.dialogRef.close();
-  }
 
 }

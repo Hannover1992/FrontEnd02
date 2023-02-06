@@ -44,18 +44,19 @@ export class ProjectService {
       this.project_to_send.subscribe(
         (response) => {
           //@ts-ignore
-          console.log(response.message);
-          //@ts-ignore
           if(response.message === 'Project created') {
             this.projects_error_subject.next(false);
             let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
             this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
             //@ts-ignore
             this.projectsService.setProjects(this.projectsService.projects);
-          } else {
-            this.projects_error_subject.next(true);
-          }
+
+        }}
+        , (error) => {
+          this.projects_error_subject.next(true);
+          console.log("wir haben einen Fehler");
         }
+
       );
       return this.project_to_send;
   }

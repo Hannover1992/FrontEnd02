@@ -72,10 +72,6 @@ export class ProjectInputFormComponent {
   }
 
   async onSubmit(): Promise<void> {
-    //close the dialog
-
-
-
     let project_to_send = this.create_an_project_to_send_from_the_form();
 
     await this.projectService.create(project_to_send)

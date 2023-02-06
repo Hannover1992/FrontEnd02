@@ -12,6 +12,7 @@ export class ProjectsService {
   projects: Project[];
   projects_observable: Observable<Project[]>;
   projects_subject: Subject<Project[]>;
+
   setProjects: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient ) {
@@ -19,9 +20,12 @@ export class ProjectsService {
     this.projects_subject = new Subject<Project[]>();
     this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();
+
     this.setProjects = (newValue) => {
       this.projects_subject.next(newValue);
+
     };
+
   }
 
   public getProjects() {

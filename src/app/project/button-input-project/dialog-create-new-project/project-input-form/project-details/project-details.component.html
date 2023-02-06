@@ -10,6 +10,9 @@
         <mat-error *ngIf="project_details.controls['ID'].hasError('pattern')">
           <strong>Zahl</strong>
         </mat-error>
+        <mat-error *ngIf="project_details.controls['ID'].hasError('error')">
+          <strong>Projektnummer existiert bereits</strong>
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="col">

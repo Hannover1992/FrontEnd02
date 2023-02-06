@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {ProjectInterface} from "../../../project.interface";
 import {ProjectsService} from "../../../../projects/service/projects.service";
 import {ProjectService} from "../../../service/project.service";
 import {observable, Observable, Observer} from "rxjs";
 import {Project} from "../../../project";
+import {ButtonInputProjectComponent} from "../../button-input-project.component";
 
 
 @Component({
@@ -13,15 +14,27 @@ import {Project} from "../../../project";
   styleUrls: ['./project-input-form.component.css']
 })
 
+
 export class ProjectInputFormComponent {
   // 0	Standort0	Niederlassung0	Auftragsart0	Status0	Logistikkoordinator0	LK_10	LK_20	ZuKo0	Jan 1, 1970	Jan 1, 1970	Jan 1, 1970	Netto_Auftragswert0	I'm Pickle Rick!	0	PM_10	PM_20
   receive_project_details_change($event: any) {
     this.addressForm.controls['project_details'].setValue($event);
   }
+  primary_error: boolean = false;
+
+
+  customValidator(control: FormControl) {
+
+    if (this.primary_error) {
+      return { error: true };
+    }
+    return null;
+  }
 
   addressForm = this.fb.group({
     project_details: this.fb.group({
-      ID: [null, Validators.compose( [Validators.required, Validators.pattern('^[0-9]*$')]) ],
+      ID: [null, Validators.compose(
+        [Validators.required, Validators.pattern('^[0-9]*$'), this.customValidator.bind(this)]) ],
       Anlagenummer: [null, Validators.pattern('^[0-9]*$')],
       Standort:               [null],
       Niederlassung:          null,
@@ -51,26 +64,24 @@ export class ProjectInputFormComponent {
   });
 
   constructor(private fb: FormBuilder, private projectService: ProjectService,
-              private projectsService: ProjectsService) {}
+              private projectsService: ProjectsService) {
+      this.projectService.projects_error_subject.subscribe(
+        (error) => {
+          this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
+        });
+  }
 
   async onSubmit(): Promise<void> {
+    //close the dialog
+
+
 
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    let something = await this.projectService.create(project_to_send);
-    something.subscribe(
-      (response) => {
-        let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project_to_send);
-        this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
-        //@ts-ignore
-        this.projectsService.setProjects(this.projectsService.projects);
-      },
-      (error) => {
-        console.log(error.error.message);
-      }
-    )
 
-    //toDo: refactor
-    //toDo: catch it in if else, when error
+    await this.projectService.create(project_to_send)
+
+    this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
+
 
   }
 
@@ -115,6 +126,7 @@ export class ProjectInputFormComponent {
     };
     return project_to_send;
   }
+
 
 
 }

@@ -71,5 +71,6 @@ import { PersonalProjectComponent } from './project/button-input-project/dialog-
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ProjectInputFormComponent]
 })
 export class AppModule { }

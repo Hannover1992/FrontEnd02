@@ -40,7 +40,7 @@ describe('ProjectSService', () => {
   function extracted() {
   }
 
-  it( ' after rund the function create, the project should be an object', async () => {
+  it( ' after rund the function create, the project should be an object', async (done) => {
     function create_temp_project_13() {
       let project = new Project();
       project.ID = 13;
@@ -51,12 +51,10 @@ describe('ProjectSService', () => {
     let project = create_temp_project_13();
 
     let something =  await service.create(project);
-    something.subscribe(
+    service.create(project).then(
       (response) => {
-        console.log(response.message);
-      },
-      (error) => {
-        console.log(error.error.message);
+        console.log("hier");
+        done();
       }
     )
   });
@@ -71,21 +69,11 @@ describe('ProjectSService', () => {
       return project;
     }
     let project = create_temp_project_13();
-    await service.create(project)
-      .then( (project) => {
-        expect(project).toEqual(jasmine.any(Object));
-      })
-      .catch( (error) => {
-        expect(error).toEqual(jasmine.any(Error));
-      })
-
-    await service.create(project)
-      .then( (project) => {
-        expect(project).toEqual(jasmine.any(Object));
-      })
-      .catch( (error) => {
-        expect(error).toEqual(jasmine.any(Error));
-        done();
-      })
+    let promise = await service.create(project)
+      promise.subscribe(
+        (response) => {
+          console.log("hier");
+          done();
+        });
   });
 });

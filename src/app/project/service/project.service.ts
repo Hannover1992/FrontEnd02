@@ -56,7 +56,7 @@ export class ProjectService {
         , (error) => {
           this.projects_error_subject.next(true);
           console.log("wir haben einen Fehler");
-          return error;
+          throw error;
         }
 
       );

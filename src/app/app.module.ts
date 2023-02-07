@@ -30,6 +30,7 @@ import { PersonalCardComponent } from './projects/projects-table/personal-card/p
 import { ProjectDetailsComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-details/project-details.component';
 import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
 import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
+import { ProjectErfolgreichDialogComponent } from './project/button-input-project/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { PersonalProjectComponent } from './project/button-input-project/dialog-
     ProjectDetailsComponent,
     ProjectDatumComponent,
     PersonalProjectComponent,
+    ProjectErfolgreichDialogComponent,
   ],
   imports: [
     BrowserModule,

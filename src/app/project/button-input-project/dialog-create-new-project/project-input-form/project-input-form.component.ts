@@ -73,6 +73,7 @@ export class ProjectInputFormComponent {
           } else {
             //create a dialog eveything is fine
             this.success = true;
+
           }
         });
   }
@@ -80,7 +81,12 @@ export class ProjectInputFormComponent {
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
 
-    this.projectService.create(project_to_send);
+    this.projectService.create(project_to_send)
+      .catch(
+        (error) => {
+          console.log("ich habe doch ein fehler geworfen")
+        }
+      )
 
     // this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
 

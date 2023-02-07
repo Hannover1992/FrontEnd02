@@ -110,18 +110,6 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
-  addProject1(){
-    let project_temp: ProjectInterface = new Project();
-    project_temp.ID = 666;
-    project_temp.Anlagenummer = 666;
-    project_temp.Standort = "666";
-    if (project_temp instanceof Project) {
-      this.dataSource.data.push(project_temp)
-      this.dataSource._updateChangeSubscription();
-    }
-    // this.dataSource = new MatTableDataSource(this.dataSource.data);
-  }
-
   announceSortChange(sortState: Sort){
     // This example uses English messages. If your application supports
     // multiple language, you would internationalize these strings.

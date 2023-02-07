@@ -87,6 +87,7 @@ export class ProjectInputFormComponent {
           console.log("ich habe doch ein fehler geworfen")
         }
       )
+    console.log(project_to_send);
 
     // this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
 

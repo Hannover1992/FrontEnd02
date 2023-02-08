@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {
-  DialogCreateNewProjectComponent
-} from "./dialog-create-new-project/dialog-create-new-project.component";
 import {ProjectInputFormComponent} from "./dialog-create-new-project/project-input-form/project-input-form.component";
 
 @Component({
@@ -16,7 +13,7 @@ import {ProjectInputFormComponent} from "./dialog-create-new-project/project-inp
 export class ButtonInputProjectComponent {
 
 
-  dialogRef!: MatDialogRef<ProjectInputFormComponent>;
+  // dialogRef!: MatDialogRef<ProjectInputFormComponent>;
 
   constructor(private dialog: MatDialog) {}
 

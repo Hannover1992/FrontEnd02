@@ -13,7 +13,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {ButtonInputProjectComponent} from "./project/button-input-project/button-input-project.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import { DialogCreateNewProjectComponent } from './project/button-input-project/dialog-create-new-project/dialog-create-new-project.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -30,7 +29,7 @@ import { PersonalCardComponent } from './projects/projects-table/personal-card/p
 import { ProjectDetailsComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-details/project-details.component';
 import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
 import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
-import { ProjectErfolgreichDialogComponent } from './project/button-input-project/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
+import { ProjectErfolgreichDialogComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
 
 
 @NgModule({
@@ -38,7 +37,6 @@ import { ProjectErfolgreichDialogComponent } from './project/button-input-projec
     AppComponent,
     ProjectsTableComponent,
     ButtonInputProjectComponent,
-    DialogCreateNewProjectComponent,
     ProjectInputFormComponent,
     ProjectAuftragsDetailComponent,
     ProjectDatumDetailComponent,

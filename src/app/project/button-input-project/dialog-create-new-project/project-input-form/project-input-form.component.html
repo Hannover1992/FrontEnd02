@@ -1,15 +1,4 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
-<!--  message projekt erfolgreich erstellt-->
-  <div *ngIf="success" class="alert alert-success" role="alert">
-    <mat-card class="shipping-card">
-      <mat-card-header>
-        <mat-card-title color="accent" >Success</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Project successfully created</p>
-    </mat-card-content>
-    </mat-card>
-  </div>
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Neues Projekt Anlegen</mat-card-title>

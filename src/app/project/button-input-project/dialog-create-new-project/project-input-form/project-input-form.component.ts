@@ -3,9 +3,9 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {ProjectInterface} from "../../../project.interface";
 import {ProjectsService} from "../../../../projects/service/projects.service";
 import {ProjectService} from "../../../service/project.service";
-import {observable, Observable, Observer} from "rxjs";
 import {Project} from "../../../project";
-import {ButtonInputProjectComponent} from "../../button-input-project.component";
+import {MatDialog} from "@angular/material/dialog";
+import {ProjectErfolgreichDialogComponent} from "./project-erfolgreich-dialog/project-erfolgreich-dialog.component";
 
 
 @Component({
@@ -16,7 +16,6 @@ import {ButtonInputProjectComponent} from "../../button-input-project.component"
 
 
 export class ProjectInputFormComponent {
-  // 0	Standort0	Niederlassung0	Auftragsart0	Status0	Logistikkoordinator0	LK_10	LK_20	ZuKo0	Jan 1, 1970	Jan 1, 1970	Jan 1, 1970	Netto_Auftragswert0	I'm Pickle Rick!	0	PM_10	PM_20
   receive_project_details_change($event: any) {
     this.addressForm.controls['project_details'].setValue($event);
   }
@@ -25,7 +24,6 @@ export class ProjectInputFormComponent {
 
 
   customValidator(control: FormControl) {
-
     if (this.primary_error) {
       return { error: true };
     }
@@ -65,33 +63,22 @@ export class ProjectInputFormComponent {
   });
 
   constructor(private fb: FormBuilder, private projectService: ProjectService,
-              private projectsService: ProjectsService) {
+              private projectsService: ProjectsService,
+              private dialog: MatDialog
+              ) {
       this.projectService.projects_error_subject.subscribe(
         (error) => {
           if(error){
             this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
           } else {
-            //create a dialog eveything is fine
-            this.success = true;
-
+            dialog.open(ProjectErfolgreichDialogComponent);
           }
         });
   }
 
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
-
-    this.projectService.create(project_to_send)
-      .catch(
-        (error) => {
-          console.log("ich habe doch ein fehler geworfen")
-        }
-      )
-    console.log(project_to_send);
-
-    // this.addressForm.controls['project_details'].controls['ID'].updateValueAndValidity();
-
-
+    this.projectService.create(project_to_send);
   }
 
   create_an_project_to_send_from_the_form() {

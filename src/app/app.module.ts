@@ -30,6 +30,7 @@ import { ProjectDetailsComponent } from './project/button-input-project/dialog-c
 import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
 import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
 import { ProjectErfolgreichDialogComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { ProjectErfolgreichDialogComponent } from './project/button-input-projec
     ReactiveFormsModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

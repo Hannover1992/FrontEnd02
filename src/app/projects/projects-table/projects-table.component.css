@@ -53,6 +53,30 @@ tr.example-element-row:not(.example-expanded-row):active {
   justify-content: space-around;
 }
 
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-project-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .card {
   margin-top: 10%;
   margin-bottom: 10%;
@@ -79,4 +103,47 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description-attribution {
   opacity: 0.5;
+}
+
+.big_block {
+  /*width: 1500px;*/
+  /*height: 500px;*/
+  /*background-color: blue;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+  /*width:750px;*/
+  /*height: 100px;*/
+  /*background: aquamarine;*/
+}
+
+.flex_1 {
+  flex: 1;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+.flex_2 {
+  flex: 2;
+}
+
+.flex_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty_vertical_space {
+  height: 100px;
 }

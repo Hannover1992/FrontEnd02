@@ -77,24 +77,6 @@ export class ProjectService {
 
 function creat_an_project_from_project_to_send(project_to_send: ProjectInterface) {
   let project = new Project(0);
-
-// private _ID:                     number;
-// private _Standort:               String;
-// private _Niederlassung:          String;
-// private _Auftragsart:            String;
-// private _Status:                 String;
-// private _Logistikkoordinator:    String;
-// private _LK_1:                   String;
-// private _LK_2:                   String;
-// private _ZuKo:                   String;
-// private _Auftragsdatum:          Date;
-// private _Startdatum:             Date;
-// private _Endtermin:              Date;
-// private _Netto_Auftragswert:     String;
-// private _Kommentar:              String;
-// private _Anlagenummer:           number;
-// private _PM_1:                   String;
-// private _PM_2:                   String;
   project.ID = project_to_send.ID;
   project.Standort = project_to_send.Standort;
   project.Niederlassung = project_to_send.Niederlassung;

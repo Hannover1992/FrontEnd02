@@ -24,4 +24,9 @@ export class ProjectDetailsComponent {
   }
 
 
+
+  print_that_shit() {
+
+    console.log(this.project_details);
+  }
 }

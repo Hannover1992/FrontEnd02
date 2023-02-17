@@ -14,21 +14,9 @@ import {ProjectErfolgreichDialogComponent} from "./project-erfolgreich-dialog/pr
   styleUrls: ['./project-input-form.component.css']
 })
 
-
 export class ProjectInputFormComponent {
-  receive_project_details_change($event: any) {
-    this.addressForm.controls['project_details'].setValue($event);
-  }
   primary_error: boolean = false;
   success: boolean = false;
-
-
-  customValidator(control: FormControl) {
-    if (this.primary_error) {
-      return { error: true };
-    }
-    return null;
-  }
 
   addressForm = this.fb.group({
     project_details: this.fb.group({
@@ -76,6 +64,19 @@ export class ProjectInputFormComponent {
         });
   }
 
+
+  customValidator(control: FormControl) {
+    if (this.primary_error) {
+      return { error: true };
+    }
+    return null;
+  }
+
+
+  receive_project_details_change($event: any) {
+    this.addressForm.controls['project_details'].setValue($event);
+  }
+
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
     this.projectService.create(project_to_send);
@@ -83,23 +84,24 @@ export class ProjectInputFormComponent {
 
   create_an_project_to_send_from_the_form() {
     //con... from ...details.ID "string to number"
-    let ID = Number(this.addressForm.value.project_details?.ID ?? 0);
-    let Standort = this.addressForm.value.project_details?.Standort ?? '';
-    let Niederlassung = this.addressForm.value.project_details?.Niederlassung ?? '';
-    let Auftragsart = this.addressForm.value.project_details?.Auftragsart ?? '';
-    let Status = this.addressForm.value.project_details?.Status ?? '';
-    let Logistikkoordinator = this.addressForm.value.personal?.Logistikkoordinator ?? '';
-    let LK_1 = this.addressForm.value.personal?.LK_1 ?? '';
-    let LK_2 = this.addressForm.value.personal?.LK_2 ?? '';
-    let ZuKo = this.addressForm.value.personal?.ZuKo ?? '';
-    let Auftragsdatum = this.addressForm.value.datum?.Auftragsdatum ?? new Date();
-    let Startdatum = this.addressForm.value.datum?.Startdatum ?? new Date();
-    let Endtermin = this.addressForm.value.datum?.Endtermin ?? new Date();
-    let Netto_Auftragswert = this.addressForm.value.project_details?.Netto_Auftragswert ?? '';
-    let Kommentar = this.addressForm.value.Kommentar?.Kommentar ?? '';
-    let Anlagenummer = Number(this.addressForm.value.project_details?.Anlagenummer ?? 0);
-    let PM_1 = this.addressForm.value.personal?.PM_1 ?? '';
-    let PM_2 = this.addressForm.value.personal?.PM_2 ?? '';
+    let ID = Number(              this.addressForm.value.project_details?.ID ?? 0);
+    let Standort =                   this.addressForm.value.project_details?.Standort ?? '';
+    let Niederlassung =              this.addressForm.value.project_details?.Niederlassung ?? '';
+    let Auftragsart =                this.addressForm.value.project_details?.Auftragsart ?? '';
+    let Status =                     this.addressForm.value.project_details?.Status ?? '';
+    let Logistikkoordinator =        this.addressForm.value.personal?.Logistikkoordinator ?? '';
+    let LK_1 =                       this.addressForm.value.personal?.LK_1 ?? '';
+    let LK_2 =                       this.addressForm.value.personal?.LK_2 ?? '';
+    let ZuKo =                       this.addressForm.value.personal?.ZuKo ?? '';
+    let Auftragsdatum =              this.addressForm.value.datum?.Auftragsdatum ?? new Date();
+    let Startdatum =                 this.addressForm.value.datum?.Startdatum ?? new Date();
+    let Endtermin =                  this.addressForm.value.datum?.Endtermin ?? new Date();
+    let Netto_Auftragswert =         this.addressForm.value.project_details?.Netto_Auftragswert ?? '';
+    let Kommentar =                  this.addressForm.value.Kommentar?.Kommentar ?? '';
+    let Anlagenummer = Number(  this.addressForm.value.project_details?.Anlagenummer ?? 0);
+    let PM_1 =                       this.addressForm.value.personal?.PM_1 ?? '';
+    let PM_2 =                       this.addressForm.value.personal?.PM_2 ?? '';
+
 
     let project_to_send : ProjectInterface = {
       ID: ID,

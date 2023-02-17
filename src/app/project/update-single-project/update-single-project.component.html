@@ -1,1 +1,24 @@
-<p>update-single-project works!</p>
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Neues Projekt Anlegen</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-project-details  [project_details] ="addressForm.controls['project_details'] " [primary_error_message]="primary_error"></app-project-details>
+      <app-project-datum    [datum]           ="addressForm.controls['datum']           " ></app-project-datum>
+      <app-personal-project [personal]        ="addressForm.controls['personal']        " ></app-personal-project>
+      <div [formGroup]="addressForm.controls['Kommentar']">
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Kommentar" formControlName="Kommentar"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="full-width">
+        <div class="row">
+          <button  mat-raised-button color="primary" type="submit">Submit</button>
+          <button mat-raised-button mat-dialog-close color="accent">Close</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

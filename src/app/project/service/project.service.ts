@@ -47,7 +47,9 @@ export class ProjectService {
           //@ts-ignore
           if(response.message === 'Project created') {
             this.projects_error_subject.next(false);
+            console.log(project);
             let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
+            console.log(project_to_add_at_the_end_of_the_list);
             this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
             //@ts-ignore
             this.projectsService.setProjects(this.projectsService.projects);
@@ -75,9 +77,29 @@ export class ProjectService {
 
 function creat_an_project_from_project_to_send(project_to_send: ProjectInterface) {
   let project = new Project(0);
+
+// private _ID:                     number;
+// private _Standort:               String;
+// private _Niederlassung:          String;
+// private _Auftragsart:            String;
+// private _Status:                 String;
+// private _Logistikkoordinator:    String;
+// private _LK_1:                   String;
+// private _LK_2:                   String;
+// private _ZuKo:                   String;
+// private _Auftragsdatum:          Date;
+// private _Startdatum:             Date;
+// private _Endtermin:              Date;
+// private _Netto_Auftragswert:     String;
+// private _Kommentar:              String;
+// private _Anlagenummer:           number;
+// private _PM_1:                   String;
+// private _PM_2:                   String;
   project.ID = project_to_send.ID;
-  project.Kommentar = project_to_send.Logistikkoordinator;
   project.Standort = project_to_send.Standort;
+  project.Niederlassung = project_to_send.Niederlassung;
+  project.Auftragsart = project_to_send.Auftragsart;
+  project.Status = project_to_send.Status;
   project.Logistikkoordinator = project_to_send.Logistikkoordinator;
   project.LK_1 = project_to_send.LK_1;
   project.LK_2 = project_to_send.LK_2;

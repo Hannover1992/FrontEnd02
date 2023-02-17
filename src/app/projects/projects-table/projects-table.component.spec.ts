@@ -29,7 +29,6 @@ describe('ProjectsTableComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProjectsTableComponent);
-
     projectService = TestBed.inject(ProjectService);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -7,6 +7,9 @@ import {ProjectInterface} from "../../project/project.interface";
 import {ProjectsService} from "../service/projects.service";
 import {Project} from "../../project/project";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {MatDialog} from "@angular/material/dialog";
+import {ButtonInputProjectComponent} from "../../project/button-input-project/button-input-project.component";
+import {UpdateSingleProjectComponent} from "../../project/update-single-project/update-single-project.component";
 
 @Component({
   selector: 'app-projects-table',
@@ -62,7 +65,9 @@ export class ProjectsTableComponent implements AfterViewInit {
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer) {
+  constructor(private projectsService: ProjectsService,
+              private _liveAnnouncer: LiveAnnouncer,
+              private dialog: MatDialog) {
     this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects);
     this.projectsService.projects_subject.subscribe(
@@ -110,6 +115,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
+
   announceSortChange(sortState: Sort){
     // This example uses English messages. If your application supports
     // multiple language, you would internationalize these strings.
@@ -120,5 +126,12 @@ export class ProjectsTableComponent implements AfterViewInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  open_the_dialog_window_for_editing(element: ProjectInterface) {
+
+    this.dialog.open(UpdateSingleProjectComponent, {
+      data: element
+    });
   }
 }

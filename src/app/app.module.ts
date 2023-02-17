@@ -31,6 +31,7 @@ import { ProjectDatumComponent } from './project/button-input-project/dialog-cre
 import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
 import { ProjectErfolgreichDialogComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import { UpdateSingleProjectComponent } from './project/update-single-project/update-single-project.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     ProjectDatumComponent,
     PersonalProjectComponent,
     ProjectErfolgreichDialogComponent,
+    UpdateSingleProjectComponent,
   ],
   imports: [
     BrowserModule,

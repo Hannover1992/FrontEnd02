@@ -10,6 +10,8 @@ import {ProjectService} from "../../../../service/project.service";
 export class ProjectDetailsComponent {
   @Input() project_details: FormGroup;
   @Input() primary_error_message : boolean;
+  // create an input field, for if ... should be displayed, by daful it is not displayed
+  @Input() read_only_id: boolean = false;
 
   constructor( private fb: FormBuilder, projectService: ProjectService) {
     this.project_details = this.fb.group({ })

@@ -74,7 +74,13 @@ export class UpdateSingleProjectComponent {
 
   onSubmit() {
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    this.projectService.update(project_to_send);
+    this.projectService.update(project_to_send)
+      .catch((error) => {
+        this.primary_error = true;
+        this.addressForm.controls.project_details.controls.ID.setErrors({ error: true });
+        console.log(error);
+      }
+    );
   }
 
 

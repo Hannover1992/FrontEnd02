@@ -5,7 +5,6 @@ import {ProjectsService} from "../../../../projects/service/projects.service";
 import {ProjectService} from "../../../service/project.service";
 import {Project} from "../../../project";
 import {MatDialog} from "@angular/material/dialog";
-import {ProjectErfolgreichDialogComponent} from "./project-erfolgreich-dialog/project-erfolgreich-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {NotificationProjectErfolgComponent} from "./notification-project-erfolg/notification-project-erfolg.component";
 

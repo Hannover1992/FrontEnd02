@@ -7,6 +7,8 @@ import {ProjectInterface} from "../project.interface";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {ProjectService} from "../service/project.service";
 import {ProjectsService} from "../../projects/service/projects.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {NotificationProjectSucessComponent} from "./notification-project-sucess/notification-project-sucess.component";
 
 @Component({
   selector: 'app-update-single-project',
@@ -25,7 +27,8 @@ export class UpdateSingleProjectComponent {
               private fb: FormBuilder,
               private projectService: ProjectService,
               private projectsService: ProjectsService,
-              private dialog: MatDialog
+              private dialog: MatDialog,
+              private _snackBar: MatSnackBar
               ) {
     this.project_to_update = data;
     console.log(data);
@@ -76,7 +79,16 @@ export class UpdateSingleProjectComponent {
     let project_to_send = this.create_an_project_to_send_from_the_form();
     if(this.check_if_form_is_valid()) {
       this.projectService.update(project_to_send);
+      this.dialog.closeAll();
+      this.openNotification();
     }
+  }
+
+
+  openNotification() {
+    this._snackBar.openFromComponent(NotificationProjectSucessComponent, {
+      duration: 5 * 1000,
+    });
   }
 
 

@@ -29,11 +29,11 @@ import { PersonalCardComponent } from './projects/projects-table/personal-card/p
 import { ProjectDetailsComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-details/project-details.component';
 import { ProjectDatumComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-datum/project-datum.component';
 import { PersonalProjectComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
-import { ProjectErfolgreichDialogComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UpdateSingleProjectComponent } from './project/update-single-project/update-single-project.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { NotificationProjectErfolgComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/notification-project-erfolg/notification-project-erfolg.component';
+import { NotificationProjectSucessComponent } from './project/update-single-project/notification-project-sucess/notification-project-sucess.component';
 
 
 @NgModule({
@@ -49,9 +49,9 @@ import { NotificationProjectErfolgComponent } from './project/button-input-proje
     ProjectDetailsComponent,
     ProjectDatumComponent,
     PersonalProjectComponent,
-    ProjectErfolgreichDialogComponent,
     UpdateSingleProjectComponent,
     NotificationProjectErfolgComponent,
+    NotificationProjectSucessComponent,
   ],
     imports: [
         BrowserModule,

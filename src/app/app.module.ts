@@ -32,7 +32,6 @@ import { PersonalProjectComponent } from './project/button-input-project/dialog-
 import { ProjectErfolgreichDialogComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/project-erfolgreich-dialog/project-erfolgreich-dialog.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UpdateSingleProjectComponent } from './project/update-single-project/update-single-project.component';
-import { NotificationComponent } from './notification/notification.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { NotificationProjectErfolgComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/notification-project-erfolg/notification-project-erfolg.component';
 
@@ -52,7 +51,6 @@ import { NotificationProjectErfolgComponent } from './project/button-input-proje
     PersonalProjectComponent,
     ProjectErfolgreichDialogComponent,
     UpdateSingleProjectComponent,
-    NotificationComponent,
     NotificationProjectErfolgComponent,
   ],
     imports: [

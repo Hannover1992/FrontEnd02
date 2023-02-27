@@ -74,7 +74,14 @@ export class UpdateSingleProjectComponent {
 
   onSubmit() {
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    this.projectService.update(project_to_send);
+    if(this.check_if_form_is_valid()) {
+      this.projectService.update(project_to_send);
+    }
+  }
+
+
+  check_if_form_is_valid(): boolean {
+    return this.addressForm.valid;
   }
 
 

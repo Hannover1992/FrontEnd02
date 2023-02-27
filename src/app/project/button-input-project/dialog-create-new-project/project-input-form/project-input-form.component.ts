@@ -69,6 +69,11 @@ export class ProjectInputFormComponent {
         });
   }
 
+  //function thath check if the form don't have any error
+  check_if_form_is_valid(): boolean {
+    return this.addressForm.valid;
+  }
+
   openNotification() {
     this._snackBar.openFromComponent(NotificationProjectErfolgComponent, {
       duration: 5 * 1000,
@@ -90,7 +95,9 @@ export class ProjectInputFormComponent {
 
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();
-    this.projectService.create(project_to_send);
+    if(this.check_if_form_is_valid()){
+      this.projectService.create(project_to_send);
+    }
   }
 
   create_an_project_to_send_from_the_form() {

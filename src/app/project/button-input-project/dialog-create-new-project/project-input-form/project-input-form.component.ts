@@ -6,6 +6,8 @@ import {ProjectService} from "../../../service/project.service";
 import {Project} from "../../../project";
 import {MatDialog} from "@angular/material/dialog";
 import {ProjectErfolgreichDialogComponent} from "./project-erfolgreich-dialog/project-erfolgreich-dialog.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {NotificationProjectErfolgComponent} from "./notification-project-erfolg/notification-project-erfolg.component";
 
 
 @Component({
@@ -52,16 +54,25 @@ export class ProjectInputFormComponent {
 
   constructor(private fb: FormBuilder, private projectService: ProjectService,
               private projectsService: ProjectsService,
-              private dialog: MatDialog
+              private dialog: MatDialog,
+              private _snackBar: MatSnackBar
               ) {
       this.projectService.projects_error_subject.subscribe(
         (error) => {
           if(error){
             this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
           } else {
-            dialog.open(ProjectErfolgreichDialogComponent);
+            // dialog.open(ProjectErfolgreichDialogComponent);
+            this.openNotification();
+            this.dialog.closeAll();
           }
         });
+  }
+
+  openNotification() {
+    this._snackBar.openFromComponent(NotificationProjectErfolgComponent, {
+      duration: 5 * 1000,
+    });
   }
 
 
@@ -124,7 +135,6 @@ export class ProjectInputFormComponent {
     };
     return project_to_send;
   }
-
 
 
 }

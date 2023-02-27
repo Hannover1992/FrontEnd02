@@ -18,7 +18,7 @@
     <div class="col">
       <mat-form-field class="full-width">
         <input matInput placeholder="Anlage Nummer" formControlName="Anlagenummer">
-        <mat-error *ngIf="project_details.controls['Anlagenummer'].hasError('required')">
+        <mat-error *ngIf="project_details.controls['Anlagenummer'].hasError('pattern')">
           Projekt Nummer muss ein <strong>Nummer</strong> sein!
         </mat-error>
       </mat-form-field>

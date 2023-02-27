@@ -53,7 +53,6 @@ export class ProjectService {
             this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
             //@ts-ignore
             this.projectsService.setProjects(this.projectsService.projects);
-
         }}
         , (error) => {
           this.projects_error_subject.next(true);
@@ -62,6 +61,25 @@ export class ProjectService {
         }
 
       );
+  }
+
+  async update(project: ProjectInterface) {
+    this.project_to_send = this.http.put<ProjectInterface>(this.sendURL(), project);
+    this.project_to_send.subscribe((response) => {
+      //@ts-ignore
+      if(response.message === 'Project updated') {
+        let id_of_project_to_update : number = project.ID;
+        this.projects_error_subject.next(false);
+        console.log(project);
+        let project_to_update = creat_an_project_from_project_to_send(project);
+        this.projectsService.projects[id_of_project_to_update] = project_to_update;
+        //@ts-ignore
+        this.projectsService.setProjects(this.projectsService.projects);
+      }} , (error) => {
+      this.projects_error_subject.next(true);
+      // console.log("wir haben einen Fehler");
+      // throw error;
+    });
   }
 
   getURL(number: number) {

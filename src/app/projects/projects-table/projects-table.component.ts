@@ -10,6 +10,7 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
 import {ButtonInputProjectComponent} from "../../project/button-input-project/button-input-project.component";
 import {UpdateSingleProjectComponent} from "../../project/update-single-project/update-single-project.component";
+import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delete-project.component";
 
 @Component({
   selector: 'app-projects-table',
@@ -65,8 +66,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(private projectsService: ProjectsService,
-              private _liveAnnouncer: LiveAnnouncer,
+  constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer,
               private dialog: MatDialog) {
     this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects);
@@ -129,8 +129,13 @@ export class ProjectsTableComponent implements AfterViewInit {
   }
 
   open_the_dialog_window_for_editing(element: ProjectInterface) {
-
     this.dialog.open(UpdateSingleProjectComponent, {
+      data: element
+    });
+  }
+
+  open_the_dialog_for_deleting_project(element: ProjectInterface) {
+    this.dialog.open(DialogDeleteProjectComponent, {
       data: element
     });
   }

@@ -19,7 +19,7 @@ export class ProjectService {
   // set_primary_error: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient, public projectsService: ProjectsService) {
-    this.project_observable = this.http.get<ProjectInterface>(this.getURL(0));
+    this.project_observable = this.http.get<ProjectInterface>(this.getURL(0));//toDo: checkif errro, should be project.ID
     this.project = new Project();
     this.project_to_send = new Observable<ProjectInterface>();
     this.project_observable.subscribe(
@@ -29,6 +29,25 @@ export class ProjectService {
     );
     this.projects_error_subject = new Subject<boolean>();
     this.projects_error_subject.next(false);
+  }
+
+
+  async delete(project: ProjectInterface) {
+    this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
+    this.project_to_send.subscribe((response) => {
+      //@ts-ignore
+      if(response.message === 'Project deleted') {
+        this.projects_error_subject.next(false);
+        console.log(project);
+        let id_of_project_to_delete : number = project.ID;
+        this.projectsService.projects.splice(id_of_project_to_delete, 1);
+        //@ts-ignore
+        this.projectsService.setProjects(this.projectsService.projects);
+      }} , (error) => {
+      this.projects_error_subject.next(true);
+      // console.log("wir haben einen Fehler");
+      throw error;
+    });
   }
 
   async getProject( number: number = 0) {
@@ -80,7 +99,12 @@ export class ProjectService {
     });
   }
 
+
   getURL(number: number) {
+    return URL + '/project/' + String(number);
+  }
+
+  delURL(number: number) {
     return URL + '/project/' + String(number);
   }
 

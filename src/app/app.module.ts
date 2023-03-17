@@ -34,6 +34,7 @@ import { UpdateSingleProjectComponent } from './project/update-single-project/up
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { NotificationProjectErfolgComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/notification-project-erfolg/notification-project-erfolg.component';
 import { NotificationProjectSucessComponent } from './project/update-single-project/notification-project-sucess/notification-project-sucess.component';
+import { DialogDeleteProjectComponent } from './projects/projects-table/dialog-delete-project/dialog-delete-project.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { NotificationProjectSucessComponent } from './project/update-single-proj
     UpdateSingleProjectComponent,
     NotificationProjectErfolgComponent,
     NotificationProjectSucessComponent,
+    DialogDeleteProjectComponent,
   ],
     imports: [
         BrowserModule,

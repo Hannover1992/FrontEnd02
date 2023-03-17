@@ -77,7 +77,7 @@ import { DialogDeleteProjectComponent } from './projects/projects-table/dialog-d
         MatDatepickerModule,
         MatNativeDateModule,
         MatGridListModule,
-        MatSnackBarModule
+        MatSnackBarModule,
     ],
   providers: [],
   bootstrap: [AppComponent],

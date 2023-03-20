@@ -32,24 +32,6 @@ export class ProjectService {
   }
 
 
-  async delete(project: ProjectInterface) {
-    console.log( project);
-    this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
-    this.project_to_send.subscribe((response) => {
-      //@ts-ignore
-      if(response.message === 'Project deleted') {
-        this.projects_error_subject.next(false);
-        console.log(project);
-        let id_of_project_to_delete : number = project.ID;
-        this.projectsService.projects.splice(id_of_project_to_delete, 1);
-        //@ts-ignore
-        this.projectsService.setProjects(this.projectsService.projects);
-      }} , (error) => {
-      this.projects_error_subject.next(true);
-      // console.log("wir haben einen Fehler");
-      throw error;
-    });
-  }
 
   async getProject( number: number = 0) {
     this.project_observable =  this.http.get<ProjectInterface>(this.getURL(number));
@@ -102,6 +84,25 @@ export class ProjectService {
   }
 
 
+  async delete(project: ProjectInterface) {
+    console.log( project);
+    this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
+    this.project_to_send.subscribe((response) => {
+      //@ts-ignore
+      if(response.message === 'Project deleted') {
+        this.projects_error_subject.next(false);
+        let id_of_project_to_delete : number = project.ID;
+        //iteraet over the projects and delete the project where the id matches
+        this.iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete);
+        //@ts-ignore
+        this.projectsService.setProjects(this.projectsService.projects);
+      }} , (error) => {
+      this.projects_error_subject.next(true);
+      throw error;
+    });
+  }
+
+
   private iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update: number, project_to_update: Project) {
     //iterate_over_the_projects_and_update_the_project_where_the_id_matches
     this.projectsService.projects.forEach((project, index) => {
@@ -123,6 +124,13 @@ export class ProjectService {
     return URL + '/project';
   }
 
+  private iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete: number) {
+    this.projectsService.projects.forEach((project, index) => {
+      if (project.ID === id_of_project_to_delete) {
+        this.projectsService.projects.splice(index, 1);
+      }
+    });
+  }
 }
 
 

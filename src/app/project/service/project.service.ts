@@ -87,18 +87,11 @@ export class ProjectService {
       if(response.message === 'Project updated') {
         let id_of_project_to_update : number = project.ID;
         this.projects_error_subject.next(false);
-        console.log(project);
         let project_to_update = creat_an_project_from_project_to_send(project);
         //find the id of the project to update
-
-        //iterate over the projects and update the project where the id matches
-        this.projectsService.projects.forEach((project, index) => {
-          if(project.ID === id_of_project_to_update) {
-            this.projectsService.projects[index] = project_to_update;
-          }
-        });
+        this.iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update, project_to_update);
         //@ts-ignore
-        this.projectsService.setProjects(this.projectsService.projects);
+        this.update_aktuell_project();
       }} , (error) => {
       this.projects_error_subject.next(true);
       // console.log("wir haben einen Fehler");
@@ -106,6 +99,19 @@ export class ProjectService {
     });
   }
 
+
+  private update_aktuell_project() {
+    this.projectsService.setProjects(this.projectsService.projects);
+  }
+
+  private iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update: number, project_to_update: Project) {
+    //iterate_over_the_projects_and_update_the_project_where_the_id_matches
+    this.projectsService.projects.forEach((project, index) => {
+      if (project.ID === id_of_project_to_update) {
+        this.projectsService.projects[index] = project_to_update;
+      }
+    });
+  }
 
   getURL(number: number) {
     return URL + '/project/' + String(number);

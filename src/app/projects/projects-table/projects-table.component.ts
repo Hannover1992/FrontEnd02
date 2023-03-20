@@ -130,7 +130,9 @@ export class ProjectsTableComponent implements AfterViewInit {
 
   open_the_dialog_window_for_editing(element: ProjectInterface) {
     this.dialog.open(UpdateSingleProjectComponent, {
-      data: element
+      data: element,
+      enterAnimationDuration: 500,
+      exitAnimationDuration: 300
     });
   }
 

@@ -30,40 +30,40 @@ export class UpdateSingleProjectComponent {
               private dialog: MatDialog,
               private _snackBar: MatSnackBar
               ) {
-    this.project_to_update = data;
-    console.log(data);
-    this.addressForm = this.fb.group({
-      project_details: this.fb.group({
-        ID: [this.project_to_update.ID, Validators.compose(
-          [Validators.required, Validators.pattern('^[0-9]*$'), this.customValidator.bind(this)]) ],
-        Anlagenummer: [this.project_to_update.Anlagenummer, Validators.pattern('^[0-9]*$')],
-        Standort:               [this.project_to_update.Standort],
-        Niederlassung:          [this.project_to_update.Niederlassung],
-        Auftragsart:            [this.project_to_update.Auftragsart],
-        // Status:                 [this.project_to_update.Status],
-        Status:                 [this.project_to_update.Status],
-        Netto_Auftragswert:     [this.project_to_update.Netto_Auftragswert],
-      }),
+      this.project_to_update = data;
+      console.log(data);
+      this.addressForm = this.fb.group({
+                                         project_details: this.fb.group({
+                                         ID: [this.project_to_update.ID, Validators.compose(
+                                         [Validators.required, Validators.pattern('^[0-9]*$'), this.customValidator.bind(this)]) ],
+                                         Anlagenummer: [this.project_to_update.Anlagenummer, Validators.pattern('^[0-9]*$')],
+                                         Standort:               [this.project_to_update.Standort],
+                                         Niederlassung:          [this.project_to_update.Niederlassung],
+                                         Auftragsart:            [this.project_to_update.Auftragsart],
+                                         // Status:                 [this.project_to_update.Status],
+                                         Status:                 [this.project_to_update.Status],
+                                         Netto_Auftragswert:     [this.project_to_update.Netto_Auftragswert],
+                                         }),
 
-      datum: this.fb.group({
-        Auftragsdatum: [this.project_to_update.Auftragsdatum],
-        Startdatum: [this.project_to_update.Startdatum],
-        Endtermin: [this.project_to_update.Endtermin],
-      }),
+                                         datum: this.fb.group({
+                                         Auftragsdatum: [this.project_to_update.Auftragsdatum],
+                                         Startdatum: [this.project_to_update.Startdatum],
+                                         Endtermin: [this.project_to_update.Endtermin],
+                                         }),
 
-      personal: this.fb.group({
-        PM_1:                   [this.project_to_update.PM_1],
-        PM_2:                   [this.project_to_update.PM_2],
-        Logistikkoordinator:    [this.project_to_update.Logistikkoordinator],
-        LK_1:                   [this.project_to_update.LK_1],
-        LK_2:                   [this.project_to_update.LK_2],
-        ZuKo:                   [this.project_to_update.ZuKo],
-      }),
+                                         personal: this.fb.group({
+                                         PM_1:                   [this.project_to_update.PM_1],
+                                         PM_2:                   [this.project_to_update.PM_2],
+                                         Logistikkoordinator:    [this.project_to_update.Logistikkoordinator],
+                                         LK_1:                   [this.project_to_update.LK_1],
+                                         LK_2:                   [this.project_to_update.LK_2],
+                                         ZuKo:                   [this.project_to_update.ZuKo],
+                                         }),
 
-      Kommentar:  this.fb.group({
-        Kommentar: [this.project_to_update.Kommentar],
-      })
-    });
+                                         Kommentar:  this.fb.group({
+                                         Kommentar: [this.project_to_update.Kommentar],
+                                         })
+                                         });
     }
 
   // }

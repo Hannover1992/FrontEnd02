@@ -89,7 +89,14 @@ export class ProjectService {
         this.projects_error_subject.next(false);
         console.log(project);
         let project_to_update = creat_an_project_from_project_to_send(project);
-        this.projectsService.projects[id_of_project_to_update] = project_to_update;
+        //find the id of the project to update
+
+        //iterate over the projects and update the project where the id matches
+        this.projectsService.projects.forEach((project, index) => {
+          if(project.ID === id_of_project_to_update) {
+            this.projectsService.projects[index] = project_to_update;
+          }
+        });
         //@ts-ignore
         this.projectsService.setProjects(this.projectsService.projects);
       }} , (error) => {

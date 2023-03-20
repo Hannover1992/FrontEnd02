@@ -19,7 +19,7 @@ export class ProjectService {
   // set_primary_error: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient, public projectsService: ProjectsService) {
-    this.project_observable = this.http.get<ProjectInterface>(this.getURL(0));//toDo: checkif errro, should be project.ID
+    this.project_observable = new Observable<ProjectInterface>();
     this.project = new Project();
     this.project_to_send = new Observable<ProjectInterface>();
     this.project_observable.subscribe(
@@ -49,16 +49,13 @@ export class ProjectService {
           //@ts-ignore
           if(response.message === 'Project created') {
             this.projects_error_subject.next(false);
-            console.log(project);
             let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
-            console.log(project_to_add_at_the_end_of_the_list);
             this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
             //@ts-ignore
             this.projectsService.setProjects(this.projectsService.projects);
         }}
         , (error) => {
           this.projects_error_subject.next(true);
-          console.log("wir haben einen Fehler");
         }
       )
   }
@@ -70,7 +67,6 @@ export class ProjectService {
       if(response.message === 'Project updated') {
         let id_of_project_to_update : number = project.ID;
         this.projects_error_subject.next(false);
-        console.log(project);
         let project_to_update = creat_an_project_from_project_to_send(project);
         //find the id of the project to update
         this.iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update, project_to_update);
@@ -78,14 +74,12 @@ export class ProjectService {
         this.projectsService.setProjects(this.projectsService.projects);
       }} , (error) => {
       this.projects_error_subject.next(true);
-      // console.log("wir haben einen Fehler");
       throw error;
     });
   }
 
 
   async delete(project: ProjectInterface) {
-    console.log( project);
     this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
     this.project_to_send.subscribe((response) => {
       //@ts-ignore

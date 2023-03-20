@@ -31,7 +31,6 @@ export class UpdateSingleProjectComponent {
               private _snackBar: MatSnackBar
               ) {
       this.project_to_update = data;
-      console.log(data);
       this.addressForm = this.fb.group({
                                          project_details: this.fb.group({
                                          ID: [this.project_to_update.ID, Validators.compose(

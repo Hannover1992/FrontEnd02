@@ -33,6 +33,7 @@ export class ProjectService {
 
 
   async delete(project: ProjectInterface) {
+    console.log( project);
     this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
     this.project_to_send.subscribe((response) => {
       //@ts-ignore

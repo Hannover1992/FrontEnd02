@@ -35,6 +35,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { NotificationProjectErfolgComponent } from './project/button-input-project/dialog-create-new-project/project-input-form/notification-project-erfolg/notification-project-erfolg.component';
 import { NotificationProjectSucessComponent } from './project/update-single-project/notification-project-sucess/notification-project-sucess.component';
 import { DialogDeleteProjectComponent } from './projects/projects-table/dialog-delete-project/dialog-delete-project.component';
+import { FailureComponent } from './notification/failure/failure.component';
+import { SuccessComponent } from './notification/success/success.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -54,31 +57,34 @@ import { DialogDeleteProjectComponent } from './projects/projects-table/dialog-d
     NotificationProjectErfolgComponent,
     NotificationProjectSucessComponent,
     DialogDeleteProjectComponent,
+    FailureComponent,
+    SuccessComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatDialogModule,
-        FormsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatExpansionModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatGridListModule,
-        MatSnackBarModule,
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    MatSnackBarModule,
+    RouterModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ProjectInputFormComponent]

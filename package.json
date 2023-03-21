@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "router": "ng add @angular/router",
+    "update": "ng update @angular/cli"
   },
   "private": true,
   "dependencies": {

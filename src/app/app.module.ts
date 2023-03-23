@@ -37,7 +37,8 @@ import { NotificationProjectSucessComponent } from './project/update-single-proj
 import { DialogDeleteProjectComponent } from './projects/projects-table/dialog-delete-project/dialog-delete-project.component';
 import { FailureComponent } from './notification/failure/failure.component';
 import { SuccessComponent } from './notification/success/success.component';
-import {RouterModule} from "@angular/router";
+import {RouterModule, RouterOutlet} from "@angular/router";
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import {RouterModule} from "@angular/router";
     MatGridListModule,
     MatSnackBarModule,
     RouterModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,7 +9,8 @@
     "test": "ng test",
     "router": "ng add @angular/router",
     "update": "ng update @angular/cli",
-    "update_all": "ng update --all --force"
+    "update_all": "ng update --all --force",
+    "add_routing": "ng generate module app-routing --flat --module=app"
   },
   "private": true,
   "dependencies": {

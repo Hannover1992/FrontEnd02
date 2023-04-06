@@ -43,11 +43,11 @@ export class ProjectService {
 
   async create(project: ProjectInterface) {
 
-      this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(), project);
+      this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(project.ID), project);
       this.project_to_send.subscribe(
         (response) => {
           //@ts-ignore
-          if(response.message === 'Project created') {
+          if(response.message === 'Project_old created') {
             this.projects_error_subject.next(false);
             let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
             this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
@@ -64,7 +64,7 @@ export class ProjectService {
     this.project_to_send = this.http.put<ProjectInterface>(this.sendURL(project.ID), project);
     this.project_to_send.subscribe((response) => {
       //@ts-ignore
-      if(response.message === 'Project updated') {
+      if(response.message === 'Project_old updated') {
         let id_of_project_to_update : number = project.ID;
         this.projects_error_subject.next(false);
         let project_to_update = creat_an_project_from_project_to_send(project);
@@ -83,7 +83,7 @@ export class ProjectService {
     this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
     this.project_to_send.subscribe((response) => {
       //@ts-ignore
-      if(response.message === 'Project deleted') {
+      if(response.message === 'Project_old deleted') {
         this.projects_error_subject.next(false);
         let id_of_project_to_delete : number = project.ID;
         //iteraet over the projects and delete the project where the id matches
@@ -114,7 +114,7 @@ export class ProjectService {
     return URL + '/project/' + String(number);
   }
 
-  sendURL( ID: number = 0) {
+  sendURL( ID: number) {
     return URL + '/project/' + String(ID);
   }
 

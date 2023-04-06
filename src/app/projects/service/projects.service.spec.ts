@@ -34,7 +34,7 @@ describe('ProjectsService', () => {
 
   });
 
-  it('at the start i have an 10 projcets form databsae, then when i use set Project the arr si empty', (done: DoneFn) => {
+  it('at the start i have an 10 projcets form databsae, then when i use set Project_old the arr si empty', (done: DoneFn) => {
     //wait 1 second
     var i = 0;
     service.projects_subject.subscribe((value) => {

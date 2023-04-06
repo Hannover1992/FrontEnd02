@@ -61,7 +61,7 @@ export class ProjectService {
   }
 
   async update(project: ProjectInterface) {
-    this.project_to_send = this.http.put<ProjectInterface>(this.sendURL(), project);
+    this.project_to_send = this.http.put<ProjectInterface>(this.sendURL(project.ID), project);
     this.project_to_send.subscribe((response) => {
       //@ts-ignore
       if(response.message === 'Project updated') {
@@ -114,8 +114,8 @@ export class ProjectService {
     return URL + '/project/' + String(number);
   }
 
-  sendURL() {
-    return URL + '/project';
+  sendURL( ID: number = 0) {
+    return URL + '/project/' + String(ID);
   }
 
   private iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete: number) {

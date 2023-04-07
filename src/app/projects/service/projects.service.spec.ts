@@ -4,6 +4,7 @@ import { ProjectsService } from './projects.service';
 import {HttpClientModule} from "@angular/common/http";
 import {Project} from "../../project/project";
 import {Observable} from "rxjs";
+import {ProjectInterface} from "../../project/project.interface";
 
 describe('ProjectsService', () => {
   let service: ProjectsService;
@@ -57,5 +58,6 @@ describe('ProjectsService', () => {
     } , 2000);
     // @ts-ignore
   });
+
 
 });

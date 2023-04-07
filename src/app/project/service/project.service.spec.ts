@@ -36,6 +36,16 @@ describe('ProjectSService', () => {
     expect(service.project_observable).toEqual(jasmine.any(Object));
   });
 
+  it('test creat function ', (done) => {
+    // "ID": 11, //   "Standort": "sometihngggg", //   "Niederlassung": "Niederlassung0", //   "Auftragsart": "Operativ", //   "Status": "Aktive", //   "Logistikkoordinator": "Logistikkoordinator0", //   "LK_1": "LK_10", //   "LK_2": "LK_20", //   "ZuKo": "ZuKo0", //   "Auftragsdatum": "1970-01-01T00:00:00.000Z", //   "Startdatum": "1970-01-01T00:00:00.000Z", //   "Endtermin": "1970-01-01T00:00:00.000Z", //   "Netto_Auftragswert": "Netto_Auftragswert0", //   "Kommentar": "I'm Pickle Rick!", //   "Anlagenummer": 0, //   "PM_1": "PM_10", //   "PM_2": "PM_20"
+    //create a project with the same data as in comments above
+    let project_to_send = new Project(11);
+    service.create(project_to_send)
+      .then(() => {
+        done();
+      });
+  });
+
 
 
 });

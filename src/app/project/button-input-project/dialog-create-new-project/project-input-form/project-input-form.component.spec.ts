@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
 import { ProjectInputFormComponent } from './project-input-form.component';
+import {ProjectInterface} from "../../../project.interface";
 
 describe('ProjectInputFormComponent', () => {
   let component: ProjectInputFormComponent;
@@ -42,5 +43,11 @@ describe('ProjectInputFormComponent', () => {
     expect(component).toBeTruthy();
     component.onSubmit();
   });
+
+
+
+
+
+
 
 });

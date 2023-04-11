@@ -7,6 +7,8 @@ import {Project} from "../project";
 import {ProjectsService} from "../../projects/service/projects.service";
 // import {fromPromise} from "rxjs/dist/types/internal/observable/innerFrom";
 
+//toDo: handle error when can't delete becouse project in Bestellung
+
 @Injectable({
   providedIn: 'root'
 })

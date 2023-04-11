@@ -35,6 +35,7 @@ export class ProjectsService {
         this.projects_subject.next(this.projects);
       });
   }
+  
 
   generateURL() {
     return URL + '/projects';

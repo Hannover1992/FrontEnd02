@@ -1,0 +1,240 @@
+Assets:
+  Zutrittskontrolle
+      Drehkreuz
+      Schranke
+  Haushaltsgeräte
+      Kühlschrank
+      Mikrowelle
+  Reinigung
+      Hochdruckreiniger
+      Kehraufsatz
+      Kehrmaschine
+      Laubbläser
+      Nassauger
+      Nasssauger
+      Staubsauger
+  Bauwesen
+      Grobspanplatten
+  Betankung
+      Zapfsäule
+  Klimatisierung
+      Klimaanlage
+  Beleuchtung
+      Lichtmasten
+  Lagerung
+      Faltcontainer
+      Lager-Container
+  Werkzeuge
+      Säbelsäge
+  Transport
+      Hubwagen
+      Kippvorrichtung
+      Schubkarre
+  Abfallwirtschaft
+      Mülleimer
+      Mülltonen
+      Mülltonnen
+      Mülltonnen 240l
+      Mültonnen
+
+Ersatzteile:
+  Akku
+      Blei Akku
+  Antennen
+      Wifi-Antenne
+      Mobile-Antenne
+      Graue Antenne
+  Audio
+      Seenda Tastatur + Maus
+      Kopfhörer
+      Headset Sony
+      WH-H510
+  Batterien
+      AAA-Batterien
+  Beamer-Zubehör
+      Beamer-Halter
+  Bleistiftspitzer
+      Textmarker
+  Computer-Zubehör
+      Desktop-Reader
+      Computer-Maus
+      Notebook-Erhöhung
+      USB-Hub
+  Drucker-Zubehör
+      Net2Pro Lizenz
+      High Trust
+      Reinigungsset Drucker
+      Toner Std Druck
+      Universal tesa
+      PP-MLT-R204 SL-M3325/3825/4025/3375/3875/4075
+      PP-MLT-R204L SL-M3325/3825/4025/3375/3875/4075
+      Samsung Xpress M2625D/M2675FN/M2825DW/M2825ND/M2835DW/M2875FD/M2875FW/M2885FW
+      8695 Samsung Xpress M2625/M2675/M2825/M2826/M2835/M2875/M2876/M2885
+      Dascom Drucker Rolle
+  Ethernet
+      Ethernet Switch
+  Funkgeräte
+      RETEVIS Two Way Radio RT24
+  Haltevorrichtungen
+      Monitor Halter
+  HDMI
+      Displayport to HDMI
+      HDMI Splitter
+  Kabel
+      Blaue Schnur
+      Kabelbox
+  Kamera
+      Hand Kamera
+      Infarot Kamera
+      Webcam
+      Video Conference Cam
+  Karten
+      Blankokarten
+      Blankokarten mit Chip
+  Kartenhalter
+      Kartenhüllen
+  Klemmen
+      Hüllenclipser
+  Konverter
+      10Gtek
+  Kopfhörer
+      Kopfhörer Divers
+      SH-P70 Taschenlampe
+      Silent Wireless Combo
+  Laminiergerät
+      Laminiergerät
+  Licht
+      Lichtmasten
+  Netzteil
+      Riello Net Power USV Stromversorgung NetPower NPW800
+  Schutz
+      Schutzhülle
+      Schutzglas
+      Schutzglass
+      Panzerband
+  Sicherheitssysteme
+      Drehkreuz Kartenleser
+      Biometrischer Scanner XKTeco
+      Überwachungskamera
+  Sonstiges
+      Drehekreuz Kartenleser
+      Zollstock
+      Thermometer
+      Staubsauger
+      Koffer leer
+      Reinigung
+  Switches
+      Switch
+  Tastaturen
+      Tastatur
+  Thermometer
+      Thermometer
+  Toner
+      Toner B-3217 XL Schwarz
+      Toner B-3217 Gelb
+      Toner B-3219XLC Blau
+      Toner B-3219XLC Gelb
+      Toner B-3217 Red
+      Toner B2320XXL
+      MLT-D111S
+      kompatibel für Samsung M3325 M3375 M3825
+      Samsung MLT-D116L
+  USB
+      USB Stick
+  Überspannungsschutz
+      Dell 3760/3765 Extra High Capacity Toner Cartridge - Black
+
+
+
+Kabel:
+  Accessories
+      Plastik-Spirale
+      USB Verlängerung
+      Vorkonfigurierte Kabelbox
+      Kleine AC/DC Netzadapter
+  Cables - Audio/Video
+      HDMI
+      Mini Displayport <-> HDMI
+      VGA <-> VGA
+      HDMI-A <-> HDMI-C
+  Cables - Ethernet
+      LAN-Kabel Verbinder / Kopplung
+      LAN-Kabel > 2m
+      LAN-Kabel < 1m
+      LAN-Kabel 1-2m
+      LAN Kabel 6P4C
+      LAN-Kabel 6p4c auf Stecker 8p4c
+      Usb -> Lan
+      USB auf Ethernet Adabter
+  Cables - Power
+      "Lenovo 135W ""Yellow Square"""
+      "Lenovo 65W  ""Yellow Square"""
+      "65W 5.5x2.5mm ""Rund Mittlere größe"""
+      "65W 2.5x0.7mm ""Rund ganz dünn """
+      "45W 3,0x4,5mm Dell"
+      "SENAO 65W  ""Rund"" wie alter Maus Anschluss"
+      "Lenovo 45W  ""Yellow Square"""
+      Netzteil C7 (2-polig)
+      Stromkabel C13 (3-polig)
+      Netzteil für Teltonika-Router
+      P65W Usb C
+      Verlängerung C13 Stecker auf C14 Buchse
+      "Netzteil C13, Stecker Typ-B"
+      "Netzteil C7 (2-polig), Stecker Typ-G"
+  Cables - USB
+      USB-A <-> USB-B
+      USB micro
+      USB mini
+      USB -> USB-C
+      USB -> USB
+      USB-A <-> USB-B 2.0 (Standard-Druckerkabel)
+      "USB -> Lightening ""Apple"""
+  Peripherals
+      Displayport
+      "ACU - Netzwerkkabel 0,25m"
+      "ACU - Netzwerkkabel 0,5m"
+      ACU 2xLan -> 8 pin
+      ACU Kabel 8 pin
+      Steckdosenleiste 4 fach
+      "Durable ""Grau"""
+      Box kleine
+      Switching Gigabit Powersubly
+      Netzteile für Drucker
+      Programmierkabel Baofeng
+      Handy
+      AUX
+
+
+Zubehorer:
+  LTE-
+  Maus Tastatur
+  Telefonverteiler
+  Telefonverteiler
+  beamer
+  Tastatur
+  Tastatur
+  Tastatur
+  Tastatur
+  Tastatur
+  HDD
+  HDD
+  SSD
+  Kopfhörer
+  Maus
+  Projektor Epson
+  Logitech freisprecheinrichtung
+  Logitech freisprecheinrichtung
+  Akku-Winkelschleifer
+  Akkuschrauber
+  Fritz Repeater
+  Multimeter
+  V-NAND SSD 860 EVO
+  V-NAND SSD 860 EVO
+  Magic Trackpad
+  Jelly Komb Tastatur
+
+ACU
+Drucker
+Funkgeräte
+Handy
+Kleidung

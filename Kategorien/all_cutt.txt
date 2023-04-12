@@ -1,52 +1,14 @@
 Assets:
   Haushaltsgeräte:
-    Kühlschrank
-    Mikrowelle
-    Klimaanlage
   Reinigungsgeräte:
-    Hochdruckreiniger
-    Kehraufsatz
-    Kehrmaschine
-    Laubbläser
-    Nassauger
-    Nasssauger
-    Staubsauger
   Bau- und Werkstattmaterial:
-    Grobspanplatten
-    Säbelsäge
-    Hubwagen
-    Kippvorrichtung
-    Schubkarre
   Werkzeuge
-    Akku-Winkelschleifer
-    Akkuschrauber
-    Multimeter
   Abfallbehälter:
-    Mülleimer
-    Mültonnen
   Verkehrstechnik:
-    Drehkreuz
-    Schranke
-    Zapfsäule
-    Lichtmasten
   Lager- und Transportbehälter:
-    Faltcontainer
-    Lager-Container
   Akku
-    Blei Akku
   Buro Material
-    Ausstatung
   Kabel
-    HDMI-Kabel
-    LAN-Kabel (unterschiedliche Längen)
-    DSL-Kabel
-    USB-Kabel (unterschiedliche Typen)
-    Video-Kabel (unterschiedliche Typen)
-    Netzanschlusskabel (unterschiedliche Typen)
-    Adapter (unterschiedliche Typen)
-    AC/DC Netzadapter
-    Kabelmarkierungen
-    Vorkonfigurierte Kabelboxen
 
 Elektronik
   Eingabe_gerate

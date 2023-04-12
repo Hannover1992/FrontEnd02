@@ -1,0 +1,110 @@
+import { PrismaClient, kategorien as KategorienModel, subkategorien as SubkategorienModel } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export class Kategorie {
+  kategorie_id: number;
+  kategoriename: string;
+  subkategorien: Subkategorie[];
+
+  constructor(data: KategorienModel) {
+    this.kategorie_id = data.kategorie_id;
+    this.kategoriename = data.kategoriename;
+    this.subkategorien = data.subkategorien.map((subkategorieData) => new Subkategorie(subkategorieData));
+  }
+
+  static async findByID(id: number): Promise<Kategorie | null> {
+    const data = await prisma.kategorien.findUnique({
+      where: {
+        kategorie_id: id,
+      },
+      include: {
+        subkategorien: true,
+      },
+    });
+    return data ? new Kategorie(data) : null;
+  }
+
+  static async create(data: Omit<KategorienModel, 'kategorie_id'>): Promise<Kategorie> {
+    const createdData = await prisma.kategorien.create({
+      data,
+      include: {
+        subkategorien: true,
+      },
+    });
+    return new Kategorie(createdData);
+  }
+
+  async update(data: Omit<KategorienModel, 'kategorie_id'>): Promise<Kategorie> {
+    const updatedData = await prisma.kategorien.update({
+      where: {
+        kategorie_id: this.kategorie_id,
+      },
+      data,
+      include: {
+        subkategorien: true,
+      },
+    });
+    return new Kategorie(updatedData);
+  }
+
+  async delete(): Promise<void> {
+    await prisma.kategorien.delete({
+      where: {
+        kategorie_id: this.kategorie_id,
+      },
+    });
+  }
+}
+
+export class Subkategorie {
+  unterkategorie_id: number;
+  unterkategoriename: string;
+  kategorie_id: number;
+  kategorie: Kategorie;
+  artikel: Artikel[];
+
+  constructor(data: SubkategorienModel) {
+    this.unterkategorie_id = data.unterkategorie_id;
+    this.unterkategoriename = data.unterkategoriename;
+    this.kategorie_id = data.kategorie_id;
+    this.kategorie = new Kategorie(data.kategorien);
+    this.artikel = data.artikel.map((artikelData) => new Artikel(artikelData));
+  }
+
+  static async findByID(id: number): Promise<Subkategorie | null> {
+    const data = await prisma.subkategorien.findUnique({
+      where: {
+        unterkategorie_id: id,
+      },
+      include: {
+        kategorien: true,
+        artikel: true,
+      },
+    });
+    return data ? new Subkategorie(data) : null;
+  }
+
+  static async create(data: Omit<SubkategorienModel, 'unterkategorie_id'>): Promise<Subkategorie> {
+    const createdData = await prisma.subkategorien.create({
+      data,
+      include: {
+        kategorien: true,
+        artikel: true,
+      },
+    });
+    return new Subkategorie(createdData);
+  }
+
+  async update(data: Omit<SubkategorienModel, 'unterkategorie_id'>): Promise<Subkategorie> {
+    const updatedData = await prisma.subkategorien.update({
+      where: {
+        unterkategorie_id: this.unterkategorie_id,
+	  data,
+	  include: {
+	    kategorien: true,
+	    artikel: true,
+	  },
+	});
+	return new Subkategorie(updatedData);
+    }

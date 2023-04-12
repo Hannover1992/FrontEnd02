@@ -1,0 +1,35 @@
+2.Elektronik:
+
+  Eingabe_gerate
+    Magic Trackpad
+    Computer-Mäuse
+    Tastatur + Mau
+  Audio
+    Kopfhörer
+    Logitech freisprecheinrichtung
+  Laptops
+  Monitore
+  Docking-Station
+  Beamer
+  Desktop-Computer
+  Tablets
+  Computereingabegeräte
+  Kamera
+    Hand Kamera
+    Infarot Kamera
+    Webcam
+    Video Conference Cam
+  Zubehorer:
+    Notebook-Erhöhung
+    Monitor Halter
+    USB-Stick
+  Ersatz Teile
+    HDD
+    SSD
+  Zubehorer:
+    Jelly Komb Tastatur
+  USB-Hub
+
+
+
+

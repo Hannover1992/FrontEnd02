@@ -1,0 +1,119 @@
+Assets:
+  Haushaltsgeräte:
+    Kühlschrank
+    Mikrowelle
+    Klimaanlage
+  Reinigungsgeräte:
+    Hochdruckreiniger
+    Kehraufsatz
+    Kehrmaschine
+    Laubbläser
+    Nassauger
+    Nasssauger
+    Staubsauger
+  Bau- und Werkstattmaterial:
+    Grobspanplatten
+    Säbelsäge
+    Hubwagen
+    Kippvorrichtung
+    Schubkarre
+  Werkzeuge
+    Akku-Winkelschleifer
+    Akkuschrauber
+    Multimeter
+  Abfallbehälter:
+    Mülleimer
+    Mültonnen
+  Verkehrstechnik:
+    Drehkreuz
+    Schranke
+    Zapfsäule
+    Lichtmasten
+  Lager- und Transportbehälter:
+    Faltcontainer
+    Lager-Container
+  Akku
+    Blei Akku
+  Buro Material
+    Ausstatung
+  Kabel
+    HDMI-Kabel
+    LAN-Kabel (unterschiedliche Längen)
+    DSL-Kabel
+    USB-Kabel (unterschiedliche Typen)
+    Video-Kabel (unterschiedliche Typen)
+    Netzanschlusskabel (unterschiedliche Typen)
+    Adapter (unterschiedliche Typen)
+    AC/DC Netzadapter
+    Kabelmarkierungen
+    Vorkonfigurierte Kabelboxen
+
+Elektronik
+  Eingabe_gerate
+    Magic Trackpad
+    Computer-Mäuse
+    Tastatur + Mau
+  Audio
+    Kopfhörer
+    Logitech freisprecheinrichtung
+  Laptops
+  Monitore
+  Docking-Station
+  Beamer
+  Desktop-Computer
+  Tablets
+  Computereingabegeräte
+  Kamera
+    Hand Kamera
+    Infarot Kamera
+    Webcam
+    Video Conference Cam
+  Zubehorer:
+    Notebook-Erhöhung
+    Monitor Halter
+    USB-Stick
+  Ersatz Teile
+    HDD
+    SSD
+  Zubehorer:
+    Jelly Komb Tastatur
+  USB-Hub
+
+
+
+
+Drucker
+  Drucker
+  Toner
+  Drucker_zubehorer:
+    Reinigung
+    Karten
+    Kartenhalter
+    Klemmen
+5.Personal
+    Personal
+    Zugangsdaten
+    Adresse
+    Kleidung
+4.Kommunikation
+  ACU
+  Desktop-Reader
+  Handy
+  Handy ersatzteile:
+  Funkgeräte
+  Telefonverteiler
+  Simkarten
+  Router
+    Router
+    Ethernet Switch
+
+HDMI-Kabel
+LAN-Kabel (unterschiedliche Längen)
+DSL-Kabel
+USB-Kabel (unterschiedliche Typen)
+Video-Kabel (unterschiedliche Typen)
+Netzanschlusskabel (unterschiedliche Typen)
+Adapter (unterschiedliche Typen)
+AC/DC Netzadapter
+Kabelmarkierungen
+Vorkonfigurierte Kabelboxen

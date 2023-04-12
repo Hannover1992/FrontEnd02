@@ -1,0 +1,33 @@
+Erstellen Sie eine Tabelle projekte:
+
+Projekt-ID (Primary Key)
+Projektname
+Projektbeschreibung
+Startdatum
+Enddatum
+Erstellen Sie eine Tabelle kategorien:
+
+Kategorie-ID (Primary Key)
+Kategoriename
+Erstellen Sie eine Tabelle unterkategorien:
+
+Unterkategorie-ID (Primary Key)
+Unterkategoriename
+Kategorie-ID (Foreign Key)
+Erstellen Sie eine Tabelle artikel:
+
+Artikel-ID (Primary Key)
+Artikelname
+Unterkategorie-ID (Foreign Key)
+Preis
+Beschreibung
+Bild-URL (optional)
+Erstellen Sie eine Tabelle projekt_artikel:
+
+Projekt-Artikel-ID (Primary Key)
+Projekt-ID (Foreign Key)
+Artikel-ID (Foreign Key)
+Bestellmenge
+Die Tabelle projekte speichert Informationen zu jedem Projekt. Die Tabellen kategorien und unterkategorien speichern die Kategorien und Unterkategorien, die Sie definiert haben. Die Tabelle artikel speichert alle Artikel, die Sie zur Verfügung gestellt haben, und verknüpft sie mit den entsprechenden Unterkategorien. Schließlich speichert die Tabelle projekt_artikel die Beziehung zwischen Projekten und den benötigten Artikeln sowie die Bestellmenge für jeden Artikel.
+
+Mit dieser Struktur können Sie problemlos Projekte, Artikel und deren Beziehungen verwalten. Sie können auch Abfragen erstellen, um Artikel für ein bestimmtes Projekt abzurufen, Artikel nach Kategorien und Unterkategorien zu durchsuchen oder die Bestellmenge für Artikel in verschiedenen Projekten zu aktualisieren

@@ -40,6 +40,8 @@ import { SuccessComponent } from './Components/notification/success/success.comp
 import {RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
+import { SideNavComponent } from './Components/side-nav/side-nav.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     DialogDeleteProjectComponent,
     FailureComponent,
     SuccessComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatSnackBarModule,
     RouterModule,
     AppRoutingModule,
-    A11yModule
+    A11yModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

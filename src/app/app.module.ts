@@ -40,6 +40,7 @@ import { SuccessComponent } from './Components/notification/success/success.comp
 import {RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     DialogDeleteProjectComponent,
     FailureComponent,
     SuccessComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

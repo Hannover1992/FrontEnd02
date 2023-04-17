@@ -42,6 +42,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { KategorieSubkategorieComponent } from './Components/side-nav/kategorie-subkategorie/kategorie-subkategorie.component';
+import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 
 
 @NgModule({
@@ -64,6 +66,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     FailureComponent,
     SuccessComponent,
     SideNavComponent,
+    KategorieSubkategorieComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     RouterModule,
     AppRoutingModule,
     A11yModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatLegacyMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,3 +13,7 @@ mat-drawer-content {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.mat-drawer {
+  width: 300px;
+}

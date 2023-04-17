@@ -1,0 +1,11 @@
+<ng-container *ngFor="let animal of animals">
+  <button mat-button [matMenuTriggerFor]="animalMenu">{{ animal.name }}</button>
+  <mat-menu #animalMenu="matMenu" [hasBackdrop]="false">
+    <ng-container *ngFor="let subcategory of animal.subcategories">
+      <button mat-menu-item [matMenuTriggerFor]="subcategoryMenu">{{ subcategory.name }}</button>
+      <mat-menu #subcategoryMenu="matMenu">
+        <button *ngFor="let item of subcategory.items" mat-menu-item>{{ item }}</button>
+      </mat-menu>
+    </ng-container>
+  </mat-menu>
+</ng-container>

@@ -29,9 +29,8 @@
 <div mat-dialog-content>
         Möchtes du wirklich das Projekt mit dem Nummer:  {{project_to_delete.ID}}, löschen ?
 </div>
+
 <div mat-dialog-actions>
-  @ts-ignore
-  <button mat-raised-button mat-dialog-close color="warn" (click)="deleteProject()"> Ja </button>
-  @ts-ignore
-  <button mat-raised-button mat-dialog-close cdkFocusInitial>Nein</button>
+  <button mat-raised-button [mat-dialog-close]="true" color="warn" (click)="deleteProject()"> Ja </button>
+  <button mat-raised-button [mat-dialog-close]="false">Nein</button>
 </div>

@@ -41,6 +41,8 @@ import {RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MenuComponent } from './menu/menu.component';
+import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
+import { KategorieSubkategorieComponent } from './menu/kategorie-subkategorie/kategorie-subkategorie.component';
 
 
 @NgModule({
@@ -63,6 +65,7 @@ import { MenuComponent } from './menu/menu.component';
     FailureComponent,
     SuccessComponent,
     MenuComponent,
+    KategorieSubkategorieComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +92,8 @@ import { MenuComponent } from './menu/menu.component';
     MatSnackBarModule,
     RouterModule,
     AppRoutingModule,
-    A11yModule
+    A11yModule,
+    MatLegacyMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

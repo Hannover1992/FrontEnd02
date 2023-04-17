@@ -61,7 +61,6 @@ export class ProjectsTableComponent implements AfterViewInit {
     // 'expand',
   ];
 
-// TODO: replace this with real data from your application
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 

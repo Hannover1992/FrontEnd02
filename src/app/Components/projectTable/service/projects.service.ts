@@ -35,7 +35,6 @@ export class ProjectsService {
       });
   }
 
-
   generateURL() {
     return URL + '/projects';
   }

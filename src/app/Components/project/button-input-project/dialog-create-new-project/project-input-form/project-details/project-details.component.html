@@ -1,0 +1,57 @@
+<div [formGroup]="project_details">
+  <mat-card-subtitle>Projekt Details</mat-card-subtitle>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Projekt Nummer" [readonly]=read_only_id formControlName="ID">
+        <mat-error *ngIf="project_details.controls['ID'].hasError('required')">
+          Projektnummer ist <strong>erforderlich</strong>
+        </mat-error>
+        <mat-error *ngIf="project_details.controls['ID'].hasError('pattern')">
+          <strong>Zahl</strong>
+        </mat-error>
+        <mat-error *ngIf="project_details.controls['ID'].hasError('error')">
+          <strong>Projektnummer existiert bereits</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Anlage Nummer" formControlName="Anlagenummer">
+        <mat-error *ngIf="project_details.controls['Anlagenummer'].hasError('pattern')">
+          Projekt Nummer muss ein <strong>Nummer</strong> sein!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Auftragswert Netto" formControlName="Netto_Auftragswert">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Standort" formControlName="Standort">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Niederlassung" formControlName="Niederlassung">
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="justify_even">
+        <mat-radio-group formControlName="Auftragsart" >
+          <mat-radio-button  value="Operativ">Operative</mat-radio-button>
+          <mat-radio-button value="Planerich">Planerich</mat-radio-button>
+        </mat-radio-group>
+    </div>
+<!--        <mat-card-subtitle>P</mat-card-subtitle>-->
+    <div class="justify_even">
+      <mat-radio-group formControlName="Status">
+        <mat-radio-button value="Aktiv">Aktive</mat-radio-button>
+        <mat-radio-button value="Inaktiv">Inaktiv</mat-radio-button>
+      </mat-radio-group>
+  </div>
+</div>

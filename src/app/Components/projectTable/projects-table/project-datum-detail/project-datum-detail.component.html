@@ -1,0 +1,20 @@
+
+<mat-card>
+  <mat-card-content>
+    <div>
+
+    <mat-form-field>
+      <mat-label style="color: dimgray">Auftragsdatum</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="Auftragsdatum" disabled style="color: black">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    </div>
+    <app-datum-range-picker
+      [Startdatum]    ="Startdatum"
+      [Endtermin]     ="Endtermin"
+    ></app-datum-range-picker>
+  </mat-card-content>
+</mat-card>
+

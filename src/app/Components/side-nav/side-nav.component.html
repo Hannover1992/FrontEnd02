@@ -1,7 +1,7 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
-  <mat-drawer #drawer [mode] = "'push'" >I'm a drawer</mat-drawer>
+  <mat-drawer #drawer  [mode] = "'push'" >I'm a drawer</mat-drawer>
   <mat-drawer-content>
     <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-    <app-projects-table></app-projects-table>
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

@@ -1,16 +1,5 @@
 <div class="mat-elevation-z8">
 
-  <mat-toolbar id="project_toll_bar">
-
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
-
-    <span class="example-spacer"></span>
-    <app-button-input-project></app-button-input-project>
-
-  </mat-toolbar>
 
   <table mat-table
          [dataSource]="dataSource" multiTemplateDataRows
@@ -110,6 +99,18 @@
                  [pageSizeOptions]="[5, 10, 15]"
                  aria-label="Select page">
   </mat-paginator>
+
+  <mat-toolbar id="project_toll_bar">
+
+    <mat-form-field id="filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <span class="example-spacer"></span>
+    <app-button-input-project></app-button-input-project>
+
+  </mat-toolbar>
 
 </div>
 

@@ -147,3 +147,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 .empty_vertical_space {
   height: 100px;
 }
+
+#filter {
+  margin-top:15px;
+}

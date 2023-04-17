@@ -1,13 +1,11 @@
-/*.example-container {*/
-/*  width: 400px;*/
-/*  height: 200px;*/
-/*  margin: 12px;*/
-/*  border: 1px solid #555;*/
-/*}*/
+.example-container {
+  width: 100%;
+  height: 100%;
+}pp
 
-/*mat-drawer-content {*/
-/*  padding: 12px;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: flex-start;*/
-/*}*/
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -39,6 +39,7 @@ import { FailureComponent } from './Components/notification/failure/failure.comp
 import { SuccessComponent } from './Components/notification/success/success.component';
 import {RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { A11yModule } from '@angular/cdk/a11y';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatSnackBarModule,
     RouterModule,
     AppRoutingModule,
+    A11yModule
   ],
   providers: [],
   bootstrap: [AppComponent],

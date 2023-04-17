@@ -10,7 +10,8 @@
     "router": "ng add @angular/router",
     "update": "ng update @angular/cli",
     "update_all": "ng update --all --force",
-    "add_routing": "ng generate module app-routing --flat --module=app"
+    "add_routing": "ng generate module app-routing --flat --module=app",
+    "install_CDK": "ng add @angular/cdk"
   },
   "private": true,
   "dependencies": {

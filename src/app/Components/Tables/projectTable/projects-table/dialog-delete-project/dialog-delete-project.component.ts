@@ -2,9 +2,9 @@ import {Component, Inject} from '@angular/core';
 import {ProjectInterface} from "../../../project/project.interface";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {ProjectService} from "../../../project/service/project.service";
-import {FailureComponent} from "../../../notification/failure/failure.component";
+import {FailureComponent} from "../../../../notification/failure/failure.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {SuccessComponent} from "../../../notification/success/success.component";
+import {SuccessComponent} from "../../../../notification/success/success.component";
 
 @Component({
   selector: 'app-dialog-delete-project',

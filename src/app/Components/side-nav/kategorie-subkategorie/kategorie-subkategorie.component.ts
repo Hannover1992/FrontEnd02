@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ProjectsService} from "../../projectTable/service/projects.service";
+import {ProjectsService} from "../../Tables/projectTable/service/projects.service";
 import {KategorienWithSubkategorienService} from "../service/kategorien-with-subkategorien.service";
 
 

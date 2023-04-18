@@ -6,7 +6,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div *ngFor="let subkategorie of kategorie.subkategorien">
-      <p>{{subkategorie.unterkategoriename}}</p>
+      <a [routerLink]="['/electronics']" [state]="{ unterkategoriename: subkategorie.unterkategoriename }">{{subkategorie.unterkategoriename}}</a>
     </div>
   </mat-expansion-panel>
 </mat-accordion>

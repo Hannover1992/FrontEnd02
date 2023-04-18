@@ -33,6 +33,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
     // displayedColumns = ['id', 'name'];
   displayedColumns = [ 'ID',
+    //toDo: Anlage nummer entfernen auch aus dem Datenbank, Input , Update
     'Anlagenummer',
 
     'Standort',

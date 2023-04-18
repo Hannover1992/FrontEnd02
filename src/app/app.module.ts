@@ -44,6 +44,7 @@ import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { KategorieSubkategorieComponent } from './Components/side-nav/kategorie-subkategorie/kategorie-subkategorie.component';
 import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
+import { ExpensionPanellKategorieComponent } from './Components/side-nav/expension-panell-kategorie/expension-panell-kategorie.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
     SuccessComponent,
     SideNavComponent,
     KategorieSubkategorieComponent,
+    ExpensionPanellKategorieComponent,
   ],
   imports: [
     BrowserModule,

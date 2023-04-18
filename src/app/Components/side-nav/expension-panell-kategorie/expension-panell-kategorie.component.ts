@@ -15,14 +15,10 @@ export class ExpensionPanellKategorieComponent {
 
   constructor(private kategorie_service : KategorienWithSubkategorienService) {
     this.kategory_observeble = this.kategorie_service.getKategorienWithSubkategorien()
+    this.kategorie_service.getKategorienWithSubkategorien().subscribe(
+      (data) => {
+        this.kategory = data as Kategorie[];
+      }
+    )
   }
-
-  // getKategorieWithSubkategorie() {
-  //   this.kategorie_service.getKategorienWithSubkategorien().subscribe(
-  //     (data) => {
-  //       this.kategory = data as Kategorie[];
-  //       console.log(this.kategory);
-  //     }
-  //   )
-  // }
 }

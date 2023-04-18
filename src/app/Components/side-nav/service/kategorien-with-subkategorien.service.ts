@@ -28,7 +28,7 @@ export class KategorienWithSubkategorienService {
   constructor(public http: HttpClient ) {
   }
 
-  public getKategorienWithSubkategorien() {
+  public getKategorienWithSubkategorien(){
     return this.http.get(this.generateURL());
   }
 

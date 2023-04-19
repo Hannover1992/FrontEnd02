@@ -8,6 +8,7 @@ import {KategorienWithSubkategorienService} from "../service/kategorien-with-sub
   styleUrls: ['./expension-panell-kategorie.component.css']
 })
 export class ExpensionPanellKategorieComponent {
+  //toDo: Verandere die <p> zu schon aussehenden Button,
 
   kategory : Kategorie[] = [];
   panelOpenState = false;

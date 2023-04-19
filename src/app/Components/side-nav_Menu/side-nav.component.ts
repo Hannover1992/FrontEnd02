@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent {
+  //toDo: IMplement Service so get the Actuell Project.
 
 }

@@ -1,1 +1,34 @@
-<p>project-drop-down-menu works!</p>
+
+<!--projects: Observable<Project[]>;-->
+<!--<form class="projects-form">-->
+<!--    <input type="text"-->
+<!--           placeholder="3011"-->
+<!--           aria-label="Projektnummer"-->
+<!--           matInput-->
+<!--           [formControl]="myControl"-->
+<!--           [matAutocomplete]="auto">-->
+<!--    <mat-autocomplete #auto="matAutocomplete">-->
+<!--      <mat-option *ngFor="let project of projects | async" [value]="project.ID">-->
+<!--        {{project.ID}}-->
+<!--      </mat-option>-->
+<!--    </mat-autocomplete>-->
+<!--  </mat-form-field>-->
+<!--</form>-->
+
+<!--//toDo: Nach dem der value gewahlt worde ist, muss sich die akteulle Tabelle mit dem Value laden-->
+<form class="project-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Projekt:</mat-label>
+    <input type="text"
+           placeholder="Projekt Nummer"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

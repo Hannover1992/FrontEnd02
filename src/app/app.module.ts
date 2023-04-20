@@ -46,6 +46,7 @@ import { KategorieSubkategorieComponent } from './Components/side-nav_Menu/kateg
 import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -72,35 +73,36 @@ import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project
     ExpensionPanellKategorieComponent,
     ProjectDropDownMenuComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    FormsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatExpansionModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatGridListModule,
-    MatSnackBarModule,
-    RouterModule,
-    AppRoutingModule,
-    A11yModule,
-    MatSidenavModule,
-    MatLegacyMenuModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        FormsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatGridListModule,
+        MatSnackBarModule,
+        RouterModule,
+        AppRoutingModule,
+        A11yModule,
+        MatSidenavModule,
+        MatLegacyMenuModule,
+        MatAutocompleteModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ProjectInputFormComponent]

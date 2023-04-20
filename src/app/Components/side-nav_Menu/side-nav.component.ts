@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {ProjectsService} from "../Tables/projectTable/service/projects.service";
+import {Observable} from "rxjs";
+import {Project} from "../Tables/project/project";
 
 @Component({
   selector: 'app-side-nav',
@@ -6,6 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent {
-  //toDo: IMplement Service so get the Actuell Project.
+  current_project_number = 802007;
+  projects: Observable<Project[]>;
+  myControl: any;
+  filteredOptions: any  ;
 
+  constructor(private projectsService: ProjectsService) {
+    this.projects = projectsService.projects_observable
+  }
 }

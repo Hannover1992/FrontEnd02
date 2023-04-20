@@ -7,9 +7,6 @@
     </mat-expansion-panel-header>
     <div *ngFor="let subkategorie of kategorie.subkategorien">
       <button
-<!--        toDo: An Der Stelle die jeweiliege router Link wird der Kategorie Sein,
-                  die Project nummer-->
-<!--      -->
         mat-button
         [routerLink]="['/projects']"
         [state]="{ unterkategoriename: subkategorie.unterkategoriename }"
@@ -19,3 +16,4 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+

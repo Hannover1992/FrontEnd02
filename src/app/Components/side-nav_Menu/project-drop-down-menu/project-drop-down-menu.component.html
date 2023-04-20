@@ -24,8 +24,9 @@
            aria-label="Number"
            matInput
            [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
+           [matAutocomplete]="auto"
+    >
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)" >
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
         {{option}}
       </mat-option>

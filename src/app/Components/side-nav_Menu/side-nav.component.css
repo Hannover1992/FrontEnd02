@@ -17,3 +17,8 @@ mat-drawer-content {
 .mat-drawer {
   width: 300px;
 }
+
+.mat-toolbar {
+  width: 100%;
+  margin-top:5px;
+}

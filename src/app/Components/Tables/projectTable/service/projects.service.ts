@@ -11,11 +11,13 @@ export class ProjectsService {
   projects: Project[];
   projects_observable: Observable<Project[]>;
   projects_subject: Subject<Project[]>;
+  selectedProject = new Subject<string>();
 
   setProjects: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient ) {
     this.projects = [];
+    this.selectedProject.next('3011')
     this.projects_subject = new Subject<Project[]>();
     this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();

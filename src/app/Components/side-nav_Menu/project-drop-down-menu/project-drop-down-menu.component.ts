@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {map, Observable, startWith} from "rxjs";
+import {map, Observable, startWith, Subject} from "rxjs";
 import {ProjectsService} from "../../Tables/projectTable/service/projects.service";
 import {MatAutocompleteTrigger} from "@angular/material/autocomplete";
 
@@ -16,6 +16,10 @@ export class ProjectDropDownMenuComponent {
   @ViewChild(MatAutocompleteTrigger) autoInput!: MatAutocompleteTrigger;
 
   constructor(private projectsService: ProjectsService) {
+    this.get_drop_down_menu_projects();
+  }
+
+  private get_drop_down_menu_projects() {
     this.projectsService.projects_observable.subscribe(
       (projects) => {
         this.projects = projects.map((project) => project.ID.toString())
@@ -29,6 +33,7 @@ export class ProjectDropDownMenuComponent {
 
   onOptionSelected(event: any) {
     console.log(event.option.value);
+    this.projectsService.selectedProject.next(event.option.value);
   }
 
 

@@ -17,7 +17,6 @@ export class ProjectsService {
 
   constructor(public http: HttpClient ) {
     this.projects = [];
-    this.selectedProject.next('3011')
     this.projects_subject = new Subject<Project[]>();
     this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();

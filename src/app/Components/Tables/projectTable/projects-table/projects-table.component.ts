@@ -140,4 +140,8 @@ export class ProjectsTableComponent implements AfterViewInit {
       data: element
     });
   }
+
+  select_project({element}: { element: any }) {
+    this.projectsService.selectedProject.next(element.ID);
+  }
 }

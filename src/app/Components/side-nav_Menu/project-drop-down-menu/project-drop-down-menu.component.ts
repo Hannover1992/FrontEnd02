@@ -9,6 +9,7 @@ import {MatAutocompleteTrigger} from "@angular/material/autocomplete";
   templateUrl: './project-drop-down-menu.component.html',
   styleUrls: ['./project-drop-down-menu.component.css']
 })
+
 export class ProjectDropDownMenuComponent {
   myControl = new FormControl('');
   projects: string[] = [];

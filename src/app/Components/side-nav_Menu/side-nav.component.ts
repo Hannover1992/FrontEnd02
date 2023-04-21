@@ -9,12 +9,19 @@ import {Project} from "../Tables/project/project";
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent {
-  current_project_number = 802007;
   projects: Observable<Project[]>;
   myControl: any;
   filteredOptions: any  ;
+  menu_title = '';
 
   constructor(private projectsService: ProjectsService) {
     this.projects = projectsService.projects_observable
+   this.projectsService.selectedProject.subscribe(project => {
+      this.menu_title = project;
+    });
+    this.projectsService.selectedProject.next('3011');
+  }
+
+  onInit() {
   }
 }

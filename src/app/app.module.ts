@@ -47,6 +47,7 @@ import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { AssetTableComponent } from './Components/Tables/asset-table/asset-table.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     KategorieSubkategorieComponent,
     ExpensionPanellKategorieComponent,
     ProjectDropDownMenuComponent,
+    AssetTableComponent,
   ],
     imports: [
         BrowserModule,

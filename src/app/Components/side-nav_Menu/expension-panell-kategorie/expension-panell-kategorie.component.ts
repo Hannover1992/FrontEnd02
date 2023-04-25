@@ -19,6 +19,7 @@ export class ExpensionPanellKategorieComponent {
     this.kategorie_service.getKategorienWithSubkategorien().subscribe(
       (data) => {
         this.kategory = data as Kategorie[];
+        console.log(this.kategory)
       }
     )
   }

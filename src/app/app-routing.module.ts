@@ -11,7 +11,7 @@ import {
 const routes: Routes = [
   {path: 'projects',  component: ProjectsTableComponent},
   {path: 'Assets',  component: AssetTableComponent},
-  {path:'ElektronikartikelTableComponent', component: ElektronikartikelTableComponent},
+  {path:'Elektronikartikel', component: ElektronikartikelTableComponent},
 
 ];
 

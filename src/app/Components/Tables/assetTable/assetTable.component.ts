@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-asset-table',
-  templateUrl: './asset-table.component.html',
-  styleUrls: ['./asset-table.component.css']
+  templateUrl: './assetTable.component.html',
+  styleUrls: ['./assetTable.component.css']
 })
 export class AssetTableComponent {
 

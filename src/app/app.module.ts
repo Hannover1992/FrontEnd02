@@ -47,7 +47,7 @@ import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { AssetTableComponent } from './Components/Tables/assetTable/asset-table.component';
+import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
 import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
 
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetTableComponent } from './asset-table.component';
+import { AssetTableComponent } from './assetTable.component';
 
 describe('AssetTableComponent', () => {
   let component: AssetTableComponent;

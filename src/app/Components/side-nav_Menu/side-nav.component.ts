@@ -16,7 +16,7 @@ export class SideNavComponent {
 
   constructor(private projectsService: ProjectsService) {
     this.projects = projectsService.projects_observable
-   this.projectsService.selectedProject.subscribe(project => {
+    this.projectsService.selectedProject.subscribe(project => {
       this.menu_title = project;
     });
     this.projectsService.selectedProject.next('3011');

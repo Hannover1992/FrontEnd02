@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import {URL} from '../../../../settings';
-import {Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Project} from "../../project/project";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProjectsService {
   projects: Project[];
   projects_observable: Observable<Project[]>;
   projects_subject: Subject<Project[]>;
-  selectedProject = new Subject<string>();
+  selectedProject: BehaviorSubject<string> = new BehaviorSubject('3011');
+  initialized: boolean = false;
 
   setProjects: ((newValue: any) => void) | undefined;
 
@@ -20,6 +22,11 @@ export class ProjectsService {
     this.projects_subject = new Subject<Project[]>();
     this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();
+    this.selectedProject.next('3011');
+
+    this.selectedProject.subscribe(project => {
+      console.log(project)
+    });
 
     this.setProjects = (newValue) => {
       this.projects_subject.next(newValue);

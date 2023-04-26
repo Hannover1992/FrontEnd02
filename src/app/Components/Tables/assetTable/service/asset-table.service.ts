@@ -11,6 +11,6 @@ export class AssetTableService {
 
   generateURL() {
 
-    return URL + '/assets' + '/' + ;
+    return URL + '/assets' + '/';
   }
 }

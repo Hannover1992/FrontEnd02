@@ -81,6 +81,7 @@ export class ProjectService {
 
 
   async delete(project: ProjectInterface) {
+    //toDo: add zusatzliche Logki, wenn etwas auf das Projekt gebucht so wird man ihm wahrscheinlich nicht loschen konnen:
     this.project_to_send = this.http.delete<ProjectInterface>(this.delURL(project.ID));
     this.project_to_send.subscribe((response) => {
       //@ts-ignore
@@ -123,6 +124,7 @@ export class ProjectService {
     this.projectsService.projects.forEach((project, index) => {
       if (project.ID === id_of_project_to_delete) {
         this.projectsService.projects.splice(index, 1);
+        this.projectsService.getProjects();
       }
     });
   }

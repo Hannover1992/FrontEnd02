@@ -10,18 +10,18 @@ import {Project} from "../../project/project";
 
 export class ProjectsService {
   projects: Project[];
-  projects_observable: Observable<Project[]>;
-  projects_subject: Subject<Project[]>;
+  // projects_observable: Observable<Project[]>;
+  // projects_subject: BehaviorSubject<Project[]>;
   selectedProject: BehaviorSubject<string> = new BehaviorSubject('3011');
-  projectsBehaviorSubject!: BehaviorSubject<Project[]>;
+  projects_subject!: BehaviorSubject<Project[]>;
   initialized: boolean = false;
 
   setProjects: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient ) {
     this.projects = [];
-    this.projects_subject = new Subject<Project[]>();
-    this.projects_observable = this.projects_subject.asObservable();
+    // this.projects_subject = new Subject<Project[]>();
+    // this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();
 
     this.selectedProject.subscribe(project => {
@@ -30,7 +30,7 @@ export class ProjectsService {
 
     this.setProjects = (newValue) => {
       this.projects_subject.next(newValue);
-
+      this.projects_subject.next(newValue);
     };
 
   }
@@ -38,8 +38,9 @@ export class ProjectsService {
   public getProjects() {
     this.http.get<Project[]>(this.generateURL()).subscribe(
       (project_arr) => {
-        this.projects = project_arr;
-        this.projects_subject.next(this.projects);
+        this.projects_subject = new BehaviorSubject<Project[]>(project_arr);
+        this.projects = this.projects_subject.getValue();
+        // this.projects_subject.next(this.projects);
       });
   }
 

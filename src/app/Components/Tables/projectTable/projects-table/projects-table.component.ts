@@ -97,7 +97,7 @@ export class ProjectsTableComponent implements AfterViewInit {
 
 
   lead_the_data_from_database() {
-    this.projectsService.projects_observable.subscribe((data) => {
+    this.projectsService.projects_subject.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

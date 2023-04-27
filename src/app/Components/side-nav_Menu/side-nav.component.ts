@@ -15,7 +15,7 @@ export class SideNavComponent {
   menu_title = '';
 
   constructor(private projectsService: ProjectsService) {
-    this.projects = projectsService.projects_observable
+    this.projects = projectsService.projects_subject
     this.projectsService.selectedProject.subscribe(project => {
       this.menu_title = project;
     });

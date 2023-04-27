@@ -21,7 +21,7 @@ export class ProjectDropDownMenuComponent {
   }
 
   private get_drop_down_menu_projects() {
-    this.projectsService.projects_observable.subscribe(
+    this.projectsService.projects_subject.subscribe(
       (projects) => {
         this.projects = projects.map((project) => project.ID.toString())
         this.filteredOptions = this.myControl.valueChanges.pipe(

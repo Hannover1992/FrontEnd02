@@ -13,6 +13,7 @@ export class ProjectsService {
   projects_observable: Observable<Project[]>;
   projects_subject: Subject<Project[]>;
   selectedProject: BehaviorSubject<string> = new BehaviorSubject('3011');
+  projectsBehaviorSubject!: BehaviorSubject<Project[]>;
   initialized: boolean = false;
 
   setProjects: ((newValue: any) => void) | undefined;
@@ -22,7 +23,6 @@ export class ProjectsService {
     this.projects_subject = new Subject<Project[]>();
     this.projects_observable = this.projects_subject.asObservable();
     this.getProjects();
-    this.selectedProject.next('3011');
 
     this.selectedProject.subscribe(project => {
       console.log(project)

@@ -19,7 +19,6 @@ export class SideNavComponent {
     this.projectsService.selectedProject.subscribe(project => {
       this.menu_title = project;
     });
-    this.projectsService.selectedProject.next('3011');
   }
 
   onInit() {

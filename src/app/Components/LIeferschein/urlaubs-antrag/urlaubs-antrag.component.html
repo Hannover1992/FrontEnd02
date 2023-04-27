@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-title>
+    Urlaubsantrag
+  </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" #name>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Vorname</mat-label>
+        <input matInput type="text" #vorname>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Erster Urlaubstag</mat-label>
+        <input matInput [matDatepicker]="startPicker" type="text" #start>
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Letzter Urlaubstag</mat-label>
+        <input matInput [matDatepicker]="endPicker" type="text" #end>
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Resturlaub aus Vorjahr (Tage):</mat-label>
+        <input matInput type="number" min="0" #restUrlaubVorjahr>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Urlaubsanspruch im laufenden Jahr (Tage):</mat-label>
+        <input matInput type="number" min="0" #urlaubsanspruch>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Gewährter Urlaub im laufenden Jahr (Tage):</mat-label>
+        <input matInput type="number" min="0" #gewaehrterUrlaub>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Jetzt beantragter Urlaub (Tage):</mat-label>
+        <input matInput type="number" min="0" #beantragterUrlaub>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Voraussichtlicher Resturlaub (Tage):</mat-label>
+        <input matInput type="number" min="0" #restUrlaub>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Meine Vertretung waehrend des Urlaub ubernimmt Frau/Herr:</mat-label>
+        <input matInput type="text" #vertretung>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="generatePdf(name.value, vorname.value, start.value, end.value, restUrlaubVorjahr.value, urlaubsanspruch.value, gewaehrterUrlaub.value, beantragterUrlaub.value, restUrlaub.value, vertretung.value)">Einreichen</button>
+  </mat-card-actions>
+</mat-card>

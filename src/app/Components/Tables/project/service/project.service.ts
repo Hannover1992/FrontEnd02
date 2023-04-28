@@ -51,14 +51,18 @@ export class ProjectService {
           if(response.message === 'Project created') {
             this.projects_error_subject.next(false);
             let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
-            this.projectsService.projects.push(project_to_add_at_the_end_of_the_list);
-            //@ts-ignore
-            this.projectsService.setProjects(this.projectsService.projects);
+            this.at_at_the_end_of_the_projects(project_to_add_at_the_end_of_the_list);
         }}
         , () => {
           this.projects_error_subject.next(true);
         }
       )
+  }
+
+  private at_at_the_end_of_the_projects(project_to_add_at_the_end_of_the_list: Project) {
+    let projects = this.projectsService.projects_subject.getValue();
+    projects.push(project_to_add_at_the_end_of_the_list)
+    this.projectsService.projects_subject.next(projects)
   }
 
   async update(project: ProjectInterface) {
@@ -70,9 +74,9 @@ export class ProjectService {
         this.projects_error_subject.next(false);
         let project_to_update = creat_an_project_from_project_to_send(project);
         //find the id of the project to update
-        this.iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update, project_to_update);
+        let updated_projects = this.iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update, project_to_update);
         //@ts-ignore
-        this.projectsService.setProjects(this.projectsService.projects);
+        this.projectsService.projects_subject.next(updated_projects);
       }} , (error) => {
       this.projects_error_subject.next(true);
       throw error;
@@ -101,11 +105,13 @@ export class ProjectService {
 
   private iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update: number, project_to_update: Project) {
     //iterate_over_the_projects_and_update_the_project_where_the_id_matches
-    this.projectsService.projects.forEach((project, index) => {
+    let projects = this.projectsService.projects_subject.getValue();
+    projects.forEach((project, index) => {
       if (project.ID === id_of_project_to_update) {
-        this.projectsService.projects[index] = project_to_update;
+        projects[index] = project_to_update;
       }
     });
+    return projects;
   }
 
   getURL(number: number) {

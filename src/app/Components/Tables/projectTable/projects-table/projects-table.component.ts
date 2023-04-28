@@ -68,8 +68,8 @@ export class ProjectsTableComponent implements AfterViewInit {
   constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer,
               private dialog: MatDialog) {
     this.projectsService = projectsService;
-    this.dataSource = new MatTableDataSource(projectsService.projects_subject.getValue());
-    this.projectsService.projects_subject.subscribe(
+    this.dataSource = new MatTableDataSource(projectsService.projects.getValue());
+    this.projectsService.projects.subscribe(
       (data) => {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort = this.sort;
@@ -97,7 +97,7 @@ export class ProjectsTableComponent implements AfterViewInit {
 
 
   lead_the_data_from_database() {
-    this.projectsService.projects_subject.subscribe((data) => {
+    this.projectsService.projects.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

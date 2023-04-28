@@ -18,7 +18,6 @@ export class ProjectService {
   project_to_send: Observable<ProjectInterface>;
 
   projects_error_subject: Subject<boolean>;
-  // set_primary_error: ((newValue: any) => void) | undefined;
 
   constructor(public http: HttpClient, public projectsService: ProjectsService) {
     this.project_observable = new Observable<ProjectInterface>();
@@ -36,8 +35,8 @@ export class ProjectService {
 
 
   async getProject( number: number = 0) {
-    this.project_observable =  this.http.get<ProjectInterface>(this.getURL(number));
-    this.project_observable.subscribe( (project) => {
+    this.http.get<ProjectInterface>(this.getURL(number))
+      .subscribe( (project) => {
       this.project = project;
     });
     return this.project_observable;
@@ -60,9 +59,9 @@ export class ProjectService {
   }
 
   private at_at_the_end_of_the_projects(project_to_add_at_the_end_of_the_list: Project) {
-    let projects = this.projectsService.projects_subject.getValue();
+    let projects = this.projectsService.projects.getValue();
     projects.push(project_to_add_at_the_end_of_the_list)
-    this.projectsService.projects_subject.next(projects)
+    this.projectsService.projects.next(projects)
   }
 
   async update(project: ProjectInterface) {
@@ -76,7 +75,7 @@ export class ProjectService {
         //find the id of the project to update
         let updated_projects = this.iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update, project_to_update);
         //@ts-ignore
-        this.projectsService.projects_subject.next(updated_projects);
+        this.projectsService.projects.next(updated_projects);
       }} , (error) => {
       this.projects_error_subject.next(true);
       throw error;
@@ -103,7 +102,7 @@ export class ProjectService {
 
   private iterate_over_the_projects_and_update_the_project_where_the_id_matches(id_of_project_to_update: number, project_to_update: Project) {
     //iterate_over_the_projects_and_update_the_project_where_the_id_matches
-    let projects = this.projectsService.projects_subject.getValue();
+    let projects = this.projectsService.projects.getValue();
     projects.forEach((project, index) => {
       if (project.ID === id_of_project_to_update) {
         projects[index] = project_to_update;
@@ -125,12 +124,12 @@ export class ProjectService {
   }
 
   private iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete: number) {
-    let projects = this.projectsService.projects_subject.getValue();
+    let projects = this.projectsService.projects.getValue();
     projects.forEach((project, index) => {
       if (project.ID === id_of_project_to_delete) {
         projects.splice(index, 1);
         this.projectsService.getProjects();
-        this.projectsService.projects_subject.next(projects);
+        this.projectsService.projects.next(projects);
       }
     });
   }

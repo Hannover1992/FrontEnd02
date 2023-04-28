@@ -94,8 +94,6 @@ export class ProjectService {
         let id_of_project_to_delete : number = project.ID;
         //iteraet over the projects and delete the project where the id matches
         this.iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete);
-        //@ts-ignore
-        this.projectsService.setProjects(this.projectsService.projects);
       }} , (error) => {
       this.projects_error_subject.next(true);
       throw error;

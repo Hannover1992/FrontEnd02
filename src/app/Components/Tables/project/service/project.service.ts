@@ -127,10 +127,12 @@ export class ProjectService {
   }
 
   private iterate_over_the_projects_and_delete_the_project_where_the_id_matches(id_of_project_to_delete: number) {
-    this.projectsService.projects.forEach((project, index) => {
+    let projects = this.projectsService.projects_subject.getValue();
+    projects.forEach((project, index) => {
       if (project.ID === id_of_project_to_delete) {
-        this.projectsService.projects.splice(index, 1);
+        projects.splice(index, 1);
         this.projectsService.getProjects();
+        this.projectsService.projects_subject.next(projects);
       }
     });
   }

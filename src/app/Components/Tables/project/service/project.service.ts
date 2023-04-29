@@ -8,12 +8,12 @@ import {ProjectsService} from "../../projectTable/service/projects.service";
 // import {fromPromise} from "rxjs/dist/types/internal/observable/innerFrom";
 
 //toDo: handle error when can't delete becouse project in Bestellung
+//toDo: ad this project as root
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  project: ProjectInterface;
   project_observable: Observable<ProjectInterface>;
   project_to_send: Observable<ProjectInterface>;
 
@@ -21,26 +21,25 @@ export class ProjectService {
 
   constructor(public http: HttpClient, public projectsService: ProjectsService) {
     this.project_observable = new Observable<ProjectInterface>();
-    this.project = new Project();
     this.project_to_send = new Observable<ProjectInterface>();
-    this.project_observable.subscribe(
-      (project) => {
-        this.project = project;
-      }
-    );
+    // this.project_observable.subscribe(
+    //   (project) => {
+    //     // this.project = project;
+    //   }
+    // );
     this.projects_error_subject = new Subject<boolean>();
     this.projects_error_subject.next(false);
   }
 
 
 
-  async getProject( number: number = 0) {
-    this.http.get<ProjectInterface>(this.getURL(number))
-      .subscribe( (project) => {
-      this.project = project;
-    });
-    return this.project_observable;
-  }
+  // async getProject( number: number = 0) {
+  //   this.http.get<ProjectInterface>(this.getURL(number))
+  //     .subscribe( (project) => {
+  //     // this.project = project;
+  //   });
+  //   return this.project_observable;
+  // }
 
   async create(project: ProjectInterface) {
       this.project_to_send = this.http.post<ProjectInterface>(this.sendURL(project.ID), project);
@@ -49,8 +48,9 @@ export class ProjectService {
           //@ts-ignore
           if(response.message === 'Project created') {
             this.projects_error_subject.next(false);
-            let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
-            this.at_at_the_end_of_the_projects(project_to_add_at_the_end_of_the_list);
+            this.projectsService.getProjects();
+            // let project_to_add_at_the_end_of_the_list = creat_an_project_from_project_to_send(project);
+            // this.at_at_the_end_of_the_projects(project_to_add_at_the_end_of_the_list);
         }}
         , () => {
           this.projects_error_subject.next(true);

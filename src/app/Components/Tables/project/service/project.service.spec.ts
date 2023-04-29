@@ -31,7 +31,7 @@ describe('ProjectSService', () => {
   });
 
   it(' after rund the function get Project_old, the project should be an object', () => {
-    service.getProject();
+    // service.getProject();
     expect(service.project_observable).toEqual(jasmine.any(Object));
   });
 

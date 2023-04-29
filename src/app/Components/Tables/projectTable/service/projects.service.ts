@@ -14,13 +14,16 @@ export class ProjectsService {
   initialized: boolean = false;
 
   constructor(public http: HttpClient ) {
-    this.getProjects();
+    this.http.get<Project[]>(this.generateURL()).subscribe(
+      (project_arr) => {
+        this.projects = new BehaviorSubject<Project[]>(project_arr);
+      });
   }
 
   public getProjects() {
     this.http.get<Project[]>(this.generateURL()).subscribe(
       (project_arr) => {
-        this.projects = new BehaviorSubject<Project[]>(project_arr);
+        this.projects.next(project_arr)
       });
   }
 

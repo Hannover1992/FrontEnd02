@@ -67,23 +67,14 @@ export class ProjectsTableComponent implements AfterViewInit {
 
   constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer,
               private dialog: MatDialog) {
-    this.projectsService = projectsService;
     this.dataSource = new MatTableDataSource(projectsService.projects.getValue());
-    this.projectsService.projects.subscribe(
-      (data) => {
-        this.dataSource = new MatTableDataSource(data);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-        this.table.dataSource = this.dataSource;
-      }
-    )
     this.expandedElement = null;
   }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    // this.table.dataSource = this.dataSource;
     this.lead_the_data_from_database();
     this.create_detailed_view();
   }
@@ -101,7 +92,7 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
+      // this.table.dataSource = this.dataSource;
     });
   }
 

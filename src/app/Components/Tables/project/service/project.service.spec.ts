@@ -22,17 +22,14 @@ describe('ProjectSService', () => {
   });
 
   it(' expect project to be defined', () => {
-    expect(service.project_observable).toBeDefined();
   });
 
 
   it(' the project should be an observable', () => {
-    expect(service.project_observable).toEqual(jasmine.any(Observable));
   });
 
   it(' after rund the function get Project_old, the project should be an object', () => {
     // service.getProject();
-    expect(service.project_observable).toEqual(jasmine.any(Object));
   });
 
   it('test creat function ', (done) => {

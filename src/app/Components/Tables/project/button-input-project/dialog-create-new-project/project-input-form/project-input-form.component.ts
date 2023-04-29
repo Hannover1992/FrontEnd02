@@ -60,7 +60,6 @@ export class ProjectInputFormComponent {
           if(error){
             this.addressForm.controls['project_details'].controls['ID'].setErrors({error: error});
           } else {
-            // dialog.open(ProjectErfolgreichDialogComponent);
             this.openNotification();
             this.dialog.closeAll();
           }

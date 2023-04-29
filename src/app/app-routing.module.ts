@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes} from "@angular/router";
-import {RouterModule} from "@angular/router";
-import {ProjectsTableComponent} from "./Components/Tables/projectTable/projects-table/projects-table.component";
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { ProjectsTableComponent } from './Components/Tables/projectTable/projects-table/projects-table.component';
 import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
-import {
-  ElektronikartikelTableComponent
-} from "./Components/Tables/elektronikartikelTable/elektronikartikel-table.component";
+import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
 
 const routes: Routes = [
-  {path: 'projects',  component: ProjectsTableComponent},
-  {path: 'Assets',  component: AssetTableComponent},
-  {path:'Elektronikartikel', component: ElektronikartikelTableComponent},
-
+  { path: 'projects', component: ProjectsTableComponent },
+  { path: 'Assets', component: AssetTableComponent },
+  { path: 'Elektronikartikel', component: ElektronikartikelTableComponent },
 ];
+
+// Erstellen Sie die routerOptions-Konstante
+const routerOptions: ExtraOptions = {
+  onSameUrlNavigation: 'reload',
+};
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
-  ]
+    // Fügen Sie routerOptions als zweites Argument in der forRoot()-Methode hinzu
+    RouterModule.forRoot(routes, routerOptions),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

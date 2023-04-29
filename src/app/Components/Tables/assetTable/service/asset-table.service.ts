@@ -6,6 +6,8 @@ import {ProjectsService} from "../../projectTable/service/projects.service";
   providedIn: 'root'
 })
 export class AssetTableService {
+  private currents_selectd_projekt_id!: number;
+  private unterkategorie!: string;
 
 
   constructor(private projectsService: ProjectsService) {
@@ -15,6 +17,8 @@ export class AssetTableService {
 
   generateURL() {
 
-    return URL + '/assets' + '/';
+    return URL + '/assets' + '/' +  this.currents_selectd_projekt_id
+    + '/' + this.unterkategorie;
+    //toDo: create service, current selectd Kategorie
   }
 }

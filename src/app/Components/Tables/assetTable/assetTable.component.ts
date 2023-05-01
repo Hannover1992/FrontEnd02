@@ -3,37 +3,57 @@ import {ProjectsService} from "../projectTable/service/projects.service";
 import {AssetTableService} from "./service/asset-table.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {KategorieService} from "../kategorie/kategorie.service";
 
 @Component({
   selector: 'app-asset-table',
   templateUrl: './assetTable.component.html',
   styleUrls: ['./assetTable.component.css']
 })
+
 export class AssetTableComponent {
-  menu_title: any;
+  selected_project: any;
+  selected_kategorie: any;
 
   constructor(
     public projectsService: ProjectsService,
+    public kategorieService: KategorieService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public assetTableService: AssetTableService
   ) {
-    this.menu_title = this.projectsService.selectedProject.getValue();
-    this.projectsService.selectedProject.subscribe(project => {
-      this.menu_title = project;
-    });
+    this.subscribe_to_current_project_and_unterkategorie();
+    this.get_the_current_unterkategorie_from_router_state();
 
+  }
+
+  private get_the_current_unterkategorie_from_router_state() {
+    let router_status;
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         const navigationState = this.router.getCurrentNavigation();
         if (navigationState && navigationState.extras.state) {
-          this.unterkategoriename = navigationState.extras.state['unterkategoriename'];
-          console.log(this.unterkategoriename)
+          router_status = navigationState.extras.state['unterkategoriename'];
+          this.kategorieService.selectedKategorie.next(router_status);
         }
       });
   }
 
-  unterkategoriename!: string;
+  private subscribe_to_current_project_and_unterkategorie() {
+    this.projectsService.selectedProject.subscribe(project => {
+      this.selected_project = project;
+    });
+    this.kategorieService.selectedKategorie.subscribe( kategorie => {
+      this.selected_kategorie = kategorie;
+    })
+  }
+
+  test_funciton(){
+    this.assetTableService.print_statue();
+  }
+
+
 
   ngOnInit() {
   }

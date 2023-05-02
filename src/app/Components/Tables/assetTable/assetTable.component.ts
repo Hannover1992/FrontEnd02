@@ -18,8 +18,6 @@ export class AssetTableComponent {
   constructor(
     public projectsService: ProjectsService,
     public kategorieService: KategorieService,
-    // private route: ActivatedRoute,
-    // private router: Router,
     public assetTableService: AssetTableService
   ) {
     this.assetTableService.assets.subscribe(assets => {

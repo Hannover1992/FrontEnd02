@@ -16,7 +16,6 @@ export class AssetTableService {
   private selected_project!: string;
   private selected_unterkategorie!: string;
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
-  private assetsObservable: Observable<any>;
 
   constructor(
               private projectsService: ProjectsService,
@@ -25,9 +24,6 @@ export class AssetTableService {
               ) {
 
     this.subscribe_project_kategorie();
-
-    // this.this.http.get<any>(this.generateURL())
-    this.assetsObservable = this.http.get<any>(this.generateURL());
     this.load_assets_from_database();
   }
 

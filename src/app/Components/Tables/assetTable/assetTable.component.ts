@@ -24,7 +24,7 @@ export class AssetTableComponent {
   ) {
     this.subscribe_to_current_project_and_unterkategorie();
     this.get_the_current_unterkategorie_from_router_state();
-
+    this.assetTableService.get_assets();
   }
 
   private get_the_current_unterkategorie_from_router_state() {

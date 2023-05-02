@@ -31,13 +31,14 @@ describe('AssetTableService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('call get assets', async (done   ) => {
+  it('call get assets',  (done   ) => {
 // Call the get_assets function
-    service.get_assets()
-      .then((data: any) => {
-        expect(data).toBe('assets');
-        done();
-      });
+    service.print_status();
+    console.log(service.assets.getValue());
+    service.assets.subscribe(assets => {
+      console.log(assets);
+      done();
+    });
   });
 
 });

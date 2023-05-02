@@ -3,74 +3,72 @@ import {URL} from "../../../../settings";
 import {ProjectsService} from "../../projectTable/service/projects.service";
 import {KategorieService} from "../../kategorie/kategorie.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {BehaviorSubject, filter} from "rxjs";
+import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {ProjectArticle} from "../../../Interface/projectArticle";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AssetTableService {
-  private currents_selectd_projekt_id!: number;
+
   private selected_project!: string;
   private selected_unterkategorie!: string;
-  private assets!: BehaviorSubject<any>;
+  public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
+  private assetsObservable: Observable<any>;
 
   constructor(
               private projectsService: ProjectsService,
               public kategorieService: KategorieService,
-              private route: ActivatedRoute,
-              private router: Router,
               private http: HttpClient
               ) {
-    this.projectsService.selectedProject;
-    this.kategorieService.selectedKategorie;
-    this.subscribe_to_current_project_and_unterkategorie();
-    this.get_the_current_unterkategorie_from_router_state();
-    this.get_assets();
-    this.print_statue();
+
+    this.subscribe_project_kategorie();
+
+    // this.this.http.get<any>(this.generateURL())
+    this.assetsObservable = this.http.get<any>(this.generateURL());
+    this.load_assets_from_database();
   }
 
-  print_statue(){
-    console.log(this.projectsService.selectedProject.getValue() + " " + this.kategorieService.selectedKategorie.getValue());
+  onInit() {
+    this.load_assets_from_database();
   }
 
+  load_assets_from_database(){
+    this.http.get<any>(this.generateURL()).subscribe(
+      (asset_arr) => {
+        this.assets.next(asset_arr);
+      });
+  }
+
+  print_status(){
+   console.log(this.generateURL());
+  }
 
   generateURL() {
-    // http://localhost:8080/projekt_assets/802007/Verkehrstechnik
     return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
-    + '/' + this.kategorieService.selectedKategorie.getValue();
+      + '/' + this.kategorieService.selectedKategorie.getValue();
     //toDo: create service, current selectd Kategorie
   }
 
 
-  private get_the_current_unterkategorie_from_router_state() {
-    let router_status;
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const navigationState = this.router.getCurrentNavigation();
-        if (navigationState && navigationState.extras.state) {
-          router_status = navigationState.extras.state['unterkategoriename'];
-          this.kategorieService.selectedKategorie.next(router_status);
-        }
-      });
+  private subscribe_project_kategorie() {
+    this.subscribe_to_selected_project();
+    this.subscribe_to_selected_kategorie();
   }
 
-  private subscribe_to_current_project_and_unterkategorie() {
-    this.projectsService.selectedProject.subscribe(project => {
-      this.selected_project = project;
-    });
-    this.kategorieService.selectedKategorie.subscribe( kategorie => {
+  private subscribe_to_selected_kategorie() {
+    this.kategorieService.selectedKategorie.subscribe(kategorie => {
       this.selected_unterkategorie = kategorie;
+      this.load_assets_from_database();
     })
   }
 
-  async get_assets() {
-    await this.http.get<any>(this.generateURL()).subscribe(
-      (asset_arr) => {
-        this.assets = new BehaviorSubject<any>(asset_arr);
-        console.log(asset_arr);
-      });
+  private subscribe_to_selected_project() {
+    this.projectsService.selectedProject.subscribe(project => {
+      this.selected_project = project;
+    });
   }
 }
+

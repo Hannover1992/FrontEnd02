@@ -1,4 +1,11 @@
 <p>asset-table works!</p>
 <h1>{{this.projectsService.selectedProject | async}}</h1>
 <h2> {{this.kategorieService.selectedKategorie | async}}</h2>
-<button mat-raised-button (click) = this.assetTableService.print_statue()> test me </button>
+<p> {{this.assetTableService.assets.getValue() }}</p>
+<!--for Asset in assetTableServie.assets.getValue *ngFor-->
+<div *ngFor="let asset of this.assetTableService.assets.getValue()">
+  <p>{{asset.menge}}</p>
+</div>
+<button mat-raised-button (click) = this.assetTableService.load_assets_from_database()> load_from_database </button>
+<button mat-raised-button (click) = this.assetTableService.print_status()> show_status </button>
+

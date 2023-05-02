@@ -24,19 +24,22 @@ export class AssetTableService {
               private http: HttpClient
               ) {
     this.projectsService.selectedProject;
+    this.kategorieService.selectedKategorie;
     this.subscribe_to_current_project_and_unterkategorie();
     this.get_the_current_unterkategorie_from_router_state();
     this.get_assets();
+    this.print_statue();
   }
 
   print_statue(){
-    console.log(this.selected_project + " " + this.selected_unterkategorie )
+    console.log(this.projectsService.selectedProject.getValue() + " " + this.kategorieService.selectedKategorie.getValue());
   }
 
 
   generateURL() {
-    return URL + '/assets' + '/' +  this.currents_selectd_projekt_id
-    + '/' + this.selected_unterkategorie;
+    // http://localhost:8080/projekt_assets/802007/Verkehrstechnik
+    return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
+    + '/' + this.kategorieService.selectedKategorie.getValue();
     //toDo: create service, current selectd Kategorie
   }
 
@@ -67,7 +70,7 @@ export class AssetTableService {
     await this.http.get<any>(this.generateURL()).subscribe(
       (asset_arr) => {
         this.assets = new BehaviorSubject<any>(asset_arr);
-        console.log(this.assets)
+        console.log(asset_arr);
       });
   }
 }

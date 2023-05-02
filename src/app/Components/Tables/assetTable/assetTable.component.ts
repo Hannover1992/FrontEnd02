@@ -49,9 +49,6 @@ export class AssetTableComponent {
     })
   }
 
-  test_funciton(){
-    this.assetTableService.print_statue();
-  }
 
 
 

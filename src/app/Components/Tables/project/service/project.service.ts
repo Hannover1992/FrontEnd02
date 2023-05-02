@@ -5,7 +5,6 @@ import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectsService} from "../../projectTable/service/projects.service";
 
-//toDo: handle error when can't delete becouse project in Bestellung
 //toDo: ad this project as root
 
 @Injectable({
@@ -48,7 +47,7 @@ export class ProjectService {
 
 
   async delete(project: ProjectInterface) {
-    //toDo: add zusatzliche Logki, wenn etwas auf das Projekt gebucht so wird man ihm wahrscheinlich nicht loschen konnen:
+    //toDo: wenn irgendetwas is bereits auf diesen Projekt gebucht so kann man das nicht Projet loschen, uberligt dir eine Fehlermeldung
     this.http.delete<ProjectInterface>(this.delURL(project.ID))
     .subscribe((response) => {
       //@ts-ignore

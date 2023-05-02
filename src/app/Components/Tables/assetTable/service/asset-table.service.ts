@@ -45,7 +45,6 @@ export class AssetTableService {
   generateURL() {
     return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
       + '/' + this.kategorieService.selectedKategorie.getValue();
-    //toDo: create service, current selectd Kategorie
   }
 
 

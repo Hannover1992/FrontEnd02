@@ -36,24 +36,18 @@ export class ProjectsTableComponent implements AfterViewInit {
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(private projectsService: ProjectsService, private _liveAnnouncer: LiveAnnouncer,
-              private dialog: MatDialog) {
+  constructor(
+              private projectsService: ProjectsService,
+              private _liveAnnouncer: LiveAnnouncer,
+              private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource(projectsService.projects.getValue());
     this.expandedElement = null;
   }
 
   ngAfterViewInit(): void {
     this.lead_the_data_from_database();
-    this.create_detailed_view();
   }
-
-  private create_detailed_view() {
-    this.dataSource.data.forEach((element, index) => {
-      element.detailRow = [];
-      this.dataSource.data[index].detailRow.push;
-    });
-  }
-
 
   lead_the_data_from_database() {
     this.projectsService.projects.subscribe((data) => {

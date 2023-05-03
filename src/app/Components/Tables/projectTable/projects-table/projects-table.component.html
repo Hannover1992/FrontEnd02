@@ -96,7 +96,10 @@
 
   <mat-toolbar id="project_toll_bar">
 
-    <app-project-filter-component (applyFilter)="applyFilter($event)"></app-project-filter-component>
+    <mat-form-field id="filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
 
     <span class="example-spacer"></span>
     <app-button-input-project></app-button-input-project>

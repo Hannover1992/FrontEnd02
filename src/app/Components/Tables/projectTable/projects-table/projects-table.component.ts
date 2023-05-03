@@ -27,7 +27,6 @@ import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delet
 export class ProjectsTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ProjectInterface>;
   dataSource: MatTableDataSource<Project>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */

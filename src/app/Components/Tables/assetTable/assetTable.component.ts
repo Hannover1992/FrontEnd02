@@ -35,7 +35,7 @@ export class AssetTableComponent {
   selected_project: any;
   selected_kategorie: any;
 
-  private dataSource: MatTableDataSource<ProjectArticle>;
+  dataSource: MatTableDataSource<ProjectArticle>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -114,7 +114,8 @@ export class AssetTableComponent {
    setup_Visibility() {
     return  [
       'projekt_artikel_id',
-      'projekt_id'
+      'projekt_id',
+      'artikel_id',
     ];
   }
 }

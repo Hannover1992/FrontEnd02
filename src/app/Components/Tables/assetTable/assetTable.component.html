@@ -9,3 +9,125 @@
 <!--<button mat-raised-button (click) = this.assetTableService.load_assets_from_database()> load_from_database </button>-->
 <!--<button mat-raised-button (click) = this.assetTableService.print_status()> show_status </button>-->
 
+
+<div class="mat-elevation-z8">
+  <table mat-table
+         [dataSource]="dataSource"
+         multiTemplateDataRows
+         matSort (matSortChange)="announceSortChange($event)"
+         class="mat-elevation-z8">
+
+
+    <ng-container
+      matColumnDef="{{column}}"
+      *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="{{column}}">
+        {{column}}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{element[column]}}
+      </td>
+    </ng-container>
+
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+
+        <div class="example-element-detail"
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+          <div class="big_block">
+            <div class="head_block">
+              <div class="flex_1">
+                <div class="flex_center">
+                  <app-project-auftrags-detail
+                    [Auftragsart]="element.artikel_id"
+                    [Status]="element.artikel_id"
+                    [Netto_Auftragswert]="element.artikel_id"
+                  ></app-project-auftrags-detail>
+                </div>
+              </div>
+              <div class="flex_1">
+                <div class="flex_center">
+                  <app-project-datum-detail
+                    [Auftragsdatum] ="element.Auftragsdatum "
+                    [Startdatum]    ="element.Startdatum "
+                    [Endtermin]     ="element.Endtermin "
+                  ></app-project-datum-detail>
+                </div>
+              </div>
+              <div class="flex_1">
+                <app-personal-card class="card"
+                                   [Logistikkoordinator] ="element.Logistikkoordinator"
+                                   [LK_1]                ="element.LK_1"
+                                   [LK_2]                ="element.LK_2"
+                                   [PM_1]                ="element.PM_1"
+                                   [PM_2]                ="element.PM_2"
+                                   [ZuKo]                ="element.ZuKo"
+                ></app-personal-card>
+              </div>
+            </div>
+<!--            <div class="head_block">-->
+<!--              <div class="flex_1">-->
+<!--                <button mat-icon-button (click)="open_the_dialog_window_for_editing(element)">-->
+<!--                  <mat-icon>edit</mat-icon>-->
+<!--                </button>-->
+<!--              </div>-->
+<!--              <div class="flex_1">-->
+<!--                <button mat-icon-button (click)="open_the_dialog_for_deleting_project(element)">-->
+<!--                  <mat-icon>delete</mat-icon>-->
+<!--                </button>-->
+<!--              </div>-->
+<!--              <div class="flex_1">-->
+<!--                <button mat-button (click)="select_project({element : element})">-->
+<!--                  &lt;!&ndash;                  <mat-icon>done</mat-icon>&ndash;&gt;-->
+<!--                  Projekt auswählen-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="head_block">
+              <div class="empty_vertical_space">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+  </table>
+
+
+  <mat-paginator #paginator
+                 [length]="dataSource.data.length"
+                 [pageSize]="15"
+                 [pageSizeOptions]="[5, 10, 15]"
+                 aria-label="Select page">
+  </mat-paginator>
+
+  <mat-toolbar id="project_toll_bar">
+
+    <mat-form-field id="filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <span class="example-spacer"></span>
+    <app-button-input-project></app-button-input-project>
+
+  </mat-toolbar>
+
+
+</div>
+

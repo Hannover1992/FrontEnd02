@@ -27,10 +27,12 @@ import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delet
 
 export class ProjectsTableComponent implements AfterViewInit {
   dataSource: MatTableDataSource<Project>;
-  displayedColumns = this.setup_Visibility();
-  expandedElement: ProjectInterface | null;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  displayedColumns = this.setup_Visibility();
+  expandedElement: ProjectInterface | null;
 
   constructor(
               private projectsService: ProjectsService,
@@ -52,7 +54,7 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
     });
   }
-
+  //toDo: Extract this Method
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -62,7 +64,7 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
-
+  //toDo: Extract This method
   announceSortChange(sortState: Sort){
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -70,6 +72,7 @@ export class ProjectsTableComponent implements AfterViewInit {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
 
   open_the_dialog_window_for_editing(element: ProjectInterface) {
     this.dialog.open(UpdateSingleProjectComponent, {

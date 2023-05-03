@@ -20,12 +20,12 @@ export class AssetTableComponent {
     public kategorieService: KategorieService,
     public assetTableService: AssetTableService
   ) {
-    this.assetTableService.assets.subscribe(assets => {
-      console.log(assets);
-    })
   }
 
   ngOnInit() {
+    this.assetTableService.assets.subscribe(assets => {
+      console.log(assets);
+    })
   }
 
 }

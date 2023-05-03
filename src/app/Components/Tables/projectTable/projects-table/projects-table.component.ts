@@ -26,15 +26,11 @@ import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delet
 })
 
 export class ProjectsTableComponent implements AfterViewInit {
+  dataSource: MatTableDataSource<Project>;
+  displayedColumns = this.setup_Visibility();
+  expandedElement: ProjectInterface | null;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  dataSource: MatTableDataSource<Project>;
-
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = this.setup_Visibility();
-
-  expandedElement: ProjectInterface | null;
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
   constructor(
               private projectsService: ProjectsService,

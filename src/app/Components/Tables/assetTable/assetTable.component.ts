@@ -117,5 +117,6 @@ export class AssetTableComponent {
       'projekt_id',
       'artikel_id',
     ];
+    //toDo: Besitzer einbauen
   }
 }

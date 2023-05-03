@@ -11,6 +11,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {UpdateSingleProjectComponent} from "../../project/update-single-project/update-single-project.component";
 import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delete-project.component";
 
+
 @Component({
   selector: 'app-projects-table',
   templateUrl: './projects-table.component.html',
@@ -30,36 +31,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   dataSource: MatTableDataSource<Project>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-    // displayedColumns = ['id', 'name'];
-  displayedColumns = [ 'ID',
-    //toDo: Anlage nummer entfernen auch aus dem Datenbank, Input , Update
-    'Anlagenummer',
-
-    'Standort',
-    'Niederlassung',
-    'Kommentar',
-
-    // 'Auftragsart',
-    // 'Status',
-    // 'Netto_Auftragswert',
-    //
-    // 'Auftragsdatum',
-    // 'Startdatum',
-    // 'Endtermin',
-    //
-    //
-    // 'Logistikkoordinator',
-    // 'LK_1',
-    // 'LK_2',
-    // 'PM_1',
-    // 'PM_2',
-    // 'ZuKo',
-  ];
-
-  columnsToDisplayWithExpand = [
-    ...this.displayedColumns,
-    // 'expand',
-  ];
+  displayedColumns = this.setup_Visibility();
 
   expandedElement: ProjectInterface | null;
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
@@ -126,4 +98,32 @@ export class ProjectsTableComponent implements AfterViewInit {
   select_project({element}: { element: any }) {
     this.projectsService.selectedProject.next(element.ID);
   }
+
+  setup_Visibility() {
+    return  [ 'ID',
+      //toDo: Anlage nummer entfernen auch aus dem Datenbank, Input , Update
+      'Anlagenummer',
+
+      'Standort',
+      'Niederlassung',
+      'Kommentar',
+
+      // 'Auftragsart',
+      // 'Status',
+      // 'Netto_Auftragswert',
+      //
+      // 'Auftragsdatum',
+      // 'Startdatum',
+      // 'Endtermin',
+      //
+      //
+      // 'Logistikkoordinator',
+      // 'LK_1',
+      // 'LK_2',
+      // 'PM_1',
+      // 'PM_2',
+      // 'ZuKo',
+    ];
+  }
 }
+

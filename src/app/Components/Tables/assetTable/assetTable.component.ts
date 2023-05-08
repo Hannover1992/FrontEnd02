@@ -8,7 +8,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {Project} from "../project/project";
-import {ProjectArticle} from "../../Interface/projectArticle";
+import {ProjectArticle} from "./Interface/projectArticle";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
@@ -63,10 +63,18 @@ export class AssetTableComponent {
 
   lead_the_data_from_database() {
     this.assetTableService.assets.subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      let data_flatten = data.map(this.flattenData);
+      this.dataSource = new MatTableDataSource(data_flatten);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
+  }
+
+
+  flattenData(data: any) {
+    const flattenedData = { ...data, ...data.artikel, ...data.artikel.assets, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
+    delete flattenedData.artikel;
+    return flattenedData;
   }
 
 
@@ -111,11 +119,19 @@ export class AssetTableComponent {
   //   this.projectsService.selectedProject.next(element.ID);
   // }
 
+
+
    setup_Visibility() {
     return  [
       'projekt_artikel_id',
       'projekt_id',
       'artikel_id',
+      "artikelname",
+      'menge',
+      'kategoriename',
+      'kategorie_id',
+      'ID',
+      'preis'
     ];
     //toDo: Besitzer einbauen
   }

@@ -5,7 +5,7 @@ import {KategorieService} from "../../kategorie/kategorie.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ProjectArticle} from "../../../Interface/projectArticle";
+import {ProjectArticle} from "../Interface/projectArticle";
 
 @Injectable({
   providedIn: 'root'

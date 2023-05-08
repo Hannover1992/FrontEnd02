@@ -35,6 +35,7 @@ export class AssetTableService {
     this.http.get<any>(this.generateURL()).subscribe(
       (asset_arr) => {
         this.assets.next(asset_arr);
+        console.log(asset_arr);
       });
   }
 

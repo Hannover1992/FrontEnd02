@@ -65,6 +65,7 @@ export class AssetTableComponent {
     this.assetTableService.assets.subscribe((data) => {
       let data_flatten = data.map(this.flattenData);
       this.dataSource = new MatTableDataSource(data_flatten);
+      console.log(this.dataSource);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });

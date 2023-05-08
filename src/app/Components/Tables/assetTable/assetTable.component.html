@@ -29,8 +29,21 @@
             <div class="head_block">
               <div class="flex_1">
                 <div class="flex_center">
-                  <app-project-auftrags-detail
-                    [Auftragsart]="element.artikel_id"
+
+<!--                  @Input()  firma: string;-->
+<!--                  @Input()  model: string;-->
+<!--                  @Input()  preis: string;-->
+<!--                  @Input()  beschreibung: string;-->
+<!--                  @Input()  zustand: string;-->
+                  <app-project-assets-detail
+                    [firma]="element.firma"
+                    [model]="element.model"
+                    [preis]="element.preis"
+                    [beschreibung]="element.beschreibung"
+                    [zustand]="element.zustand"
+                  > </app-project-assets-detail>
+
+                  <app-project-auftrags-detail [Auftragsart]="element.artikel_id"
                     [Status]="element.artikel_id"
                     [Netto_Auftragswert]="element.artikel_id"
                   ></app-project-auftrags-detail>

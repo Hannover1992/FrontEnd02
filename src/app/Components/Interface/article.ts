@@ -4,6 +4,8 @@ import {Asset} from "./asset";
 export interface Article {
   artikel_id: number;
   artikelname: string;
+  firma: string,
+  model: string,
   unterkategorie_id: number;
   preis: string;
   beschreibung: string;

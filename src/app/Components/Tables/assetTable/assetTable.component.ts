@@ -132,7 +132,8 @@ export class AssetTableComponent {
       'kategoriename',
       'kategorie_id',
       'ID',
-      'preis'
+      'preis',
+      'beschreibung'
     ];
     //toDo: Besitzer einbauen
   }

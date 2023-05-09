@@ -53,6 +53,8 @@ import { UrlaubsAntragComponent } from './Components/LIeferschein/urlaubs-antrag
 import { LieferscheinComponent } from './Components/LIeferschein/lieferschein/lieferschein.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
 import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/project-assets-detail/project-assets-detail.component';
+import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/assets-datum-details/assets-datum-details.component';
+import { NummernDetailsComponent } from './Components/Tables/assetTable/nummern-details/nummern-details.component';
 
 
 @NgModule({
@@ -84,6 +86,8 @@ import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/pro
     LieferscheinComponent,
     ProjectFilterComponentComponent,
     ProjectAssetsDetailComponent,
+    AssetsDatumDetailsComponent,
+    NummernDetailsComponent,
   ],
     imports: [
         BrowserModule,

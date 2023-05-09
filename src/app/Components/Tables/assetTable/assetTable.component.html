@@ -1,5 +1,4 @@
-<div class="mat-elevation-z8">
-  <table mat-table
+<div class="mat-elevation-z8"> <table mat-table
          [dataSource]="dataSource"
          multiTemplateDataRows
          matSort (matSortChange)="announceSortChange($event)"
@@ -28,45 +27,37 @@
           <div class="big_block">
             <div class="head_block">
               <div class="flex_1">
-                <div class="flex_center">
-
-<!--                  @Input()  firma: string;-->
-<!--                  @Input()  model: string;-->
-<!--                  @Input()  preis: string;-->
-<!--                  @Input()  beschreibung: string;-->
-<!--                  @Input()  zustand: string;-->
-                  <app-project-assets-detail
+                <app-project-assets-detail
                     [firma]="element.firma"
                     [model]="element.model"
                     [preis]="element.preis"
                     [beschreibung]="element.beschreibung"
                     [zustand]="element.zustand"
                   > </app-project-assets-detail>
-
-                  <app-project-auftrags-detail [Auftragsart]="element.artikel_id"
-                    [Status]="element.artikel_id"
-                    [Netto_Auftragswert]="element.artikel_id"
-                  ></app-project-auftrags-detail>
-                </div>
               </div>
               <div class="flex_1">
-                <div class="flex_center">
-                  <app-project-datum-detail
-                    [Auftragsdatum] ="element.Auftragsdatum "
-                    [Startdatum]    ="element.Startdatum "
-                    [Endtermin]     ="element.Endtermin "
-                  ></app-project-datum-detail>
-                </div>
+                <app-assets-datum-details
+                    [einkaufs_datum]="element.einkaufs_datum"
+                    [belegt_von]="element.belegt_von"
+                    [belegt_bis]="element.belegt_bis"
+                    [edit_date]="element.edit_date"
+                  > </app-assets-datum-details>
               </div>
               <div class="flex_1">
                 <app-personal-card class="card"
-                                   [Logistikkoordinator] ="element.Logistikkoordinator"
-                                   [LK_1]                ="element.LK_1"
-                                   [LK_2]                ="element.LK_2"
-                                   [PM_1]                ="element.PM_1"
-                                   [PM_2]                ="element.PM_2"
-                                   [ZuKo]                ="element.ZuKo"
-                ></app-personal-card>
+                                     [Logistikkoordinator] ="element.Logistikkoordinator"
+                                     [LK_1]                ="element.LK_1"
+                                     [LK_2]                ="element.LK_2"
+                                     [PM_1]                ="element.PM_1"
+                                     [PM_2]                ="element.PM_2"
+                                     [ZuKo]                ="element.ZuKo"
+                  ></app-personal-card>
+              </div>
+              <div clas="felx_1">
+                <app-nummern-details class="card"
+                                     [anlagenummer] ="element.anlagenummer"
+                                     [Inventarnummer] ="element.Inventarnummer">
+                </app-nummern-details>
               </div>
             </div>
 <!--            <div class="head_block">-->

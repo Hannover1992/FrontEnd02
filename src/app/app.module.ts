@@ -52,9 +52,9 @@ import { ElektronikartikelTableComponent } from './Components/Tables/elektronika
 import { UrlaubsAntragComponent } from './Components/LIeferschein/urlaubs-antrag/urlaubs-antrag.component';
 import { LieferscheinComponent } from './Components/LIeferschein/lieferschein/lieferschein.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
-import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/project-assets-detail/project-assets-detail.component';
-import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/assets-datum-details/assets-datum-details.component';
-import { NummernDetailsComponent } from './Components/Tables/assetTable/nummern-details/nummern-details.component';
+import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/details/project-assets-detail/project-assets-detail.component';
+import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/details/assets-datum-details/assets-datum-details.component';
+import { NummernDetailsComponent } from './Components/Tables/assetTable/details/nummern-details/nummern-details.component';
 
 
 @NgModule({

@@ -1,0 +1,81 @@
+<!--&lt;!&ndash;@Input()  firma: string;&ndash;&gt;-->
+<!--&lt;!&ndash;@Input()  model: string;&ndash;&gt;-->
+<!--&lt;!&ndash;@Input()  preis: string;&ndash;&gt;-->
+<!--&lt;!&ndash;@Input()  beschreibung: string;&ndash;&gt;-->
+<!--&lt;!&ndash;@Input()  zustand: string;&ndash;&gt;-->
+
+<!--<mat-card class="project_detail">-->
+<!--  <mat-card-header>-->
+<!--    <mat-card-title>Detail</mat-card-title>-->
+<!--  </mat-card-header>-->
+<!--  <div>-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-subtitle>Firma</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <p>{{firma}}</p>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-subtitle>Model</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <p>{{model}}</p>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-subtitle>Preis</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <p>{{preis}}</p>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-subtitle>Beschreibung</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <p>{{beschreibung}}</p>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-subtitle>Zustand</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--      <p>{{zustand}}</p>-->
+<!--    </mat-card-content>-->
+<!--  </div>-->
+<!--</mat-card>-->
+
+
+<!--@Input() einkaufs_datum: Date;-->
+<!--@Input() belegt_von: Date;-->
+<!--@Input() belegt_bis: Date;-->
+<!--@Input() edit_date: Date;-->
+
+<mat-card class="project_detail">
+  <mat-card-header>
+    <mat-card-title>Date</mat-card-title>
+  </mat-card-header>
+  <div>
+    <mat-card-header>
+      <mat-card-subtitle>Einkaufsdatum</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{einkaufs_datum | date:'dd.MM.yyyy'}}</p>
+    </mat-card-content>
+    <mat-card-header>
+      <mat-card-subtitle>Belegt von</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{belegt_von | date:'dd.MM.yyyy'}}</p>
+    </mat-card-content>
+    <mat-card-header>
+      <mat-card-subtitle>Belegt bis</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{belegt_bis | date:'dd.MM.yyyy'}}</p>
+    </mat-card-content>
+    <mat-card-header>
+      <mat-card-subtitle>Edit Date</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{edit_date | date:'dd.MM.yyyy'}}</p>
+    </mat-card-content>
+  </div>
+</mat-card>

@@ -7,7 +7,7 @@ import { ElektronikartikelTableComponent } from './Components/Tables/elektronika
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsTableComponent },
-  { path: 'Assets', component: AssetTableComponent },
+  { path: 'Asset', component: AssetTableComponent },
   { path: 'Elektronikartikel', component: ElektronikartikelTableComponent },
 ];
 

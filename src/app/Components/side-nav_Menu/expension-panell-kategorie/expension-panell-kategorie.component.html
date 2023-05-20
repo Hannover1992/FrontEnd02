@@ -9,7 +9,7 @@
       <button
         mat-button
         [routerLink]="['/', kategorie.kategoriename]"
-        [state]="{ unterkategoriename: subkategorie.unterkategoriename }"
+        [state]="{ unterkategoriename: subkategorie.unterkategoriename, unterkategorie_id: subkategorie.unterkategorie_id }"
       >
         {{subkategorie.unterkategoriename}}
       </button>

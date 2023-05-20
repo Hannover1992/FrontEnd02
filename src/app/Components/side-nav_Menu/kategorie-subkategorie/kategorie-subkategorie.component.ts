@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {KategorienWithSubkategorienService} from "../service/kategorien-with-subkategorien.service";
+import {KategorienWithSubkategorienService} from "../../Services/kategorien-with-subkategorien.service";
 import {Kategorie} from "../kategorie";
 
 

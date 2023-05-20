@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {ProjectsService} from "../projectTable/service/projects.service";
-import {AssetTableService} from "./service/asset-table.service";
+import {AssetTableService} from "../../Services/asset-table.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
-import {UnterKategorieService} from "../kategorie/unter-kategorie.service";
+import {UnterKategorieService} from "../../Services/unter-kategorie.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
@@ -45,7 +45,7 @@ export class AssetTableComponent {
 
   constructor(
     public projectsService: ProjectsService,
-    public uterKategorieService: UnterKategorieService,
+    public unterKategorieService: UnterKategorieService,
     public assetTableService: AssetTableService,
     private _liveAnnouncer: LiveAnnouncer,
     private dialog: MatDialog

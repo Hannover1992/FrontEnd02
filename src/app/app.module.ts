@@ -55,6 +55,8 @@ import { ProjectFilterComponentComponent } from './Components/Tables/projectTabl
 import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/details/project-assets-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/details/assets-datum-details/assets-datum-details.component';
 import { NummernDetailsComponent } from './Components/Tables/assetTable/details/nummern-details/nummern-details.component';
+import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
+import { InputFormAssetComponent } from './Components/Tables/assetTable/input-form-asset/input-form-asset.component';
 
 
 @NgModule({
@@ -88,6 +90,8 @@ import { NummernDetailsComponent } from './Components/Tables/assetTable/details/
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
+    ButtonBuchAssetAufProjektComponent,
+    InputFormAssetComponent,
   ],
     imports: [
         BrowserModule,

@@ -57,6 +57,7 @@ import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/deta
 import { NummernDetailsComponent } from './Components/Tables/assetTable/details/nummern-details/nummern-details.component';
 import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { InputFormAssetComponent } from './Components/Tables/assetTable/input-form-asset/input-form-asset.component';
+import { AssetNumbersInputComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/asset-numbers-input/asset-numbers-input.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { InputFormAssetComponent } from './Components/Tables/assetTable/input-fo
     NummernDetailsComponent,
     ButtonBuchAssetAufProjektComponent,
     InputFormAssetComponent,
+    AssetNumbersInputComponent,
   ],
     imports: [
         BrowserModule,

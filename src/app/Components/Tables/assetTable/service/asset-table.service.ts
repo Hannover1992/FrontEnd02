@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {URL} from "../../../../settings";
 import {ProjectsService} from "../../projectTable/service/projects.service";
-import {KategorieService} from "../../kategorie/kategorie.service";
+import {UnterKategorieService} from "../../kategorie/unter-kategorie.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
@@ -19,7 +19,7 @@ export class AssetTableService {
 
   constructor(
               private projectsService: ProjectsService,
-              public kategorieService: KategorieService,
+              public kategorieService: UnterKategorieService,
               private http: HttpClient
               ) {
 
@@ -45,7 +45,7 @@ export class AssetTableService {
 
   generateURL() {
     return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
-      + '/' + this.kategorieService.selectedKategorie.getValue();
+      + '/' + this.kategorieService.selectedUnterKategorie.getValue();
   }
 
 
@@ -55,7 +55,7 @@ export class AssetTableService {
   }
 
   private subscribe_to_selected_kategorie() {
-    this.kategorieService.selectedKategorie.subscribe(kategorie => {
+    this.kategorieService.selectedUnterKategorie.subscribe(kategorie => {
       this.selected_unterkategorie = kategorie;
       this.load_assets_from_database();
     })

@@ -5,9 +5,9 @@ import {NavigationEnd, ActivatedRoute, Router} from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
-export class KategorieService {
+export class UnterKategorieService {
 
-  selectedKategorie: BehaviorSubject<string> = new BehaviorSubject('Verkehrstechnik');
+  selectedUnterKategorie: BehaviorSubject<string> = new BehaviorSubject('Verkehrstechnik');
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +25,13 @@ export class KategorieService {
         const navigationState = this.router.getCurrentNavigation();
         if (navigationState && navigationState.extras.state) {
           router_status = navigationState.extras.state['unterkategoriename'];
-          this.selectedKategorie.next(router_status);
+          this.selectedUnterKategorie.next(router_status);
         }
       });
+  }
+
+  private get_the_unterkategorie_id_from_database_given_the_unterkategorie_name(unterkategorie_name: string) {
+
   }
 
 }

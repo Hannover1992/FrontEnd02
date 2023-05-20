@@ -50,7 +50,9 @@ export class ProjectInputFormComponent {
     })
   });
 
-  constructor(private fb: FormBuilder, private projectService: ProjectService,
+  constructor(
+              private fb: FormBuilder,
+              private projectService: ProjectService,
               private projectsService: ProjectsService,
               private dialog: MatDialog,
               private _snackBar: MatSnackBar

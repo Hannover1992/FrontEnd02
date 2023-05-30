@@ -11,7 +11,7 @@ import {NotificationProjectErfolgComponent} from "./notification-project-erfolg/
 @Component({
   selector: 'app-project-input-form',
   templateUrl: './project-input-form.component.html',
-  styleUrls: ['./project-input-form.component.css']
+  styleUrls: ['./project-input-form.component.css', '../../../../../Inputs/shared_css/input.css']
 })
 
 export class ProjectInputFormComponent {

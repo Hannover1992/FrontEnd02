@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-project-datum',
   templateUrl: './project-datum.component.html',
-  styleUrls: ['../project-input-form.component.css', '../../../../../../../Components/Inputs/shared_css/input.css']
+  styleUrls: ['../project-input-form.component.css']
 })
 
 

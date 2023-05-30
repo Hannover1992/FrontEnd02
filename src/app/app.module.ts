@@ -49,8 +49,6 @@ import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
 import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
-import { UrlaubsAntragComponent } from './Components/LIeferschein/urlaubs-antrag/urlaubs-antrag.component';
-import { LieferscheinComponent } from './Components/LIeferschein/lieferschein/lieferschein.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
 import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/details/project-assets-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/details/assets-datum-details/assets-datum-details.component';
@@ -58,6 +56,9 @@ import { NummernDetailsComponent } from './Components/Tables/assetTable/details/
 import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { InputFormAssetComponent } from './Components/Tables/assetTable/input-form-asset/input-form-asset.component';
 import { AssetNumbersInputComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/asset-numbers-input/asset-numbers-input.component';
+import {MatListModule} from "@angular/material/list";
+import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 
 @NgModule({
@@ -85,8 +86,6 @@ import { AssetNumbersInputComponent } from './Components/Tables/assetTable/butto
     ProjectDropDownMenuComponent,
     AssetTableComponent,
     ElektronikartikelTableComponent,
-    UrlaubsAntragComponent,
-    LieferscheinComponent,
     ProjectFilterComponentComponent,
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,
@@ -95,36 +94,39 @@ import { AssetNumbersInputComponent } from './Components/Tables/assetTable/butto
     InputFormAssetComponent,
     AssetNumbersInputComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatDialogModule,
-        FormsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatExpansionModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatGridListModule,
-        MatSnackBarModule,
-        RouterModule,
-        AppRoutingModule,
-        A11yModule,
-        MatSidenavModule,
-        MatLegacyMenuModule,
-        MatAutocompleteModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    MatSnackBarModule,
+    RouterModule,
+    AppRoutingModule,
+    A11yModule,
+    MatSidenavModule,
+    MatLegacyMenuModule,
+    MatAutocompleteModule,
+    MatListModule,
+    MatLegacyChipsModule,
+    MatButtonToggleModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ProjectInputFormComponent]

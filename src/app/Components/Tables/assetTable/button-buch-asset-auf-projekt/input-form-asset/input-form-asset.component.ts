@@ -16,7 +16,6 @@ export class InputFormAssetComponent {
 
 
 
-
   assetForm = this.fb.group({
     asset_details: this.fb.group({
       firma: [''],
@@ -67,9 +66,7 @@ export class InputFormAssetComponent {
     public subKategorieService: UnterKategorieService,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) {
-
-  }
+  ) { }
 
 
   post_new_artikel_asset_on_project_artikel() {

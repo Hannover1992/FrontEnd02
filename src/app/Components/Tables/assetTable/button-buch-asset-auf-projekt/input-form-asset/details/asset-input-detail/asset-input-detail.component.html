@@ -1,0 +1,35 @@
+<div [formGroup]="asset_details">
+  <mat-card-subtitle> Asset Details</mat-card-subtitle>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Firma</mat-label>
+            <input matInput formControlName="firma">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Artikelname</mat-label>
+          <input matInput formControlName="artikelname">
+        </mat-form-field>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Zustand</mat-label>
+        <mat-select formControlName="zustand">
+          <mat-option *ngFor="let zustand of zustandOptions" [value]="zustand">{{zustand}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<!--          zustand: [''],-->
+<!--          beschreibung: [''],-->

@@ -16,13 +16,23 @@ export class InputFormAssetComponent {
 
 
 
+
   assetForm = this.fb.group({
+    asset_details: this.fb.group({
+      firma: [''],
+      artikelname: [''],
+      model: [''],
+      // toDo: Zustand als slect form list
+      zustand: [''],
+      beschreibung: [''],
+    }),
     asset_numbers: this.fb.group({
       menge: [1, Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]*$'),
         this.positiveNonZero
       ])],
+      preis: [''],
       Inventarnummer: [0],
       anlagenummer: ['']
     }),
@@ -32,16 +42,8 @@ export class InputFormAssetComponent {
       belegt_von: [new Date()],
       belegt_bis: [new Date()],
     }),
-    asset_details: this.fb.group({
-      firma: [''],
-      artikelname: [''],
-      model: [''],
-      preis: [''],
-      // toDo: Zustand als slect form list
-      zustand: [''],
-      beschreibung: [''],
-    }),
   });
+
 
   positiveNonZero(control: AbstractControl) {
     if (control.value <= 0) {
@@ -65,7 +67,9 @@ export class InputFormAssetComponent {
     public subKategorieService: UnterKategorieService,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) { }
+  ) {
+
+  }
 
 
   post_new_artikel_asset_on_project_artikel() {

@@ -60,6 +60,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { AssetInputDateComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-date/asset-input-date.component';
+import { AssetInputDetailComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-detail/asset-input-detail.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import { AssetInputDateComponent } from './Components/Tables/assetTable/button-b
     InputFormAssetComponent,
     AssetNumbersInputComponent,
     AssetInputDateComponent,
+    AssetInputDetailComponent,
   ],
   imports: [
     BrowserModule,

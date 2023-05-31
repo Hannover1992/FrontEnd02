@@ -5,14 +5,10 @@
     </mat-card-header>
 
     <mat-card-content>
+      <app-asset-input-detail [asset_details]="assetForm.controls['asset_details']" ></app-asset-input-detail>
       <app-asset-input-date [asset_dates]="assetForm.controls['date_info']"></app-asset-input-date>
       <app-asset-numbers-input [asset_numbers]="assetForm.controls['asset_numbers']"></app-asset-numbers-input>
 
-<!--      <div [formGroup]="assetForm.controls['asset_details']">-->
-<!--        <mat-form-field class="full-width">-->
-<!--          <textarea matInput placeholder="Kommentar" formControlName="Kommentar"></textarea>-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
       <div [formGroup]="assetForm.controls['asset_details']">
         <mat-form-field class="full-width">
           <mat-label>Beschreibung</mat-label>
@@ -20,9 +16,6 @@
         </mat-form-field>
       </div>
 
-<!--      toDo: hier wieter mit Date-->
-
-    <app-assets-datum-details   ></app-assets-datum-details>
       <div class="full-width">
         <div class="row">
           <div class="full-width"></div>

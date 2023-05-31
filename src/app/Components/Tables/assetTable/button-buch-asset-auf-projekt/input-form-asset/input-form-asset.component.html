@@ -1,0 +1,29 @@
+<form [formGroup]="assetForm" novalidate (ngSubmit)="post_new_artikel_asset_on_project_artikel()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Neues Projekt Anlegen</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <app-asset-numbers-input [asset_numbers]="assetForm.controls['asset_numbers']"></app-asset-numbers-input>
+      <app-asset-input-date [asset_dates]="assetForm.controls['date_info']"></app-asset-input-date>
+
+<!--      toDo: hier wieter mit Date-->
+
+    <app-assets-datum-details   ></app-assets-datum-details>
+      <div class="full-width">
+        <div class="row">
+          <div class="full-width"></div>
+          <div class="col">
+            <button  mat-raised-button color="primary" type="submit">Submit</button>
+          </div>
+          <div class="full-width"> </div>
+          <div class="col">
+            <button mat-raised-button [mat-dialog-close]="true" color="accent">Close</button>
+          </div>
+          <div class="full-width"></div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

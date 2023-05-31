@@ -1,0 +1,34 @@
+<mat-card-subtitle>Asset Daten</mat-card-subtitle>
+<div [formGroup]="asset_dates" class="space_evenly">
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="fill">
+        <mat-label>Einkaufsdatum</mat-label>
+        <input matInput [matDatepicker]="picker_einkaufs_datum" formControlName="einkaufs_datum">
+        <mat-datepicker-toggle matSuffix [for]="picker_einkaufs_datum"></mat-datepicker-toggle>
+        <mat-datepicker #picker_einkaufs_datum></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Belegt Zeitraum</mat-label>
+        <mat-date-range-input [rangePicker]="picker_range_belegt_von_to_belegt_bis">
+          <input matStartDate formControlName="belegt_von" placeholder="Belegt von">
+          <input matEndDate formControlName="belegt_bis" placeholder="Belegt bis">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker_range_belegt_von_to_belegt_bis"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker_range_belegt_von_to_belegt_bis></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="fill">
+        <mat-label>Edit Datum</mat-label>
+        <input matInput [matDatepicker]="picker_edit_date" formControlName="edit_date">
+        <mat-datepicker-toggle matSuffix [for]="picker_edit_date"></mat-datepicker-toggle>
+        <mat-datepicker #picker_edit_date></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

@@ -33,12 +33,13 @@ export class InputFormAssetComponent {
       belegt_bis: [new Date()],
     }),
     asset_details: this.fb.group({
-      artikelname: [''],
-      preis: [''],
-      beschreibung: [''],
-      zustand: [''],
-      model: [''],
       firma: [''],
+      artikelname: [''],
+      model: [''],
+      preis: [''],
+      // toDo: Zustand als slect form list
+      zustand: [''],
+      beschreibung: [''],
     }),
   });
 

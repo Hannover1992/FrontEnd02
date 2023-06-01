@@ -14,8 +14,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 
 export class InputFormAssetComponent {
 
-
-
   assetForm = this.fb.group({
     asset_details: this.fb.group({
       firma: [''],

@@ -6,6 +6,7 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../Tables/assetTable/Interface/projectArticle";
+import {Project} from "../Tables/project/project";
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +35,15 @@ export class AssetTableService {
   load_assets_from_database(){
     this.http.get<any>(this.generateURL()).subscribe(
       (asset_arr) => {
+        console.log(asset_arr[0])
         this.assets.next(asset_arr);
-        console.log(asset_arr);
+        // console.log(asset_arr);
       });
   }
+
+  // create_new_project_Artikel(projectArticle: ProjectArticle){
+  //   this.http.post<ProjectArticle>
+  // }
 
   print_status(){
    console.log(this.generateURL());

@@ -20,5 +20,5 @@ export interface Article {
   anlagenummer: string;
   besitzer_id: null | number;
   assets: Asset;
-  unterkategorie: Subcategory;
+  unterkategorie?: Subcategory;
 }

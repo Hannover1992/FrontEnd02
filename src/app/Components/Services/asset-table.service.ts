@@ -23,7 +23,6 @@ export class AssetTableService {
               public kategorieService: UnterKategorieService,
               private http: HttpClient
               ) {
-
     this.subscribe_project_kategorie();
     this.load_assets_from_database();
   }

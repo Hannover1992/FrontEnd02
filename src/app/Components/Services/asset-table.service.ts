@@ -21,7 +21,7 @@ export class AssetTableService {
   constructor(
               private projectsService: ProjectsService,
               public kategorieService: UnterKategorieService,
-              private http: HttpClient
+              private http: HttpClient,
               ) {
     this.subscribe_project_kategorie();
     this.load_assets_from_database();
@@ -40,6 +40,15 @@ export class AssetTableService {
       });
   }
 
+  create_new_asset(newProjectArticle:ProjectArticle){
+    this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
+      console.log(response)
+    }, error => {
+      console.log(error)
+    });
+
+  }
+
   // create_new_project_Artikel(projectArticle: ProjectArticle){
   //   this.http.post<ProjectArticle>
   // }
@@ -51,6 +60,10 @@ export class AssetTableService {
   generateURL() {
     return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
       + '/' + this.kategorieService.selectedUnterKategorie.getValue();
+  }
+
+  generate_URL_Post(){
+    return URL + '/projektArtikelAsset';
   }
 
 

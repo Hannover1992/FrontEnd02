@@ -7,7 +7,7 @@ export interface Article {
   firma: string,
   model: string,
   unterkategorie_id: number;
-  preis: string;
+  preis: number;
   beschreibung: string;
   bild_url: string;
   zustand: string;

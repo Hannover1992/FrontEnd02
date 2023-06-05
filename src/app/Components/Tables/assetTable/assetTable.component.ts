@@ -1,19 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
 import {ProjectsService} from "../projectTable/service/projects.service";
 import {AssetTableService} from "../../Services/asset-table.service";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
 import {UnterKategorieService} from "../../Services/unter-kategorie.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
-import {Project} from "../project/project";
 import {ProjectArticle} from "./Interface/projectArticle";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
-import {ProjectInterface} from "../project/project.interface";
-import {UpdateSingleProjectComponent} from "../project/update-single-project/update-single-project.component";
 import {
   DialogDeleteProjectComponent
 } from "../projectTable/projects-table/dialog-delete-project/dialog-delete-project.component";
@@ -32,9 +27,6 @@ import {
 })
 
 export class AssetTableComponent {
-  selected_project: any;
-  selected_kategorie: any;
-
   dataSource: MatTableDataSource<ProjectArticle>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -42,24 +34,18 @@ export class AssetTableComponent {
 
   expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();
+  private dialog: any;
 
   constructor(
-    public projectsService: ProjectsService,
-    public unterKategorieService: UnterKategorieService,
     public assetTableService: AssetTableService,
     private _liveAnnouncer: LiveAnnouncer,
-    private dialog: MatDialog
+
 )
 {
     this.dataSource = new MatTableDataSource(assetTableService.assets.getValue());
     this.expandedElement = null;
-  }
-
-
-  ngAfterViewInit(): void {
     this.lead_the_data_from_database();
   }
-
 
   lead_the_data_from_database() {
     this.assetTableService.assets.subscribe((data) => {
@@ -136,5 +122,12 @@ export class AssetTableComponent {
       'beschreibung'
     ];
     //toDo: Besitzer einbauen
+  }
+
+  open_the_dialog_for_deleting_artikel(element: ProjectArticle){
+    this.dialog.open(DialogDeleteProjectComponent, {
+      data: element
+    });
+
   }
 }

@@ -11,6 +11,7 @@ import {SuccessComponent} from "../../../../notification/success/success.compone
   templateUrl: './dialog-delete-project.component.html',
   styleUrls: ['./dialog-delete-project.component.css']
 })
+//toDo: Make this generic, get run After every interact with DB, and outpu as message the result
 export class DialogDeleteProjectComponent {
 
   project_to_delete: ProjectInterface;

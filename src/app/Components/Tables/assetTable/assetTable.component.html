@@ -50,24 +50,24 @@
                 </app-nummern-details>
               </div>
             </div>
-<!--            <div class="head_block">-->
+            <div class="head_block">
 <!--              <div class="flex_1">-->
 <!--                <button mat-icon-button (click)="open_the_dialog_window_for_editing(element)">-->
 <!--                  <mat-icon>edit</mat-icon>-->
 <!--                </button>-->
 <!--              </div>-->
-<!--              <div class="flex_1">-->
-<!--                <button mat-icon-button (click)="open_the_dialog_for_deleting_project(element)">-->
-<!--                  <mat-icon>delete</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--              <div class="flex_1">-->
+              <div class="flex_1">
+                <button mat-icon-button (click)="open_the_dialog_for_deleting_artikel(element)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+<!--              <div class="flex_1"> //toDo: add Project to Lieferschein-->
 <!--                <button mat-button (click)="select_project({element : element})">-->
 <!--                  &lt;!&ndash;                  <mat-icon>done</mat-icon>&ndash;&gt;-->
 <!--                  Projekt auswählen-->
 <!--                </button>-->
 <!--              </div>-->
-<!--            </div>-->
+            </div>
             <div class="head_block">
               <div class="empty_vertical_space">
               </div>
@@ -112,8 +112,3 @@
 
 
 </div>
-
-<h1>
-  {{this.unterKategorieService.selectedUnterKategorieId.getValue()}}
-  {{this.unterKategorieService.selectedUnterKategorie.getValue()}}
-</h1>

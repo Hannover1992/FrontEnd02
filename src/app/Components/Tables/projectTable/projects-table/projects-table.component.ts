@@ -95,7 +95,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   setup_Visibility() {
     return  [ 'ID',
       //toDo: Anlage nummer entfernen auch aus dem Datenbank, Input , Update
-      'Anlagenummer',
+      // 'Anlagenummer',
 
       'Standort',
       'Niederlassung',

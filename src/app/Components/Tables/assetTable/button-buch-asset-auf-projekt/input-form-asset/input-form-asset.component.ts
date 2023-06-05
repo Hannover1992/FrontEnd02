@@ -72,8 +72,7 @@ export class InputFormAssetComponent {
   onSubmit() {
     let newProjectARticleFromForm = this.from_Form_to_ProjectArtickle();
     this.assetTableService.create_new_asset(newProjectARticleFromForm);
-
-    console.log(this.unterKategorieService.selectedUnterKategorieId.getValue());
+    this.dialog.closeAll();
 
 
     // TODO: Save newArticle and newProjectArticle to backend

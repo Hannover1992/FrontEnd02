@@ -7,6 +7,8 @@ import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../Tables/assetTable/Interface/projectArticle";
 import {Project} from "../Tables/project/project";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +19,13 @@ export class AssetTableService {
   private selected_project!: string;
   private selected_unterkategorie!: string;
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
+  public notifyThatDataChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
               private projectsService: ProjectsService,
               public kategorieService: UnterKategorieService,
               private http: HttpClient,
+              private _snackBar: MatSnackBar
               ) {
     this.subscribe_project_kategorie();
     this.load_assets_from_database();
@@ -42,9 +46,10 @@ export class AssetTableService {
 
   create_new_asset(newProjectArticle:ProjectArticle){
     this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
-      console.log(response)
+      this.load_assets_from_database();
+      this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
     }, error => {
-      console.log(error)
+      this._snackBar.open(error.message, "OK");
     });
 
   }

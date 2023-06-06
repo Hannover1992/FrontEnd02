@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../Tables/assetTable/Interface/projectArticle";
 import {Project} from "../Tables/project/project";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {ProjectInterface} from "../Tables/project/project.interface";
 
 
 @Injectable({
@@ -51,7 +52,57 @@ export class AssetTableService {
     }, error => {
       this._snackBar.open(error.message, "OK");
     });
+  }
 
+  // async delete(project: ProjectInterface) {
+  //   //toDo: wenn irgendetwas is bereits auf diesen Projekt gebucht so kann man das nicht Projet loschen, uberligt dir eine Fehlermeldung
+  //   this.http.delete<ProjectInterface>(this.delURL(project.ID))
+  //     .subscribe((response) => {
+  //       //@ts-ignore
+  //       if(response.message === 'Project deleted') {
+  //         this.projects_error_subject.next(false);
+  //         this.projectsService.getProjects();
+  //       }} , (error) => {
+  //       this.projects_error_subject.next(true);
+  //       throw error;
+  //     });
+  // }
+
+  async delete(projectArticle: ProjectArticle): Promise<void> {
+    try {
+      await this.deleteProjectArticle(projectArticle);
+      this.updateUIAfterSuccessfulDelete();
+    } catch (error) {
+      this.handleDeleteError(error);
+    }
+  }
+
+  private async deleteProjectArticle(projectArticle: ProjectArticle): Promise<void> {
+    await this.http.delete<ProjectArticle>(this.getDeleteUrl(projectArticle.projekt_artikel_id)).toPromise();
+  }
+
+  private getDeleteUrl(projectArticleId: number): string {
+    return this.delURL(projectArticleId);
+  }
+
+  private updateUIAfterSuccessfulDelete(): void {
+    this.load_assets_from_database();
+    this.displaySuccessMessage();
+  }
+
+  private displaySuccessMessage(): void {
+    const successMessage = "Artikel wurde erfolgreich entfernt";
+    this._snackBar.open(successMessage, "OK");
+  }
+
+  private handleDeleteError(error: unknown): void {
+    const errorMessage = this.getErrorMessage(error);
+    this._snackBar.open(errorMessage, "OK");
+  }
+
+  private getErrorMessage(error: unknown): string {
+    const defaultErrorMessage = 'An error occurred';
+    return error instanceof Error ? error.message : defaultErrorMessage;
   }
 
   // create_new_project_Artikel(projectArticle: ProjectArticle){
@@ -88,6 +139,10 @@ export class AssetTableService {
     this.projectsService.selectedProject.subscribe(project => {
       this.selected_project = project;
     });
+  }
+
+  private delURL(projekt_artikel_id: number) {
+      return URL + '/projektArtikelAsset/' + projekt_artikel_id;
   }
 }
 

@@ -12,6 +12,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   DialogDeleteProjectComponent
 } from "../projectTable/projects-table/dialog-delete-project/dialog-delete-project.component";
+import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
 
 @Component({
   selector: 'app-asset-table',
@@ -34,15 +35,17 @@ export class AssetTableComponent {
 
   expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();
-  private dialog: any;
+
+  private dialog: MatDialog;
 
   constructor(
     public assetTableService: AssetTableService,
     private _liveAnnouncer: LiveAnnouncer,
-
+    dialog: MatDialog
 )
 {
-    this.dataSource = new MatTableDataSource(assetTableService.assets.getValue());
+  this.dialog = dialog;
+  this.dataSource = new MatTableDataSource(assetTableService.assets.getValue());
     this.expandedElement = null;
     this.lead_the_data_from_database();
   }
@@ -125,7 +128,7 @@ export class AssetTableComponent {
   }
 
   open_the_dialog_for_deleting_artikel(element: ProjectArticle){
-    this.dialog.open(DialogDeleteProjectComponent, {
+    this.dialog.open(DialogDeleteAssetComponent, {
       data: element
     });
 

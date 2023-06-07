@@ -10,9 +10,11 @@ export class NummernDetailsComponent {
   // [Inventarnummer] ="element.Inventarnummer">
     @Input () anlagenummer: string;
     @Input () Inventarnummer: string;
+    @Input () serriennummer: string;
 
     constructor() {
       this.anlagenummer = "";
       this.Inventarnummer = "";
+      this.serriennummer = "";
     }
 }

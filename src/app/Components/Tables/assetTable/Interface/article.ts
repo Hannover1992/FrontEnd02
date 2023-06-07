@@ -16,6 +16,7 @@ export interface Article {
   belegt_von: string;
   belegt_bis: string;
   edit_date: string;
+  seriennummer: string;
 
   anlagenummer: string;
   besitzer_id: null | number;

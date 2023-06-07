@@ -42,6 +42,7 @@ export class AssetTableService {
         console.log(asset_arr[0])
         this.assets.next(asset_arr);
         // console.log(asset_arr);
+        console.log(this.generateURL());
       });
   }
 

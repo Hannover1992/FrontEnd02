@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ProjectsService} from "../../../projectTable/service/projects.service";
 import {UnterKategorieService} from "../../../../Services/unter-kategorie.service";
-import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ProjectArticle} from "../../Interface/projectArticle";
@@ -46,6 +46,7 @@ export class InputFormAssetComponent {
   });
 
 
+
   positiveNonZero(control: AbstractControl) {
     if (control.value <= 0) {
       return { nonPositiveOrZero: true };
@@ -54,7 +55,6 @@ export class InputFormAssetComponent {
   }
 
   ngOnInit(): void {
-    // this.assetForm.valueChanges.subscribe(console.log);
   }
 
 

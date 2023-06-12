@@ -64,6 +64,7 @@ import { AssetInputDetailComponent } from './Components/Tables/assetTable/button
 import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { VaterComponent } from './Components/Tables/assetTable/testVatherSohnm/vather/vater/vater.component';
 import { SohnComponent } from './Components/Tables/assetTable/testVatherSohnm/vather/vater/sohn/sohn.component';
+import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { SohnComponent } from './Components/Tables/assetTable/testVatherSohnm/va
     DialogDeleteAssetComponent,
     VaterComponent,
     SohnComponent,
+    AssetSpecComponent,
   ],
   imports: [
     BrowserModule,

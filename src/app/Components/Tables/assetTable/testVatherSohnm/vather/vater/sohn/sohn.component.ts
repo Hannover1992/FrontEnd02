@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-sohn',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sohn.component.css']
 })
 export class SohnComponent {
+  @Input() currentName = '';
 
 }

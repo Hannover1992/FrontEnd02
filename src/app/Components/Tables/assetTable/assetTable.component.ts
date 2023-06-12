@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ContentChild, TemplateRef, ViewChild} from '@angular/core';
 import {ProjectsService} from "../projectTable/service/projects.service";
 import {AssetTableService} from "../../Services/asset-table.service";
 import {UnterKategorieService} from "../../Services/unter-kategorie.service";
@@ -32,6 +32,7 @@ export class AssetTableComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ContentChild('content') content!: TemplateRef<any>;
 
   expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();

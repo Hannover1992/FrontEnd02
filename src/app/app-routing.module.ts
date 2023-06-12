@@ -4,10 +4,11 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { ProjectsTableComponent } from './Components/Tables/projectTable/projects-table/projects-table.component';
 import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
 import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
+import {AssetSpecComponent} from "./Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component";
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsTableComponent },
-  { path: 'Asset', component: AssetTableComponent },
+  { path: 'Asset', component: AssetSpecComponent },
   { path: 'Elektronikartikel', component: ElektronikartikelTableComponent },
 ];
 

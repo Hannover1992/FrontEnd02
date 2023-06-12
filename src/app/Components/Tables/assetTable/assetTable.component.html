@@ -50,7 +50,9 @@
                                      [serriennummer] = "element.seriennummer">
                 </app-nummern-details>
               </div>
-
+              <div class="flex_1">
+                <ng-container *ngTemplateOutlet="content; context: { $implicit: element }"></ng-container>
+              </div>
 <!--              i would like that for example this is an Asset so far, but if the Asset si for example Laptop, so here will come part that are special for laptop like IP adresse, or Windows Version -->
             </div>
 

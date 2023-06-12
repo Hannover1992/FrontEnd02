@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-asset-input-date',
   templateUrl: './asset-input-date.component.html',
-  styleUrls: ['./asset-input-date.component.css']
+  styleUrls: ['../../../../../shared_css/input.css']
 })
 
 export class AssetInputDateComponent {

@@ -5,7 +5,7 @@ import {ProjectInputFormComponent} from "./dialog-create-new-project/project-inp
 @Component({
   selector: 'app-button-input-project',
   templateUrl: './button-input-project.component.html',
-  styleUrls: ['./button-input-project.component.css'],
+  styleUrls: ['../../shared_css/input.css'],
   exportAs: 'buttonInputProject'
 })
 

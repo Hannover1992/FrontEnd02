@@ -14,7 +14,7 @@ export enum Zustand {
 @Component({
   selector: 'app-asset-input-detail',
   templateUrl: './asset-input-detail.component.html',
-  styleUrls: ['./asset-input-detail.component.css']
+  styleUrls: ['../../../../../shared_css/input.css']
 })
 export class AssetInputDetailComponent {
   @Input() asset_details: FormGroup;

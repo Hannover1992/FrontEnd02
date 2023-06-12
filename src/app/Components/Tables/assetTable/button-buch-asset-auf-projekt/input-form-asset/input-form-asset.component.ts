@@ -4,14 +4,14 @@ import {UnterKategorieService} from "../../../../Services/unter-kategorie.servic
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Article} from "../../Interface/article";
 import {ProjectArticle} from "../../Interface/projectArticle";
 import {AssetTableService} from "../../../../Services/asset-table.service";
+import {Article} from "../../Interface/article";
 
 @Component({
   selector: 'app-input-form-asset',
   templateUrl: './input-form-asset.component.html',
-  styleUrls: ['./input-form-asset.component.css']
+  styleUrls: ['../../../shared_css/input.css']
 })
 
 

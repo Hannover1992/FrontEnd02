@@ -62,6 +62,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { AssetInputDateComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-date/asset-input-date.component';
 import { AssetInputDetailComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-detail/asset-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
+import { VaterComponent } from './Components/Tables/assetTable/testVatherSohnm/vather/vater/vater.component';
+import { SohnComponent } from './Components/Tables/assetTable/testVatherSohnm/vather/vater/sohn/sohn.component';
 
 
 @NgModule({
@@ -99,6 +101,8 @@ import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialo
     AssetInputDateComponent,
     AssetInputDetailComponent,
     DialogDeleteAssetComponent,
+    VaterComponent,
+    SohnComponent,
   ],
   imports: [
     BrowserModule,

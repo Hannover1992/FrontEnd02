@@ -87,28 +87,7 @@ export class AssetTableComponent {
     }
   }
 
-
   //toDo: Implement for the Asset Table
-
-  // open_the_dialog_window_for_editing(element: ProjectInterface) {
-  //   this.dialog.open(UpdateSingleProjectComponent, {
-  //     data: element,
-  //     enterAnimationDuration: 500,
-  //     exitAnimationDuration: 300
-  //   });
-  // }
-  //
-  // open_the_dialog_for_deleting_project(element: ProjectInterface) {
-  //   this.dialog.open(DialogDeleteProjectComponent, {
-  //     data: element
-  //   });
-  // }
-  //
-  // select_project({element}: { element: any }) {
-  //   this.projectsService.selectedProject.next(element.ID);
-  // }
-
-
 
    setup_Visibility() {
     return  [

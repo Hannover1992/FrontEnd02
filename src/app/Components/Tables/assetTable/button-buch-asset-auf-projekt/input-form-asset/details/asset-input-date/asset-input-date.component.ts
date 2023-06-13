@@ -8,10 +8,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 
 export class AssetInputDateComponent {
-  @Input() asset_dates: FormGroup;
+  @Input() asset_dates!: FormGroup;
 
-  constructor( private fb: FormBuilder) {
-    this.asset_dates = this.fb.group({ })
-  }
+  constructor() {}
 
 }

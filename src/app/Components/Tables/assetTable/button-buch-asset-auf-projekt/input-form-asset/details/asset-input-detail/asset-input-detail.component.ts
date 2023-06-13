@@ -10,15 +10,13 @@ export enum Zustand {
   KAPUTT = 'Kaputt'
 }
 
-
 @Component({
   selector: 'app-asset-input-detail',
   templateUrl: './asset-input-detail.component.html',
   styleUrls: ['../../../../../shared_css/input.css']
 })
-export class AssetInputDetailComponent {
-  @Input() asset_details: FormGroup;
-
+export class AssetInputDetailComponent  {
+  @Input() asset_details!: FormGroup;
 
   zustandOptions: Zustand[] = [
     Zustand.NEU,
@@ -30,8 +28,6 @@ export class AssetInputDetailComponent {
 
 
 
-  constructor( private fb: FormBuilder) {
-    this.asset_details = this.fb.group({ })
-  }
+  constructor() { }
 
 }

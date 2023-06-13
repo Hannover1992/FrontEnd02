@@ -9,7 +9,6 @@ import {FormGroup} from "@angular/forms";
 export class AssetNumbersInputComponent {
   @Input() asset_numbers!: FormGroup;
 
-  constructor() {
-  }
+  constructor() {}
 
 }

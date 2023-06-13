@@ -9,6 +9,7 @@ import {AssetTableService} from "../../../../Services/asset-table.service";
 import {Article} from "../../Interface/article";
 import {Initialization} from "./initialization";
 import {Util} from "./services/util.service";
+import {ArticleCreationService} from "./services/article-creation.service";
 
 
 
@@ -30,59 +31,18 @@ export class InputArtikelForm {
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private assetTableService: AssetTableService,
-    private util: Util
+    private util: Util,
+    private articleCreationService: ArticleCreationService
   ) {
     this.artikelForm =  new Initialization(fb).initForm();
   }
 
   onSubmit() {
-    let newProjectARticleFromForm = this.createNewProjectArticle();
+    let newProjectARticleFromForm =this.articleCreationService.createNewProjectArticle(this.artikelForm, this.projectsService);
     this.assetTableService.create_new_asset(newProjectARticleFromForm);
     this.dialog.closeAll();
-    // TODO: Save newArticle and newProjectArticle to backend
   }
 
-
-  private createNewArticle(): Article {
-
-    const unterkategorieID = this.getUnterkategorieID();
-
-    return {
-      artikel_id: 0,
-      artikelname: this.artikelnameForm,
-      firma: this.firmaForm,
-      model: this.modelForm,
-      unterkategorie_id: unterkategorieID,
-      preis: this.preisForm,
-      beschreibung: this.beschreibungForm,
-      bild_url: '',
-      zustand: this.zustandForm,
-      einkaufs_datum: this.einkaufsDatumForm,
-      belegt_von: this.belegtVonForm,
-      belegt_bis: this.belegtBisForm,
-      edit_date: this.editDateForm,
-      anlagenummer: this.anlagenummerForm,
-      besitzer_id: null,
-      seriennummer: this.seriennummerForm,
-      assets: {
-        ID: 0,
-        Inventarnummer: this.inventarnummerForm,
-      },
-    };
-  }
-
-  private createNewProjectArticle(): ProjectArticle {
-    const projektID = this.getProjektID();
-    const newArticle = this.createNewArticle();
-
-    return {
-      projekt_artikel_id: 0,
-      projekt_id: projektID,
-      artikel_id: 0,
-      menge: this.mengeForm,
-      artikel: newArticle
-    };
-  }
 
   get assetDetails(): FormGroup {
     return this.artikelForm.get('asset_details') as FormGroup;

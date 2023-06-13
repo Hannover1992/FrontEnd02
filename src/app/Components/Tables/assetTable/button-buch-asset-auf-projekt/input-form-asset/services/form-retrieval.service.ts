@@ -5,7 +5,7 @@ import {FormGroup} from "@angular/forms";
 @Injectable({
   providedIn: 'root'
 })
-export class FormRetrieval {
+export class FormRetrievalService {
 
   constructor(
     private util: Util,

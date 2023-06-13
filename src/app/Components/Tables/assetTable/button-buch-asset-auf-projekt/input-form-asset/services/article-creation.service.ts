@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 import {Article} from "../../../Interface/article";
 import {ProjectArticle} from "../../../Interface/projectArticle";
 import {Util} from "./util.service";
-import {FormRetrieval} from "./form-retrieval.service";
+import {FormRetrievalService} from "./form-retrieval.service";
 
 
 @Injectable({
@@ -14,52 +14,46 @@ export class ArticleCreationService {
   constructor(
     private unterKategorieService: UnterKategorieService,
     private util: Util,
-    private formRetrieval: FormRetrieval
+    private formRetrievalService: FormRetrievalService
   ) {}
 
   createNewArticle(artikelForm: FormGroup): Article {
     const unterkategorieID = this.getUnterkategorieID();
 
     return {
-      artikel_id: 0,
-        artikelname: this.formRetrieval.artikelnameForm(artikelForm),
-      firma: this.formRetrieval.firmaForm(artikelForm),
-      model: this.formRetrieval.modelForm(artikelForm),
-      unterkategorie_id: unterkategorieID, // unterkategorieID should be retrieved separately
-      preis: this.formRetrieval.preisForm(artikelForm),
-      beschreibung: this.formRetrieval.beschreibungForm(artikelForm),
-      bild_url: '',
-      zustand: this.formRetrieval.zustandForm(artikelForm),
-      einkaufs_datum: this.formRetrieval.einkaufsDatumForm(artikelForm),
-      belegt_von: this.formRetrieval.belegtVonForm(artikelForm),
-      belegt_bis: this.formRetrieval.belegtBisForm(artikelForm),
-      edit_date: this.formRetrieval.editDateForm(artikelForm),
-      anlagenummer: this.formRetrieval.anlagenummerForm(artikelForm),
-      besitzer_id: null, // This should be set separately
-      seriennummer: this.formRetrieval.seriennummerForm(artikelForm),
+      artikel_id:         0,
+      artikelname:        this.formRetrievalService.artikelnameForm(artikelForm),
+      firma:              this.formRetrievalService.firmaForm(artikelForm),
+      model:              this.formRetrievalService.modelForm(artikelForm),
+      unterkategorie_id:  unterkategorieID, // unterkategorieID should be retrieved separately
+      preis:              this.formRetrievalService.preisForm(artikelForm),
+      beschreibung:       this.formRetrievalService.beschreibungForm(artikelForm),
+      bild_url:           '',
+      zustand:            this.formRetrievalService.zustandForm(artikelForm),
+      einkaufs_datum:     this.formRetrievalService.einkaufsDatumForm(artikelForm),
+      belegt_von:         this.formRetrievalService.belegtVonForm(artikelForm),
+      belegt_bis:         this.formRetrievalService.belegtBisForm(artikelForm),
+      edit_date:          this.formRetrievalService.editDateForm(artikelForm),
+      anlagenummer:       this.formRetrievalService.anlagenummerForm(artikelForm),
+      besitzer_id:        null, // This should be set separately
+      seriennummer:       this.formRetrievalService.seriennummerForm(artikelForm),
       assets: {
-      ID: 0,
-        Inventarnummer: this.formRetrieval.inventarnummerForm(artikelForm),
+      ID:                 0,
+        Inventarnummer:   this.formRetrievalService.inventarnummerForm(artikelForm),
       },
     }
-
-
-
-
-
-
   }
 
-  createNewProjectArticle(artikelForm: FormGroup, projectsService: any): ProjectArticle {
-    const projektID = this.getProjektID(projectsService);
-    const newArticle = this.createNewArticle(artikelForm);
+  create(artikelForm: FormGroup, projectsService: any): ProjectArticle {
+    const projektID : number  = this.getProjektID(projectsService);
+    const newArticle: Article = this.createNewArticle(artikelForm);
 
     return {
       projekt_artikel_id: 0,
-      projekt_id: projektID,
-      artikel_id: 0,
-      menge: this.util.getFormValueAsNumber(artikelForm.get('asset_numbers.menge')),
-      artikel: newArticle,
+      projekt_id:         projektID,
+      artikel_id:         0,
+      menge:              this.util.getFormValueAsNumber(artikelForm.get('asset_numbers.menge')),
+      artikel:            newArticle,
     };
   }
 

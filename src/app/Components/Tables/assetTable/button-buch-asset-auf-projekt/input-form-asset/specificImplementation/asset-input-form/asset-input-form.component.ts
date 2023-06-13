@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import {InputArtikelForm} from "../../input-artikle-form.component";
 import {FormBuilder} from "@angular/forms";
 import {ProjectsService} from "../../../../../projectTable/service/projects.service";
-import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
-import {FormInitializationService} from "../../services/form-initialization.service";
 import {Util} from "../../services/util.service";
 import {ArticleCreationService} from "../../services/article-creation.service";
 
@@ -20,7 +18,6 @@ export class AssetInputFormComponent extends InputArtikelForm {
   constructor(
     fb: FormBuilder,
     projectsService: ProjectsService,
-    unterKategorieService: UnterKategorieService,
     dialog: MatDialog,
     snackBar: MatSnackBar,
     assetTableService: AssetTableService,
@@ -30,7 +27,6 @@ export class AssetInputFormComponent extends InputArtikelForm {
     super(
       fb,
       projectsService,
-      unterKategorieService,
       dialog,
       snackBar,
       assetTableService,

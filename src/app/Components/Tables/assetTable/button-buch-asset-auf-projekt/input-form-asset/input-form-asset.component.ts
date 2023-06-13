@@ -78,16 +78,28 @@ export class InputFormAssetComponent {
   }
 
   private from_Form_to_ProjectArtickle(): ProjectArticle {
-    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
+    const unterkategorieID = this.getUnterkategorieID();
+    const projektID = this.getProjektID();
+    const newArticle = this.createNewArticle(unterkategorieID);
 
+    return this.createNewProjectArticle(projektID, newArticle);
+  }
+
+  private getUnterkategorieID(): number {
+    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
     if (!unterkategorieID) {
       throw new Error("unterkategorieID is null");
     }
+    return unterkategorieID;
+  }
 
-    const projektID = this.projectsService.selectedProject.getValue();
+  private getProjektID(): number {
+    let proStr = this.projectsService.selectedProject.getValue();
+    return parseInt(proStr);
+  }
 
-    // Create Article object
-    const newArticle: Article = {
+  private createNewArticle(unterkategorieID: number): Article {
+    return {
       artikel_id: 0,
       artikelname: this.getFormValue(this.artikelnameForm),
       firma: this.getFormValue(this.firmaForm),
@@ -109,17 +121,16 @@ export class InputFormAssetComponent {
         Inventarnummer: this.getFormValueAsNumber(this.inventarnummerForm),
       },
     };
+  }
 
-    // Create ProjectArticle object
-    const newProjectArticle: ProjectArticle = {
+  private createNewProjectArticle(projektID: number, newArticle: Article): ProjectArticle {
+    return {
       projekt_artikel_id: 0,
-      projekt_id: parseInt(projektID, 10),
+      projekt_id: projektID,
       artikel_id: 0,
       menge: this.getFormValueAsNumber(this.mengeForm),
       artikel: newArticle
     };
-
-    return newProjectArticle;
   }
 
   private getFormValue(control: AbstractControl<any, any> | null): string {

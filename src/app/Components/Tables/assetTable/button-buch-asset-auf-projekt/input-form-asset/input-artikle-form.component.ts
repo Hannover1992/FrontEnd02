@@ -17,35 +17,7 @@ import {Article} from "../../Interface/article";
 
 export class InputArtikelForm {
 
-  // artikelForm = this.fb.group({
-  //   asset_details: this.fb.group({
-  //     firma: [''],
-  //     artikelname: [''],
-  //     model: [''],
-  //     zustand: [''],
-  //     beschreibung: [''],
-  //   }),
-  //   asset_numbers: this.fb.group({
-  //     menge: [1, Validators.compose([
-  //       Validators.required,
-  //       Validators.pattern('^[0-9]*$'),
-  //       this.positiveNonZero
-  //     ])],
-  //     preis: [''],
-  //     Inventarnummer: [0],
-  //     anlagenummer: [''],
-  //     serriennummer: [''],
-  //   }),
-  //   date_info: this.fb.group({
-  //     einkaufs_datum: [new Date()],
-  //     edit_date: [new Date()],
-  //     belegt_von: [new Date()],
-  //     belegt_bis: [new Date()],
-  //   }),
-  // });
-
   artikelForm: FormGroup = this.fb.group({});
-
 
   constructor(
     private fb: FormBuilder,
@@ -58,32 +30,44 @@ export class InputArtikelForm {
     this.initForm()
   }
 
-  initForm(){
+  initForm() {
     this.artikelForm = this.fb.group({
-      asset_details: this.fb.group({
-        firma: [''],
-        artikelname: [''],
-        model: [''],
-        zustand: [''],
-        beschreibung: [''],
-      }),
-      asset_numbers: this.fb.group({
-        menge: [1, Validators.compose([
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-          this.positiveNonZero // Make sure you have defined this custom validator function
-        ])],
-        preis: [''],
-        Inventarnummer: [0],
-        anlagenummer: [''],
-        serriennummer: [''],
-      }),
-      date_info: this.fb.group({
-        einkaufs_datum: [new Date()],
-        edit_date: [new Date()],
-        belegt_von: [new Date()],
-        belegt_bis: [new Date()],
-      }),
+      asset_details: this.initAssetDetails(),
+      asset_numbers: this.initAssetNumbers(),
+      date_info: this.initDateInfo(),
+    });
+  }
+
+  initAssetDetails(): FormGroup {
+    return this.fb.group({
+      firma: [''],
+      artikelname: [''],
+      model: [''],
+      zustand: [''],
+      beschreibung: [''],
+    });
+  }
+
+  initAssetNumbers(): FormGroup {
+    return this.fb.group({
+      menge: [1, Validators.compose([
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        this.positiveNonZero // Make sure you have defined this custom validator function
+      ])],
+      preis: [''],
+      Inventarnummer: [0],
+      anlagenummer: [''],
+      serriennummer: [''],
+    });
+  }
+
+  initDateInfo(): FormGroup {
+    return this.fb.group({
+      einkaufs_datum: [new Date()],
+      edit_date: [new Date()],
+      belegt_von: [new Date()],
+      belegt_bis: [new Date()],
     });
   }
 
@@ -95,17 +79,10 @@ export class InputArtikelForm {
     return null;
   }
 
-  ngOnInit(): void {
-  }
-
-
-
   onSubmit() {
     let newProjectARticleFromForm = this.from_Form_to_ProjectArtickle();
     this.assetTableService.create_new_asset(newProjectARticleFromForm);
     this.dialog.closeAll();
-
-
     // TODO: Save newArticle and newProjectArticle to backend
   }
 

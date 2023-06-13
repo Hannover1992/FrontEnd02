@@ -36,10 +36,52 @@ export class InputArtikelForm {
   }
 
   onSubmit() {
-    let newProjectARticleFromForm = this.from_Form_to_ProjectArtickle();
+    let newProjectARticleFromForm = this.createNewProjectArticle();
     this.assetTableService.create_new_asset(newProjectARticleFromForm);
     this.dialog.closeAll();
     // TODO: Save newArticle and newProjectArticle to backend
+  }
+
+
+  private createNewArticle(): Article {
+
+    const unterkategorieID = this.getUnterkategorieID();
+
+    return {
+      artikel_id: 0,
+      artikelname: this.artikelnameForm,
+      firma: this.firmaForm,
+      model: this.modelForm,
+      unterkategorie_id: unterkategorieID,
+      preis: this.preisForm,
+      beschreibung: this.beschreibungForm,
+      bild_url: '',
+      zustand: this.zustandForm,
+      einkaufs_datum: this.einkaufsDatumForm,
+      belegt_von: this.belegtVonForm,
+      belegt_bis: this.belegtBisForm,
+      edit_date: this.editDateForm,
+      anlagenummer: this.anlagenummerForm,
+      besitzer_id: null,
+      seriennummer: this.seriennummerForm,
+      assets: {
+        ID: 0,
+        Inventarnummer: this.inventarnummerForm,
+      },
+    };
+  }
+
+  private createNewProjectArticle(): ProjectArticle {
+    const projektID = this.getProjektID();
+    const newArticle = this.createNewArticle();
+
+    return {
+      projekt_artikel_id: 0,
+      projekt_id: projektID,
+      artikel_id: 0,
+      menge: this.mengeForm,
+      artikel: newArticle
+    };
   }
 
   get assetDetails(): FormGroup {
@@ -54,13 +96,6 @@ export class InputArtikelForm {
     return this.artikelForm.get('asset_numbers') as FormGroup;
   }
 
-  private from_Form_to_ProjectArtickle(): ProjectArticle {
-    const unterkategorieID = this.getUnterkategorieID();
-    const projektID = this.getProjektID();
-    const newArticle = this.createNewArticle(unterkategorieID);
-
-    return this.createNewProjectArticle(projektID, newArticle);
-  }
 
   private getUnterkategorieID(): number {
     const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
@@ -74,59 +109,6 @@ export class InputArtikelForm {
     let proStr = this.projectsService.selectedProject.getValue();
     return parseInt(proStr);
   }
-
-  private createNewArticle(unterkategorieID: number): Article {
-    return {
-        artikel_id: 0,
-    artikelname: this.artikelnameForm,
-    firma: this.firmaForm,
-    model: this.modelForm,
-    unterkategorie_id: unterkategorieID,
-    preis: this.preisForm,
-    beschreibung: this.beschreibungForm,
-    bild_url: '',
-    zustand: this.zustandForm,
-    einkaufs_datum: this.einkaufsDatumForm,
-    belegt_von: this.belegtVonForm,
-    belegt_bis: this.belegtBisForm,
-    edit_date: this.editDateForm,
-    anlagenummer: this.anlagenummerForm,
-    besitzer_id: null,
-    seriennummer: this.seriennummerForm,
-    assets: {
-        ID: 0,
-        Inventarnummer: this.inventarnummerForm,
-    },
-    };
-  }
-
-  private createNewProjectArticle(projektID: number, newArticle: Article): ProjectArticle {
-    return {
-      projekt_artikel_id: 0,
-      projekt_id: projektID,
-      artikel_id: 0,
-      menge: this.mengeForm,
-      artikel: newArticle
-    };
-  }
-
-  private getFormValue(control: AbstractControl<any, any> | null): string {
-    return control && control.value ? control.value : '';
-  }
-
-  private getFormValueAsFloat(control: AbstractControl<any, any> | null): number {
-    return control && control.value ? parseFloat(control.value) : 0;
-  }
-
-  private getFormValueAsNumber(control: AbstractControl<any, any> | null): number {
-    return control && control.value ? Number(control.value) : 0;
-  }
-
-  private getFormValueAsISOString(control: AbstractControl<any, any> | null): string {
-    return control && control.value ? control.value.toISOString() : '';
-  }
-
-
 
   get artikelnameForm(): string {
     return this.util.getFormValue(this.artikelForm.get('asset_details.artikelname'));
@@ -183,7 +165,6 @@ export class InputArtikelForm {
   get seriennummerForm(): string {
     return this.util.getFormValue(this.artikelForm.get('asset_numbers.serriennummer'));
   }
-
 
 }
 

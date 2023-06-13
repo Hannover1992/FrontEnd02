@@ -55,20 +55,6 @@ export class AssetTableService {
     });
   }
 
-  // async delete(project: ProjectInterface) {
-  //   //toDo: wenn irgendetwas is bereits auf diesen Projekt gebucht so kann man das nicht Projet loschen, uberligt dir eine Fehlermeldung
-  //   this.http.delete<ProjectInterface>(this.delURL(project.ID))
-  //     .subscribe((response) => {
-  //       //@ts-ignore
-  //       if(response.message === 'Project deleted') {
-  //         this.projects_error_subject.next(false);
-  //         this.projectsService.getProjects();
-  //       }} , (error) => {
-  //       this.projects_error_subject.next(true);
-  //       throw error;
-  //     });
-  // }
-
   async delete(projectArticle: ProjectArticle): Promise<void> {
     try {
       await this.deleteProjectArticle(projectArticle);

@@ -9,18 +9,6 @@
       <app-asset-input-date [asset_dates]="assetDates"></app-asset-input-date>
       <app-asset-numbers-input [asset_numbers]="assetNumbers"></app-asset-numbers-input>
 
-
-<!--      <div class="col">-->
-<!--        &lt;!&ndash;      toDo: Aufstegende nachste Invenatummer als default fest legen&ndash;&gt;-->
-<!--        <mat-form-field class="full-width">-->
-<!--          <mat-label>Inventarnummer</mat-label>-->
-<!--          <input matInput placeholder="Inventarnummer" formControlName="Inventarnummer" autocomplete="off" >-->
-<!--          <mat-error *ngIf="this.assetForm.controls['Inventarnummer'].hasError('pattern')">-->
-<!--            Inventarnummer muss ein <strong>Nummer</strong> sein!-->
-<!--          </mat-error>-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-
       <div [formGroup]="assetDetails">
         <mat-form-field class="full-width">
           <mat-label>Beschreibung</mat-label>

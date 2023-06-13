@@ -15,38 +15,77 @@ import {Article} from "../../Interface/article";
 })
 
 
-export class InputArtikleForm {
+export class InputArtikelForm {
 
-  artikelForm = this.fb.group({
-    asset_details: this.fb.group({
-      firma: [''],
-      artikelname: [''],
-      model: [''],
-      // toDo: Zustand als slect form list
-      zustand: [''],
-      beschreibung: [''],
-    }),
-    asset_numbers: this.fb.group({
-      menge: [1, Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]*$'),
-        this.positiveNonZero
-      ])],
-      preis: [''],
-      Inventarnummer: [0],
-      anlagenummer: [''],
-      serriennummer: [''],
-    }),
-    date_info: this.fb.group({
-      einkaufs_datum: [new Date()],
-      edit_date: [new Date()],
-      belegt_von: [new Date()],
-      belegt_bis: [new Date()],
-    }),
-  });
+  // artikelForm = this.fb.group({
+  //   asset_details: this.fb.group({
+  //     firma: [''],
+  //     artikelname: [''],
+  //     model: [''],
+  //     zustand: [''],
+  //     beschreibung: [''],
+  //   }),
+  //   asset_numbers: this.fb.group({
+  //     menge: [1, Validators.compose([
+  //       Validators.required,
+  //       Validators.pattern('^[0-9]*$'),
+  //       this.positiveNonZero
+  //     ])],
+  //     preis: [''],
+  //     Inventarnummer: [0],
+  //     anlagenummer: [''],
+  //     serriennummer: [''],
+  //   }),
+  //   date_info: this.fb.group({
+  //     einkaufs_datum: [new Date()],
+  //     edit_date: [new Date()],
+  //     belegt_von: [new Date()],
+  //     belegt_bis: [new Date()],
+  //   }),
+  // });
+
+  artikelForm: FormGroup = this.fb.group({});
 
 
+  constructor(
+    private fb: FormBuilder,
+    public projectsService: ProjectsService,
+    public unterKategorieService: UnterKategorieService,
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private assetTableService: AssetTableService
+  ) {
+    this.initForm()
+  }
 
+  initForm(){
+    this.artikelForm = this.fb.group({
+      asset_details: this.fb.group({
+        firma: [''],
+        artikelname: [''],
+        model: [''],
+        zustand: [''],
+        beschreibung: [''],
+      }),
+      asset_numbers: this.fb.group({
+        menge: [1, Validators.compose([
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          this.positiveNonZero // Make sure you have defined this custom validator function
+        ])],
+        preis: [''],
+        Inventarnummer: [0],
+        anlagenummer: [''],
+        serriennummer: [''],
+      }),
+      date_info: this.fb.group({
+        einkaufs_datum: [new Date()],
+        edit_date: [new Date()],
+        belegt_von: [new Date()],
+        belegt_bis: [new Date()],
+      }),
+    });
+  }
 
 
   positiveNonZero(control: AbstractControl) {
@@ -60,16 +99,6 @@ export class InputArtikleForm {
   }
 
 
-  constructor(
-    private fb: FormBuilder,
-    public projectsService: ProjectsService,
-    public unterKategorieService: UnterKategorieService,
-    private dialog: MatDialog,
-    private _snackBar: MatSnackBar,
-    private assetTableService: AssetTableService
-  ) {
-  }
-
 
   onSubmit() {
     let newProjectARticleFromForm = this.from_Form_to_ProjectArtickle();
@@ -78,6 +107,18 @@ export class InputArtikleForm {
 
 
     // TODO: Save newArticle and newProjectArticle to backend
+  }
+
+  get assetDetails(): FormGroup {
+    return this.artikelForm.get('asset_details') as FormGroup;
+  }
+
+  get assetDates(): FormGroup {
+    return this.artikelForm.get('date_info') as FormGroup;
+  }
+
+  get assetNumbers(): FormGroup {
+    return this.artikelForm.get('asset_numbers') as FormGroup;
   }
 
   private from_Form_to_ProjectArtickle(): ProjectArticle {

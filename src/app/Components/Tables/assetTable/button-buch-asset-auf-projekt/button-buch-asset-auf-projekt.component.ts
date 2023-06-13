@@ -3,7 +3,7 @@ import {
   ProjectInputFormComponent
 } from "../../project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component";
 import {MatDialog} from "@angular/material/dialog";
-import {InputArtikleForm} from "./input-form-asset/input-artikle-form.component";
+import {InputArtikelForm} from "./input-form-asset/input-artikle-form.component";
 
 @Component({
   selector: 'app-button-buch-asset-auf-projekt',
@@ -17,6 +17,6 @@ export class ButtonBuchAssetAufProjektComponent {
     }
 
         open_input_form() {
-          this.dialog.open(InputArtikleForm);
+          this.dialog.open(InputArtikelForm);
   }
 }

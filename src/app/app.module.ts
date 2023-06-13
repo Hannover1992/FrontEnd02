@@ -54,7 +54,7 @@ import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/det
 import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/details/assets-datum-details/assets-datum-details.component';
 import { NummernDetailsComponent } from './Components/Tables/assetTable/details/nummern-details/nummern-details.component';
 import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
-import { InputFormAssetComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/input-form-asset.component';
+import { InputArtikleForm } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/input-artikle-form.component';
 import { AssetNumbersInputComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-numbers-input/asset-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
@@ -63,6 +63,7 @@ import { AssetInputDateComponent } from './Components/Tables/assetTable/button-b
 import { AssetInputDetailComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-detail/asset-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component';
+import { AssetInputFormComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
 
 
 @NgModule({
@@ -95,12 +96,13 @@ import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTab
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
     ButtonBuchAssetAufProjektComponent,
-    InputFormAssetComponent,
+    InputArtikleForm,
     AssetNumbersInputComponent,
     AssetInputDateComponent,
     AssetInputDetailComponent,
     DialogDeleteAssetComponent,
     AssetSpecComponent,
+    AssetInputFormComponent,
   ],
   imports: [
     BrowserModule,

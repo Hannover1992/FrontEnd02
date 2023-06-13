@@ -8,6 +8,7 @@ import {ProjectArticle} from "../../Interface/projectArticle";
 import {AssetTableService} from "../../../../Services/asset-table.service";
 import {Article} from "../../Interface/article";
 import {Initialization} from "./initialization";
+import {Util} from "./services/util.service";
 
 
 
@@ -29,6 +30,7 @@ export class InputArtikelForm {
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private assetTableService: AssetTableService,
+    private util: Util
   ) {
     this.artikelForm =  new Initialization(fb).initForm();
   }
@@ -127,59 +129,59 @@ export class InputArtikelForm {
 
 
   get artikelnameForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_details.artikelname'));
+    return this.util.getFormValue(this.artikelForm.get('asset_details.artikelname'));
   }
 
   get firmaForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_details.firma'));
+    return this.util.getFormValue(this.artikelForm.get('asset_details.firma'));
   }
 
   get modelForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_details.model'));
+    return this.util.getFormValue(this.artikelForm.get('asset_details.model'));
   }
 
   get preisForm(): number {
-    return this.getFormValueAsFloat(this.artikelForm.get('asset_numbers.preis'));
+    return this.util.getFormValueAsFloat(this.artikelForm.get('asset_numbers.preis'));
   }
 
   get beschreibungForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_details.beschreibung'));
+    return this.util.getFormValue(this.artikelForm.get('asset_details.beschreibung'));
   }
 
   get zustandForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_details.zustand'));
+    return this.util.getFormValue(this.artikelForm.get('asset_details.zustand'));
   }
 
   get anlagenummerForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_numbers.anlagenummer'));
+    return this.util.getFormValue(this.artikelForm.get('asset_numbers.anlagenummer'));
   }
 
   get einkaufsDatumForm(): string {
-    return this.getFormValueAsISOString(this.artikelForm.get('date_info.einkaufs_datum'));
+    return this.util.getFormValueAsISOString(this.artikelForm.get('date_info.einkaufs_datum'));
   }
 
   get belegtVonForm(): string {
-    return this.getFormValueAsISOString(this.artikelForm.get('date_info.belegt_von'));
+    return this.util.getFormValueAsISOString(this.artikelForm.get('date_info.belegt_von'));
   }
 
   get belegtBisForm(): string {
-    return this.getFormValueAsISOString(this.artikelForm.get('date_info.belegt_bis'));
+    return this.util.getFormValueAsISOString(this.artikelForm.get('date_info.belegt_bis'));
   }
 
   get editDateForm(): string {
-    return this.getFormValueAsISOString(this.artikelForm.get('date_info.edit_date'));
+    return this.util.getFormValueAsISOString(this.artikelForm.get('date_info.edit_date'));
   }
 
   get inventarnummerForm(): number {
-    return this.getFormValueAsNumber(this.artikelForm.get('asset_numbers.Inventarnummer'));
+    return this.util.getFormValueAsNumber(this.artikelForm.get('asset_numbers.Inventarnummer'));
   }
 
   get mengeForm(): number {
-    return this.getFormValueAsNumber(this.artikelForm.get('asset_numbers.menge'));
+    return this.util.getFormValueAsNumber(this.artikelForm.get('asset_numbers.menge'));
   }
 
   get seriennummerForm(): string {
-    return this.getFormValue(this.artikelForm.get('asset_numbers.serriennummer'));
+    return this.util.getFormValue(this.artikelForm.get('asset_numbers.serriennummer'));
   }
 
 

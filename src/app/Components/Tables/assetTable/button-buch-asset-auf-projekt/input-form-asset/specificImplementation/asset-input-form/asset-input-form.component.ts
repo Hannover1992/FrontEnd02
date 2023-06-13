@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {FormInitializationService} from "../../services/form-initialization.service";
+import {Util} from "../../services/util.service";
 
 @Component({
   selector: 'app-asset-input-form',
@@ -21,7 +22,8 @@ export class AssetInputFormComponent extends InputArtikelForm {
     unterKategorieService: UnterKategorieService,
     dialog: MatDialog,
     snackBar: MatSnackBar,
-    assetTableService: AssetTableService
+    assetTableService: AssetTableService,
+    util: Util
   ) {
     super(
       fb,
@@ -29,7 +31,8 @@ export class AssetInputFormComponent extends InputArtikelForm {
       unterKategorieService,
       dialog,
       snackBar,
-      assetTableService
+      assetTableService,
+      util
     );
   }
 }

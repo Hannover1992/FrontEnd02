@@ -64,9 +64,13 @@ import { AssetInputDetailComponent } from './Components/Tables/assetTable/button
 import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component';
 import { AssetInputFormComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
+import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     ProjectsTableComponent,
@@ -95,6 +99,7 @@ import { AssetInputFormComponent } from './Components/Tables/assetTable/button-b
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
+    // @ts-ignore
     ButtonBuchAssetAufProjektComponent,
     InputArtikelForm,
     AssetNumbersInputComponent,
@@ -103,7 +108,9 @@ import { AssetInputFormComponent } from './Components/Tables/assetTable/button-b
     DialogDeleteAssetComponent,
     AssetSpecComponent,
     AssetInputFormComponent,
+    ButtonBuchAssetAufAssetProjectComponent,
   ],
+  entryComponents: [ProjectInputFormComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -137,8 +144,6 @@ import { AssetInputFormComponent } from './Components/Tables/assetTable/button-b
     MatLegacyChipsModule,
     MatButtonToggleModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ProjectInputFormComponent]
+  providers: []
 })
 export class AppModule { }

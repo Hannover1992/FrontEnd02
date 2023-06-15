@@ -15,32 +15,32 @@ import {ArticleCreationService} from "../../services/article-creation.service";
 })
 export class AssetInputFormComponent extends InputArtikelForm {
 
-  // extendedForm: FormGroup = this.extendedInit();
+  extendedForm: FormGroup = this.extendedInit();
 
-  // constructor(
-  //   fb: FormBuilder,
-  //   projectsService: ProjectsService,
-  //   dialog: MatDialog,
-  //   snackBar: MatSnackBar,
-  //   assetTableService: AssetTableService,
-  //   util: Util,
-  //   articleCreationService: ArticleCreationService
-  // ) {
-  //   super(
-  //     fb,
-  //     projectsService,
-  //     dialog,
-  //     snackBar,
-  //     assetTableService,
-  //     util,
-  //     articleCreationService
-  //   );
-  // }
+  constructor(
+    fb: FormBuilder,
+    projectsService: ProjectsService,
+    dialog: MatDialog,
+    snackBar: MatSnackBar,
+    assetTableService: AssetTableService,
+    util: Util,
+    articleCreationService: ArticleCreationService
+  ) {
+    super(
+      fb,
+      projectsService,
+      dialog,
+      snackBar,
+      assetTableService,
+      util,
+      articleCreationService
+    );
+  }
 
   protected extendedInit() {
-    // return this.fb.group({
-    //   Inventarnummer: [''],
-    // })
+    return this.fb.group({
+      Inventarnummer: [''],
+    })
   }
 
 }

@@ -36,6 +36,7 @@ export class InputArtikelForm {
   }
 
   onSubmit() {
+    console.log("Ich bin hier angekommen")
     let projectArticle : ProjectArticle =  this.articleCreationService.create(this.artikelForm, this.projectsService);
     this.assetTableService.create_new_asset(projectArticle);
     this.dialog.closeAll();

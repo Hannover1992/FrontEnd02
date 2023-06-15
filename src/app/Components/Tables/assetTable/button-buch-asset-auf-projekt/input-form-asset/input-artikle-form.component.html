@@ -9,7 +9,9 @@
       <app-asset-input-detail [asset_details]="assetDetails"></app-asset-input-detail>
       <app-asset-input-date [asset_dates]="assetDates"></app-asset-input-date>
       <app-asset-numbers-input [asset_numbers]="assetNumbers"></app-asset-numbers-input>
+
       <ng-content></ng-content>
+
       <div class="full-width">
         <div class="row">
           <div class="full-width"></div>
@@ -27,4 +29,3 @@
 
   </mat-card>
 </form>
-<!--<ng-container *ngTemplateOutlet="content; context: { $implicit: 'something' }"></ng-container>-->

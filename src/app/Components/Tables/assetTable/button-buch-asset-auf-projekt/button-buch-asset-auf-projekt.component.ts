@@ -7,13 +7,9 @@ import { AssetInputFormComponent } from "./input-form-asset/specificImplementati
   templateUrl: './button-buch-asset-auf-projekt.component.html',
   styleUrls: ['./button-buch-asset-auf-projekt.component.css']
 })
-export class ButtonBuchAssetAufProjektComponent {
+export abstract class ButtonBuchAssetAufProjektComponent {
 
-    constructor(private dialog: MatDialog) {
+    constructor() {}
 
-    }
-
-  open_input_form() {
-    this.dialog.open(AssetInputFormComponent);
-  }
+  protected abstract open_input_form(): void;
 }

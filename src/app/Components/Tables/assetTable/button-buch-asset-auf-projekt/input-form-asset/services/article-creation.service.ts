@@ -10,6 +10,7 @@ import {FormRetrievalService} from "./form-retrieval.service";
 @Injectable({
   providedIn: 'root',
 })
+
 export class ArticleCreationService {
   constructor(
     private unterKategorieService: UnterKategorieService,
@@ -20,7 +21,7 @@ export class ArticleCreationService {
   createNewArticle(artikelForm: FormGroup): Article {
     const unterkategorieID = this.getUnterkategorieID();
 
-    return {
+    let nerArticle: Article = {
       artikel_id:         0,
       artikelname:        this.formRetrievalService.artikelnameForm(artikelForm),
       firma:              this.formRetrievalService.firmaForm(artikelForm),
@@ -37,11 +38,24 @@ export class ArticleCreationService {
       anlagenummer:       this.formRetrievalService.anlagenummerForm(artikelForm),
       besitzer_id:        null, // This should be set separately
       seriennummer:       this.formRetrievalService.seriennummerForm(artikelForm),
-      assets: {
-      ID:                 0,
-        Inventarnummer:   this.formRetrievalService.inventarnummerForm(artikelForm),
-      },
     }
+
+    return this.erweitere_es_um_asset_numbers(artikelForm, nerArticle);
+  }
+
+  private erweitere_es_um_asset_numbers(artikelForm: FormGroup, nerArticle: Article) {
+
+    let erweiterterArticle: Article = {
+      ... nerArticle,
+      ...{
+        assets: {
+          ID:                 0,
+          Inventarnummer:   this.formRetrievalService.inventarnummerForm(artikelForm),
+        }
+      }
+    }
+
+    return erweiterterArticle;
   }
 
   create(artikelForm: FormGroup, projectsService: any): ProjectArticle {
@@ -52,7 +66,7 @@ export class ArticleCreationService {
       projekt_artikel_id: 0,
       projekt_id:         projektID,
       artikel_id:         0,
-      menge:              this.util.getFormValueAsNumber(artikelForm.get('asset_numbers.menge')),
+      menge:              this.formRetrievalService.mengeForm(artikelForm),
       artikel:            newArticle,
     };
   }
@@ -69,4 +83,5 @@ export class ArticleCreationService {
     const proStr = projectsService.selectedProject.getValue();
     return parseInt(proStr);
   }
+
 }

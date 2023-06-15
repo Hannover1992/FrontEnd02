@@ -20,7 +20,7 @@ import {ArticleCreationService} from "./services/article-creation.service";
 
 export class InputArtikelForm {
 
-  artikelForm: FormGroup = this.fb.group({});
+  artikelForm!: FormGroup;
   content: any;
 
   constructor(

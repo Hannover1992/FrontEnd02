@@ -33,7 +33,7 @@ export class Initialization {
         this.positiveNonZero // Make sure you have defined this custom validator function
       ])],
       preis: [''],
-      Inventarnummer: [0],
+      // Inventarnummer: [0],
       anlagenummer: [''],
       serriennummer: [''],
     });

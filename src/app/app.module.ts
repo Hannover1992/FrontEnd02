@@ -53,7 +53,7 @@ import { ProjectFilterComponentComponent } from './Components/Tables/projectTabl
 import { ProjectAssetsDetailComponent } from './Components/Tables/assetTable/details/project-assets-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/assetTable/details/assets-datum-details/assets-datum-details.component';
 import { NummernDetailsComponent } from './Components/Tables/assetTable/details/nummern-details/nummern-details.component';
-import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
+// import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { InputArtikelForm } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/input-artikle-form.component';
 import { AssetNumbersInputComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-numbers-input/asset-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
@@ -65,6 +65,8 @@ import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialo
 import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component';
 import { AssetInputFormComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
+import { VaterComponent } from './Components/Tables/test_inheritence/vater/vater.component';
+import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.component';
 
 
 // @ts-ignore
@@ -99,8 +101,8 @@ import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/ass
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
-    // @ts-ignore
-    ButtonBuchAssetAufProjektComponent,
+    //@ts-ignore
+    // ButtonBuchAssetAufProjektComponent,
     InputArtikelForm,
     AssetNumbersInputComponent,
     AssetInputDateComponent,
@@ -109,6 +111,8 @@ import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/ass
     AssetSpecComponent,
     AssetInputFormComponent,
     ButtonBuchAssetAufAssetProjectComponent,
+    VaterComponent,
+    SohnComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

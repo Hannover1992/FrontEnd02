@@ -7,6 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class AssetSpecComponent {
 
-  @Input() currentName: any;
+  // @Input() currentName: any;
 
 }

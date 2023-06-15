@@ -32,7 +32,10 @@ export class InputArtikelForm {
     private   util:                   Util,
     private   articleCreationService: ArticleCreationService
   ) {
-    this.artikelForm =  new Initialization(fb).initForm();
+  }
+
+  ngOnInit(): void {
+    this.artikelForm =  new Initialization(this.fb).initForm();
   }
 
   onSubmit() {

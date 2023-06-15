@@ -43,4 +43,11 @@ export class AssetInputFormComponent extends InputArtikelForm {
     })
   }
 
+  onSubmit2(){
+    this.onSubmit();
+    //update the submited with the current Inventar Nummer
+
+  }
+
+
 }

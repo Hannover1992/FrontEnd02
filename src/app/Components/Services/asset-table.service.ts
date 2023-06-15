@@ -48,6 +48,7 @@ export class AssetTableService {
 
   create_new_asset(newProjectArticle:ProjectArticle){
     this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
+      console.log(response)
       this.load_assets_from_database();
       this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
     }, error => {
@@ -92,10 +93,6 @@ export class AssetTableService {
     const defaultErrorMessage = 'An error occurred';
     return error instanceof Error ? error.message : defaultErrorMessage;
   }
-
-  // create_new_project_Artikel(projectArticle: ProjectArticle){
-  //   this.http.post<ProjectArticle>
-  // }
 
   print_status(){
    console.log(this.generateURL());

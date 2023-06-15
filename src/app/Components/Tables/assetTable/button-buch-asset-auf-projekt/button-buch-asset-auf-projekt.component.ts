@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  ProjectInputFormComponent
-} from "../../project/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component";
 import {MatDialog} from "@angular/material/dialog";
-import {InputArtikelForm} from "./input-form-asset/input-artikle-form.component";
+import { AssetInputFormComponent } from "./input-form-asset/specificImplementation/asset-input-form/asset-input-form.component";
 
 @Component({
   selector: 'app-button-buch-asset-auf-projekt',
@@ -16,7 +13,7 @@ export class ButtonBuchAssetAufProjektComponent {
 
     }
 
-        open_input_form() {
-          this.dialog.open(InputArtikelForm);
+  open_input_form() {
+    this.dialog.open(AssetInputFormComponent);
   }
 }

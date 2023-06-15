@@ -21,9 +21,10 @@ import {ArticleCreationService} from "./services/article-creation.service";
 export class InputArtikelForm {
 
   artikelForm: FormGroup = this.fb.group({});
+  content: any;
 
   constructor(
-    private   fb:                     FormBuilder,
+    protected fb:                     FormBuilder,
     public    projectsService:        ProjectsService,
     private   dialog:                 MatDialog,
     private   _snackBar:              MatSnackBar,

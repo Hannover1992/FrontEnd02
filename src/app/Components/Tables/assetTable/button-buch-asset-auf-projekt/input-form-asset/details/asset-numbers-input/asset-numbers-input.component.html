@@ -17,16 +17,6 @@
       </mat-form-field>
     </div>
     <div class="col">
-<!--      toDo: Aufstegende nachste Invenatummer als default fest legen-->
-      <mat-form-field class="full-width">
-        <mat-label>Inventarnummer</mat-label>
-        <input matInput placeholder="Inventarnummer" formControlName="Inventarnummer" autocomplete="off" >
-        <mat-error *ngIf="asset_numbers.controls['Inventarnummer'].hasError('pattern')">
-          Inventarnummer muss ein <strong>Nummer</strong> sein!
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div class="col">
       <mat-form-field class="full-width">
         <mat-label>Anlagenummer</mat-label>
         <input matInput placeholder="Anlagenummer" formControlName="anlagenummer">

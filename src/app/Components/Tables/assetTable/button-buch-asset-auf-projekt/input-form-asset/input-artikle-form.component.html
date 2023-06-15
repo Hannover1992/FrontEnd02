@@ -1,4 +1,5 @@
 <form [formGroup]="artikelForm" novalidate (ngSubmit)="onSubmit()">
+
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Neues Asset Anlegen</mat-card-title>
@@ -8,14 +9,7 @@
       <app-asset-input-detail [asset_details]="assetDetails"></app-asset-input-detail>
       <app-asset-input-date [asset_dates]="assetDates"></app-asset-input-date>
       <app-asset-numbers-input [asset_numbers]="assetNumbers"></app-asset-numbers-input>
-
-      <div [formGroup]="assetDetails">
-        <mat-form-field class="full-width">
-          <mat-label>Beschreibung</mat-label>
-          <textarea matInput formControlName="beschreibung"></textarea>
-        </mat-form-field>
-      </div>
-
+      <ng-content></ng-content>
       <div class="full-width">
         <div class="row">
           <div class="full-width"></div>
@@ -30,5 +24,7 @@
         </div>
       </div>
     </mat-card-content>
+
   </mat-card>
 </form>
+<!--<ng-container *ngTemplateOutlet="content; context: { $implicit: 'something' }"></ng-container>-->

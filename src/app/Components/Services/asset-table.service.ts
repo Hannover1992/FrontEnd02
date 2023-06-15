@@ -52,6 +52,7 @@ export class AssetTableService {
       this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
     }, error => {
       this._snackBar.open(error.message, "OK");
+      console.log(error)
     });
   }
 

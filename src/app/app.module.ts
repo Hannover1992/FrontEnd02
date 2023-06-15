@@ -71,6 +71,7 @@ import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.co
 
 // @ts-ignore
 // @ts-ignore
+// @ts-ignore
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
@@ -111,6 +112,7 @@ import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.co
     AssetSpecComponent,
     AssetInputFormComponent,
     ButtonBuchAssetAufAssetProjectComponent,
+    // @ts-ignore
     VaterComponent,
     SohnComponent,
   ],

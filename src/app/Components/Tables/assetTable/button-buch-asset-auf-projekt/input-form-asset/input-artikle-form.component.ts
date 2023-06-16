@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProjectsService} from "../../../projectTable/service/projects.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ProjectArticle} from "../../Interface/projectArticle";
 import {AssetTableService} from "../../../../Services/asset-table.service";
 import {Initialization} from "./initialization";
 import {Util} from "./services/util.service";
@@ -18,7 +17,7 @@ import {ArticleCreationService} from "./services/article-creation.service";
 })
 
 
-export class InputArtikelForm {
+export class InputArtikelForm implements OnInit {
 
   artikelForm!: FormGroup;
   content: any;
@@ -28,9 +27,9 @@ export class InputArtikelForm {
     public    projectsService:        ProjectsService,
     private   dialog:                 MatDialog,
     private   _snackBar:              MatSnackBar,
-    private   assetTableService:      AssetTableService,
-    private   util:                   Util,
-    private   articleCreationService: ArticleCreationService
+    // private   assetTableService:      AssetTableService,
+    // private   util:                   Util,
+    // private   articleCreationService: ArticleCreationService
   ) {
   }
 
@@ -38,10 +37,10 @@ export class InputArtikelForm {
     this.artikelForm =  new Initialization(this.fb).initForm();
   }
 
-  onSubmit() {
-    let projectArticle : ProjectArticle =  this.articleCreationService.create(this.artikelForm, this.projectsService);
-    this.assetTableService.create_new_asset(projectArticle);
-    this.dialog.closeAll();
+  protected onSubmit() {
+    // let projectArticle : ProjectArticle =  this.articleCreationService.create(this.artikelForm, this.projectsService);
+    // this.assetTableService.create_new_asset(projectArticle);
+    // this.dialog.closeAll();
   }
 
 

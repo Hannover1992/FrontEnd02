@@ -11,7 +11,7 @@ import {FormRetrievalService} from "./form-retrieval.service";
   providedIn: 'root',
 })
 
-export class ArticleCreationService {
+export abstract class ArticleCreationService {
   constructor(
     private unterKategorieService: UnterKategorieService,
     private util: Util,
@@ -40,23 +40,10 @@ export class ArticleCreationService {
       seriennummer:       this.formRetrievalService.seriennummerForm(artikelForm),
     }
 
-    return this.erweitere_es_um_asset_numbers(artikelForm, nerArticle);
+    return this.erweitere_es_um_electronics(artikelForm, nerArticle);
   }
 
-  private erweitere_es_um_asset_numbers(artikelForm: FormGroup, nerArticle: Article) {
-
-    let erweiterterArticle: Article = {
-      ... nerArticle,
-      ...{
-        assets: {
-          ID:                 0,
-          Inventarnummer:   this.formRetrievalService.inventarnummerForm(artikelForm),
-        }
-      }
-    }
-
-    return erweiterterArticle;
-  }
+  abstract erweitere_es_um_electronics(artikelForm: FormGroup, nerArticle: Article) : Article;
 
   create(artikelForm: FormGroup, projectsService: any): ProjectArticle {
     const projektID : number  = this.getProjektID(projectsService);

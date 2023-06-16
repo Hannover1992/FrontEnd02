@@ -7,6 +7,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {Util} from "../../services/util.service";
 import {ArticleCreationService} from "../../services/article-creation.service";
+import {ProjectArticle} from "../../../../Interface/projectArticle";
+import {ErweiterterAssetCreationService} from "./services/erweiterter-asset-creation.service";
 
 @Component({
   selector: 'app-asset-input-form',
@@ -24,7 +26,8 @@ export class AssetInputFormComponent extends InputArtikelForm {
     snackBar: MatSnackBar,
     assetTableService: AssetTableService,
     util: Util,
-    articleCreationService: ArticleCreationService
+    articleCreationService: ArticleCreationService,
+    private erweiterterAssetCreationService: ErweiterterAssetCreationService
   ) {
     super(
       fb,
@@ -43,10 +46,19 @@ export class AssetInputFormComponent extends InputArtikelForm {
     })
   }
 
-  onSubmit2(){
-    this.onSubmit();
-    //update the submited with the current Inventar Nummer
+  // protected override onSubmit():  {
+  //   // return super.onSubmit()    // let projectArticle : ProjectArticle =  this.articleCreationService.create(this.artikelForm, this.projectsService);
+    // this.assetTableService.create_new_asset(projectArticle);
+    // this.dialog.closeAll();;
+  //   console.log("in sohn")
+  // }
 
+
+  onSubmitAsset(){
+    let projectArticle : ProjectArticle =  this.erweiterterAssetCreationService.create(this.extendedForm, this.projectsService);
+    console.log(projectArticle)
+    // this.assetTableService.create_new_asset(projectArticle);
+    // this.dialog.closeAll();
   }
 
 

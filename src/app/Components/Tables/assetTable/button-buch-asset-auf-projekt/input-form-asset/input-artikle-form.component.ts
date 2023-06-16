@@ -3,10 +3,7 @@ import {ProjectsService} from "../../../projectTable/service/projects.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AssetTableService} from "../../../../Services/asset-table.service";
 import {Initialization} from "./initialization";
-import {Util} from "./services/util.service";
-import {ArticleCreationService} from "./services/article-creation.service";
 
 
 
@@ -27,9 +24,6 @@ export class InputArtikelForm implements OnInit {
     public    projectsService:        ProjectsService,
     private   dialog:                 MatDialog,
     private   _snackBar:              MatSnackBar,
-    // private   assetTableService:      AssetTableService,
-    // private   util:                   Util,
-    // private   articleCreationService: ArticleCreationService
   ) {
   }
 

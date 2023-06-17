@@ -6,6 +6,7 @@ import {FormRetrievalService} from "../../../services/form-retrieval.service";
 import {FormGroup} from "@angular/forms";
 import {Article} from "../../../../../Interface/article";
 import {ErweiterterAssetRetrivalService} from "./erweiterter-asset-retrival.service";
+import {Asset} from "../../../../../Interface/asset";
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +21,20 @@ export class ErweiterterAssetCreationService extends ArticleCreationService impl
   ) { super ( unterKategorieService, util, formRetrievalService ) }
 
 
-  erweitere_es_um_electronics(artikelForm: FormGroup, nerArticle: Article) {
+  erweitere_es_um_electronics(artikelForm: FormGroup, newArticle: Article) : Article {
+    let currentAsset = this.createNewAsset(artikelForm);
+    newArticle.assets = currentAsset;
 
-    let erweiterterArticle: Article = {
-      ... nerArticle,
-      ...{
-        assets: {
-          ID:                 0,
-          Inventarnummer:   this.erweitertRetrivalAssetService.inventarnummerForm(artikelForm),
-        }
-      }
-    }
-
-    return erweiterterArticle;
+    return newArticle;
   }
 
+  private createNewAsset(artikelForm: FormGroup<any>): Asset {
+
+    let inventarnummer: number = this.erweitertRetrivalAssetService.inventarnummerForm(artikelForm);
+
+    let currentAsset: Asset = {
+      Inventarnummer :   inventarnummer
+    };
+    return currentAsset;
+  }
 }

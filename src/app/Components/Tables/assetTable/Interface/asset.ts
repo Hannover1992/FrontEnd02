@@ -1,4 +1,4 @@
 export interface Asset {
-  ID: number;
+  ID?: number;
   Inventarnummer?: number;
 }

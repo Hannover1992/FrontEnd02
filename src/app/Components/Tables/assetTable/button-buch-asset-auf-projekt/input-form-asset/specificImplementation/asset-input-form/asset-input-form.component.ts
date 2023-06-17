@@ -24,7 +24,7 @@ export class AssetInputFormComponent extends InputArtikelForm {
     projectsService: ProjectsService,
     dialog: MatDialog,
     snackBar: MatSnackBar,
-    assetTableService: AssetTableService,
+    private assetTableService: AssetTableService,
     util: Util,
     articleCreationService: ArticleCreationService,
     private erweiterterAssetCreationService: ErweiterterAssetCreationService
@@ -34,9 +34,6 @@ export class AssetInputFormComponent extends InputArtikelForm {
       projectsService,
       dialog,
       snackBar,
-      assetTableService,
-      util,
-      articleCreationService
     );
   }
 
@@ -57,7 +54,7 @@ export class AssetInputFormComponent extends InputArtikelForm {
   onSubmitAsset(){
     let projectArticle : ProjectArticle =  this.erweiterterAssetCreationService.create(this.extendedForm, this.projectsService);
     console.log(projectArticle)
-    // this.assetTableService.create_new_asset(projectArticle);
+    this.assetTableService.create_new_asset(projectArticle);
     // this.dialog.closeAll();
   }
 

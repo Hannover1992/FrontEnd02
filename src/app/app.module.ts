@@ -47,32 +47,28 @@ import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
+import { AssetTableComponent } from './Components/Tables/Article/specialization/assetTable/assetTable.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
-import { ProjectAssetsDetailComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/project-article-detail/project-assets-detail.component';
-import { AssetsDatumDetailsComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/article-datum-details/assets-datum-details.component';
-import { NummernDetailsComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/nummern-details/nummern-details.component';
+import { ProjectAssetsDetailComponent } from './Components/Tables/Article/base/article-details-compose/project-article-detail/project-assets-detail.component';
+import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/article-details-compose/article-datum-details/assets-datum-details.component';
+import { NummernDetailsComponent } from './Components/Tables/Article/base/article-details-compose/nummern-details/nummern-details.component';
 // import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
-import { InputArtikelForm } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/input-artikle-form.component';
-import { AssetNumbersInputComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-numbers-input/asset-numbers-input.component';
+import { InputArtikelForm } from './Components/Inputs/Article/input-artikle-form.component';
+import { AssetNumbersInputComponent } from './Components/Inputs/Article/Base/asset-numbers-input/asset-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { AssetInputDateComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-date/asset-input-date.component';
-import { AssetInputDetailComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-detail/asset-input-detail.component';
-import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
-import { AssetInputFormComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
-import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
-import { VaterComponent } from './Components/Tables/test_inheritence/vater/vater.component';
-import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.component';
-import { AssetDetalsComposeComponent } from './Components/Tables/assetTable/asset/asset-detals-compose/asset-detals-compose.component';
-import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
-import { ArticleDetailsComposeComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/article-details-compose.component';
+import { AssetInputDateComponent } from './Components/Inputs/Article/Base/artickle-input-date/asset-input-date.component';
+import { AssetInputDetailComponent } from './Components/Inputs/Article/Base/asset-input-detail/asset-input-detail.component';
+import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
+import { AssetInputFormComponent } from './Components/Inputs/Article/Specialization/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
+import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
+import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
+// import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
+import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
+import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/article-input-compose/article-input-compose.component';
 
 
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
@@ -102,8 +98,6 @@ import { ArticleDetailsComposeComponent } from './Components/Tables/Article/arti
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
-    //@ts-ignore
-    // ButtonBuchAssetAufProjektComponent,
     InputArtikelForm,
     AssetNumbersInputComponent,
     AssetInputDateComponent,
@@ -111,12 +105,9 @@ import { ArticleDetailsComposeComponent } from './Components/Tables/Article/arti
     DialogDeleteAssetComponent,
     AssetInputFormComponent,
     ButtonBuchAssetAufAssetProjectComponent,
-    // @ts-ignore
-    VaterComponent,
-    SohnComponent,
     AssetDetalsComposeComponent,
-    AssetButtonsComponent,
     ArticleDetailsComposeComponent,
+    ArticleInputComposeComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

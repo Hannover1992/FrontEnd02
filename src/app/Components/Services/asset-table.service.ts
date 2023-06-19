@@ -5,7 +5,7 @@ import {UnterKategorieService} from "./unter-kategorie.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ProjectArticle} from "../Tables/assetTable/Interface/projectArticle";
+import {ProjectArticle} from "../Interface/projectArticle";
 import {Project} from "../Inputs/project_input/project";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ProjectInterface} from "../Inputs/project_input/project.interface";

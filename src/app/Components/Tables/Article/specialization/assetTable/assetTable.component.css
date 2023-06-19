@@ -1,0 +1,114 @@
+/*toDo: clean*/
+
+mat-form-field {
+  margin-top: 20px;
+}
+
+.full-width-table {
+  width: 80%;
+  /*margin overall 30%*/
+  margin: 0 auto;
+}
+
+.mdc-data-table__header-cell {
+  padding: 0 8px 0 8px;
+}
+
+
+.Kommentar
+{
+  padding: 0 32px 0 32px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-project-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+
+.empty_vertical_space {
+  height: 100px;
+}
+
+#filter {
+  margin-top:15px;
+}

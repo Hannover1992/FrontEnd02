@@ -53,20 +53,20 @@ import { ProjectAssetsDetailComponent } from './Components/Tables/Article/base/a
 import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/article-details-compose/article-datum-details/assets-datum-details.component';
 import { NummernDetailsComponent } from './Components/Tables/Article/base/article-details-compose/nummern-details/nummern-details.component';
 // import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
-import { InputArtikelForm } from './Components/Inputs/Article/input-artikle-form.component';
-import { ArticleNumbersInputComponent } from './Components/Inputs/Article/Base/details-Input/article-numbers-input/article-numbers-input.component';
+import { InputArtikelForm } from './Components/Inputs/Article/Base/input-artikle-form.component';
+import { ArticleNumbersInputComponent } from './Components/Inputs/Article/Base/article-details-input/details-Input/article-numbers-input/article-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { ArticleInputDateComponent } from './Components/Inputs/Article/Base/details-Input/artickle-input-date/article-input-date.component';
-import { ArticleInputDetailComponent } from './Components/Inputs/Article/Base/details-Input/article-input-detail/article-input-detail.component';
+import { ArticleInputDateComponent } from './Components/Inputs/Article/Base/article-details-input/details-Input/artickle-input-date/article-input-date.component';
+import { ArticleInputDetailComponent } from './Components/Inputs/Article/Base/article-details-input/details-Input/article-input-detail/article-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { AssetInputFormComponent } from './Components/Inputs/Article/Specialization/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
 // import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
-import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/article-input-compose/article-input-compose.component';
+import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/article-details-input/article-input-compose.component';
 
 
 @NgModule({

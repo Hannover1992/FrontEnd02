@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {InputArtikelForm} from "../../../../input-artikle-form.component";
+import {InputArtikelForm} from "../../../../Base/input-artikle-form.component";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ProjectsService} from "../../../../../../Tables/projectTable/service/projects.service";
 import {MatDialog} from "@angular/material/dialog";

@@ -19,7 +19,9 @@ export class AssetTableService {
 
   private selected_project!: string;
   private selected_unterkategorie!: string;
-  public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
+
+  public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]); //toDo: decouplt the assets from the article
+
   public notifyThatDataChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(

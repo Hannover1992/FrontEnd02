@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetNumbersInputComponent } from './asset-numbers-input.component';
+import { ArticleNumbersInputComponent } from './article-numbers-input.component';
 
 describe('AssetNumbersInputComponent', () => {
-  let component: AssetNumbersInputComponent;
-  let fixture: ComponentFixture<AssetNumbersInputComponent>;
+  let component: ArticleNumbersInputComponent;
+  let fixture: ComponentFixture<ArticleNumbersInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AssetNumbersInputComponent ]
+      declarations: [ ArticleNumbersInputComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AssetNumbersInputComponent);
+    fixture = TestBed.createComponent(ArticleNumbersInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

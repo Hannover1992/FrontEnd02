@@ -12,10 +12,10 @@ export enum Zustand {
 
 @Component({
   selector: 'app-asset-input-detail',
-  templateUrl: './asset-input-detail.component.html',
-  styleUrls: ['../../../../Tables/shared_css/input.css']
+  templateUrl: './article-input-detail.component.html',
+  styleUrls: ['../../../../../shared_css/input.css']
 })
-export class AssetInputDetailComponent  {
+export class ArticleInputDetailComponent {
   @Input() asset_details!: FormGroup;
 
   zustandOptions: Zustand[] = [

@@ -54,12 +54,12 @@ import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/ar
 import { NummernDetailsComponent } from './Components/Tables/Article/base/article-details-compose/nummern-details/nummern-details.component';
 // import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { InputArtikelForm } from './Components/Inputs/Article/input-artikle-form.component';
-import { AssetNumbersInputComponent } from './Components/Inputs/Article/Base/asset-numbers-input/asset-numbers-input.component';
+import { ArticleNumbersInputComponent } from './Components/Inputs/Article/Base/details-Input/article-numbers-input/article-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { AssetInputDateComponent } from './Components/Inputs/Article/Base/artickle-input-date/asset-input-date.component';
-import { AssetInputDetailComponent } from './Components/Inputs/Article/Base/asset-input-detail/asset-input-detail.component';
+import { ArticleInputDateComponent } from './Components/Inputs/Article/Base/details-Input/artickle-input-date/article-input-date.component';
+import { ArticleInputDetailComponent } from './Components/Inputs/Article/Base/details-Input/article-input-detail/article-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { AssetInputFormComponent } from './Components/Inputs/Article/Specialization/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
@@ -99,9 +99,9 @@ import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/a
     AssetsDatumDetailsComponent,
     NummernDetailsComponent,
     InputArtikelForm,
-    AssetNumbersInputComponent,
-    AssetInputDateComponent,
-    AssetInputDetailComponent,
+    ArticleNumbersInputComponent,
+    ArticleInputDateComponent,
+    ArticleInputDetailComponent,
     DialogDeleteAssetComponent,
     AssetInputFormComponent,
     ButtonBuchAssetAufAssetProjectComponent,

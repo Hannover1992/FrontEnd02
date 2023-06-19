@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-project-assets-detail',
   templateUrl: './project-assets-detail.component.html',
-  styleUrls: ['../../../../shared_css/table_details.css']
+  styleUrls: ['../../../../../shared_css/table_details.css']
 })
 export class ProjectAssetsDetailComponent {
 

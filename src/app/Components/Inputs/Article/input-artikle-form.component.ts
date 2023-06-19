@@ -10,7 +10,7 @@ import {Initialization} from "./Specialization/input-form-asset/initialization";
 @Component({
   selector: 'app-input-form-asset',
   templateUrl: './input-artikle-form.component.html',
-  styleUrls: ['../../Tables/shared_css/input.css']
+  styleUrls: ['../../shared_css/input.css']
 })
 
 
@@ -29,6 +29,9 @@ export class InputArtikelForm implements OnInit {
 
   ngOnInit(): void {
     this.artikelForm =  new Initialization(this.fb).initForm();
+    this.artikelForm.valueChanges.subscribe(
+
+    )
   }
 
   protected onSubmit() {

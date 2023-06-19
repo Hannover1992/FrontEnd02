@@ -13,7 +13,7 @@ import {ErweiterterAssetCreationService} from "./services/erweiterter-asset-crea
 @Component({
   selector: 'app-asset-input-form',
   templateUrl: './asset-input-form.component.html',
-  styleUrls: ['../../../../../../Tables/shared_css/input.css']
+  styleUrls: ['../../../../../../shared_css/input.css']
 })
 export class AssetInputFormComponent extends InputArtikelForm {
 

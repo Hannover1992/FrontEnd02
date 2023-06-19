@@ -3,10 +3,10 @@ import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-asset-numbers-input',
-  templateUrl: './asset-numbers-input.component.html',
-  styleUrls: ['../../../../Tables/shared_css/input.css']
+  templateUrl: './article-numbers-input.component.html',
+  styleUrls: ['../../../../../shared_css/input.css']
 })
-export class AssetNumbersInputComponent {
+export class ArticleNumbersInputComponent {
   @Input() asset_numbers!: FormGroup;
 
   constructor() {}

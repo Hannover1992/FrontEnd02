@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetInputDateComponent } from './asset-input-date.component';
+import { ArticleInputDateComponent } from './article-input-date.component';
 
 describe('AssetInputDateComponent', () => {
-  let component: AssetInputDateComponent;
-  let fixture: ComponentFixture<AssetInputDateComponent>;
+  let component: ArticleInputDateComponent;
+  let fixture: ComponentFixture<ArticleInputDateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AssetInputDateComponent ]
+      declarations: [ ArticleInputDateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AssetInputDateComponent);
+    fixture = TestBed.createComponent(ArticleInputDateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
-import {ProjectInterface} from "../../../project/project.interface";
+import {ProjectInterface} from "../../../../Inputs/project_input/project.interface";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
-import {ProjectService} from "../../../project/service/project.service";
+import {ProjectService} from "../../../../Inputs/project_input/service/project.service";
 import {FailureComponent} from "../../../../notification/failure/failure.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SuccessComponent} from "../../../../notification/success/success.component";

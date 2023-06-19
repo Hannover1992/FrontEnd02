@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Project} from "../Tables/project/project";
+import {Project} from "../Inputs/project_input/project";
 import {URL} from "../../settings";
 
 

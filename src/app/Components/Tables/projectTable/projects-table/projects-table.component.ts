@@ -3,12 +3,12 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
-import {ProjectInterface} from "../../project/project.interface";
+import {ProjectInterface} from "../../../Inputs/project_input/project.interface";
 import {ProjectsService} from "../service/projects.service";
-import {Project} from "../../project/project";
+import {Project} from "../../../Inputs/project_input/project";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
-import {UpdateSingleProjectComponent} from "../../project/update-single-project/update-single-project.component";
+import {UpdateSingleProjectComponent} from "../../../Inputs/project_input/update-single-project/update-single-project.component";
 import {DialogDeleteProjectComponent} from "./dialog-delete-project/dialog-delete-project.component";
 
 

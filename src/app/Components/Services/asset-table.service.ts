@@ -6,9 +6,9 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../Tables/assetTable/Interface/projectArticle";
-import {Project} from "../Tables/project/project";
+import {Project} from "../Inputs/project_input/project";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ProjectInterface} from "../Tables/project/project.interface";
+import {ProjectInterface} from "../Inputs/project_input/project.interface";
 
 
 @Injectable({

@@ -1,0 +1,7 @@
+.notification {
+  color: hotpink;
+}
+
+:host{
+  display: flex;
+}

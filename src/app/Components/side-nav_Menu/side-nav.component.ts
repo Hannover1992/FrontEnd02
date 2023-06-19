@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ProjectsService} from "../Tables/projectTable/service/projects.service";
 import {Observable} from "rxjs";
-import {Project} from "../Tables/project/project";
+import {Project} from "../Inputs/project_input/project";
 
 @Component({
   selector: 'app-side-nav',

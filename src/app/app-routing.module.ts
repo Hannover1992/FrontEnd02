@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { ProjectsTableComponent } from './Components/Tables/projectTable/projects-table/projects-table.component';
 import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
-import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsTableComponent },
   { path: 'Asset', component: AssetTableComponent },
-  { path: 'Elektronikartikel', component: ElektronikartikelTableComponent },
 ];
 
 // Erstellen Sie die routerOptions-Konstante

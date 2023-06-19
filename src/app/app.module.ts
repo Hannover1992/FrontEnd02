@@ -48,7 +48,6 @@ import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/ex
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { AssetTableComponent } from './Components/Tables/assetTable/assetTable.component';
-import { ElektronikartikelTableComponent } from './Components/Tables/elektronikartikelTable/elektronikartikel-table.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
 import { ProjectAssetsDetailComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/project-article-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/Article/articleDitaledView/article-details-compose/article-datum-details/assets-datum-details.component';
@@ -99,7 +98,6 @@ import { ArticleDetailsComposeComponent } from './Components/Tables/Article/arti
     ExpensionPanellKategorieComponent,
     ProjectDropDownMenuComponent,
     AssetTableComponent,
-    ElektronikartikelTableComponent,
     ProjectFilterComponentComponent,
     ProjectAssetsDetailComponent,
     AssetsDatumDetailsComponent,

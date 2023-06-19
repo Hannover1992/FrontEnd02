@@ -67,6 +67,9 @@ import { AssetInputFormComponent } from './Components/Tables/assetTable/button-b
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { VaterComponent } from './Components/Tables/test_inheritence/vater/vater.component';
 import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.component';
+import { AssetDetalsComposeComponent } from './Components/Tables/assetTable/specilizedTable/asset/asset-detals-compose/asset-detals-compose.component';
+import { AssetButtonsComponent } from './Components/Tables/assetTable/specilizedTable/asset/asset-buttons/asset-buttons.component';
+import { ArticleDetailsComposeComponent } from './Components/Tables/articleTable/article-details-compose/article-details-compose.component';
 
 
 // @ts-ignore
@@ -115,6 +118,9 @@ import { SohnComponent } from './Components/Tables/test_inheritence/sohn/sohn.co
     // @ts-ignore
     VaterComponent,
     SohnComponent,
+    AssetDetalsComposeComponent,
+    AssetButtonsComponent,
+    ArticleDetailsComposeComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

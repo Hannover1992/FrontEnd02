@@ -9,7 +9,7 @@ import {Article} from "../../../../Interface/article";
 export class ArtikelFormDataService {
 
   public article: BehaviorSubject<Article> = new BehaviorSubject<Article>({});
-  public menge: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public menge: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   constructor() {
   }

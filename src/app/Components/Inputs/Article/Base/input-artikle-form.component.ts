@@ -34,7 +34,7 @@ export class InputArtikelForm implements OnInit {
     this.artikelForm.valueChanges.subscribe((data) =>
     {
       this.artikelFormDataService.article.next(data);
-      this.artikelFormDataService.menge.next(data.menge);
+      this.artikelFormDataService.menge.next(data.asset_numbers.menge);
     }
     )
   }

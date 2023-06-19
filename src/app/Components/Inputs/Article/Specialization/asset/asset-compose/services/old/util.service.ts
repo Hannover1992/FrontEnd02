@@ -7,7 +7,7 @@ import { FormBuilder, AbstractControl } from '@angular/forms';
 })
 export class Util {
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   /**
    * Returns the value of a form control. Returns an empty string if the control is null or has no value.

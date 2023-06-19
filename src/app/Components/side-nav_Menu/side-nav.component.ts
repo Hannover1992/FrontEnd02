@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ProjectsService} from "../Tables/projectTable/service/projects.service";
 import {Observable} from "rxjs";
 import {Project} from "../Inputs/project_input/project";
+import {UnterKategorieService} from "../Services/unter-kategorie.service";
 
 @Component({
   selector: 'app-side-nav',
@@ -14,11 +15,14 @@ export class SideNavComponent {
   filteredOptions: any  ;
   menu_title = '';
 
-  constructor(private projectsService: ProjectsService) {
+  constructor(
+    private projectsService: ProjectsService,
+  ) {
     this.projects = projectsService.projects
     this.projectsService.selectedProject.subscribe(project => {
       this.menu_title = project;
     });
+
   }
 
 

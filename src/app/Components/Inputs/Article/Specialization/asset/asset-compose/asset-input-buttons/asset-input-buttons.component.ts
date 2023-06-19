@@ -25,6 +25,8 @@ export class AssetInputButtonsComponent {
       let projectArticle : ProjectArticle = this.projectAssetArticle.projectAssetArticle.getValue();
       // @ts-ignore
       projectArticle.artikel.unterkategorie_id = this.getUnterkategorieID();
+      console.log("dise unterkategorie ID habe ich:")
+      console.log(this.unterKategorieService.selectedUnterKategorieId.value)
       this.assetTableService.create_new_asset(projectArticle);
   }
 

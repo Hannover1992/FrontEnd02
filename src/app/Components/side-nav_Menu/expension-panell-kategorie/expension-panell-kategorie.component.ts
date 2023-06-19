@@ -9,7 +9,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./expension-panell-kategorie.component.css']
 })
 export class ExpensionPanellKategorieComponent {
-  //toDo: Verandere die <p> zu schon aussehenden Button,
 
   kategory : Kategorie[] = [];
   panelOpenState = false;
@@ -20,20 +19,7 @@ export class ExpensionPanellKategorieComponent {
     this.kategorie_service.getKategorienWithSubkategorien().subscribe(
       (data) => {
         this.kategory = data as Kategorie[];
-        console.log(this.kategory)
       }
     )
   }
-
-
-  // onButtonClick(kategoriename: string, unterkategoriename: string) {
-  //   // Ihre Logik hier
-  //   console.log('Button clicked:', kategoriename, unterkategoriename);
-  //
-  //   // Navigieren Sie zur gewünschten Route und übergeben Sie den State
-  //   this.router.navigate(
-  //     ['/', kategoriename],
-  //     { state: { unterkategoriename: unterkategoriename } }
-  //   );
-  // }
 }

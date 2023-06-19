@@ -42,7 +42,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
 import { SideNavComponent } from './Components/side-nav_Menu/side-nav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { KategorieSubkategorieComponent } from './Components/side-nav_Menu/kategorie-subkategorie/kategorie-subkategorie.component';
 import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
@@ -92,7 +91,6 @@ import { AssetInputButtonsComponent } from './Components/Inputs/Article/Speciali
     FailureComponent,
     SuccessComponent,
     SideNavComponent,
-    KategorieSubkategorieComponent,
     ExpensionPanellKategorieComponent,
     ProjectDropDownMenuComponent,
     AssetTableComponent,

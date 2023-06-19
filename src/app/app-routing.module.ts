@@ -18,9 +18,9 @@ const routerOptions: ExtraOptions = {
   declarations: [],
   imports: [
     CommonModule,
-    // Fügen Sie routerOptions als zweites Argument in der forRoot()-Methode hinzu
     RouterModule.forRoot(routes, routerOptions),
   ],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule {}

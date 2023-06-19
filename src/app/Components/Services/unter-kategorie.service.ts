@@ -6,6 +6,7 @@ import {KategorienWithSubkategorienService} from "./kategorien-with-subkategorie
 @Injectable({
   providedIn: 'root'
 })
+
 export class UnterKategorieService {
 
   selectedUnterKategorie: BehaviorSubject<string> = new BehaviorSubject('Verkehrstechnik');
@@ -29,6 +30,7 @@ export class UnterKategorieService {
           let router_unterkategorie_id = navigationState.extras.state['unterkategorie_id'];
           this.selectedUnterKategorie.next(router_unterkategorie);
           this.selectedUnterKategorieId.next(router_unterkategorie_id);
+          console.log(this.selectedUnterKategorieId.value)
         }
       });
   }

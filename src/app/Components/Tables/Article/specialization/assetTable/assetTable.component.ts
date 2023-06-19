@@ -32,7 +32,7 @@ export class AssetTableComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ContentChild('content') content!: TemplateRef<any>;
+  // @ContentChild('content') content!: TemplateRef<any>;
 
   expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();

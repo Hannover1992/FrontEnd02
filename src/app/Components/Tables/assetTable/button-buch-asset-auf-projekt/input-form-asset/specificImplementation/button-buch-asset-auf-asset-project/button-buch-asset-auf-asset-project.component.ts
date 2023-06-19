@@ -8,10 +8,9 @@ import {MatDialog} from "@angular/material/dialog";
   templateUrl: './button-buch-asset-auf-asset-project.component.html',
   styleUrls: ['./button-buch-asset-auf-asset-project.component.css']
 })
-export class ButtonBuchAssetAufAssetProjectComponent extends ButtonBuchAssetAufProjektComponent {
+export class ButtonBuchAssetAufAssetProjectComponent {
 
   constructor(private dialog: MatDialog){
-    super();
   }
 
   open_input_form() {

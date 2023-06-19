@@ -62,7 +62,6 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { AssetInputDateComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-date/asset-input-date.component';
 import { AssetInputDetailComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/details/asset-input-detail/asset-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/assetTable/dialog-delete-asset/dialog-delete-asset.component';
-import { AssetSpecComponent } from './Components/Tables/assetTable/specilizedTable/asset-spec/details/asset-spec.component';
 import { AssetInputFormComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/asset-input-form/asset-input-form.component';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/input-form-asset/specificImplementation/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { VaterComponent } from './Components/Tables/test_inheritence/vater/vater.component';
@@ -112,7 +111,6 @@ import { ArticleDetailsComposeComponent } from './Components/Tables/Article/arti
     AssetInputDateComponent,
     AssetInputDetailComponent,
     DialogDeleteAssetComponent,
-    AssetSpecComponent,
     AssetInputFormComponent,
     ButtonBuchAssetAufAssetProjectComponent,
     // @ts-ignore

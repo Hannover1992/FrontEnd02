@@ -4,11 +4,9 @@
          multiTemplateDataRows
          matSort (matSortChange)="announceSortChange($event)"
          class="mat-elevation-z8">
-
-
     <ng-container
       matColumnDef="{{column}}"
-      *ngFor="let column of displayedColumns">
+      *ngFor="let column of displayedColumns"> <!-- toDo: i could extract this as a compositon as head composisoitn i -->
       <th mat-header-cell *matHeaderCellDef mat-sort-header="{{column}}">
         {{column}}
       </th>
@@ -16,18 +14,12 @@
         {{element[column]}}
       </td>
     </ng-container>
-
-
-    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-
-        <div class="example-element-detail"
-             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-
+        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
           <div class="big_block">
             <div class="head_block">
-              <div class="flex_article">
+              <div class="flex_3">
                 <app-article-details-compose [element]="element"></app-article-details-compose>
               </div>
               <div class="flex_1">
@@ -47,10 +39,8 @@
             </div>
           </div>
         </div>
-
       </td>
     </ng-container>
-
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let element; columns: displayedColumns;"

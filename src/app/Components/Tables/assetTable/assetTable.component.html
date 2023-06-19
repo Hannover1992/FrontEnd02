@@ -27,35 +27,23 @@
 
           <div class="big_block">
             <div class="head_block">
-<!--              <div class="flex_1">-->
-<!--                <app-project-assets-detail-->
-<!--                    [firma]="element.firma"-->
-<!--                    [model]="element.model"-->
-<!--                    [preis]="element.preis"-->
-<!--                    [beschreibung]="element.beschreibung"-->
-<!--                    [zustand]="element.zustand"-->
-<!--                  > </app-project-assets-detail>-->
-<!--              </div>-->
-<!--              <div class="flex_1">-->
-<!--                <app-assets-datum-details-->
-<!--                    [einkaufs_datum]="element.einkaufs_datum"-->
-<!--                    [belegt_von]="element.belegt_von"-->
-<!--                    [belegt_bis]="element.belegt_bis"-->
-<!--                    [edit_date]="element.edit_date"-->
-<!--                  > </app-assets-datum-details>-->
-<!--              </div>-->
-<!--              <div clas="felx_1">-->
-<!--                <app-nummern-details class="card"-->
-<!--                                     [anlagenummer] ="element.anlagenummer"-->
-<!--                                     [Inventarnummer] ="element.Inventarnummer"-->
-<!--                                     [serriennummer] = "element.seriennummer">-->
-<!--                </app-nummern-details>-->
-<!--              </div>-->
               <app-article-details-compose [element]="element"></app-article-details-compose>
-              <app-asset-details-compose [element]="element"></app-asset-details-compose>
-              <div class="flex_1">
-                <ng-container *ngTemplateOutlet="content; context: { $implicit: element }"></ng-container>
-              </div>
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      Assets:
+                      <mat-card-subtitle>
+                        Inventarnummer:
+                      </mat-card-subtitle>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>{{element.Inventarnummer}}</p>
+                  </mat-card-content>
+                </mat-card>
+<!--              <div class="flex_1">-->
+<!--                <ng-container *ngTemplateOutlet="content; context: { $implicit: element }"></ng-container>-->
+<!--              </div>-->
             </div>
 
             <div class="head_block">

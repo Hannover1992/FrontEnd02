@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'app-assets-datum-details',
   templateUrl: './assets-datum-details.component.html',
-  styleUrls: ['./assets-datum-details.component.css']
+  styleUrls: ['./assets-datum-details.component.css', '../../../../shared_css/table_details.css']
 })
 export class AssetsDatumDetailsComponent {
   @Input() einkaufs_datum: Date;

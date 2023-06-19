@@ -1,0 +1,35 @@
+.big_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+}
+
+.flex_1 {
+  flex: 1;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+.flex_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.details {
+  margin-top:5%;
+  margin-bottom:5%;
+}

@@ -21,7 +21,6 @@ constructor(private kategorie_service : KategorienWithSubkategorienService) {
     this.kategorie_service.getKategorienWithSubkategorien().subscribe(
       (data) => {
         this.kategory = data as Kategorie[];
-        console.log(this.kategory);
       }
     )
   }

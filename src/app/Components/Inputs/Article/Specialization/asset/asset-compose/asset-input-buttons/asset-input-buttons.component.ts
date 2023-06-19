@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
+import {AssetTableService} from "../../../../../../Services/asset-table.service";
+import {ProjectAssetArticle} from "../services/project-asset-article";
+import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
 
 @Component({
   selector: 'app-asset-input-buttons',
@@ -8,11 +11,29 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 })
 export class AssetInputButtonsComponent {
 
-    onSubmit() {
+  constructor(
 
-      // let projectArticle : ProjectArticle =  this.erweiterterAssetCreationService.create(this.assetForm, this.projectsService);
-      // // console.log(projectArticle)
-      // this.assetTableService.create_new_asset(projectArticle);
-      // // this.dialog.closeAll();
+    private assetTableService: AssetTableService,
+
+    private projectAssetArticle:ProjectAssetArticle,
+
+    private unterKategorieService: UnterKategorieService,
+  ) {
+  }
+
+    onSubmit() {
+      let projectArticle : ProjectArticle = this.projectAssetArticle.projectAssetArticle.getValue();
+      // @ts-ignore
+      projectArticle.artikel.unterkategorie_id = this.getUnterkategorieID();
+      this.assetTableService.create_new_asset(projectArticle);
+  }
+
+
+  private getUnterkategorieID(): number {
+    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
+    if (!unterkategorieID) {
+      throw new Error('unterkategorieID is null');
+    }
+    return unterkategorieID;
   }
 }

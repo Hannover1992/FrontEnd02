@@ -6,6 +6,7 @@ import {FormGroup} from "@angular/forms";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {Article} from "../../../../../Interface/article";
 import {ProjectAssetArticle} from "./services/project-asset-article";
+import {AssetTableService} from "../../../../../Services/asset-table.service";
 
 @Component({
   selector: 'app-asset-compose',
@@ -20,12 +21,17 @@ export class AssetComposeComponent {
     private currentInputAssetService:CurrentArticleAsset,
     private unterKategorieService: UnterKategorieService,
     // private formRetrievalService: FormRetrievalService
-    private projectAssetArticle:ProjectAssetArticle
+    private projectAssetArticle:ProjectAssetArticle,
   ) {
     // currentInputAssetService.erweiterterAssetArticle.subscribe(
       // (erweiterterAssetArticle) => {
       //   console.log(erweiterterAssetArticle)
       // });
+
+
+    this.projectAssetArticle.projectAssetArticle.subscribe((projectArticle) => {
+      console.log(projectArticle);
+    });
   }
 
 
@@ -43,24 +49,24 @@ export class AssetComposeComponent {
   }
 
 
-  create(artikelForm: FormGroup, projectsService: any): any {
-    // const projektID : number  = this.getProjektID(projectsService);
-    // const newArticle: Article = this.createNewArticle(artikelForm);
-
-    // return {
-    //   projekt_artikel_id: undefined,
-    //   projekt_id:         projektID,
-    //   artikel_id:         0,
-    //   menge:              this.formRetrievalService.mengeForm(artikelForm),
-    //   artikel:            newArticle,
-    // };
-
-    let projectArticls: { artikel: any; projekt_id: any } = {
-      projekt_id: projectsService.selectedProject.getValue(),
-      artikel: this.currentInputAssetService.currentArticleValue()
-    }
-    console.log(projectArticls)
-  }
+  // create(artikelForm: FormGroup, projectsService: any): any {
+  //   // const projektID : number  = this.getProjektID(projectsService);
+  //   // const newArticle: Article = this.createNewArticle(artikelForm);
+  //
+  //   // return {
+  //   //   projekt_artikel_id: undefined,
+  //   //   projekt_id:         projektID,
+  //   //   artikel_id:         0,
+  //   //   menge:              this.formRetrievalService.mengeForm(artikelForm),
+  //   //   artikel:            newArticle,
+  //   // };
+  //
+  //   let projectArticls: { artikel: any; projekt_id: any } = {
+  //     projekt_id: projectsService.selectedProject.getValue(),
+  //     artikel: this.currentInputAssetService.currentArticleValue()
+  //   }
+  //   console.log(projectArticls)
+  // }
 
 
 

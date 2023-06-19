@@ -35,9 +35,6 @@ export class ProjectAssetArticle {
       this.projectAssetArticle.next(this.localProjectArticle);
     });
 
-    this.projectAssetArticle.subscribe((projectArticle) => {
-      console.log(projectArticle);
-    });
   }
 
 

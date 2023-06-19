@@ -49,8 +49,6 @@ export class AssetTableService {
 
 
   create_new_asset(newProjectArticle:ProjectArticle){
-    console.log("create new asset")
-    console.log(newProjectArticle)
     this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
       console.log(response)
       this.load_assets_from_database();

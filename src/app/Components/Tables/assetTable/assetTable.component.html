@@ -31,19 +31,7 @@
                 <app-article-details-compose [element]="element"></app-article-details-compose>
               </div>
               <div class="flex_1">
-                <mat-card>
-                  <mat-card-header>
-                    <mat-card-title>
-                      Assets:
-                      <mat-card-subtitle>
-                        Inventarnummer:
-                      </mat-card-subtitle>
-                    </mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <p>{{element.Inventarnummer}}</p>
-                  </mat-card-content>
-                </mat-card>
+                <app-asset-detals-compose [element]="element"></app-asset-detals-compose>
               </div>
 <!--              <div class="flex_1">-->
 <!--                <ng-container *ngTemplateOutlet="content; context: { $implicit: element }"></ng-container>-->

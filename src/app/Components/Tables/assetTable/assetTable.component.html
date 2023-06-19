@@ -27,7 +27,10 @@
 
           <div class="big_block">
             <div class="head_block">
-              <app-article-details-compose [element]="element"></app-article-details-compose>
+              <div class="flex_article">
+                <app-article-details-compose [element]="element"></app-article-details-compose>
+              </div>
+              <div class="flex_1">
                 <mat-card>
                   <mat-card-header>
                     <mat-card-title>
@@ -41,6 +44,7 @@
                     <p>{{element.Inventarnummer}}</p>
                   </mat-card-content>
                 </mat-card>
+              </div>
 <!--              <div class="flex_1">-->
 <!--                <ng-container *ngTemplateOutlet="content; context: { $implicit: element }"></ng-container>-->
 <!--              </div>-->

@@ -1,3 +1,5 @@
+/*toDo: clean*/
+
 mat-form-field {
   margin-top: 20px;
 }
@@ -20,13 +22,6 @@ mat-form-field {
 .example-spacer {
   flex: 1 1 auto;
 }
-
-/*.mat-toolbar*/
-/*{*/
-/*  padding: 0 0 0 0;*/
-/*  height: 80px;*/
-/*  !*background: #424242;*!*/
-/*}*/
 
 
 table {
@@ -109,45 +104,6 @@ tr.example-element-row:not(.example-expanded-row):active {
   opacity: 0.5;
 }
 
-/*.big_block {*/
-/*  !*width: 1500px;*!*/
-/*  !*height: 500px;*!*/
-/*  !*background-color: blue;*!*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-around;*/
-/*  align-items: center;*/
-/*}*/
-
-/*.head_block {*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  justify-content: space-around;*/
-/*  align-content: space-around;*/
-/*  align-items: center;*/
-/*  !*width:750px;*!*/
-/*  !*height: 100px;*!*/
-/*  !*background: aquamarine;*!*/
-/*}*/
-
-/*.flex_1 {*/
-/*  flex: 1;*/
-/*  margin-left: 8%;*/
-/*  margin-right: 8%;*/
-/*  margin-top: 8%;*/
-/*  margin-bottom: 8%;*/
-/*}*/
-
-.flex_2 {
-  flex: 2;
-}
-
-.flex_center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .empty_vertical_space {
   height: 100px;

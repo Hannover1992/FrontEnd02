@@ -1,26 +1,26 @@
-  <div class="head_block">
-    <div class="flex_1">
-      <app-project-assets-detail
-        [firma]="element.firma"
-        [model]="element.model"
-        [preis]="element.preis"
-        [beschreibung]="element.beschreibung"
-        [zustand]="element.zustand"
-      > </app-project-assets-detail>
-    </div>
-    <div class="flex_1">
-      <app-assets-datum-details
-        [einkaufs_datum]="element.einkaufs_datum"
-        [belegt_von]="element.belegt_von"
-        [belegt_bis]="element.belegt_bis"
-        [edit_date]="element.edit_date"
-      > </app-assets-datum-details>
-    </div>
-    <div class="felx_1">
-      <app-nummern-details class="card"
-                           [anlagenummer] ="element.anlagenummer"
-                           [Inventarnummer] ="element.Inventarnummer"
-                           [serriennummer] = "element.seriennummer">
-      </app-nummern-details>
-    </div>
+<div class="head_block">
+  <div class="flex_1">
+    <app-project-assets-detail
+      [firma]="element.firma"
+      [model]="element.model"
+      [preis]="element.preis"
+      [beschreibung]="element.beschreibung"
+      [zustand]="element.zustand"
+    > </app-project-assets-detail>
   </div>
+  <div class="flex_1">
+    <app-assets-datum-details
+      [einkaufs_datum]="element.einkaufs_datum"
+      [belegt_von]="element.belegt_von"
+      [belegt_bis]="element.belegt_bis"
+      [edit_date]="element.edit_date"
+    > </app-assets-datum-details>
+  </div>
+  <div class="felx_1">
+    <app-nummern-details class="card"
+                         [anlagenummer] ="element.anlagenummer"
+                         [Inventarnummer] ="element.Inventarnummer"
+                         [serriennummer] = "element.seriennummer">
+    </app-nummern-details>
+  </div>
+</div>

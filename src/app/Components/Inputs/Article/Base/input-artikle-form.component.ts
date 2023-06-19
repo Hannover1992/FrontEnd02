@@ -3,7 +3,7 @@ import {ProjectsService} from "../../../Tables/projectTable/service/projects.ser
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Initialization} from "./initialization";
+import {InitializationArticle} from "./initializationArticle";
 
 
 
@@ -28,7 +28,7 @@ export class InputArtikelForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.artikelForm =  new Initialization(this.fb).initForm();
+    this.artikelForm =  new InitializationArticle(this.fb).initForm();
     this.artikelForm.valueChanges.subscribe((data) =>
       console.log(data)
     )

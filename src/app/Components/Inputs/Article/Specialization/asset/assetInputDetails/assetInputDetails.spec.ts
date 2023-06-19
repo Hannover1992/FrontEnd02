@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetInputFormComponent } from './asset-input-form.component';
+import { AssetInputDetails } from './assetInputDetails';
 
 describe('AssetInputFormComponent', () => {
-  let component: AssetInputFormComponent;
-  let fixture: ComponentFixture<AssetInputFormComponent>;
+  let component: AssetInputDetails;
+  let fixture: ComponentFixture<AssetInputDetails>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AssetInputFormComponent ]
+      declarations: [ AssetInputDetails ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AssetInputFormComponent);
+    fixture = TestBed.createComponent(AssetInputDetails);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

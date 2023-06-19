@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {ArticleCreationService} from "../../../services/article-creation.service";
-import {UnterKategorieService} from "../../../../../../../Services/unter-kategorie.service";
-import {Util} from "../../../services/util.service";
-import {FormRetrievalService} from "../../../services/form-retrieval.service";
+import {ArticleCreationService} from "../../../../Base/service/article-creation.service";
+import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
+import {Util} from "../../services/util.service";
 import {FormGroup} from "@angular/forms";
-import {Article} from "../../../../../../../Interface/article";
+import {Article} from "../../../../../../Interface/article";
 import {ErweiterterAssetRetrivalService} from "./erweiterter-asset-retrival.service";
-import {Asset} from "../../../../../../../Interface/asset";
+import {Asset} from "../../../../../../Interface/asset";
+import {FormRetrievalService} from "../../services/form-retrieval.service";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ErweiterterAssetCreationService extends ArticleCreationService impl
     util: Util,
     formRetrievalService: FormRetrievalService,
     private erweitertRetrivalAssetService: ErweiterterAssetRetrivalService,
-  ) { super ( unterKategorieService, util, formRetrievalService ) }
+  ) { super ( unterKategorieService,  formRetrievalService ) }
 
 
   erweitere_es_um_electronics(artikelForm: FormGroup, newArticle: Article) : Article {

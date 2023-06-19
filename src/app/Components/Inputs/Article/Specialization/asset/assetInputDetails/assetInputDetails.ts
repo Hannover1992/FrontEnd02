@@ -1,41 +1,33 @@
-import { Component } from '@angular/core';
-import {InputArtikelForm} from "../../../../Base/input-artikle-form.component";
+import {Component} from "@angular/core";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ProjectsService} from "../../../../../../Tables/projectTable/service/projects.service";
+import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AssetTableService} from "../../../../../../Services/asset-table.service";
-import {Util} from "../../services/util.service";
-import {ArticleCreationService} from "../../services/article-creation.service";
-import {ProjectArticle} from "../../../../../../Interface/projectArticle";
+import {AssetTableService} from "../../../../../Services/asset-table.service";
+import {ArticleCreationService} from "../../../Base/service/article-creation.service";
 import {ErweiterterAssetCreationService} from "./services/erweiterter-asset-creation.service";
+import {Util} from "../services/util.service";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
 
 @Component({
   selector: 'app-asset-input-form',
-  templateUrl: './asset-input-form.component.html',
-  styleUrls: ['../../../../../../shared_css/input.css']
+  templateUrl: './assetInputDetails.html',
+  styleUrls: ['../../../../../shared_css/input.css']
 })
-export class AssetInputFormComponent extends InputArtikelForm {
+export class AssetInputDetails {
 
   extendedForm: FormGroup = this.extendedInit();
 
   constructor(
-    fb: FormBuilder,
-    projectsService: ProjectsService,
-    dialog: MatDialog,
-    snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private projectsService: ProjectsService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
     private assetTableService: AssetTableService,
-    util: Util,
-    articleCreationService: ArticleCreationService,
+    private util: Util,
+    private articleCreationService: ArticleCreationService,
     private erweiterterAssetCreationService: ErweiterterAssetCreationService
-  ) {
-    super(
-      fb,
-      projectsService,
-      dialog,
-      snackBar,
-    );
-  }
+  ) { }
 
   protected extendedInit() {
     return this.fb.group({

@@ -1,6 +1,6 @@
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
-export class Initialization {
+export class InitializationArticle {
 
   constructor(
     private fb: FormBuilder,

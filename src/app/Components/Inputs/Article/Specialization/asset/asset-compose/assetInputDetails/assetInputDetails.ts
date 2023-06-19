@@ -8,7 +8,7 @@ import {ArticleCreationService} from "../../../../Base/service/article-creation.
 import {ErweiterterAssetCreationService} from "./services/old/erweiterter-asset-creation.service";
 import {Util} from "../../services/old/util.service";
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
-import {AssetInputDataService} from "./services/asset-input-data.service";
+import {AssetInputDataService} from "./services/assetProject/asset-input-data.service";
 
 @Component({
   selector: 'app-asset-input-form',

@@ -71,7 +71,9 @@ export class AssetTableService {
   }
 
   private async deleteProjectArticle(projectArticle: ProjectArticle): Promise<void> {
-    await this.http.delete<ProjectArticle>(this.getDeleteUrl(projectArticle.projekt_artikel_id)).toPromise();
+    if(projectArticle.projekt_artikel_id) {
+      await this.http.delete<ProjectArticle>(this.getDeleteUrl(projectArticle.projekt_artikel_id)).toPromise();
+    }
   }
 
   private getDeleteUrl(projectArticleId: number): string {

@@ -68,6 +68,7 @@ import { AssetDetalsComposeComponent } from './Components/Tables/Article/special
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
 import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/article-details-input/article-input-compose.component';
 import { AssetComposeComponent } from './Components/Inputs/Article/Specialization/asset/asset-compose/asset-compose.component';
+import { AssetInputButtonsComponent } from './Components/Inputs/Article/Specialization/asset/asset-compose/asset-input-buttons/asset-input-buttons.component';
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { AssetComposeComponent } from './Components/Inputs/Article/Specializatio
     ArticleDetailsComposeComponent,
     ArticleInputComposeComponent,
     AssetComposeComponent,
+    AssetInputButtonsComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

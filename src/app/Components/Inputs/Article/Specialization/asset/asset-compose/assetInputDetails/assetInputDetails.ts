@@ -5,10 +5,10 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {ArticleCreationService} from "../../../../Base/service/article-creation.service";
-import {ErweiterterAssetCreationService} from "./services/old/erweiterter-asset-creation.service";
-import {Util} from "../../services/old/util.service";
+import {ErweiterterAssetCreationService} from "../services/old/erweiterter-asset-creation.service";
+import {Util} from "../services/old/util.service";
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
-import {AssetInputDataService} from "./services/assetProject/asset-input-data.service";
+import {AssetInputDataService} from "../services/assetProject/asset-input-data.service";
 
 @Component({
   selector: 'app-asset-input-form',
@@ -67,4 +67,7 @@ export class AssetInputDetails implements OnInit{
   }
 
 
+  onSubmit() {
+
+  }
 }

@@ -22,7 +22,6 @@ export class AssetTableService {
 
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]); //toDo: decouplt the assets from the article
 
-  public notifyThatDataChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
               private projectsService: ProjectsService,

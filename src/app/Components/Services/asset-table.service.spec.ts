@@ -36,7 +36,7 @@ describe('AssetTableService', () => {
     service.print_status();
     console.log(service.assets.getValue());
     service.assets.subscribe(assets => {
-      console.log(assets);
+      // console.log(assets);
       done();
     });
   });

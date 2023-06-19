@@ -61,12 +61,13 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ArticleInputDateComponent } from './Components/Inputs/Article/Base/article-details-input/details-Input/artickle-input-date/article-input-date.component';
 import { ArticleInputDetailComponent } from './Components/Inputs/Article/Base/article-details-input/details-Input/article-input-detail/article-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
-import { AssetInputDetails } from './Components/Inputs/Article/Specialization/asset/assetInputDetails/assetInputDetails';
+import { AssetInputDetails } from './Components/Inputs/Article/Specialization/asset/asset-compose/assetInputDetails/assetInputDetails';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
 // import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
 import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/article-details-input/article-input-compose.component';
+import { AssetComposeComponent } from './Components/Inputs/Article/Specialization/asset/asset-compose/asset-compose.component';
 
 
 @NgModule({
@@ -108,6 +109,7 @@ import { ArticleInputComposeComponent } from './Components/Inputs/Article/Base/a
     AssetDetalsComposeComponent,
     ArticleDetailsComposeComponent,
     ArticleInputComposeComponent,
+    AssetComposeComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

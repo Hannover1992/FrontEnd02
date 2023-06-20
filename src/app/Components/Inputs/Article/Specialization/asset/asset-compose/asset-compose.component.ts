@@ -17,57 +17,6 @@ export class AssetComposeComponent {
 
 
 
-  constructor(
-    private currentInputAssetService:CurrentArticleAsset,
-    private unterKategorieService: UnterKategorieService,
-    // private formRetrievalService: FormRetrievalService
-    private projectAssetArticle:ProjectAssetArticle,
-  ) {
-    // currentInputAssetService.erweiterterAssetArticle.subscribe(
-      // (erweiterterAssetArticle) => {
-      //   console.log(erweiterterAssetArticle)
-      // });
-
-
-    this.projectAssetArticle.projectAssetArticle.subscribe((projectArticle) => {
-      console.log(projectArticle);
-    });
+  constructor( ) {
   }
-
-
-  private getUnterkategorieID(): number {
-    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
-    if (!unterkategorieID) {
-      throw new Error('unterkategorieID is null');
-    }
-    return unterkategorieID;
-  }
-
-  private getProjektID(projectsService: any): number {
-    const proStr = projectsService.selectedProject.getValue();
-    return parseInt(proStr);
-  }
-
-
-  // create(artikelForm: FormGroup, projectsService: any): any {
-  //   // const projektID : number  = this.getProjektID(projectsService);
-  //   // const newArticle: Article = this.createNewArticle(artikelForm);
-  //
-  //   // return {
-  //   //   projekt_artikel_id: undefined,
-  //   //   projekt_id:         projektID,
-  //   //   artikel_id:         0,
-  //   //   menge:              this.formRetrievalService.mengeForm(artikelForm),
-  //   //   artikel:            newArticle,
-  //   // };
-  //
-  //   let projectArticls: { artikel: any; projekt_id: any } = {
-  //     projekt_id: projectsService.selectedProject.getValue(),
-  //     artikel: this.currentInputAssetService.currentArticleValue()
-  //   }
-  //   console.log(projectArticls)
-  // }
-
-
-
 }

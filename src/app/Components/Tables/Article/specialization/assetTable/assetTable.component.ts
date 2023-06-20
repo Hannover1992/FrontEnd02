@@ -113,4 +113,8 @@ export class AssetTableComponent {
     });
 
   }
+
+  open_the_dialog_for_updating_artikel(element: any) {
+    console.log(element);
+  }
 }

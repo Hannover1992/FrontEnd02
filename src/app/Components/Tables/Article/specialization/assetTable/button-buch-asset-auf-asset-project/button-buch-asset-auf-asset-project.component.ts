@@ -16,7 +16,11 @@ export class ButtonBuchAssetAufAssetProjectComponent {
   }
 
   open_input_form() {
-    this.dialog.open(AssetComposeComponent);
+    const dialogRef = this.dialog.open(AssetComposeComponent, {
+      data: {
+        mode: 'create' // Replace 'your_mode_here' with the mode you want to set.
+      }
+    });
   }
 
 }

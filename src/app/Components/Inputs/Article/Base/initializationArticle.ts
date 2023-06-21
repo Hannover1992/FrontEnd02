@@ -1,10 +1,13 @@
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Article} from "../../../Interface/article";
 
 export class InitializationArticle {
 
   constructor(
     private fb: FormBuilder,
+    private article?: Article
   ) {
+    console.log(this.article);
   }
 
   initForm() {
@@ -16,13 +19,13 @@ export class InitializationArticle {
   }
 
   initAssetDetails(): FormGroup {
+    console.log(this.article)
     return this.fb.group({
-      firma: [''],
-      // artikelname: ['', Validators.pattern('^[0-9]*$')],
-      artikelname: ['', Validators.required],
-      model: [''],
-      zustand: [''],
-      beschreibung: [''],
+      firma: [this.article ? this.article.firma : ''],
+      artikelname: [this.article ? this.article.artikelname : '', Validators.required],
+      model: [this.article ? this.article.model : ''],
+      zustand: [this.article ? this.article.zustand : ''],
+      beschreibung: [this.article ? this.article.beschreibung : ''],
     });
   }
 
@@ -41,12 +44,6 @@ export class InitializationArticle {
   }
 
 
-  positiveNonZero(control: AbstractControl) {
-    if (control.value <= 0) {
-      return {nonPositiveOrZero: true};
-    }
-    return null;
-  }
 
   initDateInfo(): FormGroup {
     return this.fb.group({
@@ -55,6 +52,13 @@ export class InitializationArticle {
       belegt_von: [new Date()],
       belegt_bis: [new Date()],
     });
+  }
+
+  positiveNonZero(control: AbstractControl) {
+    if (control.value <= 0) {
+      return {nonPositiveOrZero: true};
+    }
+    return null;
   }
 
 }

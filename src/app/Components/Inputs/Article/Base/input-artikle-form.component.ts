@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {InitializationArticle} from "./initializationArticle";
 import {ArtikelFormDataService} from "./service/artikel-form-data.service";
+import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/services/project-asset-article";
 
 
 
@@ -25,12 +26,16 @@ export class InputArtikelForm implements OnInit {
     public    projectsService:        ProjectsService,
     private   dialog:                 MatDialog,
     private   _snackBar:              MatSnackBar,
-    private artikelFormDataService:   ArtikelFormDataService
+    private artikelFormDataService:   ArtikelFormDataService,
+    private projectAssetArticle:      ProjectAssetArticle
   ) {
   }
 
   ngOnInit(): void {
-    this.artikelForm =  new InitializationArticle(this.fb).initForm();
+    this.projectAssetArticle.projectAssetArticle.subscribe((article) => {
+      this.artikelForm =  new InitializationArticle(this.fb, article).initForm();
+    });
+    // this.artikelForm =  new InitializationArticle(this.fb).initForm();
     this.artikelForm.valueChanges.subscribe((data) =>
     {
       this.artikelFormDataService.article.next(data);

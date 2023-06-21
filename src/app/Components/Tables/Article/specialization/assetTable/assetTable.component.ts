@@ -13,6 +13,9 @@ import {
   DialogDeleteProjectComponent
 } from "../../../projectTable/projects-table/dialog-delete-project/dialog-delete-project.component";
 import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
+import {
+  AssetComposeComponent
+} from "../../../../Inputs/Article/Specialization/asset/asset-compose/asset-compose.component";
 
 @Component({
   selector: 'app-asset-table',
@@ -115,6 +118,10 @@ export class AssetTableComponent {
   }
 
   open_the_dialog_for_updating_artikel(element: any) {
-    console.log(element);
+    this.dialog.open(AssetComposeComponent, {
+      data: {
+        element: element
+      }
+    });
   }
 }

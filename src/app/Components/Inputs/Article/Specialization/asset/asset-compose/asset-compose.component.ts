@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {CurrentArticleAsset} from "./services/current-article-asset.service";
 import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
 import {FormRetrievalService} from "./services/old/form-retrieval.service";
@@ -7,6 +7,7 @@ import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {Article} from "../../../../../Interface/article";
 import {ProjectAssetArticle} from "./services/project-asset-article";
 import {AssetTableService} from "../../../../../Services/asset-table.service";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-asset-compose',
@@ -14,9 +15,20 @@ import {AssetTableService} from "../../../../../Services/asset-table.service";
   styleUrls: ['./asset-compose.component.css']
 })
 export class AssetComposeComponent {
+  element!: ProjectArticle;
 
 
 
-  constructor( ) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any ,
+    private projectAssetArticle:ProjectAssetArticle
+              ) {
+
+    this.element = this.data.element;
+    if(this.element == undefined){
+      console.log("undefined")
+    } else {
+      projectAssetArticle.projectAssetArticle.next(this.element);
+    }
   }
 }

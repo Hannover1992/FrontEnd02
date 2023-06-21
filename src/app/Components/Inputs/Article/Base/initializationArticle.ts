@@ -28,32 +28,27 @@ export class InitializationArticle {
       beschreibung: [this.article ? this.article.beschreibung : ''],
     });
   }
+initAssetNumbers(): FormGroup {
+  return this.fb.group({
+    menge: [1 , Validators.compose([
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+      this.positiveNonZero // Make sure you have defined this custom validator function
+    ])],
+    preis: [this.article ? this.article.preis : ''],
+    anlagenummer: [this.article ? this.article.anlagenummer : ''],
+    serriennummer: [this.article ? this.article.seriennummer : ''],
+  });
+}
 
-  initAssetNumbers(): FormGroup {
-    return this.fb.group({
-      menge: [1, Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]*$'),
-        this.positiveNonZero // Make sure you have defined this custom validator function
-      ])],
-      preis: [''],
-      // Inventarnummer: [0],
-      anlagenummer: [''],
-      serriennummer: [''],
-    });
-  }
-
-
-
-  initDateInfo(): FormGroup {
-    return this.fb.group({
-      einkaufs_datum: [new Date()],
-      edit_date: [new Date()],
-      belegt_von: [new Date()],
-      belegt_bis: [new Date()],
-    });
-  }
-
+initDateInfo(): FormGroup {
+  return this.fb.group({
+    einkaufs_datum: [this.article && this.article.einkaufs_datum ? new Date(this.article.einkaufs_datum) : new Date()],
+    edit_date: [this.article && this.article.edit_date ? new Date(this.article.edit_date) : new Date()],
+    belegt_von: [this.article && this.article.belegt_von ? new Date(this.article.belegt_von) : new Date()],
+    belegt_bis: [this.article && this.article.belegt_bis ? new Date(this.article.belegt_bis) : new Date()],
+  });
+}
   positiveNonZero(control: AbstractControl) {
     if (control.value <= 0) {
       return {nonPositiveOrZero: true};

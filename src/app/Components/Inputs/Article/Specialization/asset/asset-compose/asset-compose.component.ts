@@ -24,10 +24,10 @@ export class AssetComposeComponent {
     private projectAssetArticle:ProjectAssetArticle
               ) {
 
-    this.element = this.data.element;
-    if(this.element == undefined){
-      console.log("undefined")
+    if(this.data == undefined){
+      console.log("undefined!!!!!!!!")
     } else {
+      this.element = this.data.element;
       projectAssetArticle.projectAssetArticle.next(this.element);
     }
   }

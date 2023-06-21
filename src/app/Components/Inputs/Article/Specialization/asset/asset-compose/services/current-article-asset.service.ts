@@ -32,11 +32,11 @@ export class CurrentArticleAsset {
   private updateErweiterterAssetArticle() {
     // const mergedData = { ...this.currentArticle, assets: this.currentAsset };
     let articleTemp : Article = this.artikelFormDataService.article.getValue();
-    console.log("hier")
-    console.log(articleTemp)
+    // console.log("hier")
+    // console.log(articleTemp)
     articleTemp.assets = this.currentAsset;
-    console.log(articleTemp);
-    console.log("end")
+    // console.log(articleTemp);
+    // console.log("end")
     this.erweiterterAssetArticle.next(articleTemp);
   }
 

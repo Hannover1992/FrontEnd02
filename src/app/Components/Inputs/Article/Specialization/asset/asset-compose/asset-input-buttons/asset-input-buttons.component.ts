@@ -3,6 +3,7 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {ProjectAssetArticle} from "../services/project-asset-article";
 import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
+import {ArtikelFormDataService} from "../../../../Base/service/artikel-form-data.service";
 
 @Component({
   selector: 'app-asset-input-buttons',
@@ -11,7 +12,13 @@ import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.
 })
 export class AssetInputButtonsComponent {
 
+  //toDo: when the user clcks the button, the window should close, and the service shoudl be loaded to standart data
+  //toDo: Beschreibugn soll auch als ein eingabe feld sein
+
   constructor(
+
+
+    private artikelFormDataService:   ArtikelFormDataService,
 
     private assetTableService: AssetTableService,
 
@@ -23,11 +30,19 @@ export class AssetInputButtonsComponent {
 
     onSubmit() {
       let projectArticle : ProjectArticle = this.projectAssetArticle.projectAssetArticle.getValue();
+
       // @ts-ignore
       projectArticle.artikel.unterkategorie_id = this.getUnterkategorieID();
-      console.log("dise unterkategorie ID habe ich:")
-      console.log(this.unterKategorieService.selectedUnterKategorieId.value)
-      this.assetTableService.create_new_asset(projectArticle);
+      if(this.check_if_form_is_valid()){
+        this.assetTableService.create_new_asset(projectArticle);
+      }
+
+  }
+
+  check_if_form_is_valid(): boolean {
+    let temp =  this.artikelFormDataService.articleForm.getValue().valid;
+    console.log(temp);
+    return temp;
   }
 
 

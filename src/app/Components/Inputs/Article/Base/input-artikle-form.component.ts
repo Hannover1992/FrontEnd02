@@ -35,14 +35,9 @@ export class InputArtikelForm implements OnInit {
     {
       this.artikelFormDataService.article.next(data);
       this.artikelFormDataService.menge.next(data.asset_numbers.menge);
+      this.artikelFormDataService.articleForm.next(this.artikelForm);
     }
     )
   }
-
-  // protected onSubmit() {
-    // let projectArticle : ProjectArticle =  this.articleCreationService.create(this.artikelForm, this.projectsService);
-    // this.assetTableService.create_new_asset(projectArticle);
-    // this.dialog.closeAll();
-  // }
 }
 

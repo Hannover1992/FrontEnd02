@@ -11,6 +11,9 @@
         <mat-form-field class="full-width">
           <mat-label>Artikelname</mat-label>
           <input matInput formControlName="artikelname">
+          <mat-error *ngIf="asset_details.controls['artikelname'].hasError('required')">
+            Artikelname ist <strong>erforderlich</strong>
+          </mat-error>
         </mat-form-field>
       </div>
     </div>

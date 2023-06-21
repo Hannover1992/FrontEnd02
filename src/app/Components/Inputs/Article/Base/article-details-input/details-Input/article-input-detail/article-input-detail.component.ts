@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 
 
 export enum Zustand {
-  NEU = 'Neu',
-  GUT = 'Gut',
-  MITTELMAESSIG = 'Mittelmaessig',
-  SCHLECHT = 'Schlecht',
-  KAPUTT = 'Kaputt'
+  NEU               = 'Neu',
+  GUT               = 'Gut',
+  MITTELMAESSIG     = 'Mittelmaessig',
+  SCHLECHT          = 'Schlecht',
+  KAPUTT            = 'Kaputt'
 }
 
 @Component({

@@ -18,7 +18,8 @@ export class InitializationArticle {
   initAssetDetails(): FormGroup {
     return this.fb.group({
       firma: [''],
-      artikelname: [''],
+      // artikelname: ['', Validators.pattern('^[0-9]*$')],
+      artikelname: ['', Validators.required],
       model: [''],
       zustand: [''],
       beschreibung: [''],

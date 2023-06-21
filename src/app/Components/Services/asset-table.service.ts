@@ -9,6 +9,7 @@ import {ProjectArticle} from "../Interface/projectArticle";
 import {Project} from "../Inputs/project_input/project";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ProjectInterface} from "../Inputs/project_input/project.interface";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Injectable({
@@ -27,7 +28,8 @@ export class AssetTableService {
               private projectsService: ProjectsService,
               public kategorieService: UnterKategorieService,
               private http: HttpClient,
-              private _snackBar: MatSnackBar
+              private _snackBar: MatSnackBar,
+              private dialog: MatDialog,
               ) {
     this.subscribe_project_kategorie();
     this.load_assets_from_database();
@@ -50,12 +52,11 @@ export class AssetTableService {
 
   create_new_asset(newProjectArticle:ProjectArticle){
     this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
-      console.log(response)
       this.load_assets_from_database();
       this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
+      this.dialog.closeAll();
     }, error => {
       this._snackBar.open(error.message, "OK");
-      console.log(error)
     });
   }
 

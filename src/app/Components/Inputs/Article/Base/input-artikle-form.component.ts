@@ -10,7 +10,7 @@ import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/service
 
 
 @Component({
-  selector: 'app-input-form-asset',
+  selector: 'app-input-form-artikel',
   templateUrl: './input-artikle-form.component.html',
   styleUrls: ['../../../shared_css/input.css']
 })

@@ -41,6 +41,8 @@ initAssetNumbers(): FormGroup {
   });
 }
 
+//toDo: add the Beschrebiung to the form
+
 initDateInfo(): FormGroup {
   return this.fb.group({
     einkaufs_datum: [this.article && this.article.einkaufs_datum ? new Date(this.article.einkaufs_datum) : new Date()],

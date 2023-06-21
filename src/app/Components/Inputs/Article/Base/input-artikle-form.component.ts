@@ -32,10 +32,10 @@ export class InputArtikelForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.projectAssetArticle.projectAssetArticle.subscribe((article) => {
-      this.artikelForm =  new InitializationArticle(this.fb, article).initForm();
-    });
-    // this.artikelForm =  new InitializationArticle(this.fb).initForm();
+    // this.projectAssetArticle.projectAssetArticle.subscribe((article) => {
+    //   this.artikelForm =  new InitializationArticle(this.fb, article).initForm();
+    // });
+    this.artikelForm =  new InitializationArticle(this.fb).initForm();
     this.artikelForm.valueChanges.subscribe((data) =>
     {
       this.artikelFormDataService.article.next(data);

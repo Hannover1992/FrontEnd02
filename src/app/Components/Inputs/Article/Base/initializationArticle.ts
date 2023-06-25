@@ -7,6 +7,7 @@ export class InitializationArticle {
     private fb: FormBuilder,
     private article?: Article
   ) {
+    console.log("this article form ")
     console.log(this.article);
   }
 

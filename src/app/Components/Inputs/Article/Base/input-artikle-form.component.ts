@@ -9,6 +9,7 @@ import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/service
 import {ArticleUpdateServiceService} from "./service/article-update-service.service";
 import {BehaviorSubject} from "rxjs";
 import {ProjectArticle} from "../../../Interface/projectArticle";
+import {Article} from "../../../Interface/article";
 
 
 
@@ -36,25 +37,48 @@ export class InputArtikelForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.articleUpdateServiceService.currentProjectArticleForUpdate.subscribe((projectCurrentUpdateProjectArticle) => {
-      if (Object.keys(projectCurrentUpdateProjectArticle).length === 0) {
-        // The BehaviorSubject has not been updated and is still an empty object
-        this.artikelForm = new InitializationArticle(this.fb).initForm();
-      } else {
-        console.log("projectCurrentUpdateProjectArticle")
-        console.log(projectCurrentUpdateProjectArticle)
-        this.artikelForm =  new InitializationArticle(this.fb,projectCurrentUpdateProjectArticle).initForm();
-        this.artikelFormDataService.article.next(projectCurrentUpdateProjectArticle);
-      }
-    });
-
-
+    this.subscribeToUpdateService();
     this.artikelForm.valueChanges.subscribe((data) =>
     {
       this.artikelFormDataService.article.next(data);
       this.artikelFormDataService.menge.next(data.asset_numbers.menge);
+    });
+  }
+
+  subscribeToUpdateService() {
+    this.articleUpdateServiceService.currentProjectArticleForUpdate.subscribe((projectCurrentUpdateProjectArticle) => {
+      if (this.isArticleEmpty(projectCurrentUpdateProjectArticle)) {
+        this.initializeArticleForm();
+      } else {
+        this.processProjectCurrentUpdateArticle(projectCurrentUpdateProjectArticle);
+      }
+    });
+  }
+
+  isArticleEmpty(projectCurrentUpdateProjectArticle: ProjectArticle) {
+    return Object.keys(projectCurrentUpdateProjectArticle).length === 0;
+  }
+
+  initializeArticleForm() {
+    this.artikelForm = new InitializationArticle(this.fb).initForm();
+  }
+
+  processProjectCurrentUpdateArticle(projectCurrentUpdateProjectArticle: ProjectArticle) {
+    console.log("projectCurrentUpdateProjectArticle", projectCurrentUpdateProjectArticle);
+    this.initArticleFormWithProjectArticle(projectCurrentUpdateProjectArticle.artikel);
+    this.verifyAndProcessArticle(projectCurrentUpdateProjectArticle.artikel);
+  }
+
+  initArticleFormWithProjectArticle(artikel: Article | undefined) {
+    this.artikelForm = new InitializationArticle(this.fb, artikel).initForm();
+  }
+
+  verifyAndProcessArticle(artikel: Article | undefined) {
+    if (artikel) {
+      this.artikelFormDataService.article.next(artikel);
+    } else {
+      throw new Error("There was no article to pass for the update asset");
     }
-    )
   }
 }
 

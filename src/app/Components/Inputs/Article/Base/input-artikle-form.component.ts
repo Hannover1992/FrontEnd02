@@ -42,6 +42,7 @@ export class InputArtikelForm implements OnInit {
         this.artikelForm = new InitializationArticle(this.fb).initForm();
       } else {
         this.artikelForm =  new InitializationArticle(this.fb,projectCurrentUpdateProjectArticle).initForm();
+        this.artikelFormDataService.article.next(projectCurrentUpdateProjectArticle);
       }
     });
 
@@ -50,7 +51,6 @@ export class InputArtikelForm implements OnInit {
     {
       this.artikelFormDataService.article.next(data);
       this.artikelFormDataService.menge.next(data.asset_numbers.menge);
-      // this.artikelFormDataService.articleForm.next(this.artikelForm);
     }
     )
   }

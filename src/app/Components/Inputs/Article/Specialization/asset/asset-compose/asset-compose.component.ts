@@ -32,9 +32,41 @@ export class AssetComposeComponent implements OnInit {
     if(this.data == undefined){
     } else {
       this.element = this.data.element;
+      let projectArticle = this.convertTemplate(this.element);
       console.log("this.element")
       console.log(this.element)
-      this.articleUpdateServiceService.currentProjectArticleForUpdate.next(this.element)
+      console.log(projectArticle)
+
+      this.articleUpdateServiceService.currentProjectArticleForUpdate.next(projectArticle)
+    }
+  }
+
+
+  convertTemplate(tableObject: any): any {
+    return {
+      "projekt_artikel_id": tableObject.projekt_artikel_id,
+      "projekt_id": tableObject.projekt_id,
+      "artikel_id": tableObject.artikel_id,
+      "menge": tableObject.menge,
+      "artikel": {
+          "firma": tableObject.firma,
+          "artikelname": tableObject.artikelname,
+          "model": tableObject.model,
+          "zustand": tableObject.zustand,
+          "beschreibung": tableObject.beschreibung,
+          "preis": tableObject.preis,
+          "anlagenummer": tableObject.anlagenummer,
+          "serriennummer": tableObject.seriennummer,
+          "einkaufs_datum": tableObject.einkaufs_datum,
+          "edit_date": tableObject.edit_date,
+          "belegt_von": tableObject.belegt_von,
+          "belegt_bis": tableObject.belegt_bis,
+        "assets": {
+          "asset_id": tableObject.asset_id,
+          "Inventarnummer": tableObject.Inventarnummer
+        },
+        "unterkategorie_id": tableObject.unterkategorie_id
+      }
     }
   }
 

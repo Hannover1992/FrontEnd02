@@ -34,6 +34,8 @@ export class AssetInputButtonsComponent {
 
       // @ts-ignore
       projectArticle.artikel.unterkategorie_id = this.getUnterkategorieID();
+      console.log("this is how the object looks like when he has to be send to the server")
+      console.log(projectArticle)
       if(this.check_if_form_is_valid()){
         this.assetTableService.create_new_asset(projectArticle);
       }

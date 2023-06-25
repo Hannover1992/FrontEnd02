@@ -33,10 +33,8 @@ export class AssetComposeComponent implements OnInit {
     } else {
       this.element = this.data.element;
       let projectArticle = this.convertTemplate(this.element);
-      console.log("this.element")
-      console.log(this.element)
+      console.log("projectArticle HIER")
       console.log(projectArticle)
-
       this.articleUpdateServiceService.currentProjectArticleForUpdate.next(projectArticle)
     }
   }

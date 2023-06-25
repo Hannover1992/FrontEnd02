@@ -41,6 +41,8 @@ export class InputArtikelForm implements OnInit {
         // The BehaviorSubject has not been updated and is still an empty object
         this.artikelForm = new InitializationArticle(this.fb).initForm();
       } else {
+        console.log("projectCurrentUpdateProjectArticle")
+        console.log(projectCurrentUpdateProjectArticle)
         this.artikelForm =  new InitializationArticle(this.fb,projectCurrentUpdateProjectArticle).initForm();
         this.artikelFormDataService.article.next(projectCurrentUpdateProjectArticle);
       }

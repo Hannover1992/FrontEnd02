@@ -4,6 +4,7 @@ import {Subscription} from "rxjs";
 import {Article} from "../../../../Interface/article";
 import {AssetFormDataService} from "./asset/service/asset-form-data.service";
 import {Asset} from "../../../../Interface/asset";
+import {ProjectArticle} from "../../../../Interface/projectArticle";
 
 @Component({
   selector: 'app-asset-compose-create',
@@ -41,6 +42,48 @@ export class AssetComposeCreateComponent implements OnDestroy, OnInit{
     this.articleSubscribtion.unsubscribe();
     this.assetSubscribtion.unsubscribe();
   }
+
+
+  // export interface ProjectArticle {
+  // projekt_artikel_id?: number;
+  // projekt_id?: number;
+  // artikel_id?: number;
+  // menge?: number;
+  // artikel?: Article;
+
+  private formatToProjectArticle(article: Article, unterkategorieID: number, projectID: number): ProjectArticle {
+    let projectArticle: ProjectArticle = {
+      projekt_id: projectID,
+      menge: article.menge, // Replace with actual value
+      artikel: this.mergeArticleAndAsset(article, this.asset),
+    };
+
+    return projectArticle;
+  }
+
+  private mergeArticleAndAsset(article: Article, asset: Asset): any {
+    return {
+      artikel: {
+        artikelname: article.artikelname,
+        firma: article.firma,
+        model: article.model,
+        zustand: article.zustand,
+        preis: article.preis,
+        einkaufs_datum: article.einkaufs_datum,
+        belegt_von: article.belegt_von,
+        belegt_bis: article.belegt_bis,
+        edit_date: article.edit_date,
+        seriennummer: article.seriennummer,
+        anlagenummer: article.anlagenummer,
+        assets: {
+          ID: asset.ID,
+          Inventarnummer: asset.Inventarnummer,
+        }
+      }
+    }
+  }
+
+
 
   private formatFormToArticle(data: any): Article {
 

@@ -27,6 +27,11 @@ export class ProjectsService {
       });
   }
 
+  public getProjectID(): number {
+    const project = this.selectedProject.getValue();
+    return parseInt(project);
+  }
+
   generateURL() {
     return URL + '/projects';
   }

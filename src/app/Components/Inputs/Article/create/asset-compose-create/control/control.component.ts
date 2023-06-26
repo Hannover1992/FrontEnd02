@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
-import {ProjectAssetArticle} from "../../../old/Specialization/asset/asset-compose/services/project-asset-article";
 import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
+import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 
 @Component({
   selector: 'app-control',
@@ -12,23 +12,14 @@ export class ControlComponent {
 
 
   constructor(
-      private projectAssetArticle: ProjectAssetArticle,
-      private unterKategorieService:UnterKategorieService
   ){
-
-
-
-
   }
 
   onSubmit() {
-    let projectArticle : ProjectArticle = this.projectAssetArticle.projectAssetArticle.getValue();
-    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
 
   }
 
   close_window() {
-      //
 
   }
 

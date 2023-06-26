@@ -3,7 +3,7 @@
   <form [formGroup]="mengeForm" class="shipping-card">
 
     <mat-form-field class="full-width">
-      <mat-label>Artikelnummer</mat-label>
+      <mat-label>Menge</mat-label>
       <input matInput placeholder="Menge" formControlName="menge">
       <mat-error *ngIf="mengeForm.controls['menge'].hasError('required')">
         Menge ist <strong>erforderlich</strong>

@@ -10,10 +10,6 @@ export class ArticleNumbersInputComponent {
   @Input() article_numbers!: FormGroup;
 
   constructor() {
-    this.article_numbers = new FormGroup<any>({})
-    this.article_numbers.valueChanges.subscribe((data) => {
-      console.log(data);
-    });
   }
 
 }

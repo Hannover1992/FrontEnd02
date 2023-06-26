@@ -24,6 +24,8 @@ export class MengeDataService {
   }
 
   private formatFormToMenge(data: any) {
-    return data?.Menge;
+    console.log("format data")
+    console.log(data)
+    return parseInt(data?.menge)
   }
 }

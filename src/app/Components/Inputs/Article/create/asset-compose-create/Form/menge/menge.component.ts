@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MengeFormDataService} from "./service/menge-form-data.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {MengeFormDataService} from "./service/menge-form-data.service";
   styleUrls: ['../../../../../../shared_css/input.css']
 })
 export class MengeComponent {
-  mengeForm: any;
+  mengeForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -16,7 +16,6 @@ export class MengeComponent {
   ) {
     this.mengeForm = new InitializationMenge(this.fb).initForm();
     this.mengeFormDataService.setForm(this.mengeForm);
-
   }
 
 }
@@ -28,7 +27,7 @@ export class InitializationMenge {
   ) {
   }
 
-  initForm(){
+  initForm(): FormGroup{
     return this.fb.group({
       menge: [1, Validators.compose([
         Validators.required,

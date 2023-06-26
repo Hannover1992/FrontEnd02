@@ -14,8 +14,6 @@ export class ArticleFormDataService {
   setForm(form: FormGroup): void {
     form.valueChanges.subscribe(data => {
       this.formData.next(data)
-      console.log("this is the article Data Form")
-      console.log(data);
     });
 
   }

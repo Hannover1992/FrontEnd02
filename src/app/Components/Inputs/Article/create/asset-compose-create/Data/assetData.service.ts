@@ -25,10 +25,6 @@ export class AssetDataService {
     });
   }
 
-  unsubscribe(): void {
-    this.assetSubscribtion.unsubscribe();
-  }
-
   private formatFormToAsset(data: any): Asset {
     let asset: Asset = {
       ID: data?.ID,

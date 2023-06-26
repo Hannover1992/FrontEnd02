@@ -5,12 +5,17 @@ import {FormGroup} from "@angular/forms";
 @Injectable({
   providedIn: 'root'
 })
+
 export class MengeFormDataService {
-  private mengeFormData = new BehaviorSubject<any>({});
+  private mengeFormData = new BehaviorSubject<any>({
+    menge: 1
+  });
   constructor() { }
 
   setForm(form: FormGroup): void {
-    this.mengeFormData.subscribe(data => this.mengeFormData.next(data));
+    form.valueChanges.subscribe(data => {
+      this.mengeFormData.next(data);
+    });
   }
 
   getFormData(): Observable<any> {

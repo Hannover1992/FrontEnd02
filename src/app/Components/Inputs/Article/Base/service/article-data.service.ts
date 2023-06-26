@@ -7,12 +7,24 @@ import {FormGroup} from "@angular/forms";
   providedIn: 'root'
 })
 
-export class ArtikelFormDataService {
+export class ArticleData {
+
+  public article: BehaviorSubject<Article> = new BehaviorSubject<Article>({});
 
   public artikelFormValid: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public article: BehaviorSubject<Article> = new BehaviorSubject<Article>({});
+
   public menge: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   constructor() {
+  }
+
+  restart(){
+
+    this.article.next({});
+
+    this.artikelFormValid.next(false)
+
+    this.menge.next(1);
+
   }
 }

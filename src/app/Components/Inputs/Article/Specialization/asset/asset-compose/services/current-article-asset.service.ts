@@ -1,8 +1,8 @@
 import {BehaviorSubject} from "rxjs";
 import {Article} from "../../../../../../Interface/article";
 import {Asset} from "../../../../../../Interface/asset";
-import {ArtikelFormDataService} from "../../../../Base/service/artikel-form-data.service";
-import {AssetInputDataService} from "./assetProject/asset-input-data.service";
+import {ArticleData} from "../../../../Base/service/article-data.service";
+import {AssetData} from "./asset/asset-data.service";
 import {Injectable} from "@angular/core";
 
 @Injectable({
@@ -10,32 +10,39 @@ import {Injectable} from "@angular/core";
 })
 export class CurrentArticleAsset {
 
-  erweiterterAssetArticle: BehaviorSubject<Article>  = new BehaviorSubject<Article>({});
+  umAssetErweiterterArticle: BehaviorSubject<Article>  = new BehaviorSubject<Article>({});
 
   private currentArticle: Article = {};
   private currentAsset: Asset = {};
 
   constructor(
-    private artikelFormDataService:ArtikelFormDataService,
-    private assetInputDataService : AssetInputDataService,
+    private articleData:ArticleData,
+    private assetInputDataService : AssetData,
   ) {
 
-    this.artikelFormDataService.article.subscribe((articleData) => {
+    this.articleData.article.subscribe((articleData) => {
       this.currentArticle = articleData;
       this.updateErweiterterAssetArticle();
     });
 
-    this.assetInputDataService.assetInputFormData.subscribe((assetData) => {
+    this.assetInputDataService.assetData.subscribe((assetData) => {
       this.currentAsset = assetData;
       this.updateErweiterterAssetArticle();
     });
 
   }
 
+  public restart(){
+    this.umAssetErweiterterArticle.next({});
+    this.currentArticle = {};
+    this.currentAsset = {};
+    this.assetInputDataService.restart();
+  }
+
   private updateErweiterterAssetArticle() {
-    let articleTemp : Article = this.artikelFormDataService.article.getValue();
+    let articleTemp : Article = this.articleData.article.getValue();
     articleTemp.assets = this.currentAsset;
-    this.erweiterterAssetArticle.next(articleTemp);
+    this.umAssetErweiterterArticle.next(articleTemp);
   }
 
 }

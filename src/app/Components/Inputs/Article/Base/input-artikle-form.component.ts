@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {InitializationArticle} from "./initializationArticle";
-import {ArtikelFormDataService} from "./service/artikel-form-data.service";
+import {ArticleData} from "./service/article-data.service";
 import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/services/project-asset-article";
 import {ArticleUpdateServiceService} from "./service/article-update-service.service";
 import {ProjectArticle} from "../../../Interface/projectArticle";
@@ -30,8 +30,9 @@ export class InputArtikelForm implements OnInit {
     private   dialog:                   MatDialog,
     private   _snackBar:                MatSnackBar,
 
-    private artikelFormDataService:     ArtikelFormDataService,
-    private projectAssetArticle:        ProjectAssetArticle,
+    private articleData:     ArticleData,
+    private projectAssetArticle:ProjectAssetArticle,
+
     private articleUpdateServiceService:ArticleUpdateServiceService,
   ) {
   }
@@ -42,34 +43,32 @@ export class InputArtikelForm implements OnInit {
     this.artikelForm.valueChanges.subscribe((data) =>
     {
       this.formValidation();
-      this.artikelFormDataService.article.next(data);
-      this.artikelFormDataService.menge.next(data.asset_numbers.menge);
+      this.articleData.article.next(data);
+      this.articleData.menge.next(data.asset_numbers.menge);
     });
 
     this.artikelForm.valueChanges.subscribe((data) => {
       console.log(data);
     });
+
+    this.formValidation();
   }
 
   private formValidation() {
     if (this.artikelForm.valid) {
-      console.log("form is valid")
-      this.artikelFormDataService.artikelFormValid.next(true);
+      this.articleData.artikelFormValid.next(true);
     } else {
-      console.log("form is not valid")
-      this.artikelFormDataService.artikelFormValid.next(false);
+      this.articleData.artikelFormValid.next(false);
     }
   }
 
   subscribeToUpdateService() {
-    let projectCurrentUpdateProjectArticle =    this.articleUpdateServiceService.currentProjectArticleForUpdate.getValue();
-    // this.articleUpdateServiceService.currentProjectArticleForUpdate.subscribe((projectCurrentUpdateProjectArticle) => {
+    let projectCurrentUpdateProjectArticle =    this.projectAssetArticle.projectAssetArticle.getValue();
     if (this.isArticleEmpty(projectCurrentUpdateProjectArticle)) {
       this.initializeArticleForm();
     } else {
       this.processProjectCurrentUpdateArticle(projectCurrentUpdateProjectArticle);
     }
-    // });
   }
 
   isArticleEmpty(projectCurrentUpdateProjectArticle: ProjectArticle) {
@@ -92,7 +91,7 @@ export class InputArtikelForm implements OnInit {
 
   verifyAndProcessArticle(artikel: Article | undefined) {
     if (artikel) {
-      this.artikelFormDataService.article.next(artikel);
+      this.articleData.article.next(artikel);
     } else {
       throw new Error("There was no article to pass for the update asset");
     }

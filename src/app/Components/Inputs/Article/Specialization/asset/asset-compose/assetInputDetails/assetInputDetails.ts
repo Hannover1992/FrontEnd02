@@ -8,7 +8,7 @@ import {ArticleCreationService} from "../../../../Base/service/old/article-creat
 import {ErweiterterAssetCreationService} from "../services/old/erweiterter-asset-creation.service";
 import {Util} from "../services/old/util.service";
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
-import {AssetInputDataService} from "../services/assetProject/asset-input-data.service";
+import {AssetData} from "../services/asset/asset-data.service";
 import {Asset} from "../../../../../../Interface/asset";
 
 @Component({
@@ -29,7 +29,7 @@ export class AssetInputDetails implements OnInit{
     private util: Util,
     private articleCreationService: ArticleCreationService,
     private erweiterterAssetCreationService: ErweiterterAssetCreationService,
-    private assetInputDataService : AssetInputDataService
+    private assetInputDataService : AssetData
   ) {
 
   }
@@ -39,14 +39,14 @@ export class AssetInputDetails implements OnInit{
     this.assetForm.valueChanges.subscribe(
       (data) =>
       {
-        this.assetInputDataService.assetInputFormData.next(data);
+        this.assetInputDataService.assetData.next(data);
       }
     )
   }
 
 
   subscribeToUpdateService() {
-    this.assetInputDataService.assetInputFormData.subscribe((projectCurrentUpdateProjectAsset) => {
+    this.assetInputDataService.assetData.subscribe((projectCurrentUpdateProjectAsset) => {
       if (this.isAssetEmpty(projectCurrentUpdateProjectAsset)) {
         this.initializeAssetForm();
       } else {

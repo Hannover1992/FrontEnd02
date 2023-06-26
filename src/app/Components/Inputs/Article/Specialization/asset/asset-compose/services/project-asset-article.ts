@@ -3,7 +3,7 @@ import {CurrentArticleAsset} from "./current-article-asset.service";
 import {BehaviorSubject} from "rxjs";
 import {Article} from "../../../../../../Interface/article";
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
-import {ArtikelFormDataService} from "../../../../Base/service/artikel-form-data.service";
+import {ArticleData} from "../../../../Base/service/article-data.service";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {ProjectsService} from "../../../../../../Tables/projectTable/service/projects.service";
 import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
@@ -15,11 +15,10 @@ export class ProjectAssetArticle {
 
   projectAssetArticle: BehaviorSubject<ProjectArticle> = new BehaviorSubject<ProjectArticle>({});
   localProjectArticle: ProjectArticle = {};
-  currentMenge: number = 0;
 
   constructor(
     private currentInputAssetService:CurrentArticleAsset,
-    private artikelFormDataService:ArtikelFormDataService,
+    private artikelFormDataService:ArticleData,
     private projectsService: ProjectsService,
   ) {
     this.setCurrentProject();
@@ -30,11 +29,18 @@ export class ProjectAssetArticle {
       this.projectAssetArticle.next(this.localProjectArticle);
     });
 
-    this.currentInputAssetService.erweiterterAssetArticle.subscribe((articleData) => {
+    this.currentInputAssetService.umAssetErweiterterArticle.subscribe((articleData) => {
       this.localProjectArticle.artikel = articleData;
       this.projectAssetArticle.next(this.localProjectArticle);
     });
 
+  }
+
+  public restart(){
+    this.projectAssetArticle.next({})
+    this.localProjectArticle = {};
+    this.currentInputAssetService.restart();
+    this.setCurrentProject();
   }
 
 

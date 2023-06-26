@@ -3,7 +3,7 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
 import {ProjectAssetArticle} from "../services/project-asset-article";
 import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
-import {ArtikelFormDataService} from "../../../../Base/service/artikel-form-data.service";
+import {ArticleData} from "../../../../Base/service/article-data.service";
 import {Article} from "../../../../../../Interface/article";
 import {Asset} from "../../../../../../Interface/asset";
 
@@ -20,13 +20,13 @@ export class AssetInputButtonsComponent {
   constructor(
 
 
-    private artikelFormDataService:   ArtikelFormDataService,
 
-    private assetTableService: AssetTableService,
+    private assetTableService:        AssetTableService,
 
-    private projectAssetArticle:ProjectAssetArticle,
+    private artikelFormDataService:   ArticleData,
+    private projectAssetArticle:      ProjectAssetArticle,
 
-    private unterKategorieService: UnterKategorieService,
+    private unterKategorieService:    UnterKategorieService,
   ) {
 
   }
@@ -39,9 +39,10 @@ export class AssetInputButtonsComponent {
       console.log("this is how the object looks like when he has to be send to the server")
       console.log(projectArticle)
       if(this.check_if_form_is_valid()){
-        //i would like to convert this back to the projectArticle interface
         let temp: ProjectArticle = this.transformTypeAtoTypeB(projectArticle);
         this.assetTableService.create_new_asset(temp);
+        this.artikelFormDataService.restart();
+        this.projectAssetArticle.restart();
       }
 
 
@@ -97,6 +98,8 @@ export class AssetInputButtonsComponent {
     return valid;
   }
 
+  //toDo: ein problem is es dass der Serien numme rnich updatet wird.
+  
 
   private getUnterkategorieID(): number {
     const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
@@ -104,5 +107,10 @@ export class AssetInputButtonsComponent {
       throw new Error('unterkategorieID is null');
     }
     return unterkategorieID;
+  }
+
+  close_window() {
+    this.artikelFormDataService.restart();
+    this.projectAssetArticle.restart();
   }
 }

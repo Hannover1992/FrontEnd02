@@ -5,10 +5,14 @@ import {Asset} from "../../../../../../../Interface/asset";
 @Injectable({
   providedIn: 'root'
 })
-export class AssetInputDataService {
+export class AssetData {
 
-  assetInputFormData: BehaviorSubject<Asset>  = new BehaviorSubject<Asset>({});
+  assetData: BehaviorSubject<Asset>  = new BehaviorSubject<Asset>({});
 
   constructor() {
+  }
+
+  restart(){
+      this.assetData.next({});
   }
 }

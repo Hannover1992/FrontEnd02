@@ -7,12 +7,11 @@ import {FormGroup} from "@angular/forms";
 })
 
 export class MengeFormDataService {
-  private mengeFormData = new BehaviorSubject<any>({
-    menge: 1
-  });
+  private mengeFormData: BehaviorSubject<any> = new BehaviorSubject<any>({ });
   constructor() { }
 
   setForm(form: FormGroup): void {
+    this.mengeFormData.next(form.value);
     form.valueChanges.subscribe(data => {
       this.mengeFormData.next(data);
     });

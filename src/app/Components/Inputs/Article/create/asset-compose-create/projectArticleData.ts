@@ -4,6 +4,7 @@ import {BehaviorSubject} from "rxjs";
 import {ProjectsService} from "../../../../Tables/projectTable/service/projects.service";
 import {Article} from "../../../../Interface/article";
 import {Asset} from "../../../../Interface/asset";
+import {MengeDataService} from "./Data/mengeData.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +12,16 @@ import {Asset} from "../../../../Interface/asset";
 
 export class ProjectArticleData {
   projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
-  menge: BehaviorSubject<number>               = new BehaviorSubject<number>(1);
 
   constructor(
     private projectsService: ProjectsService,
+    private mengeDataService:MengeDataService
   ) {
-    this.subscribeProjectID();
   }
 
-  private subscribeProjectID() {
-    this.projectsService.selectedProject.subscribe(
-      (projectID) => {
-        this.updateProjectID(projectID);
-      });
+  private getProjectID(){
+    const projectID = this.projectsService.selectedProject.getValue();
+    this.updateProjectID(projectID);
   }
 
   private updateProjectID(projectID: string) {
@@ -34,15 +32,15 @@ export class ProjectArticleData {
   }
 
 
-  // private formatToProjectArticle(article: Article, unterkategorieID: number, projectID: number): ProjectArticle {
-  //   let projectArticle: ProjectArticle = {
-  //     projekt_id: projectID,
-  //     menge: article.menge, //toDo Replace with actual value
-  //     artikel: this.mergeArticleAndAsset(article, this.asset),
-  //   };
-  //
-  //   return projectArticle;
-  // }
+  private formatToProjectArticle(article: Article, unterkategorieID: number, projectID: number): ProjectArticle {
+    let projectArticle: ProjectArticle = {
+      projekt_id: projectID,
+      menge: this.mengeDataService.menge, //toDo Replace with actual value
+      // artikel: this.mergeArticleAndAsset(article, this.asset),
+    };
+
+    return projectArticle;
+  }
 
   private mergeArticleAndAsset(article: Article, asset: Asset): any {
     return {

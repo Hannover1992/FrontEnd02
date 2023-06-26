@@ -12,6 +12,7 @@ export class ArticleFormDataService {
   constructor() { }
 
   setForm(form: FormGroup): void {
+    this.formData.next(form.value);
     form.valueChanges.subscribe(data => {
       this.formData.next(data)
     });

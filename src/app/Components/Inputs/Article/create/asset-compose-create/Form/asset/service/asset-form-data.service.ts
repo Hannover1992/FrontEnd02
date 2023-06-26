@@ -13,6 +13,7 @@ export class AssetFormDataService {
 
 
   setForm(form: FormGroup): void {
+    this.assetFormData.next(form.value);
     form.valueChanges.subscribe(data => this.assetFormData.next(data));
   }
 

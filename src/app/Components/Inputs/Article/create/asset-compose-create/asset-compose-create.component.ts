@@ -12,9 +12,9 @@ export class AssetComposeCreateComponent implements OnDestroy, OnInit{
 
 
   constructor(
-    // articleDataService:ArticleDataService,
+    articleDataService:ArticleDataService,
     // assetDataService:AssetDataService,
-    mengeDataService:MengeDataService
+    // mengeDataService:MengeDataService
   ) {
 
   }

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import {AssetInputDetails} from "../../../../../Inputs/Article/Specialization/asset/asset-compose/assetInputDetails/assetInputDetails";
+import {AssetInputDetails} from "../../../../../Inputs/Article/old/Specialization/asset/asset-compose/assetInputDetails/assetInputDetails";
 import {MatDialog} from "@angular/material/dialog";
 import {
   AssetComposeComponent
-} from "../../../../../Inputs/Article/Specialization/asset/asset-compose/asset-compose.component";
+} from "../../../../../Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component";
+import {
+  AssetComposeCreateComponent
+} from "../../../../../Inputs/Article/create/asset-compose-create/asset-compose-create.component";
 
 @Component({
   selector: 'app-button-buch-asset-auf-asset-project',
@@ -16,7 +19,8 @@ export class ButtonBuchAssetAufAssetProjectComponent {
   }
 
   open_input_form() {
-    this.dialog.open(AssetComposeComponent);
+    // this.dialog.open(AssetComposeComponent);
+    this.dialog.open(AssetComposeCreateComponent);
   }
 
 }

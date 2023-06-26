@@ -15,7 +15,7 @@ import {
 import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
 import {
   AssetComposeComponent
-} from "../../../../Inputs/Article/Specialization/asset/asset-compose/asset-compose.component";
+} from "../../../../Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component";
 
 @Component({
   selector: 'app-asset-table',

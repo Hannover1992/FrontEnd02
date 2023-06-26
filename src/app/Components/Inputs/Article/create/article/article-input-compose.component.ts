@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Article} from "../../../../../Interface/article";
-import {ArticleFormDataService} from "../article-form-data.service";
+import {Article} from "../../../../Interface/article";
+import {ArticleFormDataService} from "./service/article-form-data.service";
 
 @Component({
   selector: 'app-article-input-compose',
@@ -10,17 +10,19 @@ import {ArticleFormDataService} from "../article-form-data.service";
 })
 
 
-export class ArticleInputComposeComponent {
-  @Input() artikelForm!: FormGroup;
+export class ArticleInputComposeComponent implements OnInit{
+  artikelForm!: FormGroup;
 
   constructor(
-    private articleFormDataService : ArticleFormDataService
+    private fb: FormBuilder,
+    private articleFormDataService : ArticleFormDataService,
   ) {
-    this.artikelForm = new InitializationArticle(new FormBuilder()).initForm();
-    this.articleFormDataService.setForm(this.artikelForm);
   }
 
-
+  ngOnInit(): void {
+    this.artikelForm = new InitializationArticle(this.fb).initForm();
+    this.articleFormDataService.setForm(this.artikelForm);
+  }
 
   get articleDetails(): FormGroup {
     return this.artikelForm.get('asset_details') as FormGroup;
@@ -33,6 +35,7 @@ export class ArticleInputComposeComponent {
   get articleNumbers(): FormGroup {
     return this.artikelForm.get('asset_numbers') as FormGroup;
   }
+
 
 
 }

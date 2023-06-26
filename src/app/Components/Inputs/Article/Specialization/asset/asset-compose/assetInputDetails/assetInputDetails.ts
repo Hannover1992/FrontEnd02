@@ -4,7 +4,7 @@ import {ProjectsService} from "../../../../../../Tables/projectTable/service/pro
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
-import {ArticleCreationService} from "../../../../Base/service/article-creation.service";
+import {ArticleCreationService} from "../../../../Base/service/old/article-creation.service";
 import {ErweiterterAssetCreationService} from "../services/old/erweiterter-asset-creation.service";
 import {Util} from "../services/old/util.service";
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";

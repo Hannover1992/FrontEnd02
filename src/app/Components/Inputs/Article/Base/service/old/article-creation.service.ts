@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
-import {UnterKategorieService} from "../../../../Services/unter-kategorie.service";
+import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
 import {FormGroup} from "@angular/forms";
-import {Article} from "../../../../Interface/article";
-import {ProjectArticle} from "../../../../Interface/projectArticle";
-import {FormRetrievalService} from "../../Specialization/asset/asset-compose/services/old/form-retrieval.service";
+import {Article} from "../../../../../Interface/article";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {FormRetrievalService} from "../../../Specialization/asset/asset-compose/services/old/form-retrieval.service";
 // import {Util} from "../../Specialization/asset/services/util.service";
 
 

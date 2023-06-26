@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {ArticleCreationService} from "../../../../../Base/service/article-creation.service";
 import {UnterKategorieService} from "../../../../../../../Services/unter-kategorie.service";
 import {Util} from "./util.service";
 import {FormGroup} from "@angular/forms";
@@ -7,6 +6,7 @@ import {Article} from "../../../../../../../Interface/article";
 import {ErweiterterAssetRetrivalService} from "./erweiterter-asset-retrival.service";
 import {Asset} from "../../../../../../../Interface/asset";
 import {FormRetrievalService} from "./form-retrieval.service";
+import {ArticleCreationService} from "../../../../../Base/service/old/article-creation.service";
 
 @Injectable({
   providedIn: 'root'

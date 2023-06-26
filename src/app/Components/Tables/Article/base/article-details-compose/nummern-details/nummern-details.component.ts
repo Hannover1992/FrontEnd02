@@ -9,12 +9,12 @@ export class NummernDetailsComponent {
   // [anlagenummer] ="element.anlagenummer",
   // [Inventarnummer] ="element.Inventarnummer">
     @Input () anlagenummer: string;
-    @Input () Inventarnummer: string;
+    // @Input () Inventarnummer: string;
     @Input () serriennummer: string;
 
     constructor() {
       this.anlagenummer = "";
-      this.Inventarnummer = "";
+      // this.Inventarnummer = "";
       this.serriennummer = "";
     }
 }

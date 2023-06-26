@@ -7,7 +7,6 @@ import {InitializationArticle} from "./initializationArticle";
 import {ArtikelFormDataService} from "./service/artikel-form-data.service";
 import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/services/project-asset-article";
 import {ArticleUpdateServiceService} from "./service/article-update-service.service";
-import {BehaviorSubject} from "rxjs";
 import {ProjectArticle} from "../../../Interface/projectArticle";
 import {Article} from "../../../Interface/article";
 

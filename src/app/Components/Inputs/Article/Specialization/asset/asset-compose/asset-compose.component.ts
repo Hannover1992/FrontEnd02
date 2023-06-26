@@ -32,8 +32,6 @@ export class AssetComposeComponent implements OnInit {
     } else {
       this.element = this.data.element;
       let projectArticle = this.convertTemplate(this.element);
-      // console.log("projectArticle HIER")
-      // console.log(projectArticle)
       this.articleUpdateServiceService.currentProjectArticleForUpdate.next(projectArticle)
     }
   }
@@ -67,6 +65,8 @@ export class AssetComposeComponent implements OnInit {
         "unterkategorie_id": tableObject.unterkategorie_id
       }
     }
+    console.log("das ist der projectArticle")
+    console.log(projectArticle)
     return projectArticle;
   }
 

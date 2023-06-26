@@ -19,24 +19,22 @@ export class CurrentArticleAsset {
     private artikelFormDataService:ArtikelFormDataService,
     private assetInputDataService : AssetInputDataService,
   ) {
+
     this.artikelFormDataService.article.subscribe((articleData) => {
       this.currentArticle = articleData;
       this.updateErweiterterAssetArticle();
     });
+
     this.assetInputDataService.assetInputFormData.subscribe((assetData) => {
       this.currentAsset = assetData;
       this.updateErweiterterAssetArticle();
     });
+
   }
 
   private updateErweiterterAssetArticle() {
-    // const mergedData = { ...this.currentArticle, assets: this.currentAsset };
     let articleTemp : Article = this.artikelFormDataService.article.getValue();
-    // console.log("hier")
-    // console.log(articleTemp)
     articleTemp.assets = this.currentAsset;
-    // console.log(articleTemp);
-    // console.log("end")
     this.erweiterterAssetArticle.next(articleTemp);
   }
 

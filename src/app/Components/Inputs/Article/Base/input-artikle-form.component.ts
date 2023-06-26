@@ -29,6 +29,7 @@ export class InputArtikelForm implements OnInit {
     public    projectsService:          ProjectsService,
     private   dialog:                   MatDialog,
     private   _snackBar:                MatSnackBar,
+
     private artikelFormDataService:     ArtikelFormDataService,
     private projectAssetArticle:        ProjectAssetArticle,
     private articleUpdateServiceService:ArticleUpdateServiceService,
@@ -40,7 +41,6 @@ export class InputArtikelForm implements OnInit {
     this.subscribeToUpdateService();
     this.artikelForm.valueChanges.subscribe((data) =>
     {
-      console.log("the value chagnes:")
       this.formValidation();
       this.artikelFormDataService.article.next(data);
       this.artikelFormDataService.menge.next(data.asset_numbers.menge);

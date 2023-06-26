@@ -1,0 +1,15 @@
+<div class="full-width"></div>
+
+<div class="col">
+  <form [formGroup]="assetForm">
+
+    <mat-form-field class="full-width">
+      <mat-label>Inventarnummer</mat-label>
+      <input matInput placeholder="Inventarnummer" formControlName="Inventarnummer" autocomplete="off" >
+      <mat-error *ngIf="assetForm.controls['Inventarnummer'].hasError('pattern')">
+        Inventarnummer muss eonSubmitAssetin <strong>Nummer</strong> sein!
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</div>

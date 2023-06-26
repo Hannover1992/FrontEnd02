@@ -70,8 +70,7 @@ export class InitializationArticle {
 
   initAssetNumbers(): FormGroup {
     return this.fb.group({
-      preis: [''],
-      Inventarnummer: [0],
+      preis: 0,
       anlagenummer: [''],
       seriennummer: [''],
     });

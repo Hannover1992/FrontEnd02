@@ -32,7 +32,7 @@ export class intializationAsset{
   initForm(){
     return this.fb.group({
       ID: [''],
-      Inventarnummer: ['']
+      Inventarnummer: 0
     });
   }
 

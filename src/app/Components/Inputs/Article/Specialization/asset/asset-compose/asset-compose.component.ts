@@ -40,31 +40,34 @@ export class AssetComposeComponent implements OnInit {
 
 
   convertTemplate(tableObject: any): any {
-    return {
+    console.log("das habe ich aus der Table erhalten ")
+    console.log(tableObject)
+    let projectArticle : ProjectArticle = {
       "projekt_artikel_id": tableObject.projekt_artikel_id,
       "projekt_id": tableObject.projekt_id,
       "artikel_id": tableObject.artikel_id,
       "menge": tableObject.menge,
       "artikel": {
-          "firma": tableObject.firma,
-          "artikelname": tableObject.artikelname,
-          "model": tableObject.model,
-          "zustand": tableObject.zustand,
-          "beschreibung": tableObject.beschreibung,
-          "preis": tableObject.preis,
-          "anlagenummer": tableObject.anlagenummer,
-          "serriennummer": tableObject.seriennummer,
-          "einkaufs_datum": tableObject.einkaufs_datum,
-          "edit_date": tableObject.edit_date,
-          "belegt_von": tableObject.belegt_von,
-          "belegt_bis": tableObject.belegt_bis,
+        "firma": tableObject.firma,
+        "artikelname": tableObject.artikelname,
+        "model": tableObject.model,
+        "zustand": tableObject.zustand,
+        "beschreibung": tableObject.beschreibung,
+        "preis": tableObject.preis,
+        "anlagenummer": tableObject.anlagenummer,
+        "seriennummer": tableObject.seriennummer,
+        "einkaufs_datum": tableObject.einkaufs_datum,
+        "edit_date": tableObject.edit_date,
+        "belegt_von": tableObject.belegt_von,
+        "belegt_bis": tableObject.belegt_bis,
         "assets": {
-          "asset_id": tableObject.asset_id,
+          "ID": tableObject.asset_id,
           "Inventarnummer": tableObject.Inventarnummer,
         },
         "unterkategorie_id": tableObject.unterkategorie_id
       }
     }
+    return projectArticle;
   }
 
 }

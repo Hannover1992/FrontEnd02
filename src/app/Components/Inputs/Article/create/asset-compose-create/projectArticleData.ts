@@ -5,6 +5,8 @@ import {ProjectsService} from "../../../../Tables/projectTable/service/projects.
 import {Article} from "../../../../Interface/article";
 import {Asset} from "../../../../Interface/asset";
 import {MengeDataService} from "./Data/mengeData.service";
+import {ArticleDataService} from "./Data/articleData.service";
+import {AssetDataService} from "./Data/assetData.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,28 +17,17 @@ export class ProjectArticleData {
 
   constructor(
     private projectsService: ProjectsService,
-    private mengeDataService:MengeDataService
+    private mengeDataService:MengeDataService,
+    private articleDataService:ArticleDataService,
+    private assetDataService:AssetDataService
   ) {
   }
 
-  private getProjectID(){
-    const projectID = this.projectsService.selectedProject.getValue();
-    this.updateProjectID(projectID);
-  }
-
-  private updateProjectID(projectID: string) {
-    let currentProjectArticle = this.projectArticle.value;
-    const project_id = parseInt(projectID);
-    let newProjectArticle: ProjectArticle = {...currentProjectArticle, projekt_id: project_id};
-    this.projectArticle.next(newProjectArticle);
-  }
-
-
-  private formatToProjectArticle(article: Article, unterkategorieID: number, projectID: number): ProjectArticle {
+  public formatToProjectArticle(): ProjectArticle {
     let projectArticle: ProjectArticle = {
-      projekt_id: projectID,
-      menge: this.mengeDataService.menge, //toDo Replace with actual value
-      // artikel: this.mergeArticleAndAsset(article, this.asset),
+      projekt_id: this.projectsService.getProjectID(),
+      menge: this.mengeDataService.menge,
+      artikel: this.mergeArticleAndAsset(this.articleDataService.article, this.assetDataService.asset),
     };
 
     return projectArticle;

@@ -47,7 +47,8 @@ export class ArticleDataService {
       edit_date: data?.date_info?.edit_date,
       seriennummer: data?.asset_numbers?.seriennummer,
       anlagenummer: data?.asset_numbers?.anlagenummer,
-      // Add other properties as needed
+      beschreibung: data?.asset_details?.beschreibung,
+      // Add other proseriennummerperties as needed
     };
 
 

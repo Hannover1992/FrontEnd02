@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
 import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
+import {ProjectArticleData} from "../projectArticleData";
+import {AssetTableService} from "../../../../../Services/asset-table.service";
 
 @Component({
   selector: 'app-control',
@@ -18,15 +20,19 @@ export class ControlComponent {
   //toDo: get current Data from ProjectArticle Form and Create ProjectArticle
   //toDo: the submite
   constructor(
+    private projectArticleData:ProjectArticleData,
+    private assetTableService:AssetTableService
   ){
   }
 
   onSubmit() {
-
+    // console.log(this.projectArticleData.formatToProjectArticle());
+    this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticle());
   }
 
   close_window() {
 
   }
+  //toDo: Serriennummer Spinnt
 
 }

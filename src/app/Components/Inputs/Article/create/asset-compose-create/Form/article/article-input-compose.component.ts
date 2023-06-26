@@ -73,7 +73,7 @@ export class InitializationArticle {
       preis: [''],
       Inventarnummer: [0],
       anlagenummer: [''],
-      serriennummer: [''],
+      seriennummer: [''],
     });
   }
 

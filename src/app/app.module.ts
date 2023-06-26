@@ -68,7 +68,6 @@ import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base
 import { ArticleInputComposeComponent } from './Components/Inputs/Article/create/article/dumbComponent/article-input-compose.component';
 import { AssetComposeComponent } from './Components/Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component';
 import { AssetInputButtonsComponent } from './Components/Inputs/Article/old/Specialization/asset/asset-compose/asset-input-buttons/asset-input-buttons.component';
-import { ArticleComponent } from './Components/Inputs/Article/create/article/article.component';
 import { AssetComposeCreateComponent } from './Components/Inputs/Article/create/asset-compose-create/asset-compose-create.component';
 
 
@@ -112,7 +111,6 @@ import { AssetComposeCreateComponent } from './Components/Inputs/Article/create/
     ArticleInputComposeComponent,
     AssetComposeComponent,
     AssetInputButtonsComponent,
-    ArticleComponent,
     AssetComposeCreateComponent,
   ],
   entryComponents: [ProjectInputFormComponent],

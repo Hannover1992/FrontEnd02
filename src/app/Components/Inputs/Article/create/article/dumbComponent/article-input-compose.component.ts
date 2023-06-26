@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Article} from "../../../../../Interface/article";
+import {ArticleFormDataService} from "../article-form-data.service";
 
 @Component({
   selector: 'app-article-input-compose',
@@ -12,8 +13,11 @@ import {Article} from "../../../../../Interface/article";
 export class ArticleInputComposeComponent {
   @Input() artikelForm!: FormGroup;
 
-  constructor() {
+  constructor(
+    private articleFormDataService : ArticleFormDataService
+  ) {
     this.artikelForm = new InitializationArticle(new FormBuilder()).initForm();
+    this.articleFormDataService.setForm(this.artikelForm);
   }
 
 

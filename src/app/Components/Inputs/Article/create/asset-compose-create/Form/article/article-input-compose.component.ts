@@ -1,12 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Article} from "../../../../../Interface/article";
 import {ArticleFormDataService} from "./service/article-form-data.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-article-input-compose',
   templateUrl: './article-input-compose.component.html',
-  styleUrls: ['../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../shared_css/input.css']
 })
 
 
@@ -16,6 +15,7 @@ export class ArticleInputComposeComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private articleFormDataService : ArticleFormDataService,
+
   ) {
   }
 
@@ -46,7 +46,9 @@ export class InitializationArticle {
 
   constructor(
     private fb: FormBuilder,
-  ) { }
+  ) {
+
+  }
 
   initForm() {
     return this.fb.group({
@@ -68,11 +70,6 @@ export class InitializationArticle {
 
   initAssetNumbers(): FormGroup {
     return this.fb.group({
-      menge: [1, Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]*$'),
-        this.positiveNonZero // Make sure you have defined this custom validator function
-      ])],
       preis: [''],
       Inventarnummer: [0],
       anlagenummer: [''],
@@ -91,11 +88,5 @@ export class InitializationArticle {
     });
   }
 
-  positiveNonZero(control: AbstractControl) {
-    if (control.value <= 0) {
-      return {nonPositiveOrZero: true};
-    }
-    return null;
-  }
 
 }

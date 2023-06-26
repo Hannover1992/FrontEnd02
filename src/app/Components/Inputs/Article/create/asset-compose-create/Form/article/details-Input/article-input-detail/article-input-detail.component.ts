@@ -13,7 +13,7 @@ export enum Zustand {
 @Component({
   selector: 'app-article-input-detail',
   templateUrl: './article-input-detail.component.html',
-  styleUrls: ['../../../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../../../shared_css/input.css']
 })
 export class ArticleInputDetailComponent {
   @Input() article_details!: FormGroup;

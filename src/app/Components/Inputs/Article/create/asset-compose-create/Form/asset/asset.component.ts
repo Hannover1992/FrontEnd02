@@ -5,7 +5,7 @@ import {AssetFormDataService} from "./service/asset-form-data.service";
 @Component({
   selector: 'app-asset',
   templateUrl: './asset.component.html',
-  styleUrls: ['../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../shared_css/input.css']
 })
 export class AssetComponent implements  OnInit {
   assetForm!: FormGroup;

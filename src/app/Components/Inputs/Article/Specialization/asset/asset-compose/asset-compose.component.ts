@@ -25,7 +25,6 @@ export class AssetComposeComponent implements OnInit {
     private projectAssetArticle:ProjectAssetArticle,
     private articleUpdateServiceService :ArticleUpdateServiceService
               ) {
-
   }
 
   ngOnInit(): void {
@@ -61,7 +60,7 @@ export class AssetComposeComponent implements OnInit {
           "belegt_bis": tableObject.belegt_bis,
         "assets": {
           "asset_id": tableObject.asset_id,
-          "Inventarnummer": tableObject.Inventarnummer
+          "Inventarnummer": tableObject.Inventarnummer,
         },
         "unterkategorie_id": tableObject.unterkategorie_id
       }

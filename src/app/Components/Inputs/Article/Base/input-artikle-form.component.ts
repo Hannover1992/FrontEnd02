@@ -36,22 +36,40 @@ export class InputArtikelForm implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.artikelForm = new FormGroup<any>({});
     this.subscribeToUpdateService();
     this.artikelForm.valueChanges.subscribe((data) =>
     {
+      console.log("the value chagnes:")
+      this.formValidation();
       this.artikelFormDataService.article.next(data);
       this.artikelFormDataService.menge.next(data.asset_numbers.menge);
     });
+
+    this.artikelForm.valueChanges.subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  private formValidation() {
+    if (this.artikelForm.valid) {
+      console.log("form is valid")
+      this.artikelFormDataService.artikelFormValid.next(true);
+    } else {
+      console.log("form is not valid")
+      this.artikelFormDataService.artikelFormValid.next(false);
+    }
   }
 
   subscribeToUpdateService() {
-    this.articleUpdateServiceService.currentProjectArticleForUpdate.subscribe((projectCurrentUpdateProjectArticle) => {
-      if (this.isArticleEmpty(projectCurrentUpdateProjectArticle)) {
-        this.initializeArticleForm();
-      } else {
-        this.processProjectCurrentUpdateArticle(projectCurrentUpdateProjectArticle);
-      }
-    });
+    let projectCurrentUpdateProjectArticle =    this.articleUpdateServiceService.currentProjectArticleForUpdate.getValue();
+    // this.articleUpdateServiceService.currentProjectArticleForUpdate.subscribe((projectCurrentUpdateProjectArticle) => {
+    if (this.isArticleEmpty(projectCurrentUpdateProjectArticle)) {
+      this.initializeArticleForm();
+    } else {
+      this.processProjectCurrentUpdateArticle(projectCurrentUpdateProjectArticle);
+    }
+    // });
   }
 
   isArticleEmpty(projectCurrentUpdateProjectArticle: ProjectArticle) {

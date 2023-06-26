@@ -1,4 +1,4 @@
-<div [formGroup]="asset_details">
+<div [formGroup]="article_details">
   <mat-card-subtitle> Asset Details</mat-card-subtitle>
     <div class="row">
       <div class="col">
@@ -7,11 +7,12 @@
             <input matInput formControlName="firma">
         </mat-form-field>
       </div>
+<!--      toDo: take care of the rror that don't appear-->
       <div class="col">
         <mat-form-field class="full-width">
           <mat-label>Artikelname</mat-label>
           <input matInput formControlName="artikelname">
-          <mat-error *ngIf="asset_details.controls['artikelname'].hasError('required')">
+          <mat-error *ngIf="article_details.controls['artikelname'].hasError('required')">
             Artikelname ist <strong>erforderlich</strong>
           </mat-error>
         </mat-form-field>

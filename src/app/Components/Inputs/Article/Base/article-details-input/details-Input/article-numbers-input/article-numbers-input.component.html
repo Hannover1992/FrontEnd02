@@ -1,17 +1,17 @@
-<div [formGroup]="asset_numbers">
+<div [formGroup]="article_numbers">
   <mat-card-subtitle>Nummern</mat-card-subtitle>
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width">
         <mat-label>Menge</mat-label>
         <input matInput placeholder="Menge" formControlName="menge">
-        <mat-error *ngIf="asset_numbers.controls['menge'].hasError('required')">
+        <mat-error *ngIf="article_numbers.controls['menge'].hasError('required')">
           Menge ist <strong>erforderlich</strong>
         </mat-error>
-        <mat-error *ngIf="asset_numbers.controls['menge'].hasError('pattern')">
+        <mat-error *ngIf="article_numbers.controls['menge'].hasError('pattern')">
           <strong>Zahl</strong>
         </mat-error>
-        <mat-error *ngIf="asset_numbers.controls['menge'].hasError('error')">
+        <mat-error *ngIf="article_numbers.controls['menge'].hasError('error')">
           <strong>Menge existiert bereits</strong>
         </mat-error>
       </mat-form-field>

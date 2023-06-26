@@ -13,15 +13,15 @@ export class ArticleInputComposeComponent {
 
 
 
-  get assetDetails(): FormGroup {
+  get articleDetails(): FormGroup {
     return this.artikelForm.get('asset_details') as FormGroup;
   }
 
-  get assetDates(): FormGroup {
+  get articleDates(): FormGroup {
     return this.artikelForm.get('date_info') as FormGroup;
   }
 
-  get assetNumbers(): FormGroup {
+  get articleNumbers(): FormGroup {
     return this.artikelForm.get('asset_numbers') as FormGroup;
   }
 

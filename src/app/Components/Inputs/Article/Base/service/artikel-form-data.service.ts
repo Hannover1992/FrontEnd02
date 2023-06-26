@@ -9,7 +9,7 @@ import {FormGroup} from "@angular/forms";
 
 export class ArtikelFormDataService {
 
-  public articleForm: BehaviorSubject<FormGroup> = new BehaviorSubject<FormGroup>(new FormGroup({}));
+  public artikelFormValid: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public article: BehaviorSubject<Article> = new BehaviorSubject<Article>({});
   public menge: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 

@@ -1,14 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ArticleFormDataService} from "../article/service/article-form-data.service";
+import {ArticleFormDataService} from "./article/service/article-form-data.service";
 import {Subscription} from "rxjs";
 import {Article} from "../../../../Interface/article";
-import {AssetFormDataService} from "../asset/service/asset-form-data.service";
+import {AssetFormDataService} from "./asset/service/asset-form-data.service";
 import {Asset} from "../../../../Interface/asset";
 
 @Component({
   selector: 'app-asset-compose-create',
   templateUrl: './asset-compose-create.component.html',
-  styleUrls: ['./asset-compose-create.component.css']
+  styleUrls: ['../../../../shared_css/input.css']
 })
 export class AssetComposeCreateComponent implements OnDestroy, OnInit{
   article!: Article;

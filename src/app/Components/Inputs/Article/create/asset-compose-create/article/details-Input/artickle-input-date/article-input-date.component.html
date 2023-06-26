@@ -1,6 +1,9 @@
-<mat-card-subtitle>Asset Daten</mat-card-subtitle>
-<div [formGroup]="article_dates" class="space_evenly">
+<div [formGroup]="article_dates" class="space_evenly shipping-card">
+  <mat-card-subtitle>Asset Daten</mat-card-subtitle>
   <div class="row">
+    <div class="col">
+      <div class="full-width"> </div>
+    </div>
     <div class="col">
       <mat-form-field appearance="fill">
         <mat-label>Einkaufsdatum</mat-label>
@@ -8,6 +11,9 @@
         <mat-datepicker-toggle matSuffix [for]="picker_einkaufs_datum"></mat-datepicker-toggle>
         <mat-datepicker #picker_einkaufs_datum></mat-datepicker>
       </mat-form-field>
+    </div>
+    <div class="col">
+      <div class="full-width"> </div>
     </div>
     <div class="row">
       <mat-form-field appearance="fill">
@@ -19,6 +25,9 @@
         <mat-datepicker-toggle matSuffix [for]="picker_range_belegt_von_to_belegt_bis"></mat-datepicker-toggle>
         <mat-date-range-picker #picker_range_belegt_von_to_belegt_bis></mat-date-range-picker>
       </mat-form-field>
+    </div>
+    <div class="col">
+      <div class="full-width"> </div>
     </div>
   </div>
 </div>

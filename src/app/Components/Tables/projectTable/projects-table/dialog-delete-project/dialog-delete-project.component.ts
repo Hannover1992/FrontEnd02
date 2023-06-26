@@ -11,7 +11,6 @@ import {SuccessComponent} from "../../../../notification/success/success.compone
   templateUrl: './dialog-delete-project.component.html',
   styleUrls: ['./dialog-delete-project.component.css']
 })
-//toDo: Make this generic, get run After every interact with DB, and outpu as message the result
 export class DialogDeleteProjectComponent {
 
   project_to_delete: ProjectInterface;
@@ -45,6 +44,5 @@ export class DialogDeleteProjectComponent {
   deleteProject() {
     this.projectService.delete(this.project_to_delete);
     this.openNotificationSuccess();
-    //toDo: eintlich ich muss hier ein fehler werfen falls es nicht funktioniert hat.
   }
 }

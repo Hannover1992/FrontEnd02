@@ -54,7 +54,6 @@ export class ProjectsTableComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
     });
   }
-  //toDo: Extract this Method
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -64,7 +63,6 @@ export class ProjectsTableComponent implements AfterViewInit {
     }
   }
 
-  //toDo: Extract This method
   announceSortChange(sortState: Sort){
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -94,7 +92,6 @@ export class ProjectsTableComponent implements AfterViewInit {
 
   setup_Visibility() {
     return  [ 'ID',
-      //toDo: Anlage nummer entfernen auch aus dem Datenbank, Input , Update
       // 'Anlagenummer',
 
       'Standort',

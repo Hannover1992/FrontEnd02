@@ -14,8 +14,6 @@ import {Asset} from "../../../../../../../Interface/asset";
 })
 export class AssetInputButtonsComponent {
 
-  //toDo: when the user clcks the button, the window should close, and the service shoudl be loaded to standart data
-  //toDo: Beschreibugn soll auch als ein eingabe feld sein
 
   constructor(
 
@@ -102,8 +100,6 @@ export class AssetInputButtonsComponent {
     return valid;
   }
 
-  //toDo: ein problem is es dass der Serien numme rnich updatet wird.
-  //toDo: jetzt wenn ich die update mache so wird es eintlich create ausgefuhrt. get ride of this vehatlen.
 
   private getUnterkategorieID(): number {
     const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();

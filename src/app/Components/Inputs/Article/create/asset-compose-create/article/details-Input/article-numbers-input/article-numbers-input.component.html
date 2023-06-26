@@ -1,9 +1,8 @@
-<div [formGroup]="article_numbers">
-  <mat-card-subtitle>Nummern</mat-card-subtitle>
+<div [formGroup]="article_numbers" class="shipping-card justify_even">
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width">
-        <mat-label>Menge</mat-label>
+        <mat-label>Artikelnummer</mat-label>
         <input matInput placeholder="Menge" formControlName="menge">
         <mat-error *ngIf="article_numbers.controls['menge'].hasError('required')">
           Menge ist <strong>erforderlich</strong>

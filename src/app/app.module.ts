@@ -53,23 +53,24 @@ import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/ar
 import { NummernDetailsComponent } from './Components/Tables/Article/base/article-details-compose/nummern-details/nummern-details.component';
 // import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { InputArtikelForm } from './Components/Inputs/Article/old/Base/input-artikle-form.component';
-import { ArticleNumbersInputComponent } from './Components/Inputs/Article/create/article/details-Input/article-numbers-input/article-numbers-input.component';
+import { ArticleNumbersInputComponent } from './Components/Inputs/Article/create/asset-compose-create/article/details-Input/article-numbers-input/article-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { ArticleInputDateComponent } from './Components/Inputs/Article/create/article/details-Input/artickle-input-date/article-input-date.component';
-import { ArticleInputDetailComponent } from './Components/Inputs/Article/create/article/details-Input/article-input-detail/article-input-detail.component';
+import { ArticleInputDateComponent } from './Components/Inputs/Article/create/asset-compose-create/article/details-Input/artickle-input-date/article-input-date.component';
+import { ArticleInputDetailComponent } from './Components/Inputs/Article/create/asset-compose-create/article/details-Input/article-input-detail/article-input-detail.component';
 import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { AssetInputDetails } from './Components/Inputs/Article/old/Specialization/asset/asset-compose/assetInputDetails/assetInputDetails';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
 // import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
-import { ArticleInputComposeComponent } from './Components/Inputs/Article/create/article/article-input-compose.component';
+import { ArticleInputComposeComponent } from './Components/Inputs/Article/create/asset-compose-create/article/article-input-compose.component';
 import { AssetComposeComponent } from './Components/Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component';
 import { AssetInputButtonsComponent } from './Components/Inputs/Article/old/Specialization/asset/asset-compose/asset-input-buttons/asset-input-buttons.component';
 import { AssetComposeCreateComponent } from './Components/Inputs/Article/create/asset-compose-create/asset-compose-create.component';
-import { AssetComponent } from './Components/Inputs/Article/create/asset/asset.component';
+import { AssetComponent } from './Components/Inputs/Article/create/asset-compose-create/asset/asset.component';
+import { ControlComponent } from './Components/Inputs/Article/create/asset-compose-create/control/control.component';
 
 
 @NgModule({
@@ -114,6 +115,7 @@ import { AssetComponent } from './Components/Inputs/Article/create/asset/asset.c
     AssetInputButtonsComponent,
     AssetComposeCreateComponent,
     AssetComponent,
+    ControlComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

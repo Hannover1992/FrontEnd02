@@ -42,7 +42,6 @@ initAssetNumbers(): FormGroup {
   });
 }
 
-//toDo: add the Beschrebiung to the form
 
 initDateInfo(): FormGroup {
   return this.fb.group({

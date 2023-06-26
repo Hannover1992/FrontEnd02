@@ -71,7 +71,6 @@ export class AssetTableComponent {
   }
 
 
-  //toDo: Extract this Method
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -82,7 +81,6 @@ export class AssetTableComponent {
   }
 
 
-  //toDo: Extract This Method
   announceSortChange(sortState: Sort){
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -91,7 +89,6 @@ export class AssetTableComponent {
     }
   }
 
-  //toDo: Implement for the Asset Table
 
    setup_Visibility() {
     return  [
@@ -107,7 +104,6 @@ export class AssetTableComponent {
       'beschreibung',
       // 'seriennummer',
     ];
-    //toDo: Besitzer einbauen
   }
 
   open_the_dialog_for_deleting_artikel(element: ProjectArticle){

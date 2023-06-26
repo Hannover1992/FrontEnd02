@@ -5,7 +5,6 @@ import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectsService} from "../../../Tables/projectTable/service/projects.service";
 
-//toDo: ad this project as root
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +37,6 @@ export class ProjectService {
       //@ts-ignore
       if(response.message === 'Project updated') {
         this.projectsService.getProjects();
-        //toDo: Der Updatede row animation, blatter zu seite, und pulsiere rot
       }} , (error) => {
       this.projects_error_subject.next(true);
       throw error;
@@ -47,7 +45,6 @@ export class ProjectService {
 
 
   async delete(project: ProjectInterface) {
-    //toDo: wenn irgendetwas is bereits auf diesen Projekt gebucht so kann man das nicht Projet loschen, uberligt dir eine Fehlermeldung
     this.http.delete<ProjectInterface>(this.delURL(project.ID))
     .subscribe((response) => {
       //@ts-ignore

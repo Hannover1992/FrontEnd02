@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Article} from "../../../../Interface/article";
+import {Article} from "../../../../../Interface/article";
 import {ArticleFormDataService} from "./service/article-form-data.service";
 
 @Component({
   selector: 'app-article-input-compose',
   templateUrl: './article-input-compose.component.html',
-  styleUrls: ['./article-input-compose.component.css']
+  styleUrls: ['../../../../../shared_css/input.css']
 })
 
 

@@ -17,8 +17,6 @@ export class UpdateElementService {
   activate(element: any) {
     this.projectArticle = this.convertTemplate(element);
     this.isActive = true;
-    console.log("es wurde aktiviert")
-    console.log(this.projectArticle)
   }
 
   deactivate(){

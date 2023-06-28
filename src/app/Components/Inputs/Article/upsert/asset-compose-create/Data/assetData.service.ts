@@ -29,6 +29,8 @@ export class AssetDataService {
       Inventarnummer: data?.Inventarnummer
     }
 
+    console.log("Asset");
+    console.log(asset);
     return asset;
 
   }

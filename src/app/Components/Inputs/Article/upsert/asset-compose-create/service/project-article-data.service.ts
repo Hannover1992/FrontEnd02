@@ -23,8 +23,8 @@ export class ProjectArticleDataService {
     private mengeDataService:MengeDataService,
     private articleDataService:ArticleDataService,
     private assetDataService:AssetDataService,
-    private updateElementService:UpdateElementService
-  ) {
+    private updateElementService:UpdateElementService,
+) {
     if(this.updateElementService.isActivated()) {
       this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);
     }
@@ -33,11 +33,39 @@ export class ProjectArticleDataService {
   //toDo: has to set the activation on when going over the update,
   //toDo: set to off, when going over creat
 
-  public formatToProjectArticle(): ProjectArticle {
+  public formatToProjectArticleCreate(): ProjectArticle {
+    let article = this.articleDataService.article;
+    let asset = this.assetDataService.asset;
+
     let projectArticle: ProjectArticle = {
       projekt_id: this.projectsService.getProjectID(),
       menge: this.mengeDataService.menge,
-      artikel: this.mergeArticleAndAsset(this.articleDataService.article, this.assetDataService.asset),
+      artikel: {
+        ...article,
+        assets: asset
+      }
+    };
+
+    return projectArticle;
+  }
+
+  public formatToProjectArticleUpdate(): ProjectArticle {
+
+    let proArtIDs  = this.projectArticle.getValue();
+    let article = this.articleDataService.article;
+    let asset = this.assetDataService.asset;
+
+    let projectArticle: ProjectArticle = {
+
+      projekt_artikel_id: proArtIDs.artikel_id,
+      projekt_id: this.projectsService.getProjectID(),
+      artikel_id: proArtIDs.artikel_id,
+
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        assets: asset
+      }
     };
 
     return projectArticle;

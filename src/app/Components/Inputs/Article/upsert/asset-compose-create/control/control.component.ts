@@ -31,10 +31,12 @@ export class ControlComponent {
   onSubmit() {
     // console.log(this.projectArticleData.formatToProjectArticle());
     if(this.updateElementService.isActivated()){
-      console.log(this.projectArticleData.formatToProjectArticle());
-      //toDo: i just found out that the asses are not correctly updated
+      this.assetTableService.update_asset(this.projectArticleData.formatToProjectArticleUpdate());
+      this.updateElementService.deactivate();
     } else {
-      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticle());
+      console.log("ich bin in create Submite")
+      // this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
+      console.log(this.projectArticleData.formatToProjectArticleCreate());
     }
   }
 

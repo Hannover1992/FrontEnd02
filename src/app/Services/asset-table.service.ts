@@ -40,18 +40,18 @@ export class AssetTableService {
   }
 
   load_assets_from_database(){
-    this.http.get<any>(this.generateURL()).subscribe(
+    this.http.get<any>(this.generateGetURL()).subscribe(
       (asset_arr) => {
         console.log(asset_arr[0])
         this.assets.next(asset_arr);
         // console.log(asset_arr);
-        console.log(this.generateURL());
+        console.log(this.generateGetURL());
       });
   }
 
 
   create_new_asset(newProjectArticle:ProjectArticle){
-    this.http.post(this.generate_URL_Post(), newProjectArticle).subscribe(response => {
+    this.http.post(this.generateURL(), newProjectArticle).subscribe(response => {
       this.load_assets_from_database();
       this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
       this.dialog.closeAll();
@@ -100,15 +100,15 @@ export class AssetTableService {
   }
 
   print_status(){
-   console.log(this.generateURL());
+   console.log(this.generateGetURL());
   }
 
-  generateURL() {
-    return URL + '/projekt_assets/'  + this.projectsService.selectedProject.getValue()
+  generateGetURL() {
+    return URL + '/projektArtikelAsset/'  + this.projectsService.selectedProject.getValue()
       + '/' + this.kategorieService.selectedUnterKategorie.getValue();
   }
 
-  generate_URL_Post(){
+  generateURL(){
     return URL + '/projektArtikelAsset';
   }
 
@@ -137,6 +137,16 @@ export class AssetTableService {
 
   private delURL(projekt_artikel_id: number) {
       return URL + '/projektArtikelAsset/' + projekt_artikel_id;
+  }
+
+  update_asset(projectArticle: ProjectArticle) {
+    this.http.put(this.generateURL(), projectArticle).subscribe(response => {
+      this.load_assets_from_database();
+      this._snackBar.open("Artikel wurde erfolgreich aktualisiert", "OK");
+      this.dialog.closeAll();
+    }, error => {
+      this._snackBar.open(error.message, "OK");
+    });
   }
 }
 

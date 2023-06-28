@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ArticleFormDataService} from "./service/article-form-data.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UpdateElementService} from "../../service/update-element.service";
+import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
+import {Article} from "../../../../../../../Interface/article";
 
 @Component({
   selector: 'app-article-input-compose',
@@ -15,12 +18,22 @@ export class ArticleInputComposeComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private articleFormDataService : ArticleFormDataService,
-
+    private updateElementService: UpdateElementService,
   ) {
   }
 
   ngOnInit(): void {
-    this.artikelForm = new InitializationArticle(this.fb).initForm();
+    this.initializeArticleForm()
+  }
+
+  initializeArticleForm() {
+    let article: Article | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      article = this.updateElementService.getArticle();
+    }
+
+    this.artikelForm = new InitializationArticle(this.fb).initForm(article);
     this.articleFormDataService.setForm(this.artikelForm);
   }
 
@@ -35,9 +48,6 @@ export class ArticleInputComposeComponent implements OnInit{
   get articleNumbers(): FormGroup {
     return this.artikelForm.get('asset_numbers') as FormGroup;
   }
-
-
-
 }
 
 
@@ -46,48 +56,40 @@ export class InitializationArticle {
 
   constructor(
     private fb: FormBuilder,
-  ) {
+  ) {}
 
-  }
-
-  initForm() {
+  initForm( article?: Article) {
     return this.fb.group({
-      asset_details: this.initAssetDetails(),
-      asset_numbers: this.initAssetNumbers(),
-      date_info: this.initDateInfo(),
+      asset_details: this.initAssetDetails(article),
+      asset_numbers: this.initAssetNumbers(article),
+      date_info: this.initDateInfo(article),
     });
   }
 
-  initAssetDetails(): FormGroup {
+  initAssetDetails(article?: Article): FormGroup {
     return this.fb.group({
-      firma: '',
-      artikelname: ['', Validators.required],
-      model:  '',
-      zustand:  '',
-      beschreibung:  '',
+      firma: article ? article.firma : '',
+      artikelname: [article ? article.artikelname : '', Validators.required],
+      model:  article ? article.model : '',
+      zustand:  article ? article.zustand : '',
+      beschreibung:  article ? article.beschreibung : '',
     });
   }
 
-  initAssetNumbers(): FormGroup {
+  initAssetNumbers(article?: Article): FormGroup {
     return this.fb.group({
-      preis: 0,
-      anlagenummer: [''],
-      seriennummer: [''],
+      preis: article ? article.preis : 0,
+      anlagenummer: article ? article.anlagenummer : '',
+      seriennummer: article ? article.seriennummer : '',
     });
   }
 
-  //toDo: commiten und zunachst versuchen, einfach die values, uber elemtn zu setzen.
-  //toDo: dann in den projectArticle die restliche erforderliche sachen setzen.
-  //toDo: in backend wird einfach geschaut ob der project_article_id vorhanden ist, so wird dann die Update ausgefuhrt.
-
-
-
-  initDateInfo(): FormGroup {
+  initDateInfo(article? : Article): FormGroup {
     return this.fb.group({
-      einkaufs_datum: [new Date()],
-      edit_date: [new Date()],
-      belegt_von: [new Date()],
-      belegt_bis: [new Date()],
+      einkaufs_datum: article && article.einkaufs_datum ? new Date(article.einkaufs_datum) : new Date(),
+      edit_date: article && article.edit_date ? new Date(article.edit_date) : new Date(),
+      belegt_von: article && article.belegt_von ? new Date(article.belegt_von) : new Date(),
+      belegt_bis: article && article.belegt_bis ? new Date(article.belegt_bis) : new Date(),
     });
   }
 

@@ -26,7 +26,7 @@ export class ProjectArticleDataService {
     private updateElementService:UpdateElementService
   ) {
     if(this.updateElementService.isActivated()) {
-      this.projectArticle.next(this.updateElementService.getElement() as ProjectArticle);
+      this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);
     }
   }
 

@@ -1,23 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MengeFormDataService} from "./service/menge-form-data.service";
+import {UpdateElementService} from "../../service/update-element.service";
+import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
 
 @Component({
   selector: 'app-menge',
   templateUrl: './menge.component.html',
   styleUrls: ['../../../../../../../shared_css/input.css']
 })
-export class MengeComponent {
-  mengeForm: FormGroup;
+export class MengeComponent implements OnInit {
+  mengeForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private mengeFormDataService: MengeFormDataService,
-  ) {
-    this.mengeForm = new InitializationMenge(this.fb).initForm();
-    this.mengeFormDataService.setForm(this.mengeForm);
+    private updateElementService: UpdateElementService
+  ) { }
+
+  ngOnInit(): void {
+    this.initializeMengeForm();
   }
 
+  initializeMengeForm() {
+    let menge: number | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      let projectArticle: ProjectArticle | undefined = this.updateElementService.getProjectArticle();
+      menge = projectArticle ? projectArticle.menge : undefined;
+    }
+
+    this.mengeForm = new InitializationMenge(this.fb).initForm(menge);
+    this.mengeFormDataService.setForm(this.mengeForm);
+  }
 }
 
 export class InitializationMenge {
@@ -27,14 +42,14 @@ export class InitializationMenge {
   ) {
   }
 
-  initForm(): FormGroup{
+  initForm(menge?: number): FormGroup {
     return this.fb.group({
-      menge: [1, Validators.compose([
+      menge: [menge || 1, Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]*$'),
-        this.positiveNonZero // Make sure you have defined this custom validator function
+        this.positiveNonZero
       ])],
-    })
+    });
   }
 
   positiveNonZero(control: AbstractControl) {

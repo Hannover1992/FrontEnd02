@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import {AssetFormDataService} from "./service/asset-form-data.service";
+import {UpdateElementService} from "../../service/update-element.service";
+import {Asset} from "../../../../../../../Interface/asset";
 
 @Component({
   selector: 'app-asset',
@@ -12,28 +14,35 @@ export class AssetComponent implements  OnInit {
   constructor(
     private fb: FormBuilder,
     private assetFormDataService: AssetFormDataService,
+    private updateElementService: UpdateElementService
   ) {
   }
 
-
   ngOnInit(): void {
-    this.assetForm = new intializationAsset(this.fb).initForm();
+    this.initializeAssetForm();
+  }
+
+  initializeAssetForm() {
+    let asset: Asset | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      let article = this.updateElementService.getArticle();
+      asset = article ? article.assets : undefined;
+    }
+
+    this.assetForm = new InitializationAsset(this.fb).initForm(asset);
     this.assetFormDataService.setForm(this.assetForm);
   }
-
 }
 
-export class intializationAsset{
+export class InitializationAsset {
 
-  constructor(
-    private fb: FormBuilder,
-  ) { }
+  constructor(private fb: FormBuilder) { }
 
-  initForm(){
+  initForm(asset?: Asset): FormGroup {
     return this.fb.group({
-      ID:undefined,
-      Inventarnummer: 0
+      ID: asset ? asset.ID : undefined,
+      Inventarnummer: asset ? asset.Inventarnummer : 0
     });
   }
-
 }

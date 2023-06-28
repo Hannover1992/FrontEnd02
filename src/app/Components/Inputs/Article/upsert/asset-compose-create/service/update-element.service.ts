@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   providedIn: 'root'
 })
 export class UpdateElementService {
-  element: ProjectArticle | undefined;
+  projectArticle: ProjectArticle | undefined;
   isActive: boolean = false;
 
   constructor(
@@ -15,14 +15,14 @@ export class UpdateElementService {
   }
 
   activate(element: any) {
-    this.element = this.convertTemplate(element);
+    this.projectArticle = this.convertTemplate(element);
     this.isActive = true;
     console.log("es wurde aktiviert")
   }
 
   deactivate(){
     console.log("es wurde deaktiviert")
-    this.element = undefined;
+    this.projectArticle = undefined;
     this.isActive = false;
   }
 
@@ -30,8 +30,16 @@ export class UpdateElementService {
     return this.isActive;
   }
 
-  getElement() {
-    return this.element;
+  getMenge(){
+    return this.projectArticle?.menge;
+  }
+
+  getProjectArticle() {
+    return this.projectArticle;
+  }
+
+  getArticle(){
+    return this.projectArticle?.artikel;
   }
 
   convertTemplate(tableObject: any): any {

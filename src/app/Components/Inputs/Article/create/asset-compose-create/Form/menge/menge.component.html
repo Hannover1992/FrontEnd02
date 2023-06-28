@@ -4,7 +4,7 @@
 
     <mat-form-field class="full-width">
       <mat-label>Menge</mat-label>
-      <input matInput placeholder="Menge" formControlName="menge">
+      <input matInput placeholder="Menge" formControlName="menge" type="number">
       <mat-error *ngIf="mengeForm.controls['menge'].hasError('required')">
         Menge ist <strong>erforderlich</strong>
       </mat-error>

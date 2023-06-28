@@ -1,11 +1,6 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-
-enum Mode {
-  DEFAULT,
-  UPDATE
-}
 
 
 @Injectable({
@@ -13,39 +8,33 @@ enum Mode {
 })
 export class UpdateElementService {
   element: ProjectArticle | undefined;
-  mode: Mode = Mode.DEFAULT;
+  isActive: boolean = false;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any ,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
-    this.element = this.data.element;
-    this.mode = Mode.UPDATE;
+    if (data !== null) {
+      this.element = this.convertTemplate(this.data.element);
+      this.isActive = false;
+    }
   }
 
   activate() {
-    this.element = this.data.element;
-    this.mode = Mode.UPDATE;
+    this.element = this.convertTemplate(this.data.element);
+    this.isActive = true;
   }
 
   deactivate(){
-    this.mode = Mode.DEFAULT;
     this.element = undefined;
+    this.isActive = false;
   }
 
   isActivated() {
-    return this.mode == Mode.UPDATE;
-  }
-
-  setMode(mode: Mode) {
-    this.mode = mode;
+    return this.isActive;
   }
 
   setElement(element: ProjectArticle) {
     this.element = element;
-  }
-
-  getMode() {
-    return this.mode;
   }
 
   getElement() {

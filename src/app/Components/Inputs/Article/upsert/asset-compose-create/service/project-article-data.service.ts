@@ -7,10 +7,13 @@ import {Asset} from "../../../../../../Interface/asset";
 import {MengeDataService} from "../Data/mengeData.service";
 import {ArticleDataService} from "../Data/articleData.service";
 import {AssetDataService} from "../Data/assetData.service";
+import {UpdateElementService} from "./update-element.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
+// @Injectable({
+//   providedIn: 'root'
+// })
 
 export class ProjectArticleDataService {
   projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
@@ -19,9 +22,17 @@ export class ProjectArticleDataService {
     private projectsService: ProjectsService,
     private mengeDataService:MengeDataService,
     private articleDataService:ArticleDataService,
-    private assetDataService:AssetDataService
+    private assetDataService:AssetDataService,
+    private updateElementService:UpdateElementService
   ) {
+    if(this.updateElementService.isActivated()) {
+      this.projectArticle.next(this.updateElementService.getElement() as ProjectArticle);
+      console.log("ProjectArticleDataService: updateElementService is activated")
+    }
   }
+
+  //toDo: has to set the activation on when going over the update,
+  //toDo: set to off, when going over creat
 
   public formatToProjectArticle(): ProjectArticle {
     let projectArticle: ProjectArticle = {

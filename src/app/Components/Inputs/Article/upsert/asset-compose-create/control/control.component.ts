@@ -9,6 +9,7 @@ import {AssetTableService} from "../../../../../../Services/asset-table.service"
   selector: 'app-control',
   templateUrl: './control.component.html',
   styleUrls: ['../../../../../../shared_css/input.css'],
+  providers: [ProjectArticleDataService]
 })
 export class ControlComponent {
 

@@ -18,14 +18,10 @@ export class MengeDataService {
   private subscribeMengeForm() {
     this.mengeSubscribtion = this.mengeFormData.getFormData().subscribe(data => {
       this.menge = this.formatFormToMenge(data)
-      console.log("das ist die Aktuelle Menge")
-      console.log(this.menge);
     });
   }
 
   private formatFormToMenge(data: any) {
-    console.log("format data")
-    console.log(data)
     return data?.menge
   }
 }

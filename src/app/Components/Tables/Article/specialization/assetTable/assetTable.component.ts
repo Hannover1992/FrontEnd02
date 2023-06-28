@@ -1,7 +1,5 @@
-import {Component, ContentChild, TemplateRef, ViewChild} from '@angular/core';
-import {ProjectsService} from "../../../projectTable/service/projects.service";
+import {Component, ViewChild} from '@angular/core';
 import {AssetTableService} from "../../../../../Services/asset-table.service";
-import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
@@ -9,13 +7,13 @@ import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
-import {
-  DialogDeleteProjectComponent
-} from "../../../projectTable/projects-table/dialog-delete-project/dialog-delete-project.component";
 import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
 import {
-  AssetComposeComponent
-} from "../../../../Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component";
+  UpdateElementService
+} from "../../../../Inputs/Article/upsert/asset-compose-create/service/update-element.service";
+import {
+  AssetComposeCreateComponent
+} from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
 
 @Component({
   selector: 'app-asset-table',
@@ -45,7 +43,8 @@ export class AssetTableComponent {
   constructor(
     public assetTableService: AssetTableService,
     private _liveAnnouncer: LiveAnnouncer,
-    dialog: MatDialog
+    private updateElementService: UpdateElementService,
+    dialog: MatDialog,
 )
 {
   this.dialog = dialog;
@@ -114,10 +113,7 @@ export class AssetTableComponent {
   }
 
   open_the_dialog_for_updating_artikel(element: any) {
-    this.dialog.open(AssetComposeComponent, {
-      data: {
-        element: element
-      }
-    });
+    this.updateElementService.activate(element);
+    this.dialog.open(AssetComposeCreateComponent);
   }
 }

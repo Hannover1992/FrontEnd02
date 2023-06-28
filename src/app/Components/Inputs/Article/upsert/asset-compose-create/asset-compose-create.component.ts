@@ -8,27 +8,6 @@ import {MengeDataService} from "./Data/mengeData.service";
   templateUrl: './asset-compose-create.component.html',
   styleUrls: ['../../../../../shared_css/input.css']
 })
-export class AssetComposeCreateComponent implements OnDestroy, OnInit{
-
-
-  constructor(
-    articleDataService:ArticleDataService,
-    // assetDataService:AssetDataService,
-    // mengeDataService:MengeDataService
-  ) {
-
-  }
-
-
-
-  ngOnInit(): void {
-  }
-
-  ngOnDestroy(): void {
-  }
-
-
-
-
-
+export class AssetComposeCreateComponent {
+  constructor( ) { }
 }

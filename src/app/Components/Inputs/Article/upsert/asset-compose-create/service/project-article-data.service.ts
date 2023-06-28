@@ -27,7 +27,6 @@ export class ProjectArticleDataService {
   ) {
     if(this.updateElementService.isActivated()) {
       this.projectArticle.next(this.updateElementService.getElement() as ProjectArticle);
-      console.log("ProjectArticleDataService: updateElementService is activated")
     }
   }
 

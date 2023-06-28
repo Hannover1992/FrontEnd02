@@ -11,30 +11,23 @@ export class UpdateElementService {
   isActive: boolean = false;
 
   constructor(
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
-    if (data !== null) {
-      this.element = this.convertTemplate(this.data.element);
-      this.isActive = false;
-    }
   }
 
-  activate() {
-    this.element = this.convertTemplate(this.data.element);
+  activate(element: any) {
+    this.element = this.convertTemplate(element);
     this.isActive = true;
+    console.log("es wurde aktiviert")
   }
 
   deactivate(){
+    console.log("es wurde deaktiviert")
     this.element = undefined;
     this.isActive = false;
   }
 
   isActivated() {
     return this.isActive;
-  }
-
-  setElement(element: ProjectArticle) {
-    this.element = element;
   }
 
   getElement() {

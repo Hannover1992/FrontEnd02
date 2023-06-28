@@ -4,6 +4,7 @@ import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.
 import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 import {ProjectArticleDataService} from "../service/project-article-data.service";
 import {AssetTableService} from "../../../../../../Services/asset-table.service";
+import {UpdateElementService} from "../service/update-element.service";
 
 @Component({
   selector: 'app-control',
@@ -22,13 +23,19 @@ export class ControlComponent {
   //toDo: the submite
   constructor(
     private projectArticleData:ProjectArticleDataService,
-    private assetTableService:AssetTableService
+    private assetTableService:AssetTableService,
+    private updateElementService: UpdateElementService,
   ){
   }
 
   onSubmit() {
     // console.log(this.projectArticleData.formatToProjectArticle());
-    this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticle());
+    if(this.updateElementService.isActivated()){
+      console.log(this.projectArticleData.formatToProjectArticle());
+      //toDo: i just found out that the asses are not correctly updated
+    } else {
+      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticle());
+    }
   }
 
   close_window() {

@@ -18,6 +18,7 @@ export class UpdateElementService {
     this.projectArticle = this.convertTemplate(element);
     this.isActive = true;
     console.log("es wurde aktiviert")
+    console.log(this.projectArticle)
   }
 
   deactivate(){
@@ -62,7 +63,7 @@ export class UpdateElementService {
         "belegt_von": tableObject.belegt_von,
         "belegt_bis": tableObject.belegt_bis,
         "assets": {
-          "ID": tableObject.asset_id,
+          "ID": tableObject.ID,
           "Inventarnummer": tableObject.Inventarnummer,
         },
         "unterkategorie_id": tableObject.unterkategorie_id

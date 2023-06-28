@@ -31,12 +31,14 @@ export class ControlComponent {
   onSubmit() {
     // console.log(this.projectArticleData.formatToProjectArticle());
     if(this.updateElementService.isActivated()){
+      console.log("ich bin in update Submite")
+      console.log(this.projectArticleData.formatToProjectArticleUpdate());
       this.assetTableService.update_asset(this.projectArticleData.formatToProjectArticleUpdate());
       this.updateElementService.deactivate();
     } else {
       console.log("ich bin in create Submite")
-      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
       console.log(this.projectArticleData.formatToProjectArticleCreate());
+      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
     }
   }
 

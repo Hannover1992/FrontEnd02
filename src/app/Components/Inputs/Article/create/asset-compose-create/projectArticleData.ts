@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {ProjectArticle} from "../../../../Interface/projectArticle";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {BehaviorSubject} from "rxjs";
 import {ProjectsService} from "../../../../Tables/projectTable/service/projects.service";
-import {Article} from "../../../../Interface/article";
-import {Asset} from "../../../../Interface/asset";
+import {Article} from "../../../../../Interface/article";
+import {Asset} from "../../../../../Interface/asset";
 import {MengeDataService} from "./Data/mengeData.service";
 import {ArticleDataService} from "./Data/articleData.service";
 import {AssetDataService} from "./Data/assetData.service";

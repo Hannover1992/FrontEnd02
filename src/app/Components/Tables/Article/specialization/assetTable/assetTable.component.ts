@@ -1,11 +1,11 @@
 import {Component, ContentChild, TemplateRef, ViewChild} from '@angular/core';
 import {ProjectsService} from "../../../projectTable/service/projects.service";
-import {AssetTableService} from "../../../../Services/asset-table.service";
-import {UnterKategorieService} from "../../../../Services/unter-kategorie.service";
+import {AssetTableService} from "../../../../../Services/asset-table.service";
+import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
-import {ProjectArticle} from "../../../../Interface/projectArticle";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
@@ -20,7 +20,7 @@ import {
 @Component({
   selector: 'app-asset-table',
   templateUrl: './assetTable.component.html',
-  styleUrls: ['./assetTable.component.css','../../../../shared_css/table_details.css'],
+  styleUrls: ['./assetTable.component.css','../../../../../shared_css/table_details.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),

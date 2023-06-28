@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-personal-project',
   templateUrl: './personal-project.component.html',
-  styleUrls: ['../../../../../../shared_css/input.css' ]
+  styleUrls: ['../../../../../../../shared_css/input.css' ]
 })
 export class PersonalProjectComponent {
   @Input() personal: FormGroup;

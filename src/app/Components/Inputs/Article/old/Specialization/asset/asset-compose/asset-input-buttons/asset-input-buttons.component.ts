@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
-import {AssetTableService} from "../../../../../../../Services/asset-table.service";
+import {ProjectArticle} from "../../../../../../../../Interface/projectArticle";
+import {AssetTableService} from "../../../../../../../../Services/asset-table.service";
 import {ProjectAssetArticle} from "../services/project-asset-article";
-import {UnterKategorieService} from "../../../../../../../Services/unter-kategorie.service";
+import {UnterKategorieService} from "../../../../../../../../Services/unter-kategorie.service";
 import {ArticleData} from "../../../../Base/service/article-data.service";
-import {Article} from "../../../../../../../Interface/article";
-import {Asset} from "../../../../../../../Interface/asset";
+import {Article} from "../../../../../../../../Interface/article";
+import {Asset} from "../../../../../../../../Interface/asset";
 
 @Component({
   selector: 'app-asset-input-buttons',
   templateUrl: './asset-input-buttons.component.html',
-  styleUrls: ['../../../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../../../shared_css/input.css']
 })
 export class AssetInputButtonsComponent {
 

@@ -5,7 +5,7 @@ import {ProjectService} from "../../../../service/project.service";
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
-  styleUrls: ['../../../../../../shared_css/input.css'],
+  styleUrls: ['../../../../../../../shared_css/input.css'],
 })
 export class ProjectDetailsComponent {
   @Input() project_details: FormGroup;

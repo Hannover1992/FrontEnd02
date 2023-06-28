@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-nummern-details',
   templateUrl: './nummern-details.component.html',
-  styleUrls: ['../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../shared_css/input.css']
 })
 export class NummernDetailsComponent {
   // [anlagenummer] ="element.anlagenummer",

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {CurrentArticleAsset} from "./current-article-asset.service";
 import {BehaviorSubject} from "rxjs";
-import {Article} from "../../../../../../../Interface/article";
-import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
+import {Article} from "../../../../../../../../Interface/article";
+import {ProjectArticle} from "../../../../../../../../Interface/projectArticle";
 import {ArticleData} from "../../../../Base/service/article-data.service";
-import {AssetTableService} from "../../../../../../../Services/asset-table.service";
+import {AssetTableService} from "../../../../../../../../Services/asset-table.service";
 import {ProjectsService} from "../../../../../../../Tables/projectTable/service/projects.service";
-import {UnterKategorieService} from "../../../../../../../Services/unter-kategorie.service";
+import {UnterKategorieService} from "../../../../../../../../Services/unter-kategorie.service";
 
 @Injectable({
   providedIn: 'root'

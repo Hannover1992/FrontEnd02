@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ProjectsService} from "../Tables/projectTable/service/projects.service";
 import {Observable} from "rxjs";
 import {Project} from "../Inputs/project_input/project";
-import {UnterKategorieService} from "../Services/unter-kategorie.service";
+import {UnterKategorieService} from "../../Services/unter-kategorie.service";
 
 @Component({
   selector: 'app-side-nav',

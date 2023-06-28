@@ -3,18 +3,18 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectsService} from "../../../../../../../Tables/projectTable/service/projects.service";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AssetTableService} from "../../../../../../../Services/asset-table.service";
+import {AssetTableService} from "../../../../../../../../Services/asset-table.service";
 import {ArticleCreationService} from "../../../../Base/service/old/article-creation.service";
 import {ErweiterterAssetCreationService} from "../services/old/erweiterter-asset-creation.service";
 import {Util} from "../services/old/util.service";
-import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
+import {ProjectArticle} from "../../../../../../../../Interface/projectArticle";
 import {AssetData} from "../services/asset/asset-data.service";
-import {Asset} from "../../../../../../../Interface/asset";
+import {Asset} from "../../../../../../../../Interface/asset";
 
 @Component({
   selector: 'app-asset-input-form',
   templateUrl: './assetInputDetails.html',
-  styleUrls: ['../../../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../../../shared_css/input.css']
 })
 export class AssetInputDetails implements OnInit{
 

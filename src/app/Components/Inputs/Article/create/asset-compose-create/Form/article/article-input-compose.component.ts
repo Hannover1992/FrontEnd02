@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 @Component({
   selector: 'app-article-input-compose',
   templateUrl: './article-input-compose.component.html',
-  styleUrls: ['../../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../../shared_css/input.css']
 })
 
 
@@ -75,6 +75,10 @@ export class InitializationArticle {
       seriennummer: [''],
     });
   }
+
+  //toDo: commiten und zunachst versuchen, einfach die values, uber elemtn zu setzen.
+  //toDo: dann in den projectArticle die restliche erforderliche sachen setzen.
+  //toDo: in backend wird einfach geschaut ob der project_article_id vorhanden ist, so wird dann die Update ausgefuhrt.
 
 
 

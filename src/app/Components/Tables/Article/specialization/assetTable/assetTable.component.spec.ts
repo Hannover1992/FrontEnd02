@@ -1,14 +1,14 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import { AssetTableComponent } from './assetTable.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { AssetTableService } from "../../../../Services/asset-table.service";
+import { AssetTableService } from "../../../../../Services/asset-table.service";
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'; // Import this
 import { of } from 'rxjs';
-import {Article} from "../../../../Interface/article";
-import {ProjectArticle} from "../../../../Interface/projectArticle";
+import {Article} from "../../../../../Interface/article";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
 
 describe('AssetTableComponent', () => {
   let component: AssetTableComponent;

@@ -1,5 +1,5 @@
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Article} from "../../../../Interface/article";
+import {Article} from "../../../../../Interface/article";
 
 export class InitializationArticle {
 

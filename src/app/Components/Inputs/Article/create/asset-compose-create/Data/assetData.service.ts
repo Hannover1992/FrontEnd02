@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy, OnInit} from '@angular/core';
-import {Asset} from "../../../../../Interface/asset";
+import {Asset} from "../../../../../../Interface/asset";
 import {Subscription} from "rxjs";
 import {AssetFormDataService} from "../Form/asset/service/asset-form-data.service";
 
@@ -8,7 +8,7 @@ import {AssetFormDataService} from "../Form/asset/service/asset-form-data.servic
 })
 
 export class AssetDataService {
-  asset: any;
+  public asset!: Asset;
   private assetSubscribtion!: Subscription;
 
   constructor(
@@ -20,8 +20,6 @@ export class AssetDataService {
   private subscribeAssetForm() {
     this.assetSubscribtion = this.assetFormData.getFormData().subscribe(data => {
       this.asset = this.formatFormToAsset(data)
-      console.log("das ist der Aktuelle Asset")
-      console.log(this.asset);
     });
   }
 

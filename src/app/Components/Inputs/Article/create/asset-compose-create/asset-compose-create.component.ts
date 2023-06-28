@@ -6,7 +6,7 @@ import {MengeDataService} from "./Data/mengeData.service";
 @Component({
   selector: 'app-asset-compose-create',
   templateUrl: './asset-compose-create.component.html',
-  styleUrls: ['../../../../shared_css/input.css']
+  styleUrls: ['../../../../../shared_css/input.css']
 })
 export class AssetComposeCreateComponent implements OnDestroy, OnInit{
 

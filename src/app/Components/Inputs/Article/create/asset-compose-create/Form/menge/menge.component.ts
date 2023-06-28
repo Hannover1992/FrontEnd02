@@ -5,7 +5,7 @@ import {MengeFormDataService} from "./service/menge-form-data.service";
 @Component({
   selector: 'app-menge',
   templateUrl: './menge.component.html',
-  styleUrls: ['../../../../../../shared_css/input.css']
+  styleUrls: ['../../../../../../../shared_css/input.css']
 })
 export class MengeComponent {
   mengeForm: FormGroup;

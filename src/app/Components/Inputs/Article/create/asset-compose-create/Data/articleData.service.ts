@@ -1,8 +1,8 @@
 import {Injectable, OnDestroy, OnInit} from '@angular/core';
-import {Article} from "../../../../../Interface/article";
+import {Article} from "../../../../../../Interface/article";
 import {Subscription} from "rxjs";
 import {ArticleFormDataService} from "../Form/article/service/article-form-data.service";
-import {UnterKategorieService} from "../../../../../Services/unter-kategorie.service";
+import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
 
 @Injectable({
   providedIn: 'root'

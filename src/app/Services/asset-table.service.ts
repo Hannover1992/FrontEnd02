@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {URL} from "../../settings";
-import {ProjectsService} from "../Tables/projectTable/service/projects.service";
+import {URL} from "../settings";
+import {ProjectsService} from "../Components/Tables/projectTable/service/projects.service";
 import {UnterKategorieService} from "./unter-kategorie.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../Interface/projectArticle";
-import {Project} from "../Inputs/project_input/project";
+import {Project} from "../Components/Inputs/project_input/project";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ProjectInterface} from "../Inputs/project_input/project.interface";
+import {ProjectInterface} from "../Components/Inputs/project_input/project.interface";
 import {MatDialog} from "@angular/material/dialog";
 
 

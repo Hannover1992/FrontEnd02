@@ -7,15 +7,15 @@ import {InitializationArticle} from "./initializationArticle";
 import {ArticleData} from "./service/article-data.service";
 import {ProjectAssetArticle} from "../Specialization/asset/asset-compose/services/project-asset-article";
 import {ArticleUpdateServiceService} from "./service/article-update-service.service";
-import {ProjectArticle} from "../../../../Interface/projectArticle";
-import {Article} from "../../../../Interface/article";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {Article} from "../../../../../Interface/article";
 
 
 
 @Component({
   selector: 'app-input-form-artikel',
   templateUrl: './input-artikle-form.component.html',
-  styleUrls: ['../../../../shared_css/input.css']
+  styleUrls: ['../../../../../shared_css/input.css']
 })
 
 

@@ -16,6 +16,7 @@ export class MengeDataService {
   }
 
   private subscribeMengeForm() {
+    this.menge = this.mengeFormData.getFormValue();
     this.mengeSubscribtion = this.mengeFormData.getFormData().subscribe(data => {
       this.menge = this.formatFormToMenge(data)
     });

@@ -20,5 +20,9 @@ export class MengeFormDataService {
   getFormData(): Observable<any> {
     return this.mengeFormData.asObservable();
   }
+
+  getFormValue(){
+    return this.mengeFormData.getValue();
+  }
 }
 

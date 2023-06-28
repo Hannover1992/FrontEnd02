@@ -35,7 +35,7 @@ export class ControlComponent {
       this.updateElementService.deactivate();
     } else {
       console.log("ich bin in create Submite")
-      // this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
+      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
       console.log(this.projectArticleData.formatToProjectArticleCreate());
     }
   }

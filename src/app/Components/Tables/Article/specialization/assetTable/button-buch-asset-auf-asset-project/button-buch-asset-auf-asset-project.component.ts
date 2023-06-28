@@ -6,7 +6,7 @@ import {
 } from "../../../../../Inputs/Article/old/Specialization/asset/asset-compose/asset-compose.component";
 import {
   AssetComposeCreateComponent
-} from "../../../../../Inputs/Article/create/asset-compose-create/asset-compose-create.component";
+} from "../../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
 
 @Component({
   selector: 'app-button-buch-asset-auf-asset-project',

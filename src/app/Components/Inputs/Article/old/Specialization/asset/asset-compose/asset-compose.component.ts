@@ -1,24 +1,24 @@
-import {Component, Inject, Injectable, Input, OnInit} from '@angular/core';
-import {CurrentArticleAsset} from "./services/current-article-asset.service";
-import {UnterKategorieService} from "../../../../../../../Services/unter-kategorie.service";
-import {FormRetrievalService} from "./services/old/form-retrieval.service";
-import {FormGroup} from "@angular/forms";
+import {Component, Inject, OnInit} from '@angular/core';
 import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
-import {Article} from "../../../../../../../Interface/article";
 import {ProjectAssetArticle} from "./services/project-asset-article";
-import {AssetTableService} from "../../../../../../../Services/asset-table.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {ArticleUpdateServiceService} from "../../../Base/service/article-update-service.service";
 
 
+enum Mode {
+  create = 'default',
+  update = 'update'
+}
 
 @Component({
   selector: 'app-asset-compose',
   templateUrl: './asset-compose.component.html',
   styleUrls: ['./asset-compose.component.css']
 })
+
+
 export class AssetComposeComponent implements OnInit {
   element!: ProjectArticle;
+  mode!: Mode;
 
 
 
@@ -26,6 +26,7 @@ export class AssetComposeComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any ,
     private projectAssetArticle:ProjectAssetArticle,
               ) {
+    this.mode = this.data.mode;
   }
 
   ngOnInit(): void {
@@ -33,14 +34,12 @@ export class AssetComposeComponent implements OnInit {
     } else {
       this.element = this.data.element;
       let projectArticle = this.convertTemplate(this.element);
-      this.projectAssetArticle.rekursivSetzen(projectArticle);
+      // this.projectAssetArticle.rekursivSetzen(projectArticle);
     }
-  }
+}
 
 
   convertTemplate(tableObject: any): any {
-    console.log("convertTemplate for update")
-    console.log(tableObject)
     let projectArticle : ProjectArticle = {
       "projekt_artikel_id": tableObject.projekt_artikel_id,
       "projekt_id": tableObject.projekt_id,
@@ -66,8 +65,6 @@ export class AssetComposeComponent implements OnInit {
         "unterkategorie_id": tableObject.unterkategorie_id
       }
     }
-    console.log("resultat")
-    console.log(projectArticle)
     return projectArticle;
   }
 }

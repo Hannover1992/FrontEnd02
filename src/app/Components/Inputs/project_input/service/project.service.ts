@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {URL} from '../../../../settings';
+import {URL_DB} from '../../../../settings';
 import {ProjectInterface} from '../project.interface';
 import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
@@ -58,15 +58,15 @@ export class ProjectService {
   }
 
   getURL(number: number) {
-    return URL + '/project/' + String(number);
+    return URL_DB + '/project/' + String(number);
   }
 
   delURL(number: number) {
-    return URL + '/project/' + String(number);
+    return URL_DB + '/project/' + String(number);
   }
 
   sendURL( ID: number) {
-    return URL + '/project/' + String(ID);
+    return URL_DB + '/project/' + String(ID);
   }
 
 }

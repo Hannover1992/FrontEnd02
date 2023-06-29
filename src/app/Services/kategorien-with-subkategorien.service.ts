@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Project} from "../Components/Inputs/project_input/project";
-import {URL} from "../settings";
+import {URL_DB} from "../settings";
 
 
 
@@ -34,7 +33,7 @@ export class KategorienWithSubkategorienService {
 
 
   generateURL() {
-    return URL + '/kategorieJoinSub';
+    return URL_DB + '/kategorieJoinSub';
   }
 
 

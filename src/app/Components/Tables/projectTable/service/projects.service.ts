@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {URL} from '../../../../settings';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {URL_DB} from '../../../../settings';
+import {BehaviorSubject } from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Project} from "../../../Inputs/project_input/project";
 
@@ -33,7 +33,7 @@ export class ProjectsService {
   }
 
   generateURL() {
-    return URL + '/projects';
+    return URL_DB + '/projects';
   }
 }
 

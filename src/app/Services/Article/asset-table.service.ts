@@ -1,81 +1,81 @@
-import {Injectable, OnInit} from '@angular/core';
-import {URL} from "../../settings";
-import {ProjectsService} from "../../Components/Tables/projectTable/service/projects.service";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from "@angular/material/dialog";
+import { BehaviorSubject } from "rxjs";
+import { ProjectArticle } from "../../Interface/projectArticle";
+import {ProjectInteractionServiceService} from "./microServices/project-interaction-service.service";
+import {SnackbarMessagingServiceService} from "./microServices/snackbar-messaging-service.service";
+import {URLGenerationServiceService} from "./microServices/urlgeneration-service.service";
 import {UnterKategorieService} from "../unter-kategorie.service";
-import {BehaviorSubject} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {ProjectArticle} from "../../Interface/projectArticle";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {MatDialog} from "@angular/material/dialog";
-import {TableService} from "./TableService";
-
-
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class AssetTableService extends TableService {
-
+export class AssetTableService  {
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
-
+  private urlGenerationService: URLGenerationServiceService;
 
   constructor(
-              projectsService: ProjectsService,
-              kategorieService: UnterKategorieService,
-              private http: HttpClient,
-              _snackBar: MatSnackBar,
-              private dialog: MatDialog,
-              ) {
-    super(projectsService, kategorieService, 'projektArtikelAsset', _snackBar);
-    super.subscribe_project_kategorie();
-    this.read();
-  }
-
-
-  read(){
-    this.http.get<any>(this.generateGetURL()).subscribe(
-      (asset_arr) => this.assets.next(asset_arr));
-  }
-
-  create(newProjectArticle:ProjectArticle){
-    this.http.post(this.generateURL(), newProjectArticle).subscribe(response => {
+    private http: HttpClient,
+    private dialog: MatDialog,
+    private projectInteractionService: ProjectInteractionServiceService,
+    private snackbarMessagingService: SnackbarMessagingServiceService,
+    public kategorieService: UnterKategorieService
+  ) {
+    this.urlGenerationService = new URLGenerationServiceService('projektArtikelAsset');
+    this.kategorieService.selectedUnterKategorie.subscribe(kategorie => {
       this.read();
-      this.displayCreateMessage()
-      this.dialog.closeAll();
-    }, error => {
-      this.displayErrorMessage(error)
     });
+
   }
 
+  read() {
+    const url = this.urlGenerationService.generateGetURL(
+      this.projectInteractionService.selected_project,
+      this.projectInteractionService.selected_unterkategorie
+    );
+    this.http.get<any>(url).subscribe((asset_arr) => this.assets.next(asset_arr));
+  }
+
+  create(newProjectArticle: ProjectArticle) {
+    const url = this.urlGenerationService.generateURL();
+    this.http.post(url, newProjectArticle).subscribe(
+      response => {
+        this.read();
+        this.snackbarMessagingService.displayCreateMessage();
+        this.dialog.closeAll();
+      },
+      error => {
+        this.snackbarMessagingService.displayErrorMessage(error);
+      }
+    );
+  }
 
   public update(projectArticle: ProjectArticle) {
-    this.http.put(this.generateURL(), projectArticle).subscribe(response => {
-      this.read();
-      this.diplayUpdateMessage();
-      this.dialog.closeAll();
-    }, error => {
-      this.displayErrorMessage(error)
-    });
+    const url = this.urlGenerationService.generateURL();
+    this.http.put(url, projectArticle).subscribe(
+      response => {
+        this.read();
+        this.snackbarMessagingService.diplayUpdateMessage();
+        this.dialog.closeAll();
+      },
+      error => {
+        this.snackbarMessagingService.displayErrorMessage(error);
+      }
+    );
   }
 
-  async delete(projectArticle: ProjectArticle): Promise<void> {
-    const projekt_artikel_id : any = projectArticle.projekt_artikel_id;
-    this.http.delete(this.getDeleteUrl(projekt_artikel_id)).subscribe(response => {
-      this.read();
-      this.displayDeleteMessage();
-      this.dialog.closeAll();
-    } , error => {
-      this.displayErrorMessage(error)
-    });
+  delete(projectArticle: ProjectArticle) {
+    const url = this.urlGenerationService.getDeleteUrl(projectArticle.projekt_artikel_id);
+    this.http.delete(url).subscribe(
+      response => {
+        this.read();
+        this.snackbarMessagingService.displayDeleteMessage();
+        this.dialog.closeAll();
+      },
+      error => {
+        this.snackbarMessagingService.displayErrorMessage(error);
+      }
+    );
   }
-
-  private async deleteProjectArticle(projectArticle: ProjectArticle): Promise<void> {
-    if(projectArticle.projekt_artikel_id) {
-      await this.http.delete<ProjectArticle>(this.getDeleteUrl(projectArticle.projekt_artikel_id)).toPromise();
-    }
-  }
-
-
 }
-

@@ -57,7 +57,7 @@ export class ProjectArticleDataService {
 
     let projectArticle: ProjectArticle = {
 
-      projekt_artikel_id: proArtIDs.artikel_id,
+      projekt_artikel_id: proArtIDs.projekt_artikel_id,
       projekt_id: this.projectsService.getProjectID(),
       artikel_id: proArtIDs.artikel_id,
 

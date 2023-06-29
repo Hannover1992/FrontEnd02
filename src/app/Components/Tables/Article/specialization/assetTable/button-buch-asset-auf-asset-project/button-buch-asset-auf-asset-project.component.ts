@@ -8,7 +8,7 @@ import {
 } from "../../../../../Inputs/Article/upsert/asset-compose-create/service/update-element.service";
 
 @Component({
-  selector: 'app-button-buch-asset-auf-asset-project',
+  selector: 'app-create-new-asset',
   templateUrl: './button-buch-asset-auf-asset-project.component.html',
   styleUrls: ['./button-buch-asset-auf-asset-project.component.css']
 })

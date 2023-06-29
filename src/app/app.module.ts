@@ -68,6 +68,7 @@ import { AssetComposeCreateComponent } from './Components/Inputs/Article/upsert/
 import { AssetComponent } from './Components/Inputs/Article/upsert/asset-compose-create/Form/asset/asset.component';
 import { ControlComponent } from './Components/Inputs/Article/upsert/asset-compose-create/control/control.component';
 import { MengeComponent } from './Components/Inputs/Article/upsert/asset-compose-create/Form/menge/menge.component';
+import { SimkartenTableComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-table.component';
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { MengeComponent } from './Components/Inputs/Article/upsert/asset-compose
     AssetComponent,
     ControlComponent,
     MengeComponent,
+    SimkartenTableComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

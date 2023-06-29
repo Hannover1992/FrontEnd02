@@ -33,7 +33,7 @@ export class ControlComponent {
     if(this.updateElementService.isActivated()){
       console.log("ich bin in update Submite")
       console.log(this.projectArticleData.formatToProjectArticleUpdate());
-      this.assetTableService.update_asset(this.projectArticleData.formatToProjectArticleUpdate());
+      this.assetTableService.update(this.projectArticleData.formatToProjectArticleUpdate());
       this.updateElementService.deactivate();
     } else {
       console.log("ich bin in create Submite")

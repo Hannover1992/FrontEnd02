@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {ProjectArticle} from "../../Interface/projectArticle";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
-import {URLService} from "./URLService";
+import {TableService} from "./TableService";
 
 
 
@@ -15,7 +15,7 @@ import {URLService} from "./URLService";
   providedIn: 'root'
 })
 
-export class AssetTableService extends URLService implements OnInit{
+export class AssetTableService extends TableService {
 
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
 
@@ -24,59 +24,50 @@ export class AssetTableService extends URLService implements OnInit{
               projectsService: ProjectsService,
               kategorieService: UnterKategorieService,
               private http: HttpClient,
-              private _snackBar: MatSnackBar,
+              _snackBar: MatSnackBar,
               private dialog: MatDialog,
               ) {
-    super(projectsService, kategorieService, 'projektArtikelAsset');
-    this.subscribe_project_kategorie();
+    super(projectsService, kategorieService, 'projektArtikelAsset', _snackBar);
+    super.subscribe_project_kategorie();
     this.read();
   }
 
-  ngOnInit() {
-  }
 
   read(){
     this.http.get<any>(this.generateGetURL()).subscribe(
       (asset_arr) => this.assets.next(asset_arr));
   }
 
-
-  private subscribe_project_kategorie() {
-    this.subscribe_to_selected_project();
-    this.subscribe_to_selected_kategorie();
-  }
-
-  private subscribe_to_selected_kategorie() {
-    this.kategorieService.selectedUnterKategorie.subscribe(kategorie => {
-      this.selected_unterkategorie = kategorie;
+  create(newProjectArticle:ProjectArticle){
+    this.http.post(this.generateURL(), newProjectArticle).subscribe(response => {
       this.read();
-    })
-  }
-
-  private subscribe_to_selected_project() {
-    this.projectsService.selectedProject.subscribe(project => {
-      this.selected_project = project;
+      this.displayCreateMessage()
+      this.dialog.closeAll();
+    }, error => {
+      this.displayErrorMessage(error)
     });
   }
 
 
-  create(newProjectArticle:ProjectArticle){
-    this.http.post(this.generateURL(), newProjectArticle).subscribe(response => {
+  public update(projectArticle: ProjectArticle) {
+    this.http.put(this.generateURL(), projectArticle).subscribe(response => {
       this.read();
-      this._snackBar.open("Artikel wurde erfolgreich hinzugefügt", "OK");
+      this.diplayUpdateMessage();
       this.dialog.closeAll();
     }, error => {
-      this._snackBar.open(error.message, "OK");
+      this.displayErrorMessage(error)
     });
   }
 
   async delete(projectArticle: ProjectArticle): Promise<void> {
-    try {
-      await this.deleteProjectArticle(projectArticle);
-      this.updateUIAfterSuccessfulDelete();
-    } catch (error) {
-      this.displayErrorMessage(error);
-    }
+    const projekt_artikel_id : any = projectArticle.projekt_artikel_id;
+    this.http.delete(this.getDeleteUrl(projekt_artikel_id)).subscribe(response => {
+      this.read();
+      this.displayDeleteMessage();
+      this.dialog.closeAll();
+    } , error => {
+      this.displayErrorMessage(error)
+    });
   }
 
   private async deleteProjectArticle(projectArticle: ProjectArticle): Promise<void> {
@@ -85,34 +76,6 @@ export class AssetTableService extends URLService implements OnInit{
     }
   }
 
-  private updateUIAfterSuccessfulDelete(): void {
-    this.read();
-    this.displaySuccessMessage();
-  }
 
-  private displaySuccessMessage(): void {
-    const successMessage = "Artikel wurde erfolgreich entfernt";
-    this._snackBar.open(successMessage, "OK");
-  }
-
-  private displayErrorMessage(error: unknown): void {
-    const errorMessage = this.getErrorMessage(error);
-    this._snackBar.open(errorMessage, "OK");
-  }
-
-  private getErrorMessage(error: unknown): string {
-    const defaultErrorMessage = 'An error occurred';
-    return error instanceof Error ? error.message : defaultErrorMessage;
-  }
-
-  update_asset(projectArticle: ProjectArticle) {
-    this.http.put(this.generateURL(), projectArticle).subscribe(response => {
-      this.read();
-      this._snackBar.open("Artikel wurde erfolgreich aktualisiert", "OK");
-      this.dialog.closeAll();
-    }, error => {
-      this._snackBar.open(error.message, "OK");
-    });
-  }
 }
 

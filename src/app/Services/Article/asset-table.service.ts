@@ -1,32 +1,25 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { MatDialog } from "@angular/material/dialog";
-import { BehaviorSubject } from "rxjs";
-import { ProjectArticle } from "../../Interface/projectArticle";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {MatDialog} from "@angular/material/dialog";
+import {BehaviorSubject} from "rxjs";
+import {ProjectArticle} from "../../Interface/projectArticle";
 import {ProjectInteractionServiceService} from "./microServices/project-interaction-service.service";
 import {SnackbarMessagingServiceService} from "./microServices/snackbar-messaging-service.service";
 import {URLGenerationServiceService} from "./microServices/urlgeneration-service.service";
 import {UnterKategorieService} from "../unter-kategorie.service";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AssetTableService  {
+class TableServiceCRUD {
   public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
-  private urlGenerationService: URLGenerationServiceService;
+  urlGenerationService: URLGenerationServiceService;
 
   constructor(
-    private http: HttpClient,
-    private dialog: MatDialog,
-    private projectInteractionService: ProjectInteractionServiceService,
-    private snackbarMessagingService: SnackbarMessagingServiceService,
-    public kategorieService: UnterKategorieService
+              urlGenerationService: URLGenerationServiceService,
+              protected http: HttpClient,
+              protected dialog: MatDialog,
+              protected projectInteractionService: ProjectInteractionServiceService,
+              protected snackbarMessagingService: SnackbarMessagingServiceService
   ) {
-    this.urlGenerationService = new URLGenerationServiceService('projektArtikelAsset');
-    this.kategorieService.selectedUnterKategorie.subscribe(kategorie => {
-      this.read();
-    });
-
+    this.urlGenerationService = urlGenerationService;
   }
 
   read() {
@@ -77,5 +70,26 @@ export class AssetTableService  {
         this.snackbarMessagingService.displayErrorMessage(error);
       }
     );
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetTableService extends TableServiceCRUD {
+
+  constructor(
+    http: HttpClient,
+    dialog: MatDialog,
+    projectInteractionService: ProjectInteractionServiceService,
+    snackbarMessagingService: SnackbarMessagingServiceService,
+    kategorieService: UnterKategorieService
+  ) {
+    let urlGenerationService = new URLGenerationServiceService('projektArtikelAsset');
+    super(urlGenerationService, http, dialog, projectInteractionService, snackbarMessagingService);
+    kategorieService.selectedUnterKategorie.subscribe(kategorie => {
+      this.read();
+    });
+
   }
 }

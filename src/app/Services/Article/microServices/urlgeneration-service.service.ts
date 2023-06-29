@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {URL_DB} from "../../../settings";
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class URLGenerationServiceService {
   private URL_Spec: String;
 

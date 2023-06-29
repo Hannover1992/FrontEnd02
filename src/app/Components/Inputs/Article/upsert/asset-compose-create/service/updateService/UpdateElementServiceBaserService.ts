@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {ProjectArticle} from "../../../../../../../../Interface/projectArticle";
+import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
 
 @Injectable({
   providedIn: 'root'
 })
-export abstract class UpdateElementServiceBaseService {
+export abstract class UpdateElementServiceBaserService {
   projectArticle: ProjectArticle | undefined;
   isActive: boolean = false;
 
@@ -65,5 +65,5 @@ export abstract class UpdateElementServiceBaseService {
   }
 
 
-  abstract setExtendConvert(tableObject: any, article: any): any ;
+  abstract setExtendConvert(tableObject: any, projectArticle: any): any ;
 }

@@ -5,7 +5,7 @@ import {
 } from "../../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
 import {
   AssetUpdateElementService
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/update-element-service-base.service";
+} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/AssetUpdateElementService";
 
 @Component({
   selector: 'app-create-new-asset',

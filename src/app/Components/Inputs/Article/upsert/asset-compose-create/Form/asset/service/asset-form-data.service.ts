@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {FormGroup} from "@angular/forms";
-import {Asset} from "../../../../../../../../Interface/asset";
+import {Asset} from "../../../../../../../../Interface/article/asset";
 
 @Injectable({
   providedIn: 'root'

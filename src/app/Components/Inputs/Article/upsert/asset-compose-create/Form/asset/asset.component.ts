@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import {AssetFormDataService} from "./service/asset-form-data.service";
-import {AssetUpdateElementService} from "../../service/updateService/update-element-service-base.service";
-import {Asset} from "../../../../../../../Interface/asset";
+import {AssetUpdateElementService} from "../../service/updateService/specific/AssetUpdateElementService";
+import {Asset} from "../../../../../../../Interface/article/asset";
 
 @Component({
   selector: 'app-asset',

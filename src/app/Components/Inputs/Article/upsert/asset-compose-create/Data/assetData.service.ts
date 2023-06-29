@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy, OnInit} from '@angular/core';
-import {Asset} from "../../../../../../Interface/asset";
+import {Asset} from "../../../../../../Interface/article/asset";
 import {Subscription} from "rxjs";
 import {AssetFormDataService} from "../Form/asset/service/asset-form-data.service";
 

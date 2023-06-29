@@ -4,7 +4,7 @@ import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.
 import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 import {ProjectArticleDataService} from "../service/project-article-data.service";
 import {AssetTableService} from "../../../../../../Services/Article/specialization/asset-table.service";
-import {AssetUpdateElementService} from "../service/updateService/update-element-service-base.service";
+import {AssetUpdateElementService} from "../service/updateService/specific/AssetUpdateElementService";
 
 @Component({
   selector: 'app-control',

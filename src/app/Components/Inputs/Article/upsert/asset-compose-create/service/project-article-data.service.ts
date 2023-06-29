@@ -3,11 +3,11 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {BehaviorSubject} from "rxjs";
 import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 import {Article} from "../../../../../../Interface/article";
-import {Asset} from "../../../../../../Interface/asset";
+import {Asset} from "../../../../../../Interface/article/asset";
 import {MengeDataService} from "../Data/mengeData.service";
 import {ArticleDataService} from "../Data/articleData.service";
 import {AssetDataService} from "../Data/assetData.service";
-import {AssetUpdateElementService} from "./updateService/update-element-service-base.service";
+import {AssetUpdateElementService} from "./updateService/specific/AssetUpdateElementService";
 
 @Injectable()
 

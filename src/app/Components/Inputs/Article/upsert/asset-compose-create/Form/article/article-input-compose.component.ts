@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ArticleFormDataService} from "./service/article-form-data.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AssetUpdateElementService} from "../../service/updateService/update-element-service-base.service";
+import {AssetUpdateElementService} from "../../service/updateService/specific/AssetUpdateElementService";
 import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
 import {Article} from "../../../../../../../Interface/article";
 

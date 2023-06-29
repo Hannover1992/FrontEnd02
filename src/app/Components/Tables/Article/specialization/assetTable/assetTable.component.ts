@@ -10,7 +10,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
 import {
   AssetUpdateElementService
-} from "../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/update-element-service-base.service";
+} from "../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/AssetUpdateElementService";
 import {
   AssetComposeCreateComponent
 } from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";

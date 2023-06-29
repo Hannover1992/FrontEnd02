@@ -1,5 +1,7 @@
 import {Subcategory} from "./subcategory";
-import {Asset} from "./asset";
+import {Asset} from "./article/asset";
+
+
 
 export interface Article {
   artikel_id?: number;

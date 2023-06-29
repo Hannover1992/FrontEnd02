@@ -45,5 +45,5 @@ export abstract class TableComponentBase {
     ];
   }
 
-  abstract flattenExtend(flattenedData: any, data: any): any;
+  protected  abstract flattenExtend(flattenedData: any): any;
 }

@@ -72,16 +72,16 @@ export class AssetTableComponent extends TableComponentBase {
     let flattenedData = { ...data, ...data.artikel, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
     delete flattenedData.artikel;
     delete flattenedData.unterkategorie;
-    flattenedData = {...flattenedData, ...flattenedData.assets }
-    delete flattenedData.assets;
     console.log("flatten data")
     console.log(flattenedData)
     return flattenedData;
   }
 
-  flattenExtend(flattenedData: any, data: any) {
-    // const flattenedData = {...flattenedData, ...data.artikel.assets,.unterkategorie, ...data.artikel.unterkategorie.kategorien };
+
+  protected flattenExtend(flattenedData: any): any {
+
   }
+
 
   open_the_dialog_for_deleting_artikel(element: ProjectArticle){
     this.dialog.open(DialogDeleteAssetComponent, {
@@ -94,4 +94,5 @@ export class AssetTableComponent extends TableComponentBase {
     this.updateElementService.activate(element);
     this.dialog.open(AssetComposeCreateComponent);
   }
+
 }

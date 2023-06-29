@@ -7,7 +7,7 @@ import {ProjectInteractionServiceService} from "./microServices/project-interact
 import {SnackbarMessagingServiceService} from "./microServices/snackbar-messaging-service.service";
 
 export class TableServiceCRUD {
-  public assets: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
+  public data: BehaviorSubject<ProjectArticle[]> = new BehaviorSubject<ProjectArticle[]>([]);
   urlGenerationService: URLGenerationServiceService;
 
   constructor(
@@ -25,7 +25,7 @@ export class TableServiceCRUD {
       this.projectInteractionService.selected_project,
       this.projectInteractionService.selected_unterkategorie
     );
-    this.http.get<any>(url).subscribe((asset_arr) => this.assets.next(asset_arr));
+    this.http.get<any>(url).subscribe((asset_arr) => this.data.next(asset_arr));
   }
 
   create(newProjectArticle: ProjectArticle) {

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {ProjectsService} from "../Tables/projectTable/service/projects.service";
 import {Observable} from "rxjs";
 import {Project} from "../Inputs/project_input/project";
-import {UnterKategorieService} from "../../Services/unter-kategorie.service";
 
 @Component({
   selector: 'app-side-nav',
@@ -11,8 +10,6 @@ import {UnterKategorieService} from "../../Services/unter-kategorie.service";
 })
 export class SideNavComponent {
   projects: Observable<Project[]>;
-  myControl: any;
-  filteredOptions: any  ;
   menu_title = '';
 
   constructor(
@@ -25,7 +22,4 @@ export class SideNavComponent {
 
   }
 
-
-  onInit() {
-  }
 }

@@ -14,6 +14,8 @@ import {
 import {
   AssetComposeCreateComponent
 } from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
+import {TableComponentBase} from "../../TableComponentBase";
+
 
 @Component({
   selector: 'app-asset-table',
@@ -28,8 +30,8 @@ import {
   ],
 })
 
-export class AssetTableComponent {
-  dataSource: MatTableDataSource<ProjectArticle>;
+
+export class AssetTableComponent extends TableComponentBase {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -41,20 +43,21 @@ export class AssetTableComponent {
   private dialog: MatDialog;
 
   constructor(
-    public assetTableService: AssetTableService,
-    private _liveAnnouncer: LiveAnnouncer,
+    private TableService: AssetTableService,
     private updateElementService: AssetUpdateElementService,
+    _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
 )
 {
+  super(_liveAnnouncer);
   this.dialog = dialog;
-  this.dataSource = new MatTableDataSource(assetTableService.assets.getValue());
+  this.dataSource = new MatTableDataSource(TableService.data.getValue());
     this.expandedElement = null;
-    this.lead_the_data_from_database();
+    this.read();
   }
 
-  lead_the_data_from_database() {
-    this.assetTableService.assets.subscribe((data) => {
+  read() {
+    this.TableService.data.subscribe((data) => {
       let data_flatten = data.map(this.flattenData);
       this.dataSource = new MatTableDataSource(data_flatten);
       this.dataSource.sort = this.sort;
@@ -64,45 +67,20 @@ export class AssetTableComponent {
 
 
   flattenData(data: any) {
-    const flattenedData = { ...data, ...data.artikel, ...data.artikel.assets, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
+    console.log("normal data")
+    console.log(data)
+    let flattenedData = { ...data, ...data.artikel, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
     delete flattenedData.artikel;
+    delete flattenedData.unterkategorie;
+    flattenedData = {...flattenedData, ...flattenedData.assets }
+    delete flattenedData.assets;
+    console.log("flatten data")
+    console.log(flattenedData)
     return flattenedData;
   }
 
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-
-  announceSortChange(sortState: Sort){
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
-
-
-   setup_Visibility() {
-    return  [
-      'projekt_artikel_id',
-      'projekt_id',
-      'artikel_id',
-      "artikelname",
-      'menge',
-      'kategoriename',
-      'kategorie_id',
-      'ID',
-      'preis',
-      'beschreibung',
-      // 'seriennummer',
-    ];
+  flattenExtend(flattenedData: any, data: any) {
+    // const flattenedData = {...flattenedData, ...data.artikel.assets,.unterkategorie, ...data.artikel.unterkategorie.kategorien };
   }
 
   open_the_dialog_for_deleting_artikel(element: ProjectArticle){

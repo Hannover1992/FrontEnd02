@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {AssetTableService} from "../../../../../Services/asset-table.service";
+import {AssetTableService} from "../../../../../Services/Article/asset-table.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";

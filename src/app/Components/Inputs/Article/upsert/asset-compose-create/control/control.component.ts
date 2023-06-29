@@ -3,7 +3,7 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
 import {ProjectsService} from "../../../../../Tables/projectTable/service/projects.service";
 import {ProjectArticleDataService} from "../service/project-article-data.service";
-import {AssetTableService} from "../../../../../../Services/asset-table.service";
+import {AssetTableService} from "../../../../../../Services/Article/asset-table.service";
 import {UpdateElementService} from "../service/update-element.service";
 
 @Component({
@@ -38,7 +38,7 @@ export class ControlComponent {
     } else {
       console.log("ich bin in create Submite")
       console.log(this.projectArticleData.formatToProjectArticleCreate());
-      this.assetTableService.create_new_asset(this.projectArticleData.formatToProjectArticleCreate());
+      this.assetTableService.create(this.projectArticleData.formatToProjectArticleCreate());
     }
   }
 

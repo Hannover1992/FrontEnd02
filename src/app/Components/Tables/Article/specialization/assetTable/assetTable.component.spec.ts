@@ -1,7 +1,7 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import { AssetTableComponent } from './assetTable.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { AssetTableService } from "../../../../../Services/asset-table.service";
+import { AssetTableService } from "../../../../../Services/Article/asset-table.service";
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -66,7 +66,7 @@ describe('AssetTableComponent', () => {
     let article = initialize_article();
     let projectArticle = initialize_project_article(article);
 
-    service.create_new_asset(projectArticle);
+    service.create(projectArticle);
 // Handle the POST request
     httpTestingController.expectOne('http://localhost:8080/projektArtikelAsset').flush(mockResponse);
 

@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {AssetTableService} from "../../../../../../Services/asset-table.service";
+import {AssetTableService} from "../../../../../../Services/Article/asset-table.service";
 
 @Component({
   selector: 'app-dialog-delete-asset',

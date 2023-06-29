@@ -1,25 +1,23 @@
-import {Inject, Injectable, Optional} from '@angular/core';
-import {ProjectArticle} from "../../../../../../Interface/projectArticle";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-
+import { Injectable } from '@angular/core';
+import {ProjectArticle} from "../../../../../../../../Interface/projectArticle";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateElementService {
+export abstract class UpdateElementServiceBaseService {
   projectArticle: ProjectArticle | undefined;
   isActive: boolean = false;
 
-  constructor(
-  ) {
-  }
+  constructor() { }
 
   activate(element: any) {
-    this.projectArticle = this.convertTemplate(element);
+    this.projectArticle = this.convertArticle(element);
+    this.projectArticle = this.setExtendConvert(element, this.projectArticle);
     this.isActive = true;
   }
 
-  deactivate(){
+
+  deactivate() {
     console.log("es wurde deaktiviert")
     this.projectArticle = undefined;
     this.isActive = false;
@@ -29,7 +27,7 @@ export class UpdateElementService {
     return this.isActive;
   }
 
-  getMenge(){
+  getMenge() {
     return this.projectArticle?.menge;
   }
 
@@ -37,11 +35,11 @@ export class UpdateElementService {
     return this.projectArticle;
   }
 
-  getArticle(){
+  getArticle() {
     return this.projectArticle?.artikel;
   }
 
-  convertTemplate(tableObject: any): any {
+  convertArticle(tableObject: any): any {
     let projectArticle : ProjectArticle = {
       "projekt_artikel_id": tableObject.projekt_artikel_id,
       "projekt_id": tableObject.projekt_id,
@@ -60,14 +58,12 @@ export class UpdateElementService {
         "edit_date": tableObject.edit_date,
         "belegt_von": tableObject.belegt_von,
         "belegt_bis": tableObject.belegt_bis,
-        "assets": {
-          "ID": tableObject.ID,
-          "Inventarnummer": tableObject.Inventarnummer,
-        },
         "unterkategorie_id": tableObject.unterkategorie_id
       }
     }
     return projectArticle;
   }
 
+
+  abstract setExtendConvert(tableObject: any, article: any): any ;
 }

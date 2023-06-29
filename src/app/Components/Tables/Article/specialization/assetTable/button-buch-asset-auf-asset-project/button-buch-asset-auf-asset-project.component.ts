@@ -4,8 +4,8 @@ import {
   AssetComposeCreateComponent
 } from "../../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
 import {
-  UpdateElementService
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/update-element.service";
+  AssetUpdateElementService
+} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/update-element-service-base.service";
 
 @Component({
   selector: 'app-create-new-asset',
@@ -15,7 +15,7 @@ import {
 export class ButtonBuchAssetAufAssetProjectComponent {
 
   constructor(private dialog: MatDialog,
-              private updateElementService: UpdateElementService){
+              private updateElementService: AssetUpdateElementService){
   }
 
   open_input_form() {

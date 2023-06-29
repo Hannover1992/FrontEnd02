@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MengeFormDataService} from "./service/menge-form-data.service";
-import {UpdateElementService} from "../../service/update-element.service";
+import {AssetUpdateElementService} from "../../service/updateService/update-element-service-base.service";
 import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
 
 @Component({
@@ -15,7 +15,7 @@ export class MengeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private mengeFormDataService: MengeFormDataService,
-    private updateElementService: UpdateElementService
+    private updateElementService: AssetUpdateElementService
   ) { }
 
   ngOnInit(): void {

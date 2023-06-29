@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ArticleFormDataService} from "./service/article-form-data.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UpdateElementService} from "../../service/update-element.service";
+import {AssetUpdateElementService} from "../../service/updateService/update-element-service-base.service";
 import {ProjectArticle} from "../../../../../../../Interface/projectArticle";
 import {Article} from "../../../../../../../Interface/article";
 
@@ -18,7 +18,7 @@ export class ArticleInputComposeComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private articleFormDataService : ArticleFormDataService,
-    private updateElementService: UpdateElementService,
+    private updateElementService: AssetUpdateElementService,
   ) {
   }
 

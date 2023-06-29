@@ -9,8 +9,8 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogDeleteAssetComponent} from "./dialog-delete-asset/dialog-delete-asset.component";
 import {
-  UpdateElementService
-} from "../../../../Inputs/Article/upsert/asset-compose-create/service/update-element.service";
+  AssetUpdateElementService
+} from "../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/update-element-service-base.service";
 import {
   AssetComposeCreateComponent
 } from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
@@ -43,7 +43,7 @@ export class AssetTableComponent {
   constructor(
     public assetTableService: AssetTableService,
     private _liveAnnouncer: LiveAnnouncer,
-    private updateElementService: UpdateElementService,
+    private updateElementService: AssetUpdateElementService,
     dialog: MatDialog,
 )
 {

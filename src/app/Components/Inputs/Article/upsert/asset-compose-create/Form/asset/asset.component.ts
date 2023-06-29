@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import {AssetFormDataService} from "./service/asset-form-data.service";
-import {UpdateElementService} from "../../service/update-element.service";
+import {AssetUpdateElementService} from "../../service/updateService/update-element-service-base.service";
 import {Asset} from "../../../../../../../Interface/asset";
 
 @Component({
@@ -14,7 +14,7 @@ export class AssetComponent implements  OnInit {
   constructor(
     private fb: FormBuilder,
     private assetFormDataService: AssetFormDataService,
-    private updateElementService: UpdateElementService
+    private updateElementService: AssetUpdateElementService
   ) {
   }
 

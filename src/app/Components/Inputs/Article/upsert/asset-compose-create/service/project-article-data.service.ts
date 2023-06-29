@@ -7,7 +7,7 @@ import {Asset} from "../../../../../../Interface/asset";
 import {MengeDataService} from "../Data/mengeData.service";
 import {ArticleDataService} from "../Data/articleData.service";
 import {AssetDataService} from "../Data/assetData.service";
-import {UpdateElementService} from "./update-element.service";
+import {AssetUpdateElementService} from "./updateService/update-element-service-base.service";
 
 @Injectable()
 
@@ -23,7 +23,7 @@ export class ProjectArticleDataService {
     private mengeDataService:MengeDataService,
     private articleDataService:ArticleDataService,
     private assetDataService:AssetDataService,
-    private updateElementService:UpdateElementService,
+    private updateElementService:AssetUpdateElementService,
 ) {
     if(this.updateElementService.isActivated()) {
       this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);

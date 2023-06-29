@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {MatDialog} from "@angular/material/dialog";
-import {ProjectInteractionServiceService} from "./microServices/project-interaction-service.service";
-import {SnackbarMessagingServiceService} from "./microServices/snackbar-messaging-service.service";
-import {URLGenerationServiceService} from "./microServices/urlgeneration-service.service";
-import {UnterKategorieService} from "../unter-kategorie.service";
-import {TableServiceCRUD} from "./TableServiceCRUD";
+import {ProjectInteractionServiceService} from "../microServices/project-interaction-service.service";
+import {SnackbarMessagingServiceService} from "../microServices/snackbar-messaging-service.service";
+import {URLGenerationServiceService} from "../microServices/urlgeneration-service.service";
+import {UnterKategorieService} from "../../unter-kategorie.service";
+import {TableServiceCRUD} from "../TableServiceCRUD";
 
 
 @Injectable({

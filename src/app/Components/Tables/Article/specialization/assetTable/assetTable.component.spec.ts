@@ -1,7 +1,7 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import { AssetTableComponent } from './assetTable.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { AssetTableService } from "../../../../../Services/Article/asset-table.service";
+import { AssetTableService } from "../../../../../Services/Article/specialization/asset-table.service";
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';

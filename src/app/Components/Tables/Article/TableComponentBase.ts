@@ -7,7 +7,9 @@ export abstract class TableComponentBase {
   dataSource!: MatTableDataSource<ProjectArticle>;
 
   constructor(protected _liveAnnouncer: LiveAnnouncer) {
+    this.flattenData = this.flattenData.bind(this);
   }
+
 
 
   applyFilter(event: Event) {
@@ -43,6 +45,18 @@ export abstract class TableComponentBase {
       'beschreibung',
       // 'seriennummer',
     ];
+  }
+
+  flattenData(data: any) {
+    console.log("normal data")
+    console.log(data)
+    let flattenedData = { ...data, ...data.artikel, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
+    delete flattenedData.artikel;
+    delete flattenedData.unterkategorie;
+    flattenedData = this.flattenExtend(flattenedData);
+    console.log("flatten data")
+    console.log(flattenedData)
+    return flattenedData;
   }
 
   protected  abstract flattenExtend(flattenedData: any): any;

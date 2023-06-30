@@ -10,12 +10,13 @@ import {
 @Component({
   selector: 'app-create-new-asset',
   templateUrl: './button-buch-asset-auf-asset-project.component.html',
-  styleUrls: ['./button-buch-asset-auf-asset-project.component.css']
 })
 export class ButtonBuchAssetAufAssetProjectComponent {
 
-  constructor(private dialog: MatDialog,
-              private updateElementService: AssetUpdateElementService){
+  constructor(
+      private dialog: MatDialog,
+      private updateElementService: AssetUpdateElementService
+  ){
   }
 
   open_input_form() {

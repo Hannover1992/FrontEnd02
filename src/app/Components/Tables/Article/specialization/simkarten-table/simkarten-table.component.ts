@@ -7,6 +7,14 @@ import {MatTableDataSource} from "@angular/material/table";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {TableComponentBase} from "../../TableComponentBase";
+import {DialogDeleteAssetComponent} from "../assetTable/dialog-delete-asset/dialog-delete-asset.component";
+import {
+  AssetComposeCreateComponent
+} from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
+import {
+  SimkartenUpdateElementService
+} from "../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/SimkartenUpdateElementService";
 
 @Component({
   selector: 'app-simkarten-table',
@@ -20,9 +28,8 @@ import {MatSort} from "@angular/material/sort";
     ]),
   ],
 })
-export class SimkartenTableComponent {
+export class SimkartenTableComponent extends TableComponentBase {
 
-  dataSource: MatTableDataSource<ProjectArticle>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -36,20 +43,22 @@ export class SimkartenTableComponent {
   private dialog: MatDialog;
 
   constructor(
-    public simkartentableService: SimkartenTableService,
-    private updateElementService: SimkartenTableService,
-    private _liveAnnouncer: LiveAnnouncer,
+    public TableService: SimkartenTableService,
+    private updateElementService: SimkartenUpdateElementService,
+    _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
   ){
 
+    super(_liveAnnouncer);
     this.dialog = dialog;
-    this.dataSource = new MatTableDataSource(simkartentableService.data.getValue());
+    this.dataSource = new MatTableDataSource(TableService.data.getValue());
     this.expandedElement = null;
     this.read();
   }
 
+
   read() {
-    this.simkartentableService.data.subscribe((data) => {
+    this.TableService.data.subscribe((data) => {
       let data_flatten = data.map(this.flattenData);
       this.dataSource = new MatTableDataSource(data_flatten);
       this.dataSource.sort = this.sort;
@@ -57,29 +66,26 @@ export class SimkartenTableComponent {
     });
   }
 
-
-  //toDo: perhaps build as a add funciton that get implement and say whcih flatt to add
-  flattenData(data: any) {
-    const flattenedData = { ...data, ...data.artikel, ...data.artikel.simkarten, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
-    delete flattenedData.artikel;
+  protected flattenExtend(flattenedData: any): any {
+    flattenedData = {...flattenedData, ...flattenedData.simkarten }
+    delete flattenedData.simkarten;
     return flattenedData;
   }
 
 
-  setup_Visibility() {
-    return  [
-      'projekt_artikel_id',
-      'projekt_id',
-      'artikel_id',
-      "artikelname",
-      'menge',
-      'kategoriename',
-      'kategorie_id',
-      'ID',
-      'preis',
-      'beschreibung',
-      // 'seriennummer',
-    ];
+  //toDo: overwrite
+  open_the_dialog_for_deleting_artikel(element: ProjectArticle){
+    this.dialog.open(DialogDeleteAssetComponent, {
+      data: element
+    });
+
   }
+
+  //toDo: overwrite
+  open_the_dialog_for_updating_artikel(element: any) {
+    this.updateElementService.activate(element);
+    this.dialog.open(AssetComposeCreateComponent);
+  }
+
 
 }

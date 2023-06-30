@@ -47,11 +47,11 @@ export class AssetTableComponent extends TableComponentBase {
     private updateElementService: AssetUpdateElementService,
     _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
-)
-{
-  super(_liveAnnouncer);
-  this.dialog = dialog;
-  this.dataSource = new MatTableDataSource(TableService.data.getValue());
+  )
+  {
+    super(_liveAnnouncer);
+    this.dialog = dialog;
+    this.dataSource = new MatTableDataSource(TableService.data.getValue());
     this.expandedElement = null;
     this.read();
   }
@@ -66,20 +66,12 @@ export class AssetTableComponent extends TableComponentBase {
   }
 
 
-  flattenData(data: any) {
-    console.log("normal data")
-    console.log(data)
-    let flattenedData = { ...data, ...data.artikel, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
-    delete flattenedData.artikel;
-    delete flattenedData.unterkategorie;
-    console.log("flatten data")
-    console.log(flattenedData)
-    return flattenedData;
-  }
 
 
   protected flattenExtend(flattenedData: any): any {
-
+    flattenedData = {...flattenedData, ...flattenedData.assets }
+    delete flattenedData.assets;
+    return flattenedData;
   }
 
 

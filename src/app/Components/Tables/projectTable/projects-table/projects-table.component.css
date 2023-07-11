@@ -120,7 +120,6 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .head_block {
-  background: #225555;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

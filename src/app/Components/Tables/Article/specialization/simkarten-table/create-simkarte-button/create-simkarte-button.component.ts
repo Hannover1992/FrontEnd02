@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {
   AssetComposeCreateComponent
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
+} from "../../../../../Inputs/Article/2Asset/asset-compose-create.component";
 import {MatDialog} from "@angular/material/dialog";
 import {
   AssetUpdateElementService
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/AssetUpdateElementService";
+} from "../../../../../Inputs/Article/2Asset/service/AssetUpdateElementService";
 import {
   SimkartenComposeCreateComponent
-} from "../../../../../Inputs/Article/upsert/simkarten-compose-create/simkarten-compose-create.component";
+} from "../../../../../Inputs/Article/3Simkarte/simkarten-compose-create.component";
 
 @Component({
   selector: 'app-create-simkarte-button',

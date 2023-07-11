@@ -11,10 +11,10 @@ import {TableComponentBase} from "../../TableComponentBase";
 import {DialogDeleteAssetComponent} from "../assetTable/dialog-delete-asset/dialog-delete-asset.component";
 import {
   AssetComposeCreateComponent
-} from "../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
+} from "../../../../Inputs/Article/2Asset/asset-compose-create.component";
 import {
   SimkartenUpdateElementService
-} from "../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/SimkartenUpdateElementService";
+} from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 
 @Component({
   selector: 'app-simkarten-table',

@@ -1,0 +1,44 @@
+import { Component } from '@angular/core';
+import {ProjectAssetDataService} from "../service/project-asset-data.service";
+import {AssetTableService} from "../../../../../Services/Article/specialization/asset-table.service";
+import {AssetUpdateElementService} from "../service/AssetUpdateElementService";
+
+@Component({
+  selector: 'app-control',
+  templateUrl: './control-asset.component.html',
+  styleUrls: ['../../../../../shared_css/input.css'],
+  providers: [ProjectAssetDataService]
+})
+export class ControlAsset {
+
+
+  //toDo: dass passt, da die Form getrennt von den Eigentlichen Artikeln, und ProjectArticeln sind
+  //toDO: so werden es 3 Schritte.
+  //toDo; als ersters, get the current data from asset form create Asset
+  //toDO; get current Data from Article Form and Create ARticle
+  //toDo: get current Data from ProjectArticle Form and Create ProjectArticle
+  //toDo: the submite
+  constructor(
+    private projectArticleData:ProjectAssetDataService,
+    private assetTableService:AssetTableService,
+    private updateElementService: AssetUpdateElementService,
+  ){
+  }
+
+  onSubmit() {
+    if(this.updateElementService.isActivated()){
+      console.log("ich bin in update Submite")
+      console.log(this.projectArticleData.formatToProjectAssetUpdate());
+      this.assetTableService.update(this.projectArticleData.formatToProjectAssetUpdate());
+      this.updateElementService.deactivate();
+    } else {
+      console.log("ich bin in create Submite")
+      console.log(this.projectArticleData.formatToProjectAssetCreate());
+      this.assetTableService.create(this.projectArticleData.formatToProjectAssetCreate());
+    }
+  }
+
+  close_window() {
+
+  }
+}

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {
   AssetComposeCreateComponent
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/asset-compose-create.component";
+} from "../../../../../Inputs/Article/2Asset/asset-compose-create.component";
 import {
   AssetUpdateElementService
-} from "../../../../../Inputs/Article/upsert/asset-compose-create/service/updateService/specific/AssetUpdateElementService";
+} from "../../../../../Inputs/Article/2Asset/service/AssetUpdateElementService";
 
 @Component({
   selector: 'app-create-new-asset',

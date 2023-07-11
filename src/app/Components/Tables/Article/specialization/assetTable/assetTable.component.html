@@ -4,6 +4,7 @@
          multiTemplateDataRows
          matSort (matSortChange)="announceSortChange($event)"
          class="mat-elevation-z8">
+
     <ng-container
       matColumnDef="{{column}}"
       *ngFor="let column of displayedColumns">
@@ -14,6 +15,7 @@
         {{element[column]}}
       </td>
     </ng-container>
+
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
         <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
@@ -63,10 +65,7 @@
 
   <mat-toolbar id="project_toll_bar">
 
-    <mat-form-field id="filter">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
+    <app-filter-table (filterChange)="applyFilter($event)"></app-filter-table>
     <span class="example-spacer"></span>
     <app-create-new-asset></app-create-new-asset>
   </mat-toolbar>

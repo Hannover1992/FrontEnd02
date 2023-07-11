@@ -19,7 +19,7 @@ import {
 @Component({
   selector: 'app-simkarten-table',
   templateUrl: './simkarten-table.component.html',
-  styleUrls: ['./simkarten-table.component.css'],
+  styleUrls: ['../table.css','../../../../../shared_css/table_details.css' ],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),

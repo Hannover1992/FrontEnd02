@@ -20,7 +20,7 @@ import {TableComponentBase} from "../../TableComponentBase";
 @Component({
   selector: 'app-asset-table',
   templateUrl: './assetTable.component.html',
-  styleUrls: ['./assetTable.component.css','../../../../../shared_css/table_details.css'],
+  styleUrls: ['../table.css','../../../../../shared_css/table_details.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),

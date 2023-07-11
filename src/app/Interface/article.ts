@@ -1,5 +1,6 @@
 import {Subcategory} from "./subcategory";
 import {Asset} from "./article/asset";
+import {Simkarten} from "./article/Simkarte";
 
 
 
@@ -9,7 +10,7 @@ export interface Article {
   firma?: string,
   model?: string,
   unterkategorie_id?: number;
-  preis?: number;
+  preis?: number
   beschreibung?: string;
   bild_url?: string;
   zustand?: string;
@@ -23,5 +24,6 @@ export interface Article {
   anlagenummer?: string;
   besitzer_id?: null | number;
   assets?: Asset;
+  simkarte?: Simkarten;
   unterkategorie?: Subcategory;
 }

@@ -18,6 +18,12 @@
   flex-direction: row;
 }
 
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
 .button_row{
   display: flex;
   flex-direction: row;
@@ -25,10 +31,6 @@
   align-items: center;
 }
 
-.col {
-  flex: 1;
-  margin-right: 20px;
-}
 
 .col:last-child {
   margin-right: 0;

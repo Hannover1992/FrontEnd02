@@ -1,1 +1,67 @@
-<p>simkarten-details-compose works!</p>
+<mat-card class="details">
+  <mat-card-header>
+    <mat-card-title>Simkarte</mat-card-title>
+  </mat-card-header>
+  <div>
+    <mat-card-header>
+      <mat-card-subtitle> Kundennummer </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.kundennummer}}</p>
+    </mat-card-content>
+    <mat-card-header>
+      <mat-card-subtitle>
+        Rufnummer
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.rufnummer}}</p>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-subtitle>
+        Tarif
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.tarif}}</p>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-subtitle>
+        Pin
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.pin}}</p>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-subtitle>
+        Puk
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.puk}}</p>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-subtitle>
+      Einsatzort
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.einsatzort}}</p>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-subtitle>
+      Aktiv
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{element.aktiv}}</p>
+    </mat-card-content>
+
+  </div>
+</mat-card>

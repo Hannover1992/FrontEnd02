@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-simkarten-details-compose',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./simkarten-details-compose.component.css']
 })
 export class SimkartenDetailsComposeComponent {
+
+  @Input() element: any;
 
 }

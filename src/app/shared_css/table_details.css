@@ -48,3 +48,18 @@
 }
 
 
+
+.status-led {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green-led {
+  background-color: limegreen;
+}
+
+.red-led {
+  background-color: red;
+}

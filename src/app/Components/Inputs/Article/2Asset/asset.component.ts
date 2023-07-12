@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import {AssetFormDataService} from "./service/asset-form-data.service";
+import {FormDataService} from "../form-data.service";
 import {AssetUpdateElementService} from "./service/AssetUpdateElementService";
 import {Asset} from "../../../../Interface/article/asset";
 
@@ -13,16 +13,16 @@ export class AssetComponent implements  OnInit {
   assetForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private assetFormDataService: AssetFormDataService,
+    private assetFormDataService: FormDataService,
     private updateElementService: AssetUpdateElementService
   ) {
   }
 
   ngOnInit(): void {
-    this.initializeAssetForm();
+    this.initializeForm();
   }
 
-  initializeAssetForm() {
+  initializeForm() {
     let asset: Asset | undefined = undefined;
 
     if (this.updateElementService.isActivated()) {

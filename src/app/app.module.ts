@@ -69,11 +69,11 @@ import { AssetComponent } from './Components/Inputs/Article/2Asset/asset.compone
 import { ControlAsset } from './Components/Inputs/Article/2Asset/control/control-asset.component';
 import { MengeComponent } from './Components/Inputs/Article/1Base/menge/menge.component';
 import { SimkartenTableComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-table.component';
-import { SimkartenComposeCreateComponent } from './Components/Inputs/Article/3Simkarte/simkarten-compose-create.component';
+import { Simkarten_compose } from './Components/Inputs/Article/3Simkarte/simkarten_compose';
 import { CreateSimkarteButtonComponent } from './Components/Tables/Article/specialization/simkarten-table/create-simkarte-button/create-simkarte-button.component';
 import { SimkartenDetailsComposeComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-details-compose/simkarten-details-compose.component';
-import { SimkarteComponent } from './Components/Inputs/Article/3Simkarte/simkarte/simkarte.component';
 import { FilterComponent } from './Components/Tables/Article/filter/filter.component';
+import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkarten.component';
 
 
 @NgModule({
@@ -117,11 +117,11 @@ import { FilterComponent } from './Components/Tables/Article/filter/filter.compo
     ControlAsset,
     MengeComponent,
     SimkartenTableComponent,
-    SimkartenComposeCreateComponent,
+    Simkarten_compose,
     CreateSimkarteButtonComponent,
     SimkartenDetailsComposeComponent,
-    SimkarteComponent,
     FilterComponent,
+    SimkartenComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

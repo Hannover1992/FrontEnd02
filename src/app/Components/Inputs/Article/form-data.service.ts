@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {FormGroup} from "@angular/forms";
-import {Asset} from "../../../../../Interface/article/asset";
+import {Asset} from "../../../Interface/article/asset";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AssetFormDataService {
+export class FormDataService {
   private assetFormData = new BehaviorSubject<any>({});
   constructor() {
   }

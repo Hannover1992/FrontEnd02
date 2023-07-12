@@ -7,8 +7,8 @@ import {
   AssetUpdateElementService
 } from "../../../../../Inputs/Article/2Asset/service/AssetUpdateElementService";
 import {
-  SimkartenComposeCreateComponent
-} from "../../../../../Inputs/Article/3Simkarte/simkarten-compose-create.component";
+  Simkarten_compose
+} from "../../../../../Inputs/Article/3Simkarte/simkarten_compose";
 
 @Component({
   selector: 'app-create-simkarte-button',
@@ -25,7 +25,7 @@ export class CreateSimkarteButtonComponent {
   open_input_form() {
     // this.dialog.open(AssetComposeComponent);
     this.updateElementService.deactivate();
-    this.dialog.open(SimkartenComposeCreateComponent);
+    this.dialog.open(Simkarten_compose);
   }
 
 }

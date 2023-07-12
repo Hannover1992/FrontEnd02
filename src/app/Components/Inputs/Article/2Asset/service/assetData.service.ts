@@ -1,7 +1,7 @@
 import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import {Asset} from "../../../../../Interface/article/asset";
 import {Subscription} from "rxjs";
-import {AssetFormDataService} from "./asset-form-data.service";
+import {FormDataService} from "../../form-data.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class AssetDataService {
   private assetSubscribtion!: Subscription;
 
   constructor(
-    private assetFormData:   AssetFormDataService
+    private assetFormData:   FormDataService
   ) {
     this.subscribeAssetForm();
   }

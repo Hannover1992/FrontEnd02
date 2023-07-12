@@ -11,10 +11,6 @@ import {AssetUpdateElementService} from "./AssetUpdateElementService";
 
 @Injectable()
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-
 export class ProjectAssetDataService {
   projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
 

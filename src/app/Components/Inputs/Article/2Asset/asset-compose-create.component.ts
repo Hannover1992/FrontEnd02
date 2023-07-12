@@ -1,11 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ArticleDataService} from "../1Base/article/service/articleData.service";
-import {AssetDataService} from "./service/assetData.service";
-import {MengeDataService} from "../1Base/menge/service/mengeData.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-asset-compose-create',
-  templateUrl: './asset-compose-create.component.html',
+  templateUrl:
+    `
+    <app-article-input-compose></app-article-input-compose>
+    <app-menge></app-menge>
+    <app-asset></app-asset>
+    <app-control></app-control>
+    `,
   styleUrls: ['../../../../shared_css/input.css']
 })
 export class AssetComposeCreateComponent {

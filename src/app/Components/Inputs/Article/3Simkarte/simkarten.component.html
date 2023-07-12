@@ -1,0 +1,50 @@
+  <div [formGroup]="simkarteForm" class="shipping-card">
+    <mat-card-subtitle> Details</mat-card-subtitle>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Kundennummer</mat-label>
+          <input matInput formControlName="kundennummer">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label> Tarif </mat-label>
+          <input matInput formControlName="tarif">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>PIN</mat-label>
+          <input matInput formControlName="pin">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>PUK</mat-label>
+          <input matInput formControlName="puk">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Einsatzort</mat-label>
+          <input matInput formControlName="einsatzort">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-card-subtitle>
+          Karte Aktiviert
+        </mat-card-subtitle>
+        <mat-radio-group aria-label="Select an option" formControlName="activiert">
+          <mat-radio-button value="true">Aktive</mat-radio-button>
+          <mat-radio-button value="false">Inaktive</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+
+  </div>

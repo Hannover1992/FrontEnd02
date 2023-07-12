@@ -2,8 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-asset-compose-create',
-  templateUrl:
-    `
+  template: `
     <app-article-input-compose></app-article-input-compose>
     <app-menge></app-menge>
     <app-asset></app-asset>
@@ -11,6 +10,5 @@ import {Component} from '@angular/core';
     `,
   styleUrls: ['../../../../shared_css/input.css']
 })
-export class AssetComposeCreateComponent {
-  constructor( ) { }
-}
+
+export class AssetComposeCreateComponent {}

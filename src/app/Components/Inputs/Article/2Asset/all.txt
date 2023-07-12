@@ -1,0 +1,293 @@
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
+import {Asset} from "../../../../../Interface/article/asset";
+import {Subscription} from "rxjs";
+import {AssetFormDataService} from "./asset-form-data.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class AssetDataService {
+  public asset!: Asset;
+  private assetSubscribtion!: Subscription;
+
+  constructor(
+    private assetFormData:   AssetFormDataService
+  ) {
+    this.subscribeAssetForm();
+  }
+
+  private subscribeAssetForm() {
+    this.assetSubscribtion = this.assetFormData.getFormData().subscribe(data => {
+      this.asset = this.formatFormToAsset(data)
+    });
+  }
+
+  private formatFormToAsset(data: any): Asset {
+    let asset: Asset = {
+      ID: data?.ID,
+      Inventarnummer: data?.Inventarnummer
+    }
+
+    console.log("Asset");
+    console.log(asset);
+    return asset;
+
+  }
+}
+import { Injectable } from '@angular/core';
+import {UpdateElementServiceBaseService} from "../../Base/article/service/update-element-service-base.service";
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetUpdateElementService extends UpdateElementServiceBaseService {
+
+  setExtendConvert(tableObject: any, projectArticle: any): any {
+    projectArticle.artikel.assets = {
+      "ID": tableObject.ID,
+      "Inventarnummer": tableObject.Inventarnummer,
+    };
+    return projectArticle;
+  }
+
+}
+import { Injectable } from '@angular/core';
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {BehaviorSubject} from "rxjs";
+import {ProjectsService} from "../../../../Tables/projectTable/service/projects.service";
+import {Article} from "../../../../../Interface/article";
+import {Asset} from "../../../../../Interface/article/asset";
+import {MengeDataService} from "../../Base/menge/service/mengeData.service";
+import {ArticleDataService} from "../../Base/article/service/articleData.service";
+import {AssetDataService} from "./assetData.service";
+import {AssetUpdateElementService} from "./AssetUpdateElementService";
+
+@Injectable()
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+
+export class ProjectAssetDataService {
+  projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
+
+  constructor(
+    private projectsService: ProjectsService,
+    private mengeDataService:MengeDataService,
+    private articleDataService:ArticleDataService,
+    private assetDataService:AssetDataService,
+    private updateElementService:AssetUpdateElementService,
+) {
+    if(this.updateElementService.isActivated()) {
+      this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);
+    }
+  }
+
+  public formatToProjectAssetCreate(): ProjectArticle {
+    let article : Article = this.articleDataService.article;
+    let asset:Asset = this.assetDataService.asset;
+
+    let projectArticle: ProjectArticle = {
+      projekt_id: this.projectsService.getProjectID(),
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(asset && { assets: asset })
+      }
+    };
+
+    return projectArticle;
+  }
+
+  //toDo: as next, first change name for specific asset implementaiton, then make tan base class
+  //thath clas thath get bei nahe alles, and has some abstract class, thath make extend specifi, that is bastract, and inthis case ,
+  //will be implement in this place, for making the abstract
+  public formatToProjectAssetUpdate(): ProjectArticle {
+
+    let proArtIDs  = this.projectArticle.getValue();
+    let article = this.articleDataService.article;
+    let asset = this.assetDataService.asset;
+
+    let projectArticle: ProjectArticle = {
+
+      projekt_artikel_id: proArtIDs.projekt_artikel_id,
+      projekt_id: this.projectsService.getProjectID(),
+      artikel_id: proArtIDs.artikel_id,
+
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(asset && { assets: asset })
+      }
+    };
+
+    return projectArticle;
+  }
+
+}
+import { Injectable } from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
+import {FormGroup} from "@angular/forms";
+import {Asset} from "../../../../../Interface/article/asset";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetFormDataService {
+  private assetFormData = new BehaviorSubject<any>({});
+  constructor() {
+  }
+
+
+  setForm(form: FormGroup): void {
+    this.assetFormData.next(form.value);
+    form.valueChanges.subscribe(
+      data =>
+      {
+        this.assetFormData.next(data);
+      }
+    );
+  }
+
+  getFormData(): Observable<Asset> {
+    return this.assetFormData.asObservable();
+  }
+}
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ArticleDataService} from "../Base/article/service/articleData.service";
+import {AssetDataService} from "./service/assetData.service";
+import {MengeDataService} from "../Base/menge/service/mengeData.service";
+
+@Component({
+  selector: 'app-asset-compose-create',
+  templateUrl: './asset-compose-create.component.html',
+  styleUrls: ['../../../../shared_css/input.css']
+})
+export class AssetComposeCreateComponent {
+  constructor( ) { }
+}
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import {AssetFormDataService} from "./service/asset-form-data.service";
+import {AssetUpdateElementService} from "./service/AssetUpdateElementService";
+import {Asset} from "../../../../Interface/article/asset";
+
+@Component({
+  selector: 'app-asset',
+  templateUrl: './asset.component.html',
+  styleUrls: ['../../../../shared_css/input.css']
+})
+export class AssetComponent implements  OnInit {
+  assetForm!: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private assetFormDataService: AssetFormDataService,
+    private updateElementService: AssetUpdateElementService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.initializeAssetForm();
+  }
+
+  initializeAssetForm() {
+    let asset: Asset | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      let article = this.updateElementService.getArticle();
+      asset = article ? article.assets : undefined;
+    }
+
+    this.assetForm = new InitializationAsset(this.fb).initForm(asset);
+    this.assetFormDataService.setForm(this.assetForm);
+  }
+}
+
+export class InitializationAsset {
+
+  constructor(private fb: FormBuilder) { }
+
+  initForm(asset?: Asset): FormGroup {
+    return this.fb.group({
+      ID: asset ? asset.ID : undefined,
+      Inventarnummer: asset ? asset.Inventarnummer : 0
+    });
+  }
+}
+<app-article-input-compose></app-article-input-compose>
+<app-menge></app-menge>
+<app-asset></app-asset>
+<app-control></app-control>
+
+<div class="col">
+  <form [formGroup]="assetForm" class="shipping-card">
+
+    <mat-form-field class="full-width">
+      <mat-label>Inventarnummer</mat-label>
+      <input matInput placeholder="Inventarnummer" type="number" formControlName="Inventarnummer" autocomplete="off" >
+      <mat-error *ngIf="assetForm.controls['Inventarnummer'].hasError('pattern')">
+        Inventarnummer muss eonSubmitAssetin <strong>Nummer</strong> sein!
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</div>
+<div class="full-width">
+  <div class="row shipping-card">
+    <div class="full-width"></div>
+    <div class="col">
+      <button (click)="onSubmit()" mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+    <div class="full-width"> </div>
+    <div class="col">
+      <button mat-raised-button (click)="close_window()" [mat-dialog-close]="true" color="accent">Close</button>
+    </div>
+    <div class="full-width"></div>
+  </div>
+</div>
+import { Component } from '@angular/core';
+import {ProjectAssetDataService} from "../service/project-asset-data.service";
+import {AssetTableService} from "../../../../../Services/Article/specialization/asset-table.service";
+import {AssetUpdateElementService} from "../service/AssetUpdateElementService";
+
+@Component({
+  selector: 'app-control',
+  templateUrl: './control-asset.component.html',
+  styleUrls: ['../../../../../shared_css/input.css'],
+  providers: [ProjectAssetDataService]
+})
+export class ControlAsset {
+
+
+  //toDo: dass passt, da die Form getrennt von den Eigentlichen Artikeln, und ProjectArticeln sind
+  //toDO: so werden es 3 Schritte.
+  //toDo; als ersters, get the current data from asset form create Asset
+  //toDO; get current Data from Article Form and Create ARticle
+  //toDo: get current Data from ProjectArticle Form and Create ProjectArticle
+  //toDo: the submite
+  constructor(
+    private projectArticleData:ProjectAssetDataService,
+    private assetTableService:AssetTableService,
+    private updateElementService: AssetUpdateElementService,
+  ){
+  }
+
+  onSubmit() {
+    if(this.updateElementService.isActivated()){
+      console.log("ich bin in update Submite")
+      console.log(this.projectArticleData.formatToProjectAssetUpdate());
+      this.assetTableService.update(this.projectArticleData.formatToProjectAssetUpdate());
+      this.updateElementService.deactivate();
+    } else {
+      console.log("ich bin in create Submite")
+      console.log(this.projectArticleData.formatToProjectAssetCreate());
+      this.assetTableService.create(this.projectArticleData.formatToProjectAssetCreate());
+    }
+  }
+
+  close_window() {
+
+  }
+}

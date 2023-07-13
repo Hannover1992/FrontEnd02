@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AssetUpdateElementService} from "../../2Asset/service/AssetUpdateElementService";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {Article} from "../../../../../Interface/article";
+import {UpdateElementServiceBaseService} from "./service/update-element-service-base.service";
 
 @Component({
   selector: 'app-article-input-compose',
@@ -14,11 +15,12 @@ import {Article} from "../../../../../Interface/article";
 
 export class ArticleInputComposeComponent implements OnInit{
   artikelForm!: FormGroup;
+  @Input() updateElementService!: UpdateElementServiceBaseService;
 
   constructor(
     private fb: FormBuilder,
     private articleFormDataService : ArticleFormDataService,
-    private updateElementService: AssetUpdateElementService,
+    // private updateElementService: AssetUpdateElementService,
   ) {
   }
 

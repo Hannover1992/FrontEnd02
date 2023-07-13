@@ -1,0 +1,938 @@
+import { Injectable } from '@angular/core';
+import {ProjectArticle} from "../../../../../../Interface/projectArticle";
+
+@Injectable({
+  providedIn: 'root'
+})
+export abstract class UpdateElementServiceBaseService {
+  projectArticle: ProjectArticle | undefined;
+  isActive: boolean = false;
+
+  constructor() { }
+
+  activate(element: any) {
+    this.projectArticle = this.convertArticle(element);
+    this.projectArticle = this.setExtendConvert(element, this.projectArticle);
+    this.isActive = true;
+  }
+
+
+  deactivate() {
+    console.log("es wurde deaktiviert")
+    this.projectArticle = undefined;
+    this.isActive = false;
+  }
+
+  isActivated() {
+    return this.isActive;
+  }
+
+  getMenge() {
+    return this.projectArticle?.menge;
+  }
+
+  getProjectArticle() {
+    return this.projectArticle;
+  }
+
+  getArticle() {
+    return this.projectArticle?.artikel;
+  }
+
+  convertArticle(tableObject: any): any {
+    let projectArticle : ProjectArticle = {
+      "projekt_artikel_id": tableObject.projekt_artikel_id,
+      "projekt_id": tableObject.projekt_id,
+      "artikel_id": tableObject.artikel_id,
+      "menge": tableObject.menge,
+      "artikel": {
+        "firma": tableObject.firma,
+        "artikelname": tableObject.artikelname,
+        "model": tableObject.model,
+        "zustand": tableObject.zustand,
+        "beschreibung": tableObject.beschreibung,
+        "preis": tableObject.preis,
+        "anlagenummer": tableObject.anlagenummer,
+        "seriennummer": tableObject.seriennummer,
+        "einkaufs_datum": tableObject.einkaufs_datum,
+        "edit_date": tableObject.edit_date,
+        "belegt_von": tableObject.belegt_von,
+        "belegt_bis": tableObject.belegt_bis,
+        "unterkategorie_id": tableObject.unterkategorie_id
+      }
+    }
+    return projectArticle;
+  }
+
+
+  abstract setExtendConvert(tableObject: any, projectArticle: any): any ;
+}
+import { Injectable } from '@angular/core';
+import {FormGroup} from "@angular/forms";
+import {BehaviorSubject, Observable, Observer} from "rxjs";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ArticleFormDataService {
+  private formData = new BehaviorSubject<any>({});
+
+  //toDo: subscribe to Subcategory
+  constructor() { }
+
+  setForm(form: FormGroup): void {
+    this.formData.next(form.value);
+    form.valueChanges.subscribe(data => {
+      this.formData.next(data)
+    });
+
+  }
+
+  getFormData(): Observable<any> {
+    return this.formData.asObservable();
+  }
+}
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
+import {Article} from "../../../../../../Interface/article";
+import {Subscription} from "rxjs";
+import {ArticleFormDataService} from "./article-form-data.service";
+import {UnterKategorieService} from "../../../../../../Services/unter-kategorie.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ArticleDataService {
+
+  article!: Article;
+  private articleSubscribtion!: Subscription;
+
+  constructor(
+    private articleData: ArticleFormDataService,
+    private unterKategorieService: UnterKategorieService,
+  ) {
+    this.subscribeArticleForm();
+  }
+
+  private subscribeArticleForm() {
+    this.articleSubscribtion = this.articleData.getFormData().subscribe(data => {
+      this.setArticle(data);
+    });
+  }
+
+
+  private setArticle(data: any) {
+    this.article = this.formatFormToArticle(data);
+    this.setSubCategoryID();
+  }
+
+  private formatFormToArticle(data: any): Article {
+
+    let article: Article = {
+      artikelname: data?.asset_details?.artikelname,
+      firma: data?.asset_details?.firma,
+      model: data?.asset_details?.model,
+      zustand: data?.asset_details?.zustand,
+      preis: data?.asset_numbers?.preis,
+      einkaufs_datum: data?.date_info?.einkaufs_datum,
+      belegt_von: data?.date_info?.belegt_von,
+      belegt_bis: data?.date_info?.belegt_bis,
+      edit_date: data?.date_info?.edit_date,
+      seriennummer: data?.asset_numbers?.seriennummer,
+      anlagenummer: data?.asset_numbers?.anlagenummer,
+      beschreibung: data?.asset_details?.beschreibung,
+      // Add other proseriennummerperties as needed
+    };
+
+
+
+    return article;
+  }
+
+  private setSubCategoryID() {
+    const unterkategorieID = this.unterKategorieService.selectedUnterKategorieId.getValue();
+    this.article =  {...this.article, unterkategorie_id: unterkategorieID};
+  }
+}
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ArticleFormDataService} from "./service/article-form-data.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AssetUpdateElementService} from "../../2Asset/service/AssetUpdateElementService";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {Article} from "../../../../../Interface/article";
+
+@Component({
+  selector: 'app-article-input-compose',
+  templateUrl: './article-input-compose.component.html',
+  styleUrls: ['../../../../../shared_css/input.css']
+})
+
+
+export class ArticleInputComposeComponent implements OnInit,AfterViewInit {
+  artikelForm!: FormGroup;
+  @Output() formReady = new EventEmitter<FormGroup>();
+
+
+  constructor(
+    private fb: FormBuilder,
+    private articleFormDataService : ArticleFormDataService,
+    private updateElementService: AssetUpdateElementService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.initializeArticleForm();
+  }
+
+  ngAfterViewInit(): void {
+    this.formReady.emit(this.artikelForm);
+  }
+
+  initializeArticleForm() {
+    let article: Article | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      article = this.updateElementService.getArticle();
+    }
+
+    this.artikelForm = new InitializationArticle(this.fb).initForm(article);
+    this.articleFormDataService.setForm(this.artikelForm);
+  }
+
+  get articleDetails(): FormGroup {
+    return this.artikelForm.get('asset_details') as FormGroup;
+  }
+
+  get articleDates(): FormGroup {
+    return this.artikelForm.get('date_info') as FormGroup;
+  }
+
+  get articleNumbers(): FormGroup {
+    return this.artikelForm.get('asset_numbers') as FormGroup;
+  }
+}
+
+
+
+export class InitializationArticle {
+
+  constructor(
+    private fb: FormBuilder,
+  ) {}
+
+  initForm( article?: Article) {
+    return this.fb.group({
+      asset_details: this.initAssetDetails(article),
+      asset_numbers: this.initAssetNumbers(article),
+      date_info: this.initDateInfo(article),
+    });
+  }
+
+  initAssetDetails(article?: Article): FormGroup {
+    return this.fb.group({
+      firma: article ? article.firma : '',
+      artikelname: [article ? article.artikelname : '', Validators.required],
+      model:  article ? article.model : '',
+      zustand:  article ? article.zustand : '',
+      beschreibung:  article ? article.beschreibung : '',
+    });
+  }
+
+  initAssetNumbers(article?: Article): FormGroup {
+    return this.fb.group({
+      preis: article ? article.preis : 0,
+      anlagenummer: article ? article.anlagenummer : '',
+      seriennummer: article ? article.seriennummer : '',
+    });
+  }
+
+  initDateInfo(article? : Article): FormGroup {
+    return this.fb.group({
+      einkaufs_datum: article && article.einkaufs_datum ? new Date(article.einkaufs_datum) : new Date(),
+      edit_date: article && article.edit_date ? new Date(article.edit_date) : new Date(),
+      belegt_von: article && article.belegt_von ? new Date(article.belegt_von) : new Date(),
+      belegt_bis: article && article.belegt_bis ? new Date(article.belegt_bis) : new Date(),
+    });
+  }
+
+
+}
+import {Component, Input} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+
+@Component({
+  selector: 'app-article-input-date',
+  templateUrl: './article-input-date.component.html',
+  styleUrls: ['../../../../../../../shared_css/input.css']
+})
+
+export class ArticleInputDateComponent {
+  @Input() article_dates!: FormGroup;
+
+  constructor() {}
+
+}
+import {Component, Input} from '@angular/core';
+import {FormGroup} from "@angular/forms";
+
+@Component({
+  selector: 'app-article-numbers-input',
+  templateUrl: './article-numbers-input.component.html',
+  styleUrls: ['../../../../../../../shared_css/input.css']
+})
+export class ArticleNumbersInputComponent {
+  @Input() article_numbers!: FormGroup;
+
+  constructor() {
+  }
+
+}
+import {Component, Input} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+
+
+export enum Zustand {
+  NEU               = 'Neu',
+  GUT               = 'Gut',
+  MITTELMAESSIG     = 'Mittelmaessig',
+  SCHLECHT          = 'Schlecht',
+  KAPUTT            = 'Kaputt'
+}
+
+@Component({
+  selector: 'app-article-input-detail',
+  templateUrl: './article-input-detail.component.html',
+  styleUrls: ['../../../../../../../shared_css/input.css']
+})
+export class ArticleInputDetailComponent {
+  @Input() article_details!: FormGroup;
+
+  zustandOptions: Zustand[] = [
+    Zustand.NEU,
+    Zustand.GUT,
+    Zustand.MITTELMAESSIG,
+    Zustand.SCHLECHT,
+    Zustand.KAPUTT
+  ];
+
+
+
+  constructor() { }
+
+}
+import { Injectable } from '@angular/core';
+import {MengeFormDataService} from "./menge-form-data.service";
+import {Subscription} from "rxjs";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MengeDataService {
+  menge!: number;
+  private mengeSubscribtion!: Subscription;
+
+  constructor(
+    private mengeFormData : MengeFormDataService
+  ) {
+    this.subscribeMengeForm();
+  }
+
+  private subscribeMengeForm() {
+    this.menge = this.mengeFormData.getFormValue();
+    this.mengeSubscribtion = this.mengeFormData.getFormData().subscribe(data => {
+      this.menge = this.formatFormToMenge(data)
+    });
+  }
+
+  private formatFormToMenge(data: any) {
+    return data?.menge
+  }
+}
+import { Injectable } from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
+import {FormGroup} from "@angular/forms";
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class MengeFormDataService {
+  private mengeFormData: BehaviorSubject<any> = new BehaviorSubject<any>({ });
+  constructor() { }
+
+  setForm(form: FormGroup): void {
+    this.mengeFormData.next(form.value);
+    form.valueChanges.subscribe(data => {
+      this.mengeFormData.next(data);
+    });
+  }
+
+  getFormData(): Observable<any> {
+    return this.mengeFormData.asObservable();
+  }
+
+  getFormValue(){
+    return this.mengeFormData.getValue();
+  }
+}
+
+import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MengeFormDataService} from "./service/menge-form-data.service";
+import {AssetUpdateElementService} from "../../2Asset/service/AssetUpdateElementService";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+
+@Component({
+  selector: 'app-menge',
+  templateUrl: './menge.component.html',
+  styleUrls: ['../../../../../shared_css/input.css']
+})
+export class MengeComponent implements OnInit, AfterViewInit {
+  mengeForm!: FormGroup;
+  @Output() formReady = new EventEmitter<FormGroup>();
+
+  constructor(
+    private fb: FormBuilder,
+    private mengeFormDataService: MengeFormDataService,
+    private updateElementService: AssetUpdateElementService
+  ) { }
+
+  ngOnInit(): void {
+    this.initializeMengeForm();
+  }
+
+  ngAfterViewInit(): void {
+    this.formReady.emit(this.mengeForm);
+  }
+
+  initializeMengeForm() {
+    let menge: number | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      let projectArticle: ProjectArticle | undefined = this.updateElementService.getProjectArticle();
+      menge = projectArticle ? projectArticle.menge : undefined;
+    }
+
+    this.mengeForm = new InitializationMenge(this.fb).initForm(menge);
+    this.mengeFormDataService.setForm(this.mengeForm);
+  }
+}
+
+export class InitializationMenge {
+
+  constructor(
+    private fb: FormBuilder,
+  ) {
+  }
+
+  initForm(menge?: number): FormGroup {
+    return this.fb.group({
+      menge: [menge || 1, Validators.compose([
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        this.positiveNonZero
+      ])],
+    });
+  }
+
+  positiveNonZero(control: AbstractControl) {
+    if (control.value <= 0) {
+      return {nonPositiveOrZero: true};
+    }
+    return null;
+  }
+}
+import { Injectable } from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
+import {FormGroup} from "@angular/forms";
+import {Asset} from "../../../Interface/article/asset";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FormDataService {
+  private assetFormData = new BehaviorSubject<any>({});
+  constructor() {
+  }
+
+
+  setForm(form: FormGroup): void {
+    this.assetFormData.next(form.value);
+    form.valueChanges.subscribe(
+      data =>
+      {
+        this.assetFormData.next(data);
+      }
+    );
+  }
+
+  getFormData(): Observable<Asset> {
+    return this.assetFormData.asObservable();
+  }
+}
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
+import {Asset} from "../../../../../Interface/article/asset";
+import {Subscription} from "rxjs";
+import {FormDataService} from "../../form-data.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class AssetDataService {
+  public asset!: Asset;
+  private assetSubscribtion!: Subscription;
+
+  constructor(
+    private assetFormData:   FormDataService
+  ) {
+    this.subscribeAssetForm();
+  }
+
+  private subscribeAssetForm() {
+    this.assetSubscribtion = this.assetFormData.getFormData().subscribe(data => {
+      this.asset = this.formatFormToAsset(data)
+    });
+  }
+
+  private formatFormToAsset(data: any): Asset {
+    let asset: Asset = {
+      ID: data?.ID,
+      Inventarnummer: data?.Inventarnummer
+    }
+
+    return asset;
+
+  }
+}
+import { Injectable } from '@angular/core';
+import {UpdateElementServiceBaseService} from "../../1Base/article/service/update-element-service-base.service";
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetUpdateElementService extends UpdateElementServiceBaseService {
+
+  setExtendConvert(tableObject: any, projectArticle: any): any {
+    projectArticle.artikel.assets = {
+      "ID": tableObject.ID,
+      "Inventarnummer": tableObject.Inventarnummer,
+    };
+    return projectArticle;
+  }
+
+}
+import { Injectable } from '@angular/core';
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {BehaviorSubject} from "rxjs";
+import {ProjectsService} from "../../../../Tables/projectTable/service/projects.service";
+import {Article} from "../../../../../Interface/article";
+import {Asset} from "../../../../../Interface/article/asset";
+import {MengeDataService} from "../../1Base/menge/service/mengeData.service";
+import {ArticleDataService} from "../../1Base/article/service/articleData.service";
+import {AssetDataService} from "./assetData.service";
+import {AssetUpdateElementService} from "./AssetUpdateElementService";
+
+@Injectable()
+
+export class ProjectAssetDataService {
+  projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
+
+  constructor(
+    private projectsService: ProjectsService,
+    private mengeDataService:MengeDataService,
+    private articleDataService:ArticleDataService,
+    private assetDataService:AssetDataService,
+    private updateElementService:AssetUpdateElementService,
+) {
+    if(this.updateElementService.isActivated()) {
+      this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);
+    }
+  }
+
+  public formatToProjectAssetCreate(): ProjectArticle {
+    let article : Article = this.articleDataService.article;
+    let asset:Asset = this.assetDataService.asset;
+
+    let projectArticle: ProjectArticle = {
+      projekt_id: this.projectsService.getProjectID(),
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(asset && { assets: asset })
+      }
+    };
+
+    return projectArticle;
+  }
+
+  //toDo: as next, first change name for specific asset implementaiton, then make tan base class
+  //thath clas thath get bei nahe alles, and has some abstract class, thath make extend specifi, that is bastract, and inthis case ,
+  //will be implement in this place, for making the abstract
+  public formatToProjectAssetUpdate(): ProjectArticle {
+
+    let proArtIDs  = this.projectArticle.getValue();
+    let article = this.articleDataService.article;
+    let asset = this.assetDataService.asset;
+
+    let projectArticle: ProjectArticle = {
+
+      projekt_artikel_id: proArtIDs.projekt_artikel_id,
+      projekt_id: this.projectsService.getProjectID(),
+      artikel_id: proArtIDs.artikel_id,
+
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(asset && { assets: asset })
+      }
+    };
+
+    return projectArticle;
+  }
+
+}
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-asset-compose-create',
+  template: `
+    <app-article-input-compose></app-article-input-compose>
+    <app-menge></app-menge>
+    <app-asset></app-asset>
+    <app-control></app-control>
+    `,
+  styleUrls: ['../../../../shared_css/input.css']
+})
+
+export class AssetComposeCreateComponent {}
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import {FormDataService} from "../form-data.service";
+import {AssetUpdateElementService} from "./service/AssetUpdateElementService";
+import {Asset} from "../../../../Interface/article/asset";
+
+@Component({
+  selector: 'app-asset',
+  templateUrl: './asset.component.html',
+  styleUrls: ['../../../../shared_css/input.css']
+})
+export class AssetComponent implements  OnInit {
+  assetForm!: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private assetFormDataService: FormDataService,
+    private updateElementService: AssetUpdateElementService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm() {
+    let asset: Asset | undefined = undefined;
+
+    if (this.updateElementService.isActivated()) {
+      let article = this.updateElementService.getArticle();
+      asset = article ? article.assets : undefined;
+    }
+
+    this.assetForm = new InitializationAsset(this.fb).initForm(asset);
+    this.assetFormDataService.setForm(this.assetForm);
+  }
+}
+
+export class InitializationAsset {
+
+  constructor(private fb: FormBuilder) { }
+
+  initForm(asset?: Asset): FormGroup {
+    return this.fb.group({
+      ID: asset ? asset.ID : undefined,
+      Inventarnummer: asset ? asset.Inventarnummer : 0
+    });
+  }
+}
+import { Component } from '@angular/core';
+import {ProjectAssetDataService} from "../service/project-asset-data.service";
+import {AssetTableService} from "../../../../../Services/Article/specialization/asset-table.service";
+import {AssetUpdateElementService} from "../service/AssetUpdateElementService";
+
+@Component({
+  selector: 'app-control',
+  templateUrl: './control-asset.component.html',
+  styleUrls: ['../../../../../shared_css/input.css'],
+  providers: [ProjectAssetDataService]
+})
+export class ControlAsset {
+
+  constructor(
+    private projectArticleData:ProjectAssetDataService,
+    private assetTableService:AssetTableService,
+    private updateElementService: AssetUpdateElementService,
+  ){
+  }
+
+  onSubmit() {
+    if(this.updateElementService.isActivated()){
+      this.assetTableService.update(this.projectArticleData.formatToProjectAssetUpdate());
+      this.updateElementService.deactivate();
+    } else {
+      this.assetTableService.create(this.projectArticleData.formatToProjectAssetCreate());
+    }
+  }
+
+}
+import { Injectable } from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {ProjectsService} from "../../../../Tables/projectTable/service/projects.service";
+import {MengeDataService} from "../../1Base/menge/service/mengeData.service";
+import {ArticleDataService} from "../../1Base/article/service/articleData.service";
+import {SimkarteDataService} from "./simkarteData.service";
+import {Article} from "../../../../../Interface/article";
+import {SimkartenUpdateElementService} from "./SimkartenUpdateElementService";
+import {Simkarten} from "../../../../../Interface/article/Simkarte";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProjectSimkarteDataServiceService {
+  projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
+
+  constructor(
+    private projectsService: ProjectsService,
+    private mengeDataService:MengeDataService,
+    private articleDataService:ArticleDataService,
+    private simkartenDataService:SimkarteDataService,
+    private updateElementService:SimkartenUpdateElementService,
+  ) {
+    if(this.updateElementService.isActivated()) {
+      this.projectArticle.next(this.updateElementService.getProjectArticle() as ProjectArticle);
+    }
+  }
+
+  public formatToProjectSimkarteCreate(): ProjectArticle {
+    let article : Article = this.articleDataService.article;
+    let simkarte: Simkarten = this.simkartenDataService.simkarte;
+
+    let projectArticle: ProjectArticle = {
+      projekt_id: this.projectsService.getProjectID(),
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(simkarte && { simkarten: simkarte })
+      }
+    };
+
+    console.log(projectArticle)
+
+    //toDo: seaths o aus als hate ich erfolgreich das create form erstellt,
+    //   als nechstes schauen bei der backend warum es nicht erstellt werden kann
+    //
+    // schau also, bei der create
+    // method from Table service
+    console.log(projectArticle)
+    return projectArticle;
+  }
+
+  public formatToProjectSimkarteUpdate(): ProjectArticle {
+
+    let proArtIDs  = this.projectArticle.getValue();
+    let article = this.articleDataService.article;
+    let simkarte = this.simkartenDataService.simkarte;
+
+    let projectArticle: ProjectArticle = {
+
+      projekt_artikel_id: proArtIDs.projekt_artikel_id,
+      projekt_id: this.projectsService.getProjectID(),
+      artikel_id: proArtIDs.artikel_id,
+
+      menge: this.mengeDataService.menge,
+      artikel: {
+        ...article,
+        ...(simkarte && { simkarten: simkarte })
+      }
+    };
+
+    return projectArticle;
+  }
+}
+import { Injectable } from '@angular/core';
+import {UpdateElementServiceBaseService} from "../../1Base/article/service/update-element-service-base.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SimkartenUpdateElementService extends UpdateElementServiceBaseService {
+
+  setExtendConvert(tableObject: any, projectArticle: any): any {
+    projectArticle.artikel.simkarten = {
+      "simkarten_id": tableObject.simkarten_id,
+      "kundennummer": tableObject.kundennummer,
+      "tarif": tableObject.tarif,
+      "pin": tableObject.pin,
+      "puk": tableObject.puk,
+      "einsatzort": tableObject.einsatzort,
+      "aktiv": tableObject.aktiv,
+    };
+    return projectArticle;
+  }
+
+
+}
+import { Injectable } from '@angular/core';
+import {Simkarten} from "../../../../../Interface/article/Simkarte";
+import {Subscription} from "rxjs";
+import {FormDataService} from "../../form-data.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SimkarteDataService {
+  public simkarte!: Simkarten;
+  private simkarteSubscribtion!: Subscription;
+
+  constructor(
+    private simkartenFormData:   FormDataService
+  ) {
+    this.subscribeSimkarteForm();
+  }
+
+  private subscribeSimkarteForm() {
+    this.simkarteSubscribtion = this.simkartenFormData.getFormData().subscribe(data => {
+      this.simkarte = this.formatFormToSimkarten(data)
+    });
+  }
+
+  private formatFormToSimkarten(data: any): Simkarten {
+    let simkarte: Simkarten = {
+      simkarten_id: data?.simkarten_id,
+      kundennummer: data?.kundennummer,
+      tarif: data?.tarif,
+      pin: data?.pin,
+      puk: data?.puk,
+      einsatzort: data?.einsatzort,
+      activiert: data?.activiert
+    }
+
+    return simkarte;
+  }
+}
+import { Component } from '@angular/core';
+import {FormGroup} from "@angular/forms";
+
+@Component({
+  selector: 'app-simkarten-compose-create',
+  templateUrl: './simkarten_compose.html',
+  styleUrls: ['../../../../shared_css/input.css']
+})
+export class Simkarten_compose {
+  public artikelForm!: FormGroup;
+  mengeForm!: FormGroup;
+  simkarteForm!: FormGroup;
+
+  onArtikelFormReady(form: FormGroup) {
+    this.artikelForm = form;
+  }
+  onMengeFormReady(form: FormGroup) {
+    this.mengeForm = form;
+  }
+
+  onSimkarteFormReady(form: FormGroup) {
+    this.simkarteForm = form;
+  }
+
+}
+import { Component } from '@angular/core';
+import {ProjectSimkarteDataServiceService} from "../service/project-simkarte-data-service.service";
+import {SimkartenTableService} from "../../../../../Services/Article/specialization/simkarten-table.service";
+import {SimkartenUpdateElementService} from "../service/SimkartenUpdateElementService";
+
+@Component({
+  selector: 'app-simkarten-control',
+  templateUrl: './simkarten-control.component.html',
+  styleUrls: ['../../../../../shared_css/input.css']
+})
+export class SimkartenControlComponent {
+
+  constructor(
+    private projectArticleData: ProjectSimkarteDataServiceService,
+    private simkartenTableService: SimkartenTableService,
+    private updateElementService: SimkartenUpdateElementService,
+  ){
+  }
+
+  onSubmit() {
+    if(this.updateElementService.isActivated()){
+      this.simkartenTableService.update(this.projectArticleData.formatToProjectSimkarteUpdate());
+      this.updateElementService.deactivate();
+    } else {
+      this.simkartenTableService.create(this.projectArticleData.formatToProjectSimkarteCreate());
+    }
+  }
+}
+import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormDataService} from "../form-data.service";
+import {AssetUpdateElementService} from "../2Asset/service/AssetUpdateElementService";
+import {SimkartenUpdateElementService} from "./service/SimkartenUpdateElementService";
+import {Simkarten} from "../../../../Interface/article/Simkarte";
+import {InitializationAsset} from "../2Asset/asset.component";
+
+@Component({
+  selector: 'app-simkarte',
+  templateUrl: './simkarten.component.html',
+  styleUrls: ['../../../../shared_css/input.css']
+})
+export class SimkartenComponent implements OnInit, AfterViewInit {
+  simkarteForm!: FormGroup;
+  @Output() formReady = new EventEmitter<FormGroup>();
+
+  constructor(
+    private fb: FormBuilder,
+    private formDataService: FormDataService,
+    private updateElementService: SimkartenUpdateElementService
+  ) {}
+
+  ngOnInit(): void {
+   this.initializeForm();
+  }
+
+  ngAfterViewInit(): void {
+    this.formReady.emit(this.simkarteForm);
+  }
+  test(){
+    console.log(this.simkarteForm)
+  }
+
+  private initializeForm() {
+    let simkarten: Simkarten | undefined = undefined;
+
+    if(this.updateElementService.isActivated()){
+      let article = this.updateElementService.getArticle();
+      simkarten = article ? article.simkarte : undefined;
+    }
+
+    this.simkarteForm = new InitializationSimkarten(this.fb).initForm(simkarten);
+    this.formDataService.setForm(this.simkarteForm)
+  }
+}
+
+export class InitializationSimkarten {
+
+  constructor(private fb: FormBuilder) { }
+
+  initForm(simkarte?: Simkarten): FormGroup {
+    return this.fb.group({
+      simkarten_id: simkarte ? simkarte.simkarten_id : undefined,
+      kundennummer: simkarte ? simkarte.kundennummer : '',
+      tarif: simkarte ? simkarte.tarif : '',
+      pin: simkarte ? simkarte.pin : '',
+      puk: simkarte ? simkarte.puk : '',
+      einsatzort: simkarte ? simkarte.einsatzort : '',
+      activiert: simkarte ? simkarte.activiert : false
+    });
+  }
+}

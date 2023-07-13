@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {FormDataService} from "../form-data.service";
 import {AssetUpdateElementService} from "../2Asset/service/AssetUpdateElementService";
@@ -13,11 +13,12 @@ import {InitializationAsset} from "../2Asset/asset.component";
 })
 export class SimkartenComponent implements OnInit{
   simkarteForm!: FormGroup;
+  @Input() updateElementService!: SimkartenUpdateElementService;
 
   constructor(
     private fb: FormBuilder,
     private formDataService: FormDataService,
-    private updateElementService: SimkartenUpdateElementService
+    // private updateElementService: SimkartenUpdateElementService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +36,12 @@ export class SimkartenComponent implements OnInit{
     let simkarten: Simkarten | undefined = undefined;
 
     if(this.updateElementService.isActivated()){
+      console.log("the updateElementService is activated")
+
       let article = this.updateElementService.getArticle();
+      console.log("und so seath er aus START")
+      console.log(article)
+      console.log("und so seath er aus END")
       simkarten = article ? article.simkarte : undefined;
     }
 

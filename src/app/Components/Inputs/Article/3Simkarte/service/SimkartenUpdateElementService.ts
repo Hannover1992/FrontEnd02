@@ -7,7 +7,7 @@ import {UpdateElementServiceBaseService} from "../../1Base/article/service/updat
 export class SimkartenUpdateElementService extends UpdateElementServiceBaseService {
 
   setExtendConvert(tableObject: any, projectArticle: any): any {
-    projectArticle.artikel.simkarten = {
+    projectArticle.artikel.simkarte = {
       "simkarten_id": tableObject.simkarten_id,
       "kundennummer": tableObject.kundennummer,
       "tarif": tableObject.tarif,
@@ -18,6 +18,10 @@ export class SimkartenUpdateElementService extends UpdateElementServiceBaseServi
     };
     return projectArticle;
   }
+
+  // getExtend(){
+  //   return this.projectArticle?.artikel?.simkarte;
+  // }
 
 
 }

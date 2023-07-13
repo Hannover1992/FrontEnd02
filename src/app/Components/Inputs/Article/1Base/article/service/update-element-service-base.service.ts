@@ -65,5 +65,6 @@ export abstract class UpdateElementServiceBaseService {
   }
 
 
+  // abstract getExtend(): any;
   abstract setExtendConvert(tableObject: any, projectArticle: any): any ;
 }

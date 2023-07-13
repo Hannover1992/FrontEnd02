@@ -7,7 +7,7 @@ import {SimkartenUpdateElementService} from "./service/SimkartenUpdateElementSer
     <div class="input_container">
       <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
       <app-menge></app-menge>
-      <app-simkarte></app-simkarte>
+      <app-simkarte *ngIf="updateElementService" [updateElementService]="updateElementService"></app-simkarte>
       <app-simkarten-control></app-simkarten-control>
     </div>
   `,

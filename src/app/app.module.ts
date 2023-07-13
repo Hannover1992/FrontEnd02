@@ -75,6 +75,7 @@ import { SimkartenDetailsComposeComponent } from './Components/Tables/Article/sp
 import { FilterComponent } from './Components/Tables/Article/filter/filter.component';
 import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkarten.component';
 import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte/control/simkarten-control.component';
+import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/specialization/simkarten-table/dialog-delete-simkarten/dialog-delete-simkarten.component';
 
 
 @NgModule({
@@ -124,6 +125,7 @@ import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte
     FilterComponent,
     SimkartenComponent,
     SimkartenControlComponent,
+    DialogDeleteSimkartenComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

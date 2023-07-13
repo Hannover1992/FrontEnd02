@@ -9,6 +9,9 @@ import {
 import {
   Simkarten_compose
 } from "../../../../../Inputs/Article/3Simkarte/simkarten_compose";
+import {
+  SimkartenUpdateElementService
+} from "../../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 
 @Component({
   selector: 'app-create-simkarte-button',
@@ -18,7 +21,7 @@ export class CreateSimkarteButtonComponent {
 
   constructor(
     private dialog: MatDialog,
-    private updateElementService: AssetUpdateElementService
+    private updateElementService: SimkartenUpdateElementService
   ) {
   }
 

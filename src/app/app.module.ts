@@ -74,6 +74,7 @@ import { CreateSimkarteButtonComponent } from './Components/Tables/Article/speci
 import { SimkartenDetailsComposeComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-details-compose/simkarten-details-compose.component';
 import { FilterComponent } from './Components/Tables/Article/filter/filter.component';
 import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkarten.component';
+import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte/control/simkarten-control.component';
 
 
 @NgModule({
@@ -122,6 +123,7 @@ import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkar
     SimkartenDetailsComposeComponent,
     FilterComponent,
     SimkartenComponent,
+    SimkartenControlComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

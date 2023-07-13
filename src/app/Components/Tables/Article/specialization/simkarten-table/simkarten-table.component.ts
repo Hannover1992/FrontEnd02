@@ -17,6 +17,7 @@ import {
 } from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 import {DialogDeleteSimkartenComponent} from "./dialog-delete-simkarten/dialog-delete-simkarten.component";
 import {CreateSimkarteButtonComponent} from "./create-simkarte-button/create-simkarte-button.component";
+import {Simkarten_compose} from "../../../../Inputs/Article/3Simkarte/simkarten_compose";
 
 @Component({
   selector: 'app-simkarten-table',
@@ -86,7 +87,7 @@ export class SimkartenTableComponent extends TableComponentBase {
   //toDo: overwrite
   open_the_dialog_for_updating_artikel(element: any) {
     this.updateElementService.activate(element);
-    this.dialog.open(CreateSimkarteButtonComponent);
+    this.dialog.open(Simkarten_compose);
   }
 
 

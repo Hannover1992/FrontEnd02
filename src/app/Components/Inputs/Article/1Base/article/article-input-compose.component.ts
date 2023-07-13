@@ -22,10 +22,15 @@ export class ArticleInputComposeComponent implements OnInit{
     private articleFormDataService : ArticleFormDataService,
     // private updateElementService: AssetUpdateElementService,
   ) {
+    //on change
   }
 
   ngOnInit(): void {
     this.initializeArticleForm()
+
+    this.artikelForm.valueChanges.subscribe(val => {
+      console.log(val)
+    });
   }
 
   initializeArticleForm() {

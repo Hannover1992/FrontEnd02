@@ -19,11 +19,12 @@ export class SimkarteDataService {
   private subscribeSimkarteForm() {
     this.simkarteSubscribtion = this.simkartenFormData.getFormData().subscribe(data => {
       this.simkarte = this.formatFormToSimkarten(data)
+      console.log("hiere mussen alle daten sein");
+      console.log(this.simkarte)
     });
   }
 
   private formatFormToSimkarten(data: any): Simkarten {
-    console.log("hier")
     let simkarte: Simkarten = {
       simkarten_id: data?.simkarten_id,
       kundennummer: data?.kundennummer,
@@ -31,12 +32,8 @@ export class SimkarteDataService {
       pin: data?.pin,
       puk: data?.puk,
       einsatzort: data?.einsatzort,
-      aktiv: data?.activiert === 'true'
+      aktiv: data?.aktiv === 'true'
     }
-
-    console.log("get ride of the activ string")
-    console.log(simkarte);
-
     return simkarte;
   }
 }

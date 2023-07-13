@@ -40,6 +40,7 @@ export abstract class UpdateElementServiceBaseService {
   }
 
   convertArticle(tableObject: any): any {
+
     let projectArticle : ProjectArticle = {
       "projekt_artikel_id": tableObject.projekt_artikel_id,
       "projekt_id": tableObject.projekt_id,

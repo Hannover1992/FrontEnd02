@@ -44,6 +44,8 @@ export class TableServiceCRUD {
 
   public update(projectArticle: ProjectArticle) {
     const url = this.urlGenerationService.generateURL();
+    console.log("update")
+    console.log(projectArticle)
     this.http.put(url, projectArticle).subscribe(
       response => {
         this.read();

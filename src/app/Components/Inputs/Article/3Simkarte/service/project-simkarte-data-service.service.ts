@@ -40,20 +40,14 @@ export class ProjectSimkarteDataServiceService {
       }
     };
 
-    console.log(projectArticle)
-
-    //toDo: seaths o aus als hate ich erfolgreich das create form erstellt,
-    //   als nechstes schauen bei der backend warum es nicht erstellt werden kann
-    //
-    // schau also, bei der create
-    // method from Table service
-    console.log(projectArticle)
     return projectArticle;
   }
 
   public formatToProjectSimkarteUpdate(): ProjectArticle {
 
     let proArtIDs  = this.projectArticle.getValue();
+    console.log("hier mussen alle daten sein")
+    console.log(proArtIDs)
     let article = this.articleDataService.article;
     let simkarte = this.simkartenDataService.simkarte;
 

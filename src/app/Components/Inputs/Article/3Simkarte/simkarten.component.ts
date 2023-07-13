@@ -13,12 +13,12 @@ import {InitializationAsset} from "../2Asset/asset.component";
 })
 export class SimkartenComponent implements OnInit{
   simkarteForm!: FormGroup;
-  @Input() updateElementService!: SimkartenUpdateElementService;
+  // @Input() updateElementService!: SimkartenUpdateElementService;
 
   constructor(
     private fb: FormBuilder,
     private formDataService: FormDataService,
-    // private updateElementService: SimkartenUpdateElementService
+    private updateElementService: SimkartenUpdateElementService
   ) {}
 
   ngOnInit(): void {
@@ -28,20 +28,12 @@ export class SimkartenComponent implements OnInit{
       console.log(value)
     });
   }
-  test(){
-    console.log(this.simkarteForm)
-  }
 
   private initializeForm() {
     let simkarten: Simkarten | undefined = undefined;
 
     if(this.updateElementService.isActivated()){
-      console.log("the updateElementService is activated")
-
       let article = this.updateElementService.getArticle();
-      console.log("und so seath er aus START")
-      console.log(article)
-      console.log("und so seath er aus END")
       simkarten = article ? article.simkarte : undefined;
     }
 
@@ -62,7 +54,8 @@ export class InitializationSimkarten {
       pin: simkarte ? simkarte.pin : '',
       puk: simkarte ? simkarte.puk : '',
       einsatzort: simkarte ? simkarte.einsatzort : '',
-      activiert: simkarte ? simkarte.aktiv : false
+      // @ts-ignore
+      aktiv: simkarte ? simkarte.aktiv.toString() : 'false' // Convert boolean to string
     });
   }
 }

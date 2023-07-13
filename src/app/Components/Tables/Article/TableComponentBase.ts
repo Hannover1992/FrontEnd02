@@ -47,14 +47,10 @@ export abstract class TableComponentBase {
   }
 
   flattenData(data: any) {
-    console.log("normal data")
-    console.log(data)
     let flattenedData = { ...data, ...data.artikel, ...data.artikel.unterkategorie, ...data.artikel.unterkategorie.kategorien };
     delete flattenedData.artikel;
     delete flattenedData.unterkategorie;
     flattenedData = this.flattenExtend(flattenedData);
-    console.log("flatten data")
-    console.log(flattenedData)
     return flattenedData;
   }
 

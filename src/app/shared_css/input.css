@@ -1,4 +1,29 @@
 
+
+.input_container{
+  transform-origin: top center;
+  /*verflow-y: auto;*/
+  /*height: 100%; !* Or set to the specific height you want *!*/
+}
+
+@media (max-width: 1200px) {
+  .asset-compose-container {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 992px) {
+  .asset-compose-container {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .asset-compose-container {
+    transform: scale(0.5);
+  }
+}
+
 .full-width {
   width: 100%;
 }

@@ -22,6 +22,10 @@ export class SimkartenComponent implements OnInit{
 
   ngOnInit(): void {
    this.initializeForm();
+
+    this.simkarteForm.valueChanges.subscribe(value => {
+      console.log(value)
+    });
   }
   test(){
     console.log(this.simkarteForm)
@@ -52,7 +56,7 @@ export class InitializationSimkarten {
       pin: simkarte ? simkarte.pin : '',
       puk: simkarte ? simkarte.puk : '',
       einsatzort: simkarte ? simkarte.einsatzort : '',
-      activiert: simkarte ? simkarte.activiert : false
+      activiert: simkarte ? simkarte.aktiv : false
     });
   }
 }

@@ -23,6 +23,7 @@ export class SimkarteDataService {
   }
 
   private formatFormToSimkarten(data: any): Simkarten {
+    console.log("hier")
     let simkarte: Simkarten = {
       simkarten_id: data?.simkarten_id,
       kundennummer: data?.kundennummer,
@@ -30,8 +31,11 @@ export class SimkarteDataService {
       pin: data?.pin,
       puk: data?.puk,
       einsatzort: data?.einsatzort,
-      activiert: data?.activiert
+      aktiv: data?.activiert === 'true'
     }
+
+    console.log("get ride of the activ string")
+    console.log(simkarte);
 
     return simkarte;
   }

@@ -5,5 +5,5 @@ export interface Simkarten {
   pin?: string;
   puk?: string;
   einsatzort?: string;
-  activiert?: boolean;
+  aktiv?: boolean;
 }

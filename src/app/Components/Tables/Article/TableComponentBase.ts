@@ -32,17 +32,17 @@ export abstract class TableComponentBase {
 
   setup_Visibility() {
     return [
-      'projekt_artikel_id',
-      'projekt_id',
-      'artikel_id',
+      // 'projekt_artikel_id',
+      // 'projekt_id',
+      // 'artikel_id',
       "artikelname",
-      'menge',
       'kategoriename',
-      'kategorie_id',
-      'ID',
-      'preis',
-      'beschreibung',
+      // 'kategorie_id',
+      // 'ID',
+      // 'preis',
+      // 'beschreibung',
       // 'seriennummer',
+      'menge',
     ];
   }
 

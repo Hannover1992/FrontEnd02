@@ -8,6 +8,7 @@ import {SimkarteDataService} from "./simkarteData.service";
 import {Article} from "../../../../../Interface/article";
 import {SimkartenUpdateElementService} from "./SimkartenUpdateElementService";
 import {Simkarten} from "../../../../../Interface/article/Simkarte";
+import {ProjectAssetDataService} from "../../2Asset/service/project-asset-data.service";
 
 @Injectable({
   providedIn: 'root'
@@ -44,12 +45,15 @@ export class ProjectSimkarteDataServiceService {
   }
 
   public formatToProjectSimkarteUpdate(): ProjectArticle {
-
-    let proArtIDs  = this.projectArticle.getValue();
-    console.log("hier mussen alle daten sein")
+    let proArtIDs: ProjectArticle | undefined   = this.updateElementService.getProjectArticle();
+    console.log("so sehe meine project article bevor ich das fulle mit aktuellen daten")
     console.log(proArtIDs)
+
     let article = this.articleDataService.article;
     let simkarte = this.simkartenDataService.simkarte;
+    if (proArtIDs === undefined) {
+      throw new Error("project article is undefined");
+    }
 
     let projectArticle: ProjectArticle = {
 

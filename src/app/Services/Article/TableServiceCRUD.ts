@@ -25,7 +25,7 @@ export class TableServiceCRUD {
       this.projectInteractionService.selected_project,
       this.projectInteractionService.selected_unterkategorie
     );
-    this.http.get<any>(url).subscribe((asset_arr) => this.data.next(asset_arr));
+    this.http.get<any>(url).subscribe((article_arr) => this.data.next(article_arr));
   }
 
   create(newProjectArticle: ProjectArticle) {

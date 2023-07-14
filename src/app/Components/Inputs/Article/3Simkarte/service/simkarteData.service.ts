@@ -19,8 +19,6 @@ export class SimkarteDataService {
   private subscribeSimkarteForm() {
     this.simkarteSubscribtion = this.simkartenFormData.getFormData().subscribe(data => {
       this.simkarte = this.formatFormToSimkarten(data)
-      console.log("hiere mussen alle daten sein");
-      console.log(this.simkarte)
     });
   }
 

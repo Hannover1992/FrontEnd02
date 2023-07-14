@@ -4,6 +4,7 @@ import {ProjectArticle} from "../../../../../../Interface/projectArticle";
 @Injectable({
   providedIn: 'root'
 })
+
 export abstract class UpdateElementServiceBaseService {
   projectArticle: ProjectArticle | undefined;
   isActive: boolean = false;

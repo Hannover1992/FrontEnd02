@@ -48,7 +48,9 @@ export class SimkartenTableComponent extends TableComponentBase {
 
   open_the_dialog_for_updating_artikel(element: any) : void {
     this.updateElementService.activate(element);
-    this.dialog.open(Simkarten_compose);
+    this.dialog.open(Simkarten_compose, {
+      panelClass: 'my-custom-dialog' // add this line
+    });
   }
 
 }

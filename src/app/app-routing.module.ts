@@ -7,12 +7,14 @@ import { SimkartenTableComponent } from "./Components/Tables/Article/specializat
 import {
   NotebookTabelleComponent
 } from "./Components/Tables/Article/specialization/3_notebook-tabelle/notebook-tabelle.component";
+import {HandyTableComponent} from "./Components/Tables/Article/specialization/4_handy-table/handy-table.component";
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsTableComponent },
   { path: 'Asset', component: AssetTableComponent },
   { path: 'Simkarten', component: SimkartenTableComponent},
-  { path: 'Notebook', component: NotebookTabelleComponent}
+  { path: 'Notebook', component: NotebookTabelleComponent},
+  { path: 'Handy', component: HandyTableComponent},
 
 ];
 

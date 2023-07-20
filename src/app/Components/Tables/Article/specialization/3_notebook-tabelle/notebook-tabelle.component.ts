@@ -1,20 +1,14 @@
 import { Component } from '@angular/core';
 import {TableComponentBase} from "../../TableComponentBase";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
-import {SimkartenTableService} from "../../../../../Services/Article/specialization/simkarten-table.service";
-import {
-  SimkartenUpdateElementService
-} from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 import {MatDialog} from "@angular/material/dialog";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {MatTableDataSource} from "@angular/material/table";
 import {NotebookTableService} from "../../../../../Services/Article/specialization/notebook-table.service";
 import {DialogDeleteNotebookComponent} from "./dialog-delete-notebook/dialog-delete-notebook.component";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {
   NotebookUpdateElementService
 } from "../../../../Inputs/Article/4Notebook/service/notebook-update-element.service";
-import {NotebookInputComponent} from "../../../../Inputs/Article/4Notebook/notebook-input.component";
 import {NotebookComposeComponent} from "../../../../Inputs/Article/4Notebook/notebook-compose.component";
 
 @Component({

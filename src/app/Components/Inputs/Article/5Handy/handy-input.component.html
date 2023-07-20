@@ -1,0 +1,44 @@
+<div [formGroup]="handyForm" class="shipping-card">
+  <mat-card-subtitle> Handy Informationen</mat-card-subtitle>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>IMEI 1</mat-label>
+        <input matInput formControlName="imei_1">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Besitzer</mat-label>
+        <input matInput formControlName="besitzer">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>SIM-Karten-Nummer</mat-label>
+        <input matInput formControlName="sim_karten_nummer">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Bildschirmsperre Pin</mat-label>
+        <input matInput formControlName="bildschirmsperre_pin">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Email-Adresse</mat-label>
+        <input matInput formControlName="email_adresse">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

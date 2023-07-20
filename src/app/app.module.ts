@@ -82,6 +82,11 @@ import { NotebookComposeComponent } from './Components/Inputs/Article/4Notebook/
 import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/notebook-input.component';
 import { NotebookInputControlComponent } from './Components/Inputs/Article/4Notebook/notebook-input-control/notebook-input-control.component';
 import { HandyTableComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-table.component';
+import { DialogDeleteHandyComponent } from './Components/Tables/Article/specialization/4_handy-table/dialog-delete-handy/dialog-delete-handy.component';
+import { HandyComposeComponent } from './Components/Inputs/Article/5Handy/handy-compose.component';
+import { CreateHandyButtonComponent } from './Components/Tables/Article/specialization/4_handy-table/create-handy-button/create-handy-button.component';
+import { HandyDetailComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-detail/handy-detail.component';
+import { HandyInputComponent } from './Components/Inputs/Article/5Handy/handy-input.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -141,6 +146,11 @@ import { HandyTableComponent } from './Components/Tables/Article/specialization/
     NotebookInputComponent,
     NotebookInputControlComponent,
     HandyTableComponent,
+    DialogDeleteHandyComponent,
+    HandyComposeComponent,
+    CreateHandyButtonComponent,
+    HandyDetailComponent,
+    HandyInputComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

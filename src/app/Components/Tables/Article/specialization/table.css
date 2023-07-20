@@ -1,4 +1,9 @@
 
+.my-custom-dialog {
+  margin-top: 5% !important;
+  margin-bottom: 5% !important;
+}
+
 mat-form-field {
   margin-top: 20px;
 }

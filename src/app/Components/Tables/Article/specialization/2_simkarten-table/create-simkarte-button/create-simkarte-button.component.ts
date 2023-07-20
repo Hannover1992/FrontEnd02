@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import { Simkarten_compose } from "../../../../../Inputs/Article/3Simkarte/simkarten_compose";
 import { SimkartenUpdateElementService } from "../../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
@@ -6,6 +6,7 @@ import { SimkartenUpdateElementService } from "../../../../../Inputs/Article/3Si
 @Component({
   selector: 'app-create-simkarte-button',
   templateUrl: './create-simkarte-button.component.html',
+  styleUrls: ['../../../../../../shared_css/input.css'],
 })
 export class CreateSimkarteButtonComponent {
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {RouterTableService} from "../../../../../Services/Article/specialization/router-table.service";
 
 @Component({
   selector: 'app-router-table',
@@ -15,5 +16,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 })
 
 export class RouterTableComponent {
+
+  constructor(
+    TableService: RouterTableService,
+  ) {
+  }
 
 }

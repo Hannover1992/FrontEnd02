@@ -33,11 +33,6 @@ import {Simkarten_compose} from "../../../../Inputs/Article/3Simkarte/simkarten_
 })
 export class SimkartenTableComponent extends TableComponentBase {
 
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-
   constructor(
     public TableService: SimkartenTableService,
     private updateElementService: SimkartenUpdateElementService,

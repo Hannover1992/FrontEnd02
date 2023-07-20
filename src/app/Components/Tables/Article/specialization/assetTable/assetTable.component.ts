@@ -33,12 +33,6 @@ import {TableComponentBase} from "../../TableComponentBase";
 
 export class AssetTableComponent extends TableComponentBase {
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  // @ContentChild('content') content!: TemplateRef<any>;
-
-
-
   constructor(
     private TableService: AssetTableService,
     private updateElementService: AssetUpdateElementService,
@@ -60,8 +54,6 @@ export class AssetTableComponent extends TableComponentBase {
       this.dataSource.paginator = this.paginator;
     });
   }
-
-
 
 
   protected flattenExtend(flattenedData: any): any {

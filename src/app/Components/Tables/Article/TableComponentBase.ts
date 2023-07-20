@@ -1,10 +1,22 @@
 import {MatTableDataSource} from "@angular/material/table";
 import {ProjectArticle} from "../../../Interface/projectArticle";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {Sort} from "@angular/material/sort";
+import {MatSort, Sort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
+import {Component, ViewChild} from "@angular/core";
+import {MatPaginator} from "@angular/material/paginator";
+
+
+@Component({
+  template: ''
+})
 
 export abstract class TableComponentBase {
+
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   dataSource!: MatTableDataSource<ProjectArticle>;
 
   expandedElement:  ProjectArticle | null;

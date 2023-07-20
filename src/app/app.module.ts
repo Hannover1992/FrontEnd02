@@ -88,6 +88,7 @@ import { CreateHandyButtonComponent } from './Components/Tables/Article/speciali
 import { HandyDetailComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-detail/handy-detail.component';
 import { HandyInputComponent } from './Components/Inputs/Article/5Handy/handy-input.component';
 import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/handy-input-control/handy-input-control.component';
+import { RouterTableComponent } from './Components/Tables/Article/specialization/5_Router/router-table.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -153,6 +154,7 @@ import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/h
     HandyDetailComponent,
     HandyInputComponent,
     HandyInputControlComponent,
+    RouterTableComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

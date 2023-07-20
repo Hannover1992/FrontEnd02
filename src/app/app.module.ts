@@ -46,7 +46,7 @@ import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { AssetTableComponent } from './Components/Tables/Article/specialization/assetTable/assetTable.component';
+import { AssetTableComponent } from './Components/Tables/Article/specialization/1_assetTable/assetTable.component';
 import { ProjectFilterComponentComponent } from './Components/Tables/projectTable/projects-table/project-filter-component/project-filter-component.component';
 import { ProjectAssetsDetailComponent } from './Components/Tables/Article/base/article-details-compose/project-article-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/article-details-compose/article-datum-details/assets-datum-details.component';
@@ -57,30 +57,31 @@ import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ArticleInputDateComponent } from './Components/Inputs/Article/1Base/article/details-Input/artickle-input-date/article-input-date.component';
 import { ArticleInputDetailComponent } from './Components/Inputs/Article/1Base/article/details-Input/article-input-detail/article-input-detail.component';
-import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
-import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
-import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
+import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/1_assetTable/dialog-delete-asset/dialog-delete-asset.component';
+import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/1_assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
+import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/1_assetTable/asset-detals-compose/asset-detals-compose.component';
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
 import { ArticleInputComposeComponent } from './Components/Inputs/Article/1Base/article/article-input-compose.component';
 import { AssetComposeCreateComponent } from './Components/Inputs/Article/2Asset/asset-compose-create.component';
 import { AssetComponent } from './Components/Inputs/Article/2Asset/asset.component';
 import { ControlAsset } from './Components/Inputs/Article/2Asset/control/control-asset.component';
 import { MengeComponent } from './Components/Inputs/Article/1Base/menge/menge.component';
-import { SimkartenTableComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-table.component';
+import { SimkartenTableComponent } from './Components/Tables/Article/specialization/2_simkarten-table/simkarten-table.component';
 import { Simkarten_compose } from './Components/Inputs/Article/3Simkarte/simkarten_compose';
-import { CreateSimkarteButtonComponent } from './Components/Tables/Article/specialization/simkarten-table/create-simkarte-button/create-simkarte-button.component';
-import { SimkartenDetailsComposeComponent } from './Components/Tables/Article/specialization/simkarten-table/simkarten-details-compose/simkarten-details-compose.component';
+import { CreateSimkarteButtonComponent } from './Components/Tables/Article/specialization/2_simkarten-table/create-simkarte-button/create-simkarte-button.component';
+import { SimkartenDetailsComposeComponent } from './Components/Tables/Article/specialization/2_simkarten-table/simkarten-details-compose/simkarten-details-compose.component';
 import { FilterComponent } from './Components/Tables/Article/filter/filter.component';
 import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkarten.component';
 import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte/control/simkarten-control.component';
-import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/specialization/simkarten-table/dialog-delete-simkarten/dialog-delete-simkarten.component';
-import { NotebookTabelleComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-tabelle.component';
-import { DialogDeleteNotebookComponent } from './Components/Tables/Article/specialization/notebook-tabelle/dialog-delete-notebook/dialog-delete-notebook.component';
-import { NotebookDetailComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-detail/notebook-detail.component';
-import { CreateNotebookButtonComponent } from './Components/Tables/Article/specialization/notebook-tabelle/create-notebook-button/create-notebook-button.component';
+import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/specialization/2_simkarten-table/dialog-delete-simkarten/dialog-delete-simkarten.component';
+import { NotebookTabelleComponent } from './Components/Tables/Article/specialization/3_notebook-tabelle/notebook-tabelle.component';
+import { DialogDeleteNotebookComponent } from './Components/Tables/Article/specialization/3_notebook-tabelle/dialog-delete-notebook/dialog-delete-notebook.component';
+import { NotebookDetailComponent } from './Components/Tables/Article/specialization/3_notebook-tabelle/notebook-detail/notebook-detail.component';
+import { CreateNotebookButtonComponent } from './Components/Tables/Article/specialization/3_notebook-tabelle/create-notebook-button/create-notebook-button.component';
 import { NotebookComposeComponent } from './Components/Inputs/Article/4Notebook/notebook-compose.component';
 import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/notebook-input.component';
 import { NotebookInputControlComponent } from './Components/Inputs/Article/4Notebook/notebook-input-control/notebook-input-control.component';
+import { HandyTableComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-table.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -139,6 +140,7 @@ import { NotebookInputControlComponent } from './Components/Inputs/Article/4Note
     NotebookComposeComponent,
     NotebookInputComponent,
     NotebookInputControlComponent,
+    HandyTableComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

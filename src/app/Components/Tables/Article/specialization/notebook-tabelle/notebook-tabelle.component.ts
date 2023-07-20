@@ -27,22 +27,21 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 export class NotebookTabelleComponent  extends TableComponentBase{
 
   constructor(
-    public TableService: NotebookTableService,
+    TableService: NotebookTableService,
     //toDo: NotebookUpdateElementService,
-
     // private updateElementService: SimkartenUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
   ){
-    super(_liveAnnouncer, dialog );
-    this.dialog = dialog;
-    this.dataSource = new MatTableDataSource(TableService.data.getValue());
-    console.log(TableService.data.getValue())
+    super(_liveAnnouncer, dialog, TableService );
     this.read();
   }
 
+
+
   protected flattenExtend(flattenedData: any): any {
     flattenedData = {...flattenedData, ...flattenedData.notebook }
+    console.log(flattenedData);
     delete flattenedData.notebook;
     return flattenedData;
   }
@@ -57,9 +56,6 @@ export class NotebookTabelleComponent  extends TableComponentBase{
     //toDo: open dialog update
   }
 
-  protected read(): void {
-    //toDo: read
-  }
 
 
 }

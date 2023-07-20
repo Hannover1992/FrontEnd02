@@ -1,22 +1,12 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {SimkartenTableService} from "../../../../../Services/Article/specialization/simkarten-table.service";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
-import {MatTableDataSource} from "@angular/material/table";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
 import {TableComponentBase} from "../../TableComponentBase";
-import {DialogDeleteAssetComponent} from "../assetTable/dialog-delete-asset/dialog-delete-asset.component";
-import {
-  AssetComposeCreateComponent
-} from "../../../../Inputs/Article/2Asset/asset-compose-create.component";
-import {
-  SimkartenUpdateElementService
-} from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
+import { SimkartenUpdateElementService } from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 import {DialogDeleteSimkartenComponent} from "./dialog-delete-simkarten/dialog-delete-simkarten.component";
-import {CreateSimkarteButtonComponent} from "./create-simkarte-button/create-simkarte-button.component";
 import {Simkarten_compose} from "../../../../Inputs/Article/3Simkarte/simkarten_compose";
 
 @Component({
@@ -34,25 +24,12 @@ import {Simkarten_compose} from "../../../../Inputs/Article/3Simkarte/simkarten_
 export class SimkartenTableComponent extends TableComponentBase {
 
   constructor(
-    public TableService: SimkartenTableService,
+    TableService: SimkartenTableService,
     private updateElementService: SimkartenUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
   ){
-    super(_liveAnnouncer, dialog );
-    this.dialog = dialog;
-    this.dataSource = new MatTableDataSource(TableService.data.getValue());
-    this.read();
-  }
-
-
-  read() : void {
-    this.TableService.data.subscribe((data) => {
-      let data_flatten = data.map(this.flattenData);
-      this.dataSource = new MatTableDataSource(data_flatten);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
+    super(_liveAnnouncer, dialog, TableService );
   }
 
   protected flattenExtend(flattenedData: any): any {
@@ -73,6 +50,5 @@ export class SimkartenTableComponent extends TableComponentBase {
     this.updateElementService.activate(element);
     this.dialog.open(Simkarten_compose);
   }
-
 
 }

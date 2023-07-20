@@ -76,6 +76,7 @@ import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte
 import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/specialization/simkarten-table/dialog-delete-simkarten/dialog-delete-simkarten.component';
 import { NotebookTabelleComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-tabelle.component';
 import { DialogDeleteNotebookComponent } from './Components/Tables/Article/specialization/notebook-tabelle/dialog-delete-notebook/dialog-delete-notebook.component';
+import { NotebookDetailComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-detail/notebook-detail.component';
 
 
 @NgModule({
@@ -128,6 +129,7 @@ import { DialogDeleteNotebookComponent } from './Components/Tables/Article/speci
     DialogDeleteSimkartenComponent,
     NotebookTabelleComponent,
     DialogDeleteNotebookComponent,
+    NotebookDetailComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

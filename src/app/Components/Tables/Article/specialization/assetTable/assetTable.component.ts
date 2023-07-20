@@ -34,27 +34,14 @@ import {TableComponentBase} from "../../TableComponentBase";
 export class AssetTableComponent extends TableComponentBase {
 
   constructor(
-    private TableService: AssetTableService,
+    TableService: AssetTableService,
     private updateElementService: AssetUpdateElementService,
     _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
   )
   {
-    super(_liveAnnouncer, dialog );
-    this.dialog = dialog;
-    this.dataSource = new MatTableDataSource(TableService.data.getValue());
-    this.read();
+    super(_liveAnnouncer, dialog , TableService);
   }
-
-  read() {
-    this.TableService.data.subscribe((data) => {
-      let data_flatten = data.map(this.flattenData);
-      this.dataSource = new MatTableDataSource(data_flatten);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-  }
-
 
   protected flattenExtend(flattenedData: any): any {
     flattenedData = {...flattenedData, ...flattenedData.assets }

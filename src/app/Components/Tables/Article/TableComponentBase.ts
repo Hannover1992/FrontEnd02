@@ -5,6 +5,8 @@ import {MatSort, Sort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
 import {Component, ViewChild} from "@angular/core";
 import {MatPaginator} from "@angular/material/paginator";
+import {NotebookTableService} from "../../../Services/Article/specialization/notebook-table.service";
+import {TableServiceCRUD} from "../../../Services/Article/TableServiceCRUD";
 
 
 @Component({
@@ -24,13 +26,18 @@ export abstract class TableComponentBase {
   dialog: MatDialog;
   displayedColumns = this.setup_Visibility();
 
+
+
   constructor(
     protected _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
+    protected  TableService: TableServiceCRUD
   ) {
     this.flattenData = this.flattenData.bind(this);
     this.expandedElement = null;
     this.dialog = dialog;
+    this.dataSource = new MatTableDataSource(TableService.data.getValue());
+    this.read();
   }
 
 
@@ -78,7 +85,15 @@ export abstract class TableComponentBase {
   }
 
 
-  protected  abstract read() : void ;
+
+  read() : void {
+    this.TableService.data.subscribe((data : any) => {
+      let data_flatten = data.map(this.flattenData);
+      this.dataSource = new MatTableDataSource(data_flatten);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
+  }
 
   protected  abstract open_the_dialog_for_deleting_artikel(element: ProjectArticle): void;
 

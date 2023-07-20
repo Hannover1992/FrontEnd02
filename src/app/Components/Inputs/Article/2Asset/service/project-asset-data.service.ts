@@ -42,9 +42,6 @@ export class ProjectAssetDataService {
     return projectArticle;
   }
 
-  //toDo: as next, first change name for specific asset implementaiton, then make tan base class
-  //thath clas thath get bei nahe alles, and has some abstract class, thath make extend specifi, that is bastract, and inthis case ,
-  //will be implement in this place, for making the abstract
   public formatToProjectAssetUpdate(): ProjectArticle {
 
     let proArtIDs  = this.projectArticle.getValue();

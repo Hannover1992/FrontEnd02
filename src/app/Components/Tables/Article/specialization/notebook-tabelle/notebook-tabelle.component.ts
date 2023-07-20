@@ -19,6 +19,8 @@ export class NotebookTabelleComponent  extends TableComponentBase{
 
   constructor(
     public TableService: NotebookTableService,
+    //toDo: NotebookUpdateElementService,
+
     // private updateElementService: SimkartenUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
@@ -30,15 +32,19 @@ export class NotebookTabelleComponent  extends TableComponentBase{
   }
 
   protected flattenExtend(flattenedData: any): any {
+    //toDo: flatten
   }
 
   protected open_the_dialog_for_deleting_artikel(element: ProjectArticle): void {
+    //toDo: open dialog delete
   }
 
   protected open_the_dialog_for_updating_artikel(element: any): void {
+    //toDo: open dialog update
   }
 
   protected read(): void {
+    //toDo: read
   }
 
 

@@ -51,7 +51,6 @@ import { ProjectFilterComponentComponent } from './Components/Tables/projectTabl
 import { ProjectAssetsDetailComponent } from './Components/Tables/Article/base/article-details-compose/project-article-detail/project-assets-detail.component';
 import { AssetsDatumDetailsComponent } from './Components/Tables/Article/base/article-details-compose/article-datum-details/assets-datum-details.component';
 import { NummernDetailsComponent } from './Components/Tables/Article/base/article-details-compose/nummern-details/nummern-details.component';
-// import { ButtonBuchAssetAufProjektComponent } from './Components/Tables/assetTable/button-buch-asset-auf-projekt/button-buch-asset-auf-projekt.component';
 import { ArticleNumbersInputComponent } from './Components/Inputs/Article/1Base/article/details-Input/article-numbers-input/article-numbers-input.component';
 import {MatListModule} from "@angular/material/list";
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
@@ -61,7 +60,6 @@ import { ArticleInputDetailComponent } from './Components/Inputs/Article/1Base/a
 import { DialogDeleteAssetComponent } from './Components/Tables/Article/specialization/assetTable/dialog-delete-asset/dialog-delete-asset.component';
 import { ButtonBuchAssetAufAssetProjectComponent } from './Components/Tables/Article/specialization/assetTable/button-buch-asset-auf-asset-project/button-buch-asset-auf-asset-project.component';
 import { AssetDetalsComposeComponent } from './Components/Tables/Article/specialization/assetTable/asset-detals-compose/asset-detals-compose.component';
-// import { AssetButtonsComponent } from './Components/Tables/assetTable/asset/asset-buttons/asset-buttons.component';
 import { ArticleDetailsComposeComponent } from './Components/Tables/Article/base/article-details-compose/article-details-compose.component';
 import { ArticleInputComposeComponent } from './Components/Inputs/Article/1Base/article/article-input-compose.component';
 import { AssetComposeCreateComponent } from './Components/Inputs/Article/2Asset/asset-compose-create.component';
@@ -76,6 +74,7 @@ import { FilterComponent } from './Components/Tables/Article/filter/filter.compo
 import { SimkartenComponent } from './Components/Inputs/Article/3Simkarte/simkarten.component';
 import { SimkartenControlComponent } from './Components/Inputs/Article/3Simkarte/control/simkarten-control.component';
 import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/specialization/simkarten-table/dialog-delete-simkarten/dialog-delete-simkarten.component';
+import { NotebookTabelleComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-tabelle.component';
 
 
 @NgModule({
@@ -126,6 +125,7 @@ import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/spec
     SimkartenComponent,
     SimkartenControlComponent,
     DialogDeleteSimkartenComponent,
+    NotebookTabelleComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

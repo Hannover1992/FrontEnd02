@@ -8,7 +8,6 @@ import {BehaviorSubject, Observable, Observer} from "rxjs";
 export class ArticleFormDataService {
   private formData = new BehaviorSubject<any>({});
 
-  //toDo: subscribe to Subcategory
   constructor() { }
 
   setForm(form: FormGroup): void {

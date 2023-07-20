@@ -2,15 +2,23 @@ import {MatTableDataSource} from "@angular/material/table";
 import {ProjectArticle} from "../../../Interface/projectArticle";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {Sort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
 
 export abstract class TableComponentBase {
   dataSource!: MatTableDataSource<ProjectArticle>;
 
   expandedElement:  ProjectArticle | null;
 
-  constructor(protected _liveAnnouncer: LiveAnnouncer) {
+  dialog: MatDialog;
+  displayedColumns = this.setup_Visibility();
+
+  constructor(
+    protected _liveAnnouncer: LiveAnnouncer,
+    dialog: MatDialog,
+  ) {
     this.flattenData = this.flattenData.bind(this);
     this.expandedElement = null;
+    this.dialog = dialog;
   }
 
 

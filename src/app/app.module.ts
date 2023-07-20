@@ -77,6 +77,8 @@ import { DialogDeleteSimkartenComponent } from './Components/Tables/Article/spec
 import { NotebookTabelleComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-tabelle.component';
 import { DialogDeleteNotebookComponent } from './Components/Tables/Article/specialization/notebook-tabelle/dialog-delete-notebook/dialog-delete-notebook.component';
 import { NotebookDetailComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-detail/notebook-detail.component';
+import { CreateNotebookButtonComponent } from './Components/Tables/Article/specialization/notebook-tabelle/create-notebook-button/create-notebook-button.component';
+// import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
 @NgModule({
@@ -130,6 +132,7 @@ import { NotebookDetailComponent } from './Components/Tables/Article/specializat
     NotebookTabelleComponent,
     DialogDeleteNotebookComponent,
     NotebookDetailComponent,
+    CreateNotebookButtonComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

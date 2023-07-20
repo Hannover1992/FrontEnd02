@@ -11,6 +11,9 @@ import {MatTableDataSource} from "@angular/material/table";
 import {NotebookTableService} from "../../../../../Services/Article/specialization/notebook-table.service";
 import {DialogDeleteNotebookComponent} from "./dialog-delete-notebook/dialog-delete-notebook.component";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {
+  NotebookUpdateElementService
+} from "../../../../Inputs/Article/4Notebook/service/notebook-update-element.service";
 
 @Component({
   selector: 'app-notebook-tabelle',
@@ -29,7 +32,7 @@ export class NotebookTabelleComponent  extends TableComponentBase{
   constructor(
     TableService: NotebookTableService,
     //toDo: NotebookUpdateElementService,
-    // private updateElementService: SimkartenUpdateElementService,
+    private updateElementService: NotebookUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
   ){

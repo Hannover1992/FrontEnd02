@@ -19,9 +19,4 @@ export class SimkartenUpdateElementService extends UpdateElementServiceBaseServi
     return projectArticle;
   }
 
-  // getExtend(){
-  //   return this.projectArticle?.artikel?.simkarte;
-  // }
-
-
 }

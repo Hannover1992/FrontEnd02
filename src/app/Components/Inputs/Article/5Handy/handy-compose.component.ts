@@ -7,6 +7,7 @@ import {HandyUpdateElementService} from "./service/handy-update-element-service.
     <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
     <app-menge></app-menge>
     <app-handy-input></app-handy-input>
+    <app-handy-input-control></app-handy-input-control>
   `,
   styleUrls: ['../../../../shared_css/input.css']
 })

@@ -78,6 +78,8 @@ import { NotebookTabelleComponent } from './Components/Tables/Article/specializa
 import { DialogDeleteNotebookComponent } from './Components/Tables/Article/specialization/notebook-tabelle/dialog-delete-notebook/dialog-delete-notebook.component';
 import { NotebookDetailComponent } from './Components/Tables/Article/specialization/notebook-tabelle/notebook-detail/notebook-detail.component';
 import { CreateNotebookButtonComponent } from './Components/Tables/Article/specialization/notebook-tabelle/create-notebook-button/create-notebook-button.component';
+import { NotebookComposeComponent } from './Components/Inputs/Article/4Notebook/notebook-compose.component';
+import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/notebook-input.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -133,6 +135,8 @@ import { CreateNotebookButtonComponent } from './Components/Tables/Article/speci
     DialogDeleteNotebookComponent,
     NotebookDetailComponent,
     CreateNotebookButtonComponent,
+    NotebookComposeComponent,
+    NotebookInputComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

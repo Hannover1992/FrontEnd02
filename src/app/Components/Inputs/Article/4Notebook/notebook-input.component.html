@@ -1,0 +1,31 @@
+<div [formGroup]="notebookForm" class="shipping-card">
+  <mat-card-subtitle> Notebook Informationen</mat-card-subtitle>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Admin Konto Name</mat-label>
+        <input matInput formControlName="admin_konto_name">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Admin Konto Passwort</mat-label>
+        <input matInput formControlName="admin_konto_password" type="password">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>User Konto Name</mat-label>
+        <input matInput formControlName="user_konto_name">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>User Konto Passwort</mat-label>
+        <input matInput formControlName="user_konto_password" type="password">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

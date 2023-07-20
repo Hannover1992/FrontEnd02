@@ -31,7 +31,6 @@ export class NotebookTabelleComponent  extends TableComponentBase{
 
   constructor(
     TableService: NotebookTableService,
-    //toDo: NotebookUpdateElementService,
     private updateElementService: NotebookUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,

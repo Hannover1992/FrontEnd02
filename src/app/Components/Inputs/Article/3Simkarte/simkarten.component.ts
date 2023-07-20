@@ -23,10 +23,6 @@ export class SimkartenComponent implements OnInit{
 
   ngOnInit(): void {
    this.initializeForm();
-
-    this.simkarteForm.valueChanges.subscribe(value => {
-      console.log(value)
-    });
   }
 
   private initializeForm() {
@@ -37,14 +33,10 @@ export class SimkartenComponent implements OnInit{
       simkarten = article ? article.simkarte : undefined;
     }
 
-    this.simkarteForm = new InitializationSimkarten(this.fb).initForm(simkarten);
+    this.simkarteForm = this.initForm(simkarten);
     this.formDataService.setForm(this.simkarteForm)
   }
-}
 
-export class InitializationSimkarten {
-
-  constructor(private fb: FormBuilder) { }
 
   initForm(simkarte?: Simkarten): FormGroup {
     return this.fb.group({

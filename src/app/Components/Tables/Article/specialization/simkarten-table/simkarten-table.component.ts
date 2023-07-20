@@ -46,7 +46,7 @@ export class SimkartenTableComponent extends TableComponentBase {
   }
 
 
-  read() {
+  read() : void {
     this.TableService.data.subscribe((data) => {
       let data_flatten = data.map(this.flattenData);
       this.dataSource = new MatTableDataSource(data_flatten);
@@ -63,7 +63,7 @@ export class SimkartenTableComponent extends TableComponentBase {
 
 
   //toDo: overwrite
-  open_the_dialog_for_deleting_artikel(element: ProjectArticle){
+  open_the_dialog_for_deleting_artikel(element: ProjectArticle): void{
     this.dialog.open(DialogDeleteSimkartenComponent, {
       data: element
     });
@@ -71,7 +71,7 @@ export class SimkartenTableComponent extends TableComponentBase {
   }
 
   //toDo: overwrite
-  open_the_dialog_for_updating_artikel(element: any) {
+  open_the_dialog_for_updating_artikel(element: any) : void {
     this.updateElementService.activate(element);
     this.dialog.open(Simkarten_compose);
   }

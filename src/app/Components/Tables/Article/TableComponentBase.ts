@@ -77,5 +77,12 @@ export abstract class TableComponentBase {
     return flattenedData;
   }
 
+
+  protected  abstract read() : void ;
+
+  protected  abstract open_the_dialog_for_deleting_artikel(element: ProjectArticle): void;
+
+  protected  abstract open_the_dialog_for_updating_artikel(element: any): void ;
+
   protected  abstract flattenExtend(flattenedData: any): any;
 }

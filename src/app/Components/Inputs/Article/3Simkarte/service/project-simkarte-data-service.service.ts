@@ -8,11 +8,11 @@ import {SimkarteDataService} from "./simkarteData.service";
 import {Article} from "../../../../../Interface/article";
 import {SimkartenUpdateElementService} from "./SimkartenUpdateElementService";
 import {Simkarten} from "../../../../../Interface/article/Simkarte";
-import {ProjectAssetDataService} from "../../2Asset/service/project-asset-data.service";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProjectSimkarteDataServiceService {
   projectArticle: BehaviorSubject<ProjectArticle>  = new BehaviorSubject<ProjectArticle>({});
 
@@ -20,6 +20,7 @@ export class ProjectSimkarteDataServiceService {
     private projectsService: ProjectsService,
     private mengeDataService:MengeDataService,
     private articleDataService:ArticleDataService,
+
     private simkartenDataService:SimkarteDataService,
     private updateElementService:SimkartenUpdateElementService,
   ) {
@@ -46,8 +47,6 @@ export class ProjectSimkarteDataServiceService {
 
   public formatToProjectSimkarteUpdate(): ProjectArticle {
     let proArtIDs: ProjectArticle | undefined   = this.updateElementService.getProjectArticle();
-    console.log("so sehe meine project article bevor ich das fulle mit aktuellen daten")
-    console.log(proArtIDs)
 
     let article = this.articleDataService.article;
     let simkarte = this.simkartenDataService.simkarte;

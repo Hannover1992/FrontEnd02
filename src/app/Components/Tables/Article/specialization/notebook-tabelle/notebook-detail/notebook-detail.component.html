@@ -14,9 +14,12 @@
 
       <mat-card-header>
         <mat-card-subtitle>Password</mat-card-subtitle>
+        <button mat-icon-button (click)="hideAdminPassword = !hideAdminPassword">
+          <mat-icon>{{hideAdminPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-card-header>
       <mat-card-content>
-        <p>{{element.admin_konto_password}}</p>
+        <p>{{hideAdminPassword ? '********' : element.admin_konto_password}}</p>
       </mat-card-content>
     </mat-card>
   </div>
@@ -37,9 +40,12 @@
 
       <mat-card-header>
         <mat-card-subtitle>Password</mat-card-subtitle>
+        <button mat-icon-button (click)="hideUserPassword = !hideUserPassword">
+          <mat-icon>{{hideUserPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-card-header>
       <mat-card-content>
-        <p>{{element.user_konto_password}}</p>
+        <p>{{hideUserPassword ? '********' : element.user_konto_password}}</p>
       </mat-card-content>
     </mat-card>
   </div>

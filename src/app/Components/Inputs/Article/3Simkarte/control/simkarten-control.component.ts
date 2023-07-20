@@ -11,9 +11,9 @@ import {SimkartenUpdateElementService} from "../service/SimkartenUpdateElementSe
 export class SimkartenControlComponent {
 
   constructor(
-    private projectArticleData: ProjectSimkarteDataServiceService,
     private simkartenTableService: SimkartenTableService,
     private updateElementService: SimkartenUpdateElementService,
+    private projectArticleData: ProjectSimkarteDataServiceService,
   ){
   }
 

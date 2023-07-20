@@ -9,8 +9,7 @@ import {NotebookUpdateElementService} from "./service/notebook-update-element.se
     <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
     <app-menge></app-menge>
     <app-notebook-input></app-notebook-input>
-<!--        toDo: notebo contorl-->
-<!--    <app-simkarten-control></app-simkarten-control>-->
+    <app-notebook-input-control></app-notebook-input-control>
   `,
   styleUrls: ['../../../../shared_css/input.css']
 })

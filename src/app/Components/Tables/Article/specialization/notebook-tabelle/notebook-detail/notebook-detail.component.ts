@@ -9,5 +9,7 @@ export class NotebookDetailComponent {
 
 
   @Input() element: any;
+  hideAdminPassword = true;
+  hideUserPassword = true;
 
 }

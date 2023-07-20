@@ -10,7 +10,10 @@
     <div class="col">
       <mat-form-field class="full-width">
         <mat-label>Admin Konto Passwort</mat-label>
-        <input matInput formControlName="admin_konto_password" type="password">
+        <input [type]="hideAdminPassword ? 'password' : 'text'" matInput formControlName="admin_konto_password">
+        <button mat-icon-button matSuffix (click)="hideAdminPassword = !hideAdminPassword" type="button">
+          <mat-icon>{{hideAdminPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
     </div>
   </div>
@@ -24,7 +27,10 @@
     <div class="col">
       <mat-form-field class="full-width">
         <mat-label>User Konto Passwort</mat-label>
-        <input matInput formControlName="user_konto_password" type="password">
+        <input [type]="hideUserPassword ? 'password' : 'text'" matInput formControlName="user_konto_password">
+        <button mat-icon-button matSuffix (click)="hideUserPassword = !hideUserPassword" type="button">
+          <mat-icon>{{hideUserPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
     </div>
   </div>

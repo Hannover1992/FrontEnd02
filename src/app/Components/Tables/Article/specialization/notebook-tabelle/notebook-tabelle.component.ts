@@ -14,6 +14,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {
   NotebookUpdateElementService
 } from "../../../../Inputs/Article/4Notebook/service/notebook-update-element.service";
+import {NotebookInputComponent} from "../../../../Inputs/Article/4Notebook/notebook-input.component";
+import {NotebookComposeComponent} from "../../../../Inputs/Article/4Notebook/notebook-compose.component";
 
 @Component({
   selector: 'app-notebook-tabelle',
@@ -55,7 +57,8 @@ export class NotebookTabelleComponent  extends TableComponentBase{
   }
 
   protected open_the_dialog_for_updating_artikel(element: any): void {
-    //toDo: open dialog update
+    this.updateElementService.activate(element);
+    this.dialog.open(NotebookComposeComponent)
   }
 
 

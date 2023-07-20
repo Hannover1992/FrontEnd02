@@ -12,6 +12,8 @@ import {Notebook} from "../../../../Interface/article/Notebook";
   styleUrls: ['../../../../shared_css/input.css']
 })
 export class NotebookInputComponent implements OnInit{
+  hideAdminPassword = true;
+  hideUserPassword = true;
 
   notebookForm!: FormGroup;
 

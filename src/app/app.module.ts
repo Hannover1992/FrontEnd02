@@ -80,6 +80,7 @@ import { NotebookDetailComponent } from './Components/Tables/Article/specializat
 import { CreateNotebookButtonComponent } from './Components/Tables/Article/specialization/notebook-tabelle/create-notebook-button/create-notebook-button.component';
 import { NotebookComposeComponent } from './Components/Inputs/Article/4Notebook/notebook-compose.component';
 import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/notebook-input.component';
+import { NotebookInputControlComponent } from './Components/Inputs/Article/4Notebook/notebook-input-control/notebook-input-control.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -137,6 +138,7 @@ import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/no
     CreateNotebookButtonComponent,
     NotebookComposeComponent,
     NotebookInputComponent,
+    NotebookInputControlComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

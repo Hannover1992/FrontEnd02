@@ -36,9 +36,7 @@ export class SimkartenTableComponent extends TableComponentBase {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  // @ContentChild('content') content!: TemplateRef<any>;
 
-  expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();
 
 
@@ -52,10 +50,9 @@ export class SimkartenTableComponent extends TableComponentBase {
     dialog: MatDialog,
   ){
 
-    super(_liveAnnouncer);
+    super(_liveAnnouncer );
     this.dialog = dialog;
     this.dataSource = new MatTableDataSource(TableService.data.getValue());
-    this.expandedElement = null;
     this.read();
   }
 

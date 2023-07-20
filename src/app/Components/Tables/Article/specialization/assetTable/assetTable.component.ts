@@ -37,7 +37,6 @@ export class AssetTableComponent extends TableComponentBase {
   @ViewChild(MatSort) sort!: MatSort;
   // @ContentChild('content') content!: TemplateRef<any>;
 
-  expandedElement:  ProjectArticle | null;
   displayedColumns = this.setup_Visibility();
 
   private dialog: MatDialog;
@@ -52,7 +51,6 @@ export class AssetTableComponent extends TableComponentBase {
     super(_liveAnnouncer);
     this.dialog = dialog;
     this.dataSource = new MatTableDataSource(TableService.data.getValue());
-    this.expandedElement = null;
     this.read();
   }
 

@@ -6,8 +6,11 @@ import {Sort} from "@angular/material/sort";
 export abstract class TableComponentBase {
   dataSource!: MatTableDataSource<ProjectArticle>;
 
+  expandedElement:  ProjectArticle | null;
+
   constructor(protected _liveAnnouncer: LiveAnnouncer) {
     this.flattenData = this.flattenData.bind(this);
+    this.expandedElement = null;
   }
 
 

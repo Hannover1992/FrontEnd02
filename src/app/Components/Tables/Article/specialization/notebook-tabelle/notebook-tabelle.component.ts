@@ -18,7 +18,7 @@ import {
 @Component({
   selector: 'app-notebook-tabelle',
   templateUrl: './notebook-tabelle.component.html',
-  styleUrls: ['./notebook-tabelle.component.css'],
+  styleUrls: ['../table.css','../../../../../shared_css/table_details.css' ],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),

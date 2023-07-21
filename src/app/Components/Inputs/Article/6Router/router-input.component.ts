@@ -17,9 +17,9 @@ export class RouterInputComponent implements OnInit{
   //   private updateElementService: RouterUpdateElementService
   // ){}
   //
-  // ngOnInit(): void {
-  //   this.initializeForm();
-  // }
+  ngOnInit(): void {
+    // this.initializeForm();
+  }
   //
   // private initializeForm() {
   //   let router: Router  | undefined = undefined;

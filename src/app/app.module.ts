@@ -93,7 +93,8 @@ import { RouterTableComponent } from './Components/Tables/Article/specialization
 import { DialogDeleteRouterComponent } from './Components/Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component';
 import { RouterDetailComponent } from './Components/Tables/Article/specialization/5_Router/router-detail/router-detail.component';
 import { CreateRouterButtonComponent } from './Components/Tables/Article/specialization/5_Router/create-router-button/create-router-button.component';
-import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router-compose/router-compose.component";
+import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router-compose.component";
+import { RouterInputComponent } from './Components/Inputs/Article/6Router/router-input.component';
 
 
 @NgModule({
@@ -162,7 +163,8 @@ import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router
     DialogDeleteRouterComponent,
     RouterDetailComponent,
     CreateRouterButtonComponent,
-    RouterComposeComponent
+    RouterComposeComponent,
+    RouterInputComponent
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

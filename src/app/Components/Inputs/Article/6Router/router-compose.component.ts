@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterUpdateElementService} from "../service/router-update-element.service";
+import {RouterUpdateElementService} from "./service/router-update-element.service";
 
 @Component({
   selector: 'app-router-compose',
@@ -7,7 +7,7 @@ import {RouterUpdateElementService} from "../service/router-update-element.servi
     <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
     <app-menge></app-menge>
   `,
-  styleUrls: ['../../../../../shared_css/input.css'],
+  styleUrls: ['../../../../shared_css/input.css'],
 })
 export class RouterComposeComponent {
   updateElementService: RouterUpdateElementService;

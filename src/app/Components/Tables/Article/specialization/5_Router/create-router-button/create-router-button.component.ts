@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {RouterUpdateElementService} from "../../../../../Inputs/Article/6Router/service/router-update-element.service";
-import {RouterComposeComponent} from "../../../../../Inputs/Article/6Router/router-compose/router-compose.component";
+import {RouterComposeComponent} from "../../../../../Inputs/Article/6Router/router-compose.component";
 
 @Component({
   selector: 'app-create-router-button',

@@ -6,6 +6,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {TableComponentBase} from "../../TableComponentBase";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
+import {
+  DialogDeleteRouterComponent
+} from "../../../../Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component";
 
 @Component({
   selector: 'app-router-table',
@@ -39,9 +42,9 @@ export class RouterTableComponent extends TableComponentBase {
   }
 
   protected open_the_dialog_for_deleting_artikel(element: ProjectArticle): void {
-    // this.dialog.open(DialogDeleteRouterComponent, { // Use DialogDeleteRouterComponent here
-    //   data: element
-    // })
+    this.dialog.open(DialogDeleteRouterComponent, { // Use DialogDeleteRouterComponent here
+      data: element
+    })
   }
 
   protected open_the_dialog_for_updating_artikel(element: any): void {

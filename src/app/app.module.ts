@@ -89,6 +89,7 @@ import { HandyDetailComponent } from './Components/Tables/Article/specialization
 import { HandyInputComponent } from './Components/Inputs/Article/5Handy/handy-input.component';
 import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/handy-input-control/handy-input-control.component';
 import { RouterTableComponent } from './Components/Tables/Article/specialization/5_Router/router-table.component';
+import { DialogDeleteRouterComponent } from './Components/Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component';
 // import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
 
 
@@ -155,6 +156,7 @@ import { RouterTableComponent } from './Components/Tables/Article/specialization
     HandyInputComponent,
     HandyInputControlComponent,
     RouterTableComponent,
+    DialogDeleteRouterComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

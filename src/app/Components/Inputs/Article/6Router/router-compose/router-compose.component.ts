@@ -7,7 +7,7 @@ import {RouterUpdateElementService} from "../service/router-update-element.servi
     <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
     <app-menge></app-menge>
   `,
-  styleUrls: ['./router-compose.component.css'],
+  styleUrls: ['../../../../../shared_css/input.css'],
 })
 export class RouterComposeComponent {
   updateElementService: RouterUpdateElementService;

@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.filter {
+  margin-top: 20px;
+}
+
 .head_block {
   display: flex;
   flex-direction: row;

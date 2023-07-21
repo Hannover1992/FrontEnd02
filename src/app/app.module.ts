@@ -92,6 +92,7 @@ import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/h
 import { RouterTableComponent } from './Components/Tables/Article/specialization/5_Router/router-table.component';
 import { DialogDeleteRouterComponent } from './Components/Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component';
 import { RouterDetailComponent } from './Components/Tables/Article/specialization/5_Router/router-detail/router-detail.component';
+import { CreateRouterButtonComponent } from './Components/Tables/Article/specialization/5_Router/create-router-button/create-router-button.component';
 
 
 @NgModule({
@@ -159,6 +160,7 @@ import { RouterDetailComponent } from './Components/Tables/Article/specializatio
     RouterTableComponent,
     DialogDeleteRouterComponent,
     RouterDetailComponent,
+    CreateRouterButtonComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

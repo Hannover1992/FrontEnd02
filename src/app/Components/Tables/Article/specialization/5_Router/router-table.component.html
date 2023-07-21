@@ -23,22 +23,17 @@
                 <app-article-details-compose [element]="element"></app-article-details-compose>
               </div>
               <div class="flex_1">
-<!--                toDo: App Article Detail -->
-<!--                <app-notebook-detail [element]="element"></app-notebook-detail>-->
-                <p> app router Detail </p>
+                <app-router-detail [element]="element"></app-router-detail>
               </div>
             </div>
             <div class="head_block">
               <div class="flex_1">
-                <!--                toDo: delete-->
-                <p> to Do delete</p>
                 <button mat-icon-button (click)="open_the_dialog_for_deleting_artikel(element)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>
               <div class="flex_1">
                 <p> to do update</p>
-                <!--                toDo:-->
                 <button mat-icon-button (click)="open_the_dialog_for_updating_artikel(element)">
                   <mat-icon>update</mat-icon>
                 </button>

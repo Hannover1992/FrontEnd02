@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {
-  HandyUpdateElementService
-} from "../../../../../Inputs/Article/5Handy/service/handy-update-element-service.service";
+import { HandyUpdateElementService } from "../../../../../Inputs/Article/5Handy/service/handy-update-element-service.service";
 import {HandyComposeComponent} from "../../../../../Inputs/Article/5Handy/handy-compose.component";
 
 @Component({

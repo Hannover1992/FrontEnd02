@@ -17,6 +17,15 @@
   align-items: center;
 }
 
+.head_block_col
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+}
+
 .flex_1 {
   flex: 1;
   margin-left: 8%;

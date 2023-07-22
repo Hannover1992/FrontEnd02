@@ -4,6 +4,7 @@ import {Simkarten} from "./article/Simkarte";
 import {Notebook} from "./article/Notebook";
 import {Handy} from "./article/Handy";
 import {Router} from "./article/Router";
+import {Acu} from "./article/Acu";
 
 
 
@@ -32,4 +33,5 @@ export interface Article {
   unterkategorie?: Subcategory;
   handy?: Handy
   router?: Router
+  acu?:Acu
 }

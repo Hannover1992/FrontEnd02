@@ -1,1 +1,56 @@
-<p>router-input works!</p>
+<div [formGroup]="routerForm" class="shipping-card">
+  <mat-card-subtitle> Router Informationen</mat-card-subtitle>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Router ID</mat-label>
+        <input matInput formControlName="router_id">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>IMEI</mat-label>
+        <input matInput formControlName="imei">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>IP Adresse</mat-label>
+        <input matInput formControlName="ip_adresse">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Benutzername</mat-label>
+        <input matInput formControlName="benutzername">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Passwort</mat-label>
+        <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="passwort">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>ICCID</mat-label>
+        <input matInput formControlName="iccid">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>PIN</mat-label>
+        <input matInput formControlName="pin">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>PUK</mat-label>
+        <input matInput formControlName="puk">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

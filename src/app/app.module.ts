@@ -101,6 +101,7 @@ import { AcuComposeComponent } from './Components/Inputs/Article/7Acu/acu-compos
 import { AcuDetailComponent } from './Components/Tables/Article/specialization/6_Acu/acu-detail/acu-detail.component';
 import { CreateAcuButtonComponent } from './Components/Tables/Article/specialization/6_Acu/create-acu-button/create-acu-button.component';
 import {DialogDeleteAcuComponent} from "./Components/Inputs/Article/7Acu/dialog-delete-acu/dialog-delete-acu.component";
+import { AcuInputComponent } from './Components/Inputs/Article/7Acu/acu-input.component';
 
 
 @NgModule({
@@ -177,6 +178,7 @@ import {DialogDeleteAcuComponent} from "./Components/Inputs/Article/7Acu/dialog-
     AcuComposeComponent,
     AcuDetailComponent,
     CreateAcuButtonComponent,
+    AcuInputComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

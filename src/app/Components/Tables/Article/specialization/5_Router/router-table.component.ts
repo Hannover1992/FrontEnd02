@@ -9,6 +9,7 @@ import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {
   DialogDeleteRouterComponent
 } from "../../../../Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component";
+import {RouterComposeComponent} from "../../../../Inputs/Article/6Router/router-compose.component";
 
 @Component({
   selector: 'app-router-table',
@@ -48,8 +49,8 @@ export class RouterTableComponent extends TableComponentBase {
   }
 
   protected open_the_dialog_for_updating_artikel(element: any): void {
-    // this.updateElementService.activate(element);
-    // this.dialog.open(RouterComposeComponent) // Use RouterComposeComponent here
+    this.updateElementService.activate(element);
+    this.dialog.open(RouterComposeComponent) // Use RouterComposeComponent here
   }
 
 }

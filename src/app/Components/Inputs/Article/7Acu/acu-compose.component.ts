@@ -6,6 +6,8 @@ import {AcuUpdateElementService} from "./service/acuUpdateElement.service";
   template: `
     <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
     <app-menge></app-menge>
+    <app-acu-input></app-acu-input>
+    <app-acu-control></app-acu-control>
   `,
   styleUrls: ['../../../../shared_css/input.css']
 })

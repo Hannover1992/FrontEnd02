@@ -1,0 +1,15 @@
+<div class="full-width">
+  <div class="row shipping-card">
+    <div class="full-width"></div>
+    <div class="col">
+      <!-- When the button is clicked, call the onSubmit method from the AcuControlComponent -->
+      <button (click)="onSubmit()" mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+    <div class="full-width"> </div>
+    <div class="col">
+      <!-- The button to close the dialog -->
+      <button mat-raised-button [mat-dialog-close]="true" color="accent">Close</button>
+    </div>
+    <div class="full-width"></div>
+  </div>
+</div>

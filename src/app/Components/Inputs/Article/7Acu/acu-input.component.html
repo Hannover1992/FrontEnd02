@@ -1,1 +1,23 @@
-<p>acu-input works!</p>
+<div [formGroup]="acuForm" class="shipping-card">
+  <mat-card-subtitle> ACU Informationen</mat-card-subtitle>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>ACU ID</mat-label>
+        <input matInput formControlName="acu_id">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>Router</mat-label>
+        <input matInput formControlName="router">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-label>IP Adresse</mat-label>
+        <input matInput formControlName="ip_adresse">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

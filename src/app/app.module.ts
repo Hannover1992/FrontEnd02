@@ -96,6 +96,13 @@ import { CreateRouterButtonComponent } from './Components/Tables/Article/special
 import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router-compose.component";
 import { RouterInputComponent } from './Components/Inputs/Article/6Router/router-input.component';
 import { RouterControlComponent } from './Components/Inputs/Article/6Router/router-control/router-control.component';
+import { AcuTableComponent } from './Components/Tables/Article/specialization/6_Acu/acu-table.component';
+import { AcuComposeComponent } from './Components/Inputs/Article/7Acu/acu-compose.component';
+import { AcuDetailComponent } from './Components/Tables/Article/specialization/6_Acu/acu-detail/acu-detail.component';
+import { CreateAcuButtonComponent } from './Components/Tables/Article/specialization/6_Acu/create-acu-button/create-acu-button.component';
+import {DialogDeleteAcuComponent} from "./Components/Inputs/Article/7Acu/dialog-delete-acu/dialog-delete-acu.component";
+import { AcuInputComponent } from './Components/Inputs/Article/7Acu/acu-input.component';
+import { AcuControlComponent } from './Components/Inputs/Article/7Acu/acu-control/acu-control.component';
 
 
 @NgModule({
@@ -167,6 +174,13 @@ import { RouterControlComponent } from './Components/Inputs/Article/6Router/rout
     RouterComposeComponent,
     RouterInputComponent,
     RouterControlComponent,
+    AcuTableComponent,
+    DialogDeleteAcuComponent,
+    AcuComposeComponent,
+    AcuDetailComponent,
+    CreateAcuButtonComponent,
+    AcuInputComponent,
+    AcuControlComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

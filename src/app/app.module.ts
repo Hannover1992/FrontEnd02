@@ -96,6 +96,7 @@ import { CreateRouterButtonComponent } from './Components/Tables/Article/special
 import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router-compose.component";
 import { RouterInputComponent } from './Components/Inputs/Article/6Router/router-input.component';
 import { RouterControlComponent } from './Components/Inputs/Article/6Router/router-control/router-control.component';
+import { AcuTableComponent } from './Components/Tables/Article/specialization/6_Acu/acu-table/acu-table.component';
 
 
 @NgModule({
@@ -167,6 +168,7 @@ import { RouterControlComponent } from './Components/Inputs/Article/6Router/rout
     RouterComposeComponent,
     RouterInputComponent,
     RouterControlComponent,
+    AcuTableComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

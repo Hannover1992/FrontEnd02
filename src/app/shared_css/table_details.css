@@ -5,7 +5,20 @@
   align-items: center;
 }
 
+.filter {
+  margin-top: 20px;
+}
+
 .head_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+}
+
+.head_block_col
+{
   display: flex;
   flex-direction: row;
   justify-content: space-around;

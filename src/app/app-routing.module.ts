@@ -8,6 +8,7 @@ import {
   NotebookTabelleComponent
 } from "./Components/Tables/Article/specialization/3_notebook-tabelle/notebook-tabelle.component";
 import {HandyTableComponent} from "./Components/Tables/Article/specialization/4_handy-table/handy-table.component";
+import {RouterTableComponent} from "./Components/Tables/Article/specialization/5_Router/router-table.component";
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsTableComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'Simkarten', component: SimkartenTableComponent},
   { path: 'Notebook', component: NotebookTabelleComponent},
   { path: 'Handy', component: HandyTableComponent},
-
+  { path: 'Router', component: RouterTableComponent}
 ];
 
 // Erstellen Sie die routerOptions-Konstante

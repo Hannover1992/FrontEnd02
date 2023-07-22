@@ -81,6 +81,7 @@ import { CreateNotebookButtonComponent } from './Components/Tables/Article/speci
 import { NotebookComposeComponent } from './Components/Inputs/Article/4Notebook/notebook-compose.component';
 import { NotebookInputComponent } from './Components/Inputs/Article/4Notebook/notebook-input.component';
 import { NotebookInputControlComponent } from './Components/Inputs/Article/4Notebook/notebook-input-control/notebook-input-control.component';
+
 import { HandyTableComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-table.component';
 import { DialogDeleteHandyComponent } from './Components/Tables/Article/specialization/4_handy-table/dialog-delete-handy/dialog-delete-handy.component';
 import { HandyComposeComponent } from './Components/Inputs/Article/5Handy/handy-compose.component';
@@ -88,7 +89,13 @@ import { CreateHandyButtonComponent } from './Components/Tables/Article/speciali
 import { HandyDetailComponent } from './Components/Tables/Article/specialization/4_handy-table/handy-detail/handy-detail.component';
 import { HandyInputComponent } from './Components/Inputs/Article/5Handy/handy-input.component';
 import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/handy-input-control/handy-input-control.component';
-// import { SimkartenComposeComponent } from './Components/Inputs/Article/4Notebook/simkarten-compose.component';
+import { RouterTableComponent } from './Components/Tables/Article/specialization/5_Router/router-table.component';
+import { DialogDeleteRouterComponent } from './Components/Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component';
+import { RouterDetailComponent } from './Components/Tables/Article/specialization/5_Router/router-detail/router-detail.component';
+import { CreateRouterButtonComponent } from './Components/Tables/Article/specialization/5_Router/create-router-button/create-router-button.component';
+import {RouterComposeComponent} from "./Components/Inputs/Article/6Router/router-compose.component";
+import { RouterInputComponent } from './Components/Inputs/Article/6Router/router-input.component';
+import { RouterControlComponent } from './Components/Inputs/Article/6Router/router-control/router-control.component';
 
 
 @NgModule({
@@ -153,6 +160,13 @@ import { HandyInputControlComponent } from './Components/Inputs/Article/5Handy/h
     HandyDetailComponent,
     HandyInputComponent,
     HandyInputControlComponent,
+    RouterTableComponent,
+    DialogDeleteRouterComponent,
+    RouterDetailComponent,
+    CreateRouterButtonComponent,
+    RouterComposeComponent,
+    RouterInputComponent,
+    RouterControlComponent,
   ],
   entryComponents: [ProjectInputFormComponent],
   imports: [

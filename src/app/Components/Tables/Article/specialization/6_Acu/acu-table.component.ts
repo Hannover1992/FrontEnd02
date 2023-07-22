@@ -6,8 +6,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {TableComponentBase} from "../../TableComponentBase";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
-import {DialogDeleteAcuComponent} from "./dialog-delete-acu/dialog-delete-acu.component";
 import {AcuComposeComponent} from "../../../../Inputs/Article/7Acu/acu-compose.component";
+import {DialogDeleteAcuComponent} from "../../../../Inputs/Article/7Acu/dialog-delete-acu/dialog-delete-acu.component";
 
 @Component({
   selector: 'app-acu-table',

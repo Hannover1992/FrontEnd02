@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-acu-detail',
-  template: `
-    <p>
-      acu-detail works!
-    </p>
-  `,
-  styleUrls: ['./acu-detail.component.css']
+  templateUrl: './acu-detail.component.html',
+  styleUrls: ['../../table.css','../../../../../../shared_css/table_details.css' ]
 })
 export class AcuDetailComponent {
+
+  @Input() element: any;
 
 }

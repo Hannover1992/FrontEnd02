@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
+import {AcuUpdateElementService} from "./service/acuUpdateElement.service";
 
 @Component({
   selector: 'app-acu-compose',
   template: `
-    <p>
-      acu-compose works!
-    </p>
+    <app-article-input-compose *ngIf="updateElementService" [updateElementService]="updateElementService"></app-article-input-compose>
+    <app-menge></app-menge>
   `,
   styleUrls: ['../../../../shared_css/input.css']
 })
 export class AcuComposeComponent {
+  updateElementService: AcuUpdateElementService
+  constructor(
+    updateElementService: AcuUpdateElementService
+  ) {
+    this.updateElementService = updateElementService;
+  }
 
 }

@@ -1,6 +1,6 @@
 import { CanActivateFn } from '@angular/router';
 import {Injectable } from "@angular/core";
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {Observable} from "rxjs";
 import {ToastrService} from "ngx-toastr";
@@ -10,7 +10,7 @@ import { ServiceAccessTokenService } from '../service/service-access-token.servi
     providedIn: 'root'
 })
 
-export class AuthGuard implements CanActivate {
+export class AuthGuard  {
 
   constructor(
     private service: AuthService,

@@ -1,6 +1,6 @@
 import { CanActivateFn } from '@angular/router';
 import {Injectable } from "@angular/core";
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {Observable} from "rxjs";
 import {ToastrService} from "ngx-toastr";
@@ -8,7 +8,7 @@ import {ToastrService} from "ngx-toastr";
 @Injectable({
   providedIn: 'root'
 })
-export class TwoFactorGuard implements CanActivate {
+export class TwoFactorGuard  {
 
   constructor(private service: AuthService, private router: Router, private toastr: ToastrService) { }
 

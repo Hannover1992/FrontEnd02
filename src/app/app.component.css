@@ -1,7 +1,17 @@
 /*make the background color black*/
 body {
-    background-color: black;
+  background-color: black;
 }
 
 
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login,
+.home {
+  flex: 1;
+}
 

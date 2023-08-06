@@ -1,7 +1,15 @@
 <!--<app-projects-table></app-projects-table>-->
 <!--<router-outlet></router-outlet>-->
 
-<app-side-nav></app-side-nav>
+<div class="container">
+  <div class="login" *ngIf="!ismenurequired">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="home" *ngIf="ismenurequired">
+    <app-side-nav></app-side-nav>
+  </div>
+</div>
+
 <!--<app-vater></app-vater>-->
 <!--<app-sohn></app-sohn>-->
 <!--<app-asset-spec></app-asset-spec>-->

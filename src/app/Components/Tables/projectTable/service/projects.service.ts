@@ -9,7 +9,7 @@ import {Project} from "../../../Inputs/project_input/project";
 })
 
 export class ProjectsService {
-  selectedProject: BehaviorSubject<string> = new BehaviorSubject('802007');
+  selectedProject: BehaviorSubject<string> = new BehaviorSubject('3011');
   projects!: BehaviorSubject<Project[]>;
   initialized: boolean = false;
 

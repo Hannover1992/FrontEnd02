@@ -103,7 +103,25 @@ import { CreateAcuButtonComponent } from './Components/Tables/Article/specializa
 import {DialogDeleteAcuComponent} from "./Components/Inputs/Article/7Acu/dialog-delete-acu/dialog-delete-acu.component";
 import { AcuInputComponent } from './Components/Inputs/Article/7Acu/acu-input.component';
 import { AcuControlComponent } from './Components/Inputs/Article/7Acu/acu-control/acu-control.component';
-
+////
+import { RegisterComponent } from './Components/user/register/register.component';
+import { UpdatepopupComponent } from './Components/user/updatepopup/updatepopup.component';
+import { UserlistingComponent } from './Components/user/userlisting/userlisting.component';
+import { MaterialModule} from "../material.module";
+import { LoginComponent } from './Components/user/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './Components/home/home.component';
+import { TwoFactorAuth } from './Components/user/tfa/tfa.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import {AuthGuard} from "./Components/user/guard/auth.guard";
+import {TwoFactorGuard} from "./Components/user/guard/auth.TwoFactorGuard";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './Components/user/service/auth.interceptor';
+import {CommonModule} from "@angular/common";
+import { DeliveryNoteComponent } from './Components/delivery-note/delivery-note.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+///
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -181,9 +199,19 @@ import { AcuControlComponent } from './Components/Inputs/Article/7Acu/acu-contro
     CreateAcuButtonComponent,
     AcuInputComponent,
     AcuControlComponent,
+    LoginComponent,
+    HomeComponent,
+    RegisterComponent,
+    UpdatepopupComponent,
+    UserlistingComponent,
+    TwoFactorAuth,
+    DeliveryNoteComponent,
   ],
-  entryComponents: [ProjectInputFormComponent],
+  //entryComponents: [ProjectInputFormComponent],
   imports: [
+    CommonModule,
+    MaterialModule,
+    ToastrModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -214,8 +242,19 @@ import { AcuControlComponent } from './Components/Inputs/Article/7Acu/acu-contro
     MatAutocompleteModule,
     MatListModule,
     MatLegacyChipsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    QRCodeModule,
+    MatStepperModule,
+    MatCheckboxModule
   ],
-  providers: []
+  providers: [
+    AuthGuard,
+    TwoFactorGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
 })
 export class AppModule { }

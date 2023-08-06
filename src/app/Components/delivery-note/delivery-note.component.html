@@ -1,0 +1,230 @@
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="projectForm">
+    <form [formGroup]="projectForm">
+      <ng-template matStepLabel>Choose Projects</ng-template>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Sender Project</mat-label>
+        <input type="text" placeholder="Select a project" aria-label="Number" matInput formControlName="senderProject" [matAutocomplete]="senderAuto">
+        <mat-autocomplete #senderAuto="matAutocomplete">
+          <mat-option *ngFor="let project of filteredSenderProjects | async" [value]="project.ID">
+            {{project.ID}} - {{project.Standort}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Receiver Project</mat-label>
+        <input type="text" placeholder="Select a project" aria-label="Number" matInput formControlName="receiverProject" [matAutocomplete]="receiverAuto">
+        <mat-autocomplete #receiverAuto="matAutocomplete">
+          <mat-option *ngFor="let project of filteredReceiverProjects | async" [value]="project.ID">
+            {{project.ID}} - {{project.Standort}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <div>
+        <button mat-button *ngIf="projectForm.valid" matStepperNext >Next</button>
+      </div>
+    </form>
+    <p>Select the projects to proceed to the next step.</p>
+  </mat-step>
+  <mat-step [stepControl]="projectForm" label="Fill out your address">
+    <ng-template matStepLabel>Select Articles</ng-template>
+    <h3>Sender Project Articles</h3>
+    <table mat-table [dataSource]="senderProjectArticles" class="mat-elevation-z8">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleSender() : null"
+                        [checked]="selectionSender.hasValue() && isAllSelectedSender()"
+                        [indeterminate]="selectionSender.hasValue() && !isAllSelectedSender()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (change)="handleCheckboxChange(row)"
+                        [checked]="selectionSender.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Artikelname Column -->
+      <ng-container matColumnDef="artikelname">
+        <th mat-header-cell *matHeaderCellDef> Article Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.artikelname}} </td>
+      </ng-container>
+
+      <!-- Firma Column -->
+      <ng-container matColumnDef="firma">
+        <th mat-header-cell *matHeaderCellDef> Firma </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.firma}} </td>
+      </ng-container>
+
+      <!-- Seriennummer Column -->
+      <ng-container matColumnDef="seriennummer">
+        <th mat-header-cell *matHeaderCellDef> Serial Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.seriennummer}} </td>
+      </ng-container>
+      <!-- Model Column -->
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef> Model </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.model}} </td>
+      </ng-container>
+
+      <!-- Beschreibung Column -->
+      <ng-container matColumnDef="beschreibung">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.beschreibung}} </td>
+      </ng-container>
+
+      <!-- Zustand Column -->
+      <ng-container matColumnDef="zustand">
+        <th mat-header-cell *matHeaderCellDef> Zustand </th>
+        <td mat-cell *matCellDef="let element"> {{element.artikel.zustand}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsSender"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsSender;"></tr>
+    </table>
+
+    <h3>Selected Articles</h3>
+    <ul>
+      <li *ngFor="let article of selectedArticles">
+        {{article.artikel?.artikelname}} - {{article.artikel?.seriennummer}}
+      </li>
+    </ul>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button *ngIf="selectedArticles.length > 0" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="projectForm" label="Fill out your address">
+    <ng-template matStepLabel>Update Articles</ng-template>
+    <h3>Update Articles</h3>
+    <ng-container *ngIf="selectedArticles?.length; else noArticles">
+
+    </ng-container>
+
+    <ng-template #noArticles>
+      <p>No selected articles to update.</p>
+    </ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="AdressesFrom" label="Fill out your address">
+    <ng-template matStepLabel>Specify Addresses</ng-template>
+    <form [formGroup]="AdressesFrom">
+      <div class="address-container">
+        <div class="address-form">
+          <h3>Sender Address</h3>
+          <div formGroupName="senderAddress">
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>Additional Infos</mat-label>
+                <input matInput formControlName="additionalInfos">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street">
+              </mat-form-field>
+
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>House Number</mat-label>
+                <input matInput formControlName="houseNumber">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>Postal Code</mat-label>
+                <input matInput formControlName="postalCode">
+              </mat-form-field>
+
+              <mat-form-field class="example-half-width" appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="address-form">
+          <h3>Receiver Address</h3>
+          <div formGroupName="receiverAddress">
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>Additional Infos</mat-label>
+                <input matInput formControlName="additionalInfos">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street">
+              </mat-form-field>
+
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>House Number</mat-label>
+                <input matInput formControlName="houseNumber">
+              </mat-form-field>
+            </div>
+
+            <div class="field-row">
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>Postal Code</mat-label>
+                <input matInput formControlName="postalCode">
+              </mat-form-field>
+
+              <mat-form-field class="example-half-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button *ngIf="AdressesFrom.valid" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Complete Process</ng-template>
+    <pre>{{ projectForm.value | json }}</pre>
+    <pre>{{ AdressesFrom.value | json }}</pre>
+    <pre>{{ selectedArticles | json }}</pre>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button >Done</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+
+
+
+

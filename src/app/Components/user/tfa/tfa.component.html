@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <h1>Two-Factor Authentication</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Add this block of code to display the QR code -->
+    <div *ngIf="qrCodeData">
+      <p>Please scan the following QR code with your authentication app:</p>
+      <img [src]="qrCodeData" alt="QR Code">
+    </div>
+
+    <form class="example-form" [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>OTP</mat-label>
+          <input matInput type="text" pattern="[0-9]*" formControlName="otp" maxlength="6" (keypress)="numericOnly($event)">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-raised-button color="primary" type="submit">Verify OTP</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

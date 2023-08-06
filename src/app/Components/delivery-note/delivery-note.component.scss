@@ -1,0 +1,20 @@
+.custom-form-field {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.address-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-form {
+  width: 45%; /* Adjust this to create space between the two forms */
+}
+.field-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-half-width {
+  width: 48%;
+}

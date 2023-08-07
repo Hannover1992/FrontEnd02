@@ -9,7 +9,8 @@ import {Project} from "../../../Inputs/project_input/project";
 })
 
 export class ProjectsService {
-  selectedProject: BehaviorSubject<string> = new BehaviorSubject('3011');
+  selectedProjectID: BehaviorSubject<string> = new BehaviorSubject('3011');
+  selectedProjectStandort: string = 'Lager Hannover'
   projects!: BehaviorSubject<Project[]>;
   initialized: boolean = false;
 
@@ -18,6 +19,9 @@ export class ProjectsService {
       (project_arr) => {
         this.projects = new BehaviorSubject<Project[]>(project_arr);
       });
+    this.selectedProjectID.subscribe(ProjectID =>
+        this.updateProjectStandort(ProjectID)
+    )
   }
 
   public getProjects() {
@@ -28,12 +32,21 @@ export class ProjectsService {
   }
 
   public getProjectID(): number {
-    const project = this.selectedProject.getValue();
+    const project = this.selectedProjectID.getValue();
     return parseInt(project);
   }
 
+
   generateURL() {
     return URL_DB + '/projects';
+  }
+
+  private updateProjectStandort(ProjectID : string) {
+    const matchinProject = this.projects.value.find(p => p.ID === parseInt(ProjectID));
+
+    if( matchinProject){
+      this.selectedProjectStandort = matchinProject.Standort;
+    }
   }
 }
 

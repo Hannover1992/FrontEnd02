@@ -1,10 +1,9 @@
 import {Project} from "../Inputs/project_input/project";
-import {Component, DoCheck} from '@angular/core';
+import {Component, DoCheck } from '@angular/core';
 import {ProjectsService} from "../Tables/projectTable/service/projects.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import { AuthService } from '../user/service/auth.service';
-import {ServiceAccessTokenService} from "../user/service/service-access-token.service";
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
@@ -12,8 +11,6 @@ import {ServiceAccessTokenService} from "../user/service/service-access-token.se
 })
 export class SideNavComponent implements DoCheck {
   projects: Observable<Project[]>;
-  myControl: any;
-  filteredOptions: any  ;
   menu_title = '';
   ismenurequired = false;
   isadminuser = false;
@@ -23,9 +20,9 @@ export class SideNavComponent implements DoCheck {
     private authService: AuthService,
   ) {
     this.projects = projectsService.projects
-    this.projectsService.selectedProject.subscribe(project => {
+    this.projectsService.selectedProjectID.subscribe(project => {
       this.menu_title = project;
-
+      this.menu_title = this.projectsService.selectedProjectStandort;
     });
     //this.role = this.authService.getUserrole();
   }

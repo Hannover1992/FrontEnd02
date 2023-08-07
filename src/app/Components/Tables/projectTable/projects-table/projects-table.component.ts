@@ -2,7 +2,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatSort, Sort} from '@angular/material/sort';
-import {MatTable, MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table';
 import {ProjectInterface} from "../../../Inputs/project_input/project.interface";
 import {ProjectsService} from "../service/projects.service";
 import {Project} from "../../../Inputs/project_input/project";
@@ -87,7 +87,7 @@ export class ProjectsTableComponent implements AfterViewInit {
   }
 
   select_project({element}: { element: any }) {
-    this.projectsService.selectedProject.next(element.ID);
+    this.projectsService.selectedProjectID.next(element.ID);
   }
 
   setup_Visibility() {

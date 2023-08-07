@@ -24,7 +24,7 @@ export class ProjectInteractionServiceService {
   }
 
   private subscribe_to_selected_project() {
-    this.projectsService.selectedProject.subscribe(project => {
+    this.projectsService.selectedProjectID.subscribe(project => {
       this.selected_project = project;
     });
   }

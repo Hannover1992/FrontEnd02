@@ -6,3 +6,18 @@
 .mat-accordion{
   margin-top:10px;
 }
+
+
+.custom-header {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.custom-header:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}

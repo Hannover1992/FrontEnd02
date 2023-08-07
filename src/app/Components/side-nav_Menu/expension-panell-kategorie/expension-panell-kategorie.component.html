@@ -1,4 +1,15 @@
+
+<!--<mat-panel-title>-->
+<!--</mat-panel-title>-->
+
 <mat-accordion>
+  <div class="custom-header">
+    <button mat-button [routerLink]="['/projects']" (click)="drawerRef.toggle()">
+      Projekt
+    </button>
+  </div>
+
+
   <mat-expansion-panel *ngFor="let kategorie of kategory_observeble | async; let i = index;" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -10,6 +21,7 @@
         mat-button
         [routerLink]="['/', kategorie.kategoriename]"
         [state]="{ unterkategoriename: subkategorie.unterkategoriename, unterkategorie_id: subkategorie.unterkategorie_id }"
+        (click)="drawerRef.toggle()"
       >
         {{subkategorie.unterkategoriename}}
       </button>
@@ -17,11 +29,6 @@
 
   </mat-expansion-panel>
 
-  <mat-panel-title>
-    <button mat-button [routerLink]="['/projects']">
-      Projekt
-    </button>
-  </mat-panel-title>
 </mat-accordion>
 
 

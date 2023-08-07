@@ -21,7 +21,6 @@ export class SideNavComponent implements DoCheck {
     private projectsService: ProjectsService,
     private router: Router,
     private authService: AuthService,
-    private serviceAccessTokenService:ServiceAccessTokenService
   ) {
     this.projects = projectsService.projects
     this.projectsService.selectedProject.subscribe(project => {
@@ -44,22 +43,13 @@ export class SideNavComponent implements DoCheck {
       this.isadminuser=false;
     }
   }
-  logout() {
-    // Clear local and session storage
-    localStorage.clear();
-    sessionStorage.clear();
-    this.serviceAccessTokenService.logout();
-
-
-    this.router.navigate(['/login']);
-  }
 
   navigateToUsers() {
     this.router.navigate(['/users']);
   }
-  navigateToHome() {
-    this.router.navigate(['/home']);
-  }
   //onInit() {
   //}
+  navigateToHome() {
+    this.router.navigate(['/home'])
+  }
 }

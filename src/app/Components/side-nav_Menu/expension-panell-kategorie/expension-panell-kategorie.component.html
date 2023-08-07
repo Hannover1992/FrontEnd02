@@ -24,3 +24,12 @@
   </mat-panel-title>
 </mat-accordion>
 
+
+<button mat-icon-button (click)="logout()" matTooltip="Logout" aria-label="Logout">
+  <mat-icon>exit_to_app</mat-icon>
+</button>
+
+<button mat-icon-button [routerLink]="['/DeliveryNote']">
+  <mat-icon>local_shipping</mat-icon> <!-- Ensure mat-icon for home is lowercase -->
+</button>
+

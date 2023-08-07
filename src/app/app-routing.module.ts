@@ -28,8 +28,8 @@ const loginRoute: RouteConfig[] = [
 ]
 
 const baseRoutes: RouteConfig[] = [
-  {path: ''            ,  component: HomeComponent             },
-  {path: 'home'        ,  component: HomeComponent             },// toDo:Muad warum 2?
+  {path: ''            ,  component: ProjectsTableComponent    },
+  {path: 'home'        ,  component: HomeComponent             },
   {path: 'DeliveryNote',  component: DeliveryNoteComponent     },
   {path: 'projects'    ,  component: ProjectsTableComponent    },
   {path: 'Asset'       ,  component: AssetTableComponent       },

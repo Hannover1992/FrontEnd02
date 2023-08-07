@@ -5,18 +5,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import { ProjectsTableComponent } from './Components/Tables/projectTable/projects-table/projects-table.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
+// import { MatTableModule } from '@angular/material/table';
+// import { MatPaginatorModule } from '@angular/material/paginator';
+// import { MatSortModule } from '@angular/material/sort';
+// import {MatToolbarModule} from "@angular/material/toolbar";
+// import {MatIconModule} from "@angular/material/icon";
 import {ButtonInputProjectComponent} from "./Components/Inputs/project_input/button-input-project/button-input-project.component";
-import {MatFormFieldModule} from "@angular/material/form-field";
+// import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialogModule} from "@angular/material/dialog";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatSelectModule } from '@angular/material/select';
+// import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ProjectInputFormComponent } from './Components/Inputs/project_input/button-input-project/dialog-create-new-project/project-input-form/project-input-form.component';
 import {MatExpansionModule} from "@angular/material/expansion";
@@ -31,7 +31,7 @@ import { ProjectDatumComponent } from './Components/Inputs/project_input/button-
 import { PersonalProjectComponent } from './Components/Inputs/project_input/button-input-project/dialog-create-new-project/project-input-form/personal-project/personal-project.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { UpdateSingleProjectComponent } from './Components/Inputs/project_input/update-single-project/update-single-project.component';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+// import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { NotificationProjectErfolgComponent } from './Components/Inputs/project_input/button-input-project/dialog-create-new-project/project-input-form/notification-project-erfolg/notification-project-erfolg.component';
 import { NotificationProjectSucessComponent } from './Components/Inputs/project_input/update-single-project/notification-project-sucess/notification-project-sucess.component';
 import { DialogDeleteProjectComponent } from './Components/Tables/projectTable/projects-table/dialog-delete-project/dialog-delete-project.component';
@@ -41,8 +41,8 @@ import {RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { A11yModule } from '@angular/cdk/a11y';
 import { SideNavComponent } from './Components/side-nav_Menu/side-nav.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
+// import {MatSidenavModule} from "@angular/material/sidenav";
+// import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import { ExpensionPanellKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/expension-panell-kategorie.component';
 import { ProjectDropDownMenuComponent } from './Components/side-nav_Menu/project-drop-down-menu/project-drop-down-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
@@ -109,18 +109,32 @@ import { UpdatepopupComponent } from './Components/user/updatepopup/updatepopup.
 import { UserlistingComponent } from './Components/user/userlisting/userlisting.component';
 import { MaterialModule} from "../material.module";
 import { LoginComponent } from './Components/user/login/login.component';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './Components/home/home.component';
 import { TwoFactorAuth } from './Components/user/tfa/tfa.component';
-import { QRCodeModule } from 'angularx-qrcode';
+// import { QRCodeModule } from 'angularx-qrcode';
 import {AuthGuard} from "./Components/user/guard/auth.guard";
 import {TwoFactorGuard} from "./Components/user/guard/auth.TwoFactorGuard";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Components/user/service/auth.interceptor';
 import {CommonModule} from "@angular/common";
 import { DeliveryNoteComponent } from './Components/delivery-note/delivery-note.component';
-import { MatStepperModule } from '@angular/material/stepper';
+// import { MatStepperModule } from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {ToastrModule} from "ngx-toastr";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
+import {MatStepperModule} from "@angular/material/stepper";
 ///
 
 @NgModule({
@@ -243,9 +257,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatListModule,
     MatLegacyChipsModule,
     MatButtonToggleModule,
-    QRCodeModule,
-    MatStepperModule,
-    MatCheckboxModule
+    // QRCodeModule,
+    // MatStepperModule,
+    MatCheckboxModule,
+    MatStepperModule
   ],
   providers: [
     AuthGuard,

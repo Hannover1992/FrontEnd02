@@ -21,25 +21,28 @@ import { TwoFactorAuth } from "./Components/user/tfa/tfa.component"
 import {TwoFactorGuard} from "./Components/user/guard/auth.TwoFactorGuard";
 import { DeliveryNoteComponent } from "./Components/delivery-note/delivery-note.component"
 
+function enableGuard() {
+  const routes: Routes = [
+    {path: 'DeliveryNote', component: DeliveryNoteComponent,canActivate: [AuthGuard] },
+    {path: 'projects', component: ProjectsTableComponent, canActivate: [AuthGuard]},
+    {path: 'Asset', component: AssetTableComponent,canActivate: [AuthGuard]},
+    {path: 'Simkarten', component: SimkartenTableComponent, canActivate: [AuthGuard]},
+    {path: 'Notebook', component: NotebookTabelleComponent},
+    {path: 'Handy', component: HandyTableComponent, canActivate: [AuthGuard]},
+    {path: 'Router', component: RouterTableComponent, canActivate: [AuthGuard]},
+    {path: 'Acu', component: AcuTableComponent, canActivate: [AuthGuard]},
+    {path: '', component: HomeComponent,canActivate: [AuthGuard] },
+    {path: 'home', component: HomeComponent,canActivate: [AuthGuard] },
+    {path: 'login', component: LoginComponent},
+    {path: "register", component: RegisterComponent},
+    {path: 'users', component: UserlistingComponent, canActivate: [AuthGuard]},
+    {path: 'tfa', component: TwoFactorAuth, canActivate: [TwoFactorGuard]},
+  ];
+  return routes;
+}
+
 //
-const routes: Routes = [
-  { path: 'DeliveryNote', component: DeliveryNoteComponent },
-  { path: 'projects', component: ProjectsTableComponent },
-  { path: 'Asset', component: AssetTableComponent, },
-  { path: 'Simkarten', component: SimkartenTableComponent,canActivate:[AuthGuard]},
-  { path: 'Notebook', component: NotebookTabelleComponent},
-  { path: 'Handy', component: HandyTableComponent,canActivate:[AuthGuard]},
-  { path: 'Router', component: RouterTableComponent,canActivate:[AuthGuard]},
-  { path: 'Acu', component: AcuTableComponent,canActivate:[AuthGuard]},
-  {path: '', component: HomeComponent },
-  {path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent},
-  //{ path: '', component: LoginComponent},// check once again
-  { path: "register", component: RegisterComponent },
-  { path: 'users', component: UserlistingComponent, canActivate:[AuthGuard]},
-  { path: 'tfa', component: TwoFactorAuth, canActivate:[TwoFactorGuard]},
-  //{path: '**', redirectTo: '/login'},
-];
+const routes = enableGuard();
 
 // Erstellen Sie die routerOptions-Konstante
 const routerOptions: ExtraOptions = {

@@ -4,8 +4,6 @@ import { AuthService } from '../service/auth.service';
 import {ServiceAccessTokenService} from "../service/service-access-token.service";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import jwt_decode from 'jwt-decode';
-import * as QRCode from 'qrcode';
 
 @Component({
   selector: 'app-login',

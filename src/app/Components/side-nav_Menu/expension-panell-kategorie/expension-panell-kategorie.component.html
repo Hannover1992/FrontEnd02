@@ -4,7 +4,7 @@
 
 <mat-accordion>
   <div class="custom-header">
-    <button mat-button [routerLink]="['/projects']" (click)="drawerRef.toggle()">
+    <button mat-button [routerLink]="['/projects']" (click)="this.kategory_transision('Projekt')">
       Projekt
     </button>
   </div>
@@ -21,7 +21,7 @@
         mat-button
         [routerLink]="['/', kategorie.kategoriename]"
         [state]="{ unterkategoriename: subkategorie.unterkategoriename, unterkategorie_id: subkategorie.unterkategorie_id }"
-        (click)="drawerRef.toggle()"
+        (click)="this.kategory_transision(kategorie.kategoriename)"
       >
         {{subkategorie.unterkategoriename}}
       </button>

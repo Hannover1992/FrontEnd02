@@ -4,6 +4,7 @@ import {KategorienWithSubkategorienService} from "../../../Services/kategorien-w
 import {Router} from "@angular/router";
 import {ServiceAccessTokenService} from "../../user/service/service-access-token.service";
 import {MatDrawer} from "@angular/material/sidenav";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Component({
   selector: 'app-expension-panell-kategorie',
@@ -17,8 +18,9 @@ export class ExpensionPanellKategorieComponent {
   kategory : Kategorie[] = [];
   kategory_observeble : any;
 
-  constructor(private kategorie_service : KategorienWithSubkategorienService,
-              private serviceAccessTokenService:ServiceAccessTokenService
+  constructor(
+    private kategorie_service : KategorienWithSubkategorienService,
+    private serviceAccessTokenService:ServiceAccessTokenService
               ) {
     this.kategory_observeble = this.kategorie_service.getKategorienWithSubkategorien()
     this.kategorie_service.getKategorienWithSubkategorien().subscribe(
@@ -26,6 +28,11 @@ export class ExpensionPanellKategorieComponent {
         this.kategory = data as Kategorie[];
       }
     )
+  }
+
+  kategory_transision(kategory_name: string): void {
+    this.drawerRef.toggle();
+    this.kategorie_service.current_kategory_name = kategory_name;
   }
 
   logout() {

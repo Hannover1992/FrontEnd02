@@ -25,7 +25,6 @@ export class SideNavComponent implements DoCheck {
       this.menu_title = this.projectsService.selectedProjectStandort;
     });
     //toDo: add an icon, correspoinding to the table
-    //this.role = this.authService.getUserrole();
   }
 
   ngDoCheck():void {

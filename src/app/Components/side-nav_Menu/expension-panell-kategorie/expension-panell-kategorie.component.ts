@@ -15,11 +15,9 @@ export class ExpensionPanellKategorieComponent {
   @Input() drawerRef!: MatDrawer;
 
   kategory : Kategorie[] = [];
-  panelOpenState = false;
   kategory_observeble : any;
 
   constructor(private kategorie_service : KategorienWithSubkategorienService,
-              private router: Router,
               private serviceAccessTokenService:ServiceAccessTokenService
               ) {
     this.kategory_observeble = this.kategorie_service.getKategorienWithSubkategorien()
@@ -30,16 +28,7 @@ export class ExpensionPanellKategorieComponent {
     )
   }
 
-
-
-
   logout() {
-    // Clear local and session storage
-    localStorage.clear();
-    sessionStorage.clear();
     this.serviceAccessTokenService.logout();
-
-
-    this.router.navigate(['/login']);
   }
 }

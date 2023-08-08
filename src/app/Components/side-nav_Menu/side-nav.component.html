@@ -2,7 +2,7 @@
   <mat-drawer #drawer [mode]="'push'">
     <app-expension-panell-kategorie [drawerRef]="drawer"></app-expension-panell-kategorie>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content  id="mat_drawer_content">
     <mat-toolbar>
       <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>table_rows_narrow</mat-icon>

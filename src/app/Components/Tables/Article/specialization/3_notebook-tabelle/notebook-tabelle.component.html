@@ -29,15 +29,11 @@
             </div>
             <div class="head_block">
               <div class="flex_1">
-<!--                toDo: delete-->
-                <p> to Do delete</p>
                 <button mat-icon-button (click)="open_the_dialog_for_deleting_artikel(element)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>
               <div class="flex_1">
-                <p> to do update</p>
-<!--                toDo:-->
                 <button mat-icon-button (click)="open_the_dialog_for_updating_artikel(element)">
                   <mat-icon>update</mat-icon>
                 </button>
@@ -70,7 +66,6 @@
 
     <app-filter-table (filterChange)="applyFilter($event)"></app-filter-table>
     <span class="example-spacer"></span>
-<!--    toDo: create sim karte-->
     <p> creat notebook </p>
     <app-create-notebook-button></app-create-notebook-button>
   </mat-toolbar>

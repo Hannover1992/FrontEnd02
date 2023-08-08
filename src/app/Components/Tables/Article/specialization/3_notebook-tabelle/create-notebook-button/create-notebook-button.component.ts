@@ -4,6 +4,7 @@ import {
   NotebookUpdateElementService
 } from "../../../../../Inputs/Article/4Notebook/service/notebook-update-element.service";
 import {NotebookComposeComponent} from "../../../../../Inputs/Article/4Notebook/notebook-compose.component";
+import {getHeightConfig} from "../../config";
 
 @Component({
   selector: 'app-create-notebook-button',
@@ -21,7 +22,8 @@ export class CreateNotebookButtonComponent {
   open_input_form() {
       // this.dialog.open(AssetComposeComponent);
       this.updateElementService.deactivate();
-      this.dialog.open(NotebookComposeComponent);
+      let config = getHeightConfig();
+      this.dialog.open(NotebookComposeComponent, config);
     }
 
 }

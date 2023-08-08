@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {
-  AssetComposeCreateComponent
-} from "../../../../../Inputs/Article/2Asset/asset-compose-create.component";
-import {
-  AssetUpdateElementService
-} from "../../../../../Inputs/Article/2Asset/service/AssetUpdateElementService";
+import {AssetComposeCreateComponent} from "../../../../../Inputs/Article/2Asset/asset-compose-create.component";
+import {AssetUpdateElementService} from "../../../../../Inputs/Article/2Asset/service/AssetUpdateElementService";
+import {getHeightConfig} from "../../config";
 
 @Component({
   selector: 'app-create-new-asset',
@@ -22,7 +19,8 @@ export class ButtonBuchAssetAufAssetProjectComponent {
   open_input_form() {
     // this.dialog.open(AssetComposeComponent);
     this.updateElementService.deactivate();
-    this.dialog.open(AssetComposeCreateComponent);
+    let config = getHeightConfig();
+    this.dialog.open(AssetComposeCreateComponent,config)
   }
 
 }

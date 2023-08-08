@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog } from '@angular/material/dialog';
 import {ProjectInputFormComponent} from "./dialog-create-new-project/project-input-form/project-input-form.component";
+import {getHeightConfig} from "../../../Tables/Article/specialization/config";
 
 @Component({
   selector: 'app-button-input-project',
@@ -20,7 +21,8 @@ export class ButtonInputProjectComponent {
   open_input_form(){
 
     //open dialog
-    this.dialog.open(ProjectInputFormComponent);
+    let config = getHeightConfig();
+    this.dialog.open(ProjectInputFormComponent, config);
   }
 
 

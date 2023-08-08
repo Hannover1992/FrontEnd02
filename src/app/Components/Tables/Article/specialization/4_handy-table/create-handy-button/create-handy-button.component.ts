@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import { HandyUpdateElementService } from "../../../../../Inputs/Article/5Handy/service/handy-update-element-service.service";
 import {HandyComposeComponent} from "../../../../../Inputs/Article/5Handy/handy-compose.component";
+import {getHeightConfig} from "../../config";
 
 @Component({
   selector: 'app-create-handy-button',
@@ -18,7 +19,8 @@ export class CreateHandyButtonComponent {
 
   open_input_form() {
     this.updateElementService.deactivate();
-    this.dialog.open(HandyComposeComponent); // Use HandyComposeComponent here
+    let config = getHeightConfig();
+    this.dialog.open(HandyComposeComponent, config); // Use HandyComposeComponent here
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AcuUpdateElementService} from "../../../../../Inputs/Article/7Acu/service/acuUpdateElement.service";
 import {AcuComposeComponent} from "../../../../../Inputs/Article/7Acu/acu-compose.component";
 import {MatDialog} from "@angular/material/dialog";
+import {getHeightConfig} from "../../config";
 
 @Component({
   selector: 'app-create-acu-button',
@@ -17,7 +18,8 @@ export class CreateAcuButtonComponent {
 
   open_input_form(){
     this.updateElementService.deactivate();
-    this.dialog.open(AcuComposeComponent)
+    let config = getHeightConfig();
+    this.dialog.open(AcuComposeComponent, config)
   }
 
 }

@@ -10,22 +10,28 @@ export class SnackbarMessagingServiceService {
 
   diplayUpdateMessage(): void {
     const updateMessage = "Artikel wurde erfolgreich aktualisiert";
-    this._snackBar.open(updateMessage, "OK");
+    this.open_snuckbar(updateMessage);
   }
 
   displayCreateMessage(): void {
     const successMessage = "Artikel wurde erfolgreich hinzugefügt";
-    this._snackBar.open(successMessage, "OK");
+    this.open_snuckbar(successMessage);
   }
 
   displayDeleteMessage(): void {
     const successMessage = "Artikel wurde erfolgreich entfernt";
-    this._snackBar.open(successMessage, "OK");
+    this.open_snuckbar(successMessage);
   }
 
   displayErrorMessage(error: unknown): void {
     const errorMessage = this.getErrorMessage(error);
-    this._snackBar.open(errorMessage, "OK");
+    this.open_snuckbar(errorMessage);
+  }
+
+  private open_snuckbar(successMessage: string) {
+    this._snackBar.open(successMessage, "OK", {
+      duration: 2000,
+    });
   }
 
   private getErrorMessage(error: unknown): string {

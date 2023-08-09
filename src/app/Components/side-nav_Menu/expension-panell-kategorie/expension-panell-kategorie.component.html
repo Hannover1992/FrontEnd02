@@ -1,5 +1,9 @@
-<app-project-button [drawerRef]="this.drawerRef"></app-project-button>
-<app-unter-kategorie-buttons [drawerRef]="this.drawerRef"></app-unter-kategorie-buttons>
+<div id="drawer">
+  <app-unter-kategorie-buttons [drawerRef]="this.drawerRef"></app-unter-kategorie-buttons>
+  <app-project-button [drawerRef]="this.drawerRef"></app-project-button>
 
-<app-log-out></app-log-out>
-<app-deliver-note-button></app-deliver-note-button>
+  <div id="drawer-fotter">
+    <app-deliver-note-button></app-deliver-note-button>
+    <app-log-out></app-log-out>
+  </div>
+</div>

@@ -21,3 +21,16 @@
 .custom-header:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
+
+#drawer{
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#drawer-fotter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

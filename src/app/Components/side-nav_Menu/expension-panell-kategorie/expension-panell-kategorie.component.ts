@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
-  selector: 'app-expension-panell-kategorie',
+  selector: 'app-expension-panell-compose',
   templateUrl: './expension-panell-kategorie.component.html',
   styleUrls: ['./expension-panell-kategorie.component.css']
 })

@@ -2,9 +2,8 @@
     <app-drawer-toggle [drawer]="drawerRef"></app-drawer-toggle>
     <span class="example-spacer"></span>
 
-    <mat-card-content>{{ menu_title }}</mat-card-content>
-    <mat-icon>{{this.menu_icon}}</mat-icon>
-
+    <mat-card-content>{{current_project}}</mat-card-content>
+    <mat-icon>{{menu_icon}}</mat-icon>
     <span class="example-spacer"></span>
 
     <button mat-icon-button *ngIf="isadminuser" (click)="navigateToUsers()" matTooltip="Users" aria-label="Users">

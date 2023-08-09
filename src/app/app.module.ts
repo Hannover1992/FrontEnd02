@@ -144,6 +144,7 @@ import { ProjectButtonComponent } from './Components/side-nav_Menu/expension-pan
 import { DeliverNoteButtonComponent } from './Components/side-nav_Menu/expension-panell-kategorie/deliver-note-button/deliver-note-button.component';
 import { DrawerToggleComponent } from './Components/side-nav_Menu/drawer-toggle/drawer-toggle.component';
 import { MatToolbarIconComponent } from './Components/side-nav_Menu/mat-toolbar-icon/mat-toolbar-icon.component';
+import { DisplayCurrentProjectComponent } from './Components/side-nav_Menu/display-current-project/display-current-project.component';
 ///
 
 @NgModule({
@@ -237,6 +238,7 @@ import { MatToolbarIconComponent } from './Components/side-nav_Menu/mat-toolbar-
     DeliverNoteButtonComponent,
     DrawerToggleComponent,
     MatToolbarIconComponent,
+    DisplayCurrentProjectComponent,
   ],
   //entryComponents: [ProjectInputFormComponent],
     imports: [

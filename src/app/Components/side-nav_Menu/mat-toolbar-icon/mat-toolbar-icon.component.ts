@@ -1,19 +1,12 @@
 import {
     AfterContentChecked,
-  AfterViewInit,
-  Component,
+    AfterViewInit,
+    Component, DoCheck,
     ElementRef,
     EventEmitter, Input,
     NgZone,
     OnDestroy
 } from '@angular/core';
-import {BooleanInput} from "@angular/cdk/coercion";
-import {Observable, Subject} from "rxjs";
-import {AnimationEvent as AnimationEvent_2} from "@angular/animations";
-import {FocusMonitor, FocusOrigin, FocusTrapFactory, InteractivityChecker} from "@angular/cdk/a11y";
-import {Platform} from "@angular/cdk/platform";
-import * as i0 from "@angular/core";
-import {MatDrawerContainer, MatDrawerMode, MatDrawerToggleResult} from "@angular/material/sidenav";
 import {ProjectsService} from "../../Tables/projectTable/service/projects.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../../user/service/auth.service";
@@ -24,13 +17,19 @@ import {KategorienWithSubkategorienService} from "../../../Services/kategorien-w
   templateUrl: './mat-toolbar-icon.component.html',
   styleUrls: ['./mat-toolbar-icon.component.css']
 })
-export class MatToolbarIconComponent {
+export class MatToolbarIconComponent implements DoCheck {
+  get current_project(): string {
+    return this._current_project;
+  }
   @Input() drawerRef: any;
-  menu_title = '';
+
   ismenurequired = false;
   isadminuser = false;
 
+
+  private _current_project = '';
   private _menu_icon: string = "Icon"
+
 
   set menu_icon(value: string) {
     this._menu_icon = value;
@@ -58,9 +57,10 @@ export class MatToolbarIconComponent {
   ) {
 
     this.projectsService.selectedProjectID.subscribe(project => {
-      this.menu_title = project;
-      this.menu_title = this.projectsService.selectedProjectStandort;
+      this._current_project = project;
+      this._current_project = this.projectsService.selectedProjectStandort;
       this.setCurrentIcon();
+      this.ngDoCheck()
     });
   }
 

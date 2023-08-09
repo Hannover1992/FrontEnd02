@@ -1,6 +1,8 @@
 <div id="drawer">
-  <app-unter-kategorie-buttons [drawerRef]="this.drawerRef"></app-unter-kategorie-buttons>
-  <app-project-button [drawerRef]="this.drawerRef"></app-project-button>
+  <div id="drawer-header">
+    <app-project-button [drawerRef]="this.drawerRef"></app-project-button>
+    <app-unter-kategorie-buttons [drawerRef]="this.drawerRef"></app-unter-kategorie-buttons>
+  </div>
 
   <div id="drawer-fotter">
     <app-deliver-note-button></app-deliver-note-button>

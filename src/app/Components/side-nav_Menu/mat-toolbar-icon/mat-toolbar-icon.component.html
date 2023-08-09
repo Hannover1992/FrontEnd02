@@ -1,0 +1,17 @@
+<mat-toolbar>
+    <app-drawer-toggle [drawer]="drawerRef"></app-drawer-toggle>
+    <span class="example-spacer"></span>
+
+    <mat-card-content>{{ menu_title }}</mat-card-content>
+    <mat-icon>{{this.menu_icon}}</mat-icon>
+
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button *ngIf="isadminuser" (click)="navigateToUsers()" matTooltip="Users" aria-label="Users">
+      <mat-icon>people</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="navigateToHome()" matTooltip="Home" aria-label="Home">
+      <mat-icon>home</mat-icon> <!-- Ensure mat-icon for home is lowercase -->
+    </button>
+</mat-toolbar>

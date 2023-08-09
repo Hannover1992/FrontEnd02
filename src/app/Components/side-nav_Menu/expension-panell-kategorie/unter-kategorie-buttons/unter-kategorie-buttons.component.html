@@ -1,0 +1,23 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let kategorie of kategory_observeble | async; let i = index;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{kategorie.kategoriename}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div *ngFor="let subkategorie of kategorie.unterkategorie">
+      <button
+        mat-button
+        [routerLink]="['/', kategorie.kategoriename]"
+        [state]="{ unterkategoriename: subkategorie.unterkategoriename, unterkategorie_id: subkategorie.unterkategorie_id }"
+        (click)="this.kategory_transision(kategorie.kategoriename)"
+      >
+        <mat-icon *ngIf="subkategorie.unterkategoriename === 'Global'">public</mat-icon>
+        <mat-icon *ngIf="subkategorie.unterkategoriename !== 'Global'">warehouse</mat-icon>
+        {{subkategorie.unterkategoriename}}
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+

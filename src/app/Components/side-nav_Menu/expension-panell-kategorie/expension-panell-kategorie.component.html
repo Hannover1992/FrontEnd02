@@ -1,42 +1,5 @@
+<app-project-button [drawerRef]="this.drawerRef"></app-project-button>
+<app-unter-kategorie-buttons [drawerRef]="this.drawerRef"></app-unter-kategorie-buttons>
 
-<!--<mat-panel-title>-->
-<!--</mat-panel-title>-->
-
-<mat-accordion>
-  <div class="custom-header">
-    <button mat-button [routerLink]="['/projects']" (click)="this.kategory_transision('Projekt')">
-      Projekt
-    </button>
-  </div>
-
-
-  <mat-expansion-panel *ngFor="let kategorie of kategory_observeble | async; let i = index;" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{kategorie.kategoriename}}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div *ngFor="let subkategorie of kategorie.unterkategorie">
-      <button
-        mat-button
-        [routerLink]="['/', kategorie.kategoriename]"
-        [state]="{ unterkategoriename: subkategorie.unterkategoriename, unterkategorie_id: subkategorie.unterkategorie_id }"
-        (click)="this.kategory_transision(kategorie.kategoriename)"
-      >
-        {{subkategorie.unterkategoriename}}
-      </button>
-    </div>
-
-  </mat-expansion-panel>
-
-</mat-accordion>
-
-
-<button mat-icon-button (click)="logout()" matTooltip="Logout" aria-label="Logout">
-  <mat-icon>exit_to_app</mat-icon>
-</button>
-
-<button mat-icon-button [routerLink]="['/DeliveryNote']">
-  <mat-icon>local_shipping</mat-icon> <!-- Ensure mat-icon for home is lowercase -->
-</button>
-
+<app-log-out></app-log-out>
+<app-deliver-note-button></app-deliver-note-button>

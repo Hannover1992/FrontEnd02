@@ -136,6 +136,12 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatLegacyMenuModule} from "@angular/material/legacy-menu";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { UnterKategorieComponent } from './Components/side-nav_Menu/expension-panell-kategorie/unter-kategorie/unter-kategorie.component';
+import { LogOutComponent } from './Components/side-nav_Menu/expension-panell-kategorie/log-out/log-out.component';
+import { KategorieNameButtonsComponent } from './Components/side-nav_Menu/expension-panell-kategorie/kategorie-name-buttons/kategorie-name-buttons.component';
+import { UnterKategorieButtonsComponent } from './Components/side-nav_Menu/expension-panell-kategorie/unter-kategorie-buttons/unter-kategorie-buttons.component';
+import { ProjectButtonComponent } from './Components/side-nav_Menu/expension-panell-kategorie/project-button/project-button.component';
+import { DeliverNoteButtonComponent } from './Components/side-nav_Menu/expension-panell-kategorie/deliver-note-button/deliver-note-button.component';
 ///
 
 @NgModule({
@@ -221,6 +227,12 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     UserlistingComponent,
     TwoFactorAuth,
     DeliveryNoteComponent,
+    UnterKategorieComponent,
+    LogOutComponent,
+    KategorieNameButtonsComponent,
+    UnterKategorieButtonsComponent,
+    ProjectButtonComponent,
+    DeliverNoteButtonComponent,
   ],
   //entryComponents: [ProjectInputFormComponent],
     imports: [

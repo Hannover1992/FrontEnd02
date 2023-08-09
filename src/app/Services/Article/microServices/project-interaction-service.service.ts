@@ -8,6 +8,7 @@ import {UnterKategorieService} from "../../unter-kategorie.service";
 export class ProjectInteractionServiceService {
   selected_project!: string;
   selected_unterkategorie!: string;
+  selectd_unterkategorie_id!: number;
 
   constructor(
     protected projectsService: ProjectsService,
@@ -15,6 +16,7 @@ export class ProjectInteractionServiceService {
   ) {
     this.subscribe_to_selected_project();
     this.subscribe_to_selected_kategorie();
+    this.selectd_unterkategorie_id = this.kategorieService.getUnterKategorieID(this.selected_unterkategorie);
   }
 
   private subscribe_to_selected_kategorie() {

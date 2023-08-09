@@ -2,15 +2,13 @@
   <mat-drawer #drawer [mode]="'push'">
     <app-expension-panell-compose [drawerRef]="drawer"></app-expension-panell-compose>
   </mat-drawer>
+
   <mat-drawer-content  id="mat_drawer_content">
     <mat-toolbar>
-      <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>table_rows_narrow</mat-icon>
-      </button>
 
+      <app-drawer-toggle [drawer]="drawer"></app-drawer-toggle>
       <span class="example-spacer"></span>
 
-<!--      <mat-card-title>Project:</mat-card-title>-->
       <mat-card-content>{{ menu_title }}</mat-card-content>
       <mat-icon>{{this.menu_icon}}</mat-icon>
 
@@ -27,10 +25,5 @@
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
-
-
-
-
-
 
 

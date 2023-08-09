@@ -12,6 +12,7 @@ import {KategorienWithSubkategorienService} from "../../Services/kategorien-with
 })
 export class SideNavComponent implements DoCheck {
   projects: Observable<Project[]>;
+
   menu_title = '';
   ismenurequired = false;
   isadminuser = false;
@@ -24,8 +25,6 @@ export class SideNavComponent implements DoCheck {
   get menu_icon(): string {
       return this._menu_icon;
   }
-
-
 
     private readonly ICON_MAPPINGS: { [key: string]: string } = {
         // 'Projekt': 'travel_explore',
@@ -65,15 +64,6 @@ export class SideNavComponent implements DoCheck {
         return this.ICON_MAPPINGS[kategory_name] || 'Icon';
     }
 
-    private subscribeToKategoryName() {
-        this.kategorie_service.current_kategory.subscribe(
-            (current_kategory) => {
-              return current_kategory;
-            }
-        )
-        return 'place_holder'
-    }
-
     ngDoCheck():void {
     let currenturl = this.router.url;
     if(currenturl == '/login' || currenturl == '/register' ){
@@ -91,8 +81,7 @@ export class SideNavComponent implements DoCheck {
   navigateToUsers() {
     this.router.navigate(['/users']);
   }
-  //onInit() {
-  //}
+
   navigateToHome() {
     this.router.navigate(['/home'])
   }

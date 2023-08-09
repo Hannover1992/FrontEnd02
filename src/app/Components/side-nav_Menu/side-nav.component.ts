@@ -11,8 +11,6 @@ import {KategorienWithSubkategorienService} from "../../Services/kategorien-with
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements DoCheck {
-  projects: Observable<Project[]>;
-
   menu_title = '';
   ismenurequired = false;
   isadminuser = false;
@@ -43,7 +41,7 @@ export class SideNavComponent implements DoCheck {
         private authService: AuthService,
         private kategorie_service: KategorienWithSubkategorienService,
     ) {
-        this.projects = projectsService.projects;
+
         this.projectsService.selectedProjectID.subscribe(project => {
             this.menu_title = project;
             this.menu_title = this.projectsService.selectedProjectStandort;

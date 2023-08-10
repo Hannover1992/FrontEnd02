@@ -77,3 +77,14 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+#icon_and_unterkategorie_name {
+  display: flex;
+}
+
+.flex-horizontal {
+  display: flex;
+  align-items: center; /* This will vertically align the icon and text in the center */
+  justify-content: center; /* This will center the items horizontally in the button, remove if not needed */
+  gap: 5px; /* This provides spacing between the icon and text, adjust as needed */
+}

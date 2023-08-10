@@ -31,4 +31,13 @@ export class UnterKategorieButtonsComponent {
     this.drawerRef.toggle();
     this.kategorie_service.current_kategory_name = kategory_name;
   }
+
+  containsAll(unterkategoriename: string): boolean {
+    return unterkategoriename.includes('All');
+  }
+
+  doesNotContainGlobal(unterkategoriename: string): boolean {
+    return unterkategoriename !== 'Global';
+  }
+
 }

@@ -22,7 +22,7 @@ export class UnterKategorieButtonsComponent {
     this.kategorie_service.getKategorienWithSubkategorien().subscribe(
         (data) => {
           this.kategory = data as Kategorie[];
-          console.log(this.kategory)
+          console.log(this.kategory);
         }
     )
   }

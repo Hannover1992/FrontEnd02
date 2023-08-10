@@ -34,32 +34,4 @@ export class UnterKategorieService {
       });
   }
 
-
-
-
-//   this.app.get('/getCorrespondingId/:kategoriename', async (req: any, res: any) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   const kategoriename = req.params.kategoriename;
-//
-//   await this.prisma.kategorien.findMany({
-//                                           where: {
-//                                             kategoriename: kategoriename
-//                                           }
-//                                         }).then((kategorie: any) => {
-//   res.status(200).send(kategorie.id);
-// }).catch((error: any) => {
-//   res.status(500).send({"message": error.message});
-// });
-// });
-
-
-  getUnterKategorieID(selected_unterkategorie: string) {
-    console.log(this.kategorienWithSubkategorienService.getKategorienWithSubkategorien());
-    return 666;
-  //   toDo: ok ich habe ien kleines poroblen , nahmlichi ch habe das nach string ausgri
-  //   die subkategorie, doch jetzt uber schenid sie sich und das ist schlech und ein schlechtes
-  //   design. Ich muss dass alls ganzes nur fur subkategorie ID, machen und nicht fur string
-
-
-  }
 }

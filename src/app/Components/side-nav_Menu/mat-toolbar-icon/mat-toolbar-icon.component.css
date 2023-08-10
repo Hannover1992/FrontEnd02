@@ -14,3 +14,7 @@ mat-toolbar {
   width: 100%;
   margin:10px;
 }
+
+#MenuTitle {
+  padding-top:0px;
+}

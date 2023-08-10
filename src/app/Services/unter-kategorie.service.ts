@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, filter} from "rxjs";
-import {NavigationEnd, ActivatedRoute, Router} from "@angular/router";
-import {KategorienWithSubkategorienService} from "./kategorien-with-subkategorien.service";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +12,7 @@ export class UnterKategorieService {
   selectedUnterKategorieId: BehaviorSubject<number> = new BehaviorSubject(666);
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
-    public kategorienWithSubkategorienService: KategorienWithSubkategorienService
   ) {
     this.get_the_current_unterkategorie_from_router_state();
   }

@@ -65,7 +65,7 @@ export class MatToolbarIconComponent implements DoCheck {
   }
 
   private setCurrentIcon(): void {
-    this.kategorie_service.current_kategory.subscribe(
+    this.kategorie_service.current_unterkategorie.subscribe(
         (current_kategory) => {
           let kategory_name = current_kategory || 'place_holder';
           this.menu_icon = this.getIconForKategory(kategory_name);

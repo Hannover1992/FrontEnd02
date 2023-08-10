@@ -30,6 +30,7 @@ export class UnterKategorieButtonsComponent {
   kategory_transision(kategory_name: string): void {
     this.drawerRef.toggle();
     this.kategorie_service.current_kategory_name = kategory_name;
+
   }
 
   containsAll(unterkategoriename: string): boolean {

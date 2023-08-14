@@ -11,7 +11,6 @@ import {BehaviorSubject} from "rxjs";
 export class KategorienWithSubkategorienService {
 
   private _current_unterkategorie: BehaviorSubject<string> = new BehaviorSubject<string>('Projekt');
-  private _current_unterkategorie_id: BehaviorSubject<number>       = new BehaviorSubject<number>(-1)
 
   set current_kategory_name(name: string) {
     this._current_unterkategorie.next(name)

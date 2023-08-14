@@ -67,7 +67,7 @@ export class KategorienWithSubkategorienService {
     return category ? category.unterkategorie[0] : null;  // Returning the first subcategory. Adjust as needed.
   }
 
-  private isThisAnShowAllSubcategory(): boolean {
+  isThisAnShowAllSubcategory(): boolean {
     return this._current_subkategorie.getValue().zeigt_alles_an;
   }
 }

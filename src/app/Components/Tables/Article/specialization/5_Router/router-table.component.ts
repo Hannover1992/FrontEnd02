@@ -10,6 +10,7 @@ import {
   DialogDeleteRouterComponent
 } from "../../../../Inputs/Article/6Router/dialog-delete-router/dialog-delete-router.component";
 import {RouterComposeComponent} from "../../../../Inputs/Article/6Router/router-compose.component";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 @Component({
   selector: 'app-router-table',
@@ -31,8 +32,9 @@ export class RouterTableComponent extends TableComponentBase {
     private updateElementService: RouterUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
   ) {
-    super(_liveAnnouncer, dialog, TableService );
+    super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
     this.read();
   }
 

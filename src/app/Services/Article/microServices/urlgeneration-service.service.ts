@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import {URL_DB} from "../../../settings";
 
 // @Injectable({
@@ -12,8 +11,13 @@ export class URLGenerationServiceService {
   }
 
 
-  generateGetURL(selectedProject: string, selectedUnterKategorie: string) {
+  generateGetURLProjectSpecific(selectedProject: string, selectedUnterKategorie: string) : string {
     return URL_DB + '/' + this.URL_Spec + '/' + selectedProject
+      + '/' + selectedUnterKategorie;
+  }
+
+  generateGetURLProjectAll( selectedUnterKategorie: string) : string {
+    return URL_DB + '/' + this.URL_Spec +
       + '/' + selectedUnterKategorie;
   }
 

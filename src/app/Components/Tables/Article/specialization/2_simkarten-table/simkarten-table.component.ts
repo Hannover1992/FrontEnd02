@@ -8,6 +8,7 @@ import {TableComponentBase} from "../../TableComponentBase";
 import { SimkartenUpdateElementService } from "../../../../Inputs/Article/3Simkarte/service/SimkartenUpdateElementService";
 import {DialogDeleteSimkartenComponent} from "./dialog-delete-simkarten/dialog-delete-simkarten.component";
 import {Simkarten_compose} from "../../../../Inputs/Article/3Simkarte/simkarten_compose";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 @Component({
   selector: 'app-simkarten-table',
@@ -28,8 +29,10 @@ export class SimkartenTableComponent extends TableComponentBase {
     private updateElementService: SimkartenUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
+
   ){
-    super(_liveAnnouncer, dialog, TableService );
+      super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
   }
 
   protected flattenExtend(flattenedData: any): any {

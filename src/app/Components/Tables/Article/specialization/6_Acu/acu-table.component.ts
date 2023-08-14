@@ -8,6 +8,7 @@ import {TableComponentBase} from "../../TableComponentBase";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {AcuComposeComponent} from "../../../../Inputs/Article/7Acu/acu-compose.component";
 import {DialogDeleteAcuComponent} from "../../../../Inputs/Article/7Acu/dialog-delete-acu/dialog-delete-acu.component";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 @Component({
   selector: 'app-acu-table',
@@ -27,9 +28,10 @@ export class AcuTableComponent extends TableComponentBase {
     TableService: AcuTableService,
     private updateElementService: AcuUpdateElementService,
     dialog: MatDialog,
-    _liveAnnouncer: LiveAnnouncer
+    _liveAnnouncer: LiveAnnouncer,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
   ) {
-    super(_liveAnnouncer, dialog, TableService );
+    super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
     this.read();
   }
 

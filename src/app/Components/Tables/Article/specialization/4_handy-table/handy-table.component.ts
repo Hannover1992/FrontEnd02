@@ -10,6 +10,7 @@ import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {DialogDeleteHandyComponent} from "./dialog-delete-handy/dialog-delete-handy.component";
 import {HandyComposeComponent} from "../../../../Inputs/Article/5Handy/handy-compose.component";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 @Component({
   selector: 'app-handy-table',
@@ -30,8 +31,9 @@ export class HandyTableComponent extends TableComponentBase{
     private updateElementService: HandyUpdateElementService, // Use HandyUpdateElementService here
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
   ){
-    super(_liveAnnouncer, dialog, TableService );
+    super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
     this.read();
   }
 

@@ -1,12 +1,7 @@
-import {Injectable, OnInit} from '@angular/core';
-import {URL_DB} from "../../../settings";
-import {ProjectsService} from "../../../Components/Tables/projectTable/service/projects.service";
+import {Injectable, } from '@angular/core';
 import {UnterKategorieService} from "../../unter-kategorie.service";
 import {HttpClient} from "@angular/common/http";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
-import {BehaviorSubject} from "rxjs";
-import {ProjectArticle} from "../../../Interface/projectArticle";
 import {TableServiceCRUD} from "../TableServiceCRUD";
 import {ProjectInteractionServiceService} from "../microServices/project-interaction-service.service";
 import {SnackbarMessagingServiceService} from "../microServices/snackbar-messaging-service.service";
@@ -28,7 +23,7 @@ export class SimkartenTableService extends TableServiceCRUD {
     const url_specification = 'projektArtikelSimkarte';
     let urlGenerationService = new URLGenerationServiceService(url_specification);
     super(urlGenerationService, http, dialog, projectInteractionService, snackbarMessagingService);
-    kategorieService.selectedUnterKategorie.subscribe(kategorie =>  this.read());
+    kategorieService.selectedUnterKategorie.subscribe(() =>  this.read_project_specific());
   }
 
 }

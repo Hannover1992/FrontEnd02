@@ -10,6 +10,7 @@ import {
   NotebookUpdateElementService
 } from "../../../../Inputs/Article/4Notebook/service/notebook-update-element.service";
 import {NotebookComposeComponent} from "../../../../Inputs/Article/4Notebook/notebook-compose.component";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 @Component({
   selector: 'app-notebook-tabelle',
@@ -30,8 +31,9 @@ export class NotebookTabelleComponent  extends TableComponentBase{
     private updateElementService: NotebookUpdateElementService,
     dialog: MatDialog,
     _liveAnnouncer: LiveAnnouncer,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
   ){
-    super(_liveAnnouncer, dialog, TableService );
+    super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
     this.read();
   }
 

@@ -1,8 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {AssetTableService} from "../../../../../Services/Article/specialization/asset-table.service";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort, Sort} from "@angular/material/sort";
-import {MatTableDataSource} from "@angular/material/table";
 import {ProjectArticle} from "../../../../../Interface/projectArticle";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
@@ -15,6 +12,7 @@ import {
   AssetComposeCreateComponent
 } from "../../../../Inputs/Article/2Asset/asset-compose-create.component";
 import {TableComponentBase} from "../../TableComponentBase";
+import {KategorienWithSubkategorienService} from "../../../../../Services/kategorien-with-subkategorien.service";
 
 
 @Component({
@@ -38,9 +36,10 @@ export class AssetTableComponent extends TableComponentBase {
     private updateElementService: AssetUpdateElementService,
     _liveAnnouncer: LiveAnnouncer,
     dialog: MatDialog,
+    kategorienWithSubkategorienService : KategorienWithSubkategorienService
   )
   {
-    super(_liveAnnouncer, dialog , TableService);
+    super(_liveAnnouncer, dialog , TableService, kategorienWithSubkategorienService);
   }
 
   protected flattenExtend(flattenedData: any): any {

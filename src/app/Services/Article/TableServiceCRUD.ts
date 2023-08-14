@@ -20,9 +20,16 @@ export class TableServiceCRUD {
     this.urlGenerationService = urlGenerationService;
   }
 
-  read() {
-    const url = this.urlGenerationService.generateGetURL(
+  read_project_specific() {
+    const url = this.urlGenerationService.generateGetURLProjectSpecific(
       this.projectInteractionService.selected_project,
+      this.projectInteractionService.selected_unterkategorie
+    );
+    this.http.get<any>(url).subscribe((article_arr) => this.data.next(article_arr));
+  }
+
+  read_all(){
+    const url  = this.urlGenerationService.generateGetURLProjectAll(
       this.projectInteractionService.selected_unterkategorie
     );
     this.http.get<any>(url).subscribe((article_arr) => this.data.next(article_arr));
@@ -31,8 +38,8 @@ export class TableServiceCRUD {
   create(newProjectArticle: ProjectArticle) {
     const url = this.urlGenerationService.generateURL();
     this.http.post(url, newProjectArticle).subscribe(
-      response => {
-        this.read();
+        () => {
+        this.read_project_specific();
         this.snackbarMessagingService.displayCreateMessage();
         this.dialog.closeAll();
       },
@@ -47,8 +54,8 @@ export class TableServiceCRUD {
     console.log("update")
     console.log(projectArticle)
     this.http.put(url, projectArticle).subscribe(
-      response => {
-        this.read();
+        () => {
+        this.read_project_specific();
         this.snackbarMessagingService.diplayUpdateMessage();
         this.dialog.closeAll();
       },
@@ -61,8 +68,8 @@ export class TableServiceCRUD {
   delete(projectArticle: ProjectArticle) {
     const url = this.urlGenerationService.getDeleteUrl(projectArticle.projekt_artikel_id);
     this.http.delete(url).subscribe(
-      response => {
-        this.read();
+        () => {
+        this.read_project_specific();
         this.snackbarMessagingService.displayDeleteMessage();
         this.dialog.closeAll();
       },

@@ -23,7 +23,7 @@ export class AssetTableService extends TableServiceCRUD {
     const url_specification = 'projektArtikelAsset';
     let urlGenerationService = new URLGenerationServiceService(url_specification);
     super(urlGenerationService, http, dialog, projectInteractionService, snackbarMessagingService);
-    kategorieService.selectedUnterKategorie.subscribe(kategorie =>  this.read());
+    kategorieService.selectedUnterKategorie.subscribe(() =>  this.read_project_specific());
 
   }
 }

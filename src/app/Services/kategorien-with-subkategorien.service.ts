@@ -66,4 +66,8 @@ export class KategorienWithSubkategorienService {
     const category = this._categoriesData.find(cat => cat.kategoriename === name);
     return category ? category.unterkategorie[0] : null;  // Returning the first subcategory. Adjust as needed.
   }
+
+  private isThisAnShowAllSubcategory(): boolean {
+    return this._current_subkategorie.getValue().zeigt_alles_an;
+  }
 }

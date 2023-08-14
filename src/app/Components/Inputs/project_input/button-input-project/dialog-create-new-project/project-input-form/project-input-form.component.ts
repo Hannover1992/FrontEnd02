@@ -88,9 +88,9 @@ export class ProjectInputFormComponent {
   }
 
 
-  receive_project_details_change($event: any) {
-    this.addressForm.controls['project_details'].setValue($event);
-  }
+  // receive_project_details_change($event: any) {
+  //   this.addressForm.controls['project_details'].setValue($event);
+  // }
 
   async onSubmit(): Promise<void> {
     let project_to_send = this.create_an_project_to_send_from_the_form();

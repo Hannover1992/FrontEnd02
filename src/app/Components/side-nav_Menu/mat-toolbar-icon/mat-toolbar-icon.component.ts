@@ -1,11 +1,6 @@
 import {
-    AfterContentChecked,
-    AfterViewInit,
     Component, DoCheck,
-    ElementRef,
-    EventEmitter, Input,
-    NgZone,
-    OnDestroy
+    Input,
 } from '@angular/core';
 import {ProjectsService} from "../../Tables/projectTable/service/projects.service";
 import {Router} from "@angular/router";
@@ -65,7 +60,7 @@ export class MatToolbarIconComponent implements DoCheck {
   }
 
   private setCurrentIcon(): void {
-    this.kategorie_service.current_unterkategorie.subscribe(
+    this.kategorie_service.current_opened_table.subscribe(
         (current_kategory) => {
           let kategory_name = current_kategory || 'place_holder';
           this.menu_icon = this.getIconForKategory(kategory_name);

@@ -10,13 +10,13 @@ import {KategorienWithSubkategorienService} from "../../../../Services/kategorie
 export class ProjectButtonComponent {
 
   constructor(
-      private kategorie_service : KategorienWithSubkategorienService,
+      private current_menu : KategorienWithSubkategorienService,
   ) {
   }
   @Input() drawerRef: any;
 
   kategory_transision(kategory_name: string): void {
     this.drawerRef.toggle();
-    this.kategorie_service.current_kategory_name = kategory_name;
+    this.current_menu.current_kategory_name = kategory_name;
   }
 }

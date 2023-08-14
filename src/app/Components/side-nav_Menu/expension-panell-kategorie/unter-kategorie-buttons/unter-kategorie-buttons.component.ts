@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {MatDrawer} from "@angular/material/sidenav";
 import {KategorienWithSubkategorienService} from "../../../../Services/kategorien-with-subkategorien.service";
-import {Kategorie} from "../../kategorie";
+import {Kategorie} from "../../../../Interface/kategorie";
 
 @Component({
   selector: 'app-unter-kategorie-buttons',

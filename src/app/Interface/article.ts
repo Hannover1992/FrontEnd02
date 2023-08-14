@@ -1,4 +1,4 @@
-import {Subcategory} from "./subcategory";
+import {Subcategory} from "./Subcategory";
 import {Asset} from "./article/asset";
 import {Simkarten} from "./article/Simkarte";
 import {Notebook} from "./article/Notebook";

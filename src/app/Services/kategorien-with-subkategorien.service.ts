@@ -11,6 +11,8 @@ import {BehaviorSubject} from "rxjs";
 export class KategorienWithSubkategorienService {
 
   private _current_unterkategorie: BehaviorSubject<string> = new BehaviorSubject<string>('Projekt');
+  // private _current_unterkategorie: BehaviorSubject<Subkategorie>
+
 
   set current_kategory_name(name: string) {
     this._current_unterkategorie.next(name)
@@ -20,11 +22,6 @@ export class KategorienWithSubkategorienService {
   get current_unterkategorie(): BehaviorSubject<string> {
     return this._current_unterkategorie;
   }
-  // toDo: hier wiet arbeitn an die kateogri und subkateogie, die kann man als ein datei struktu bind
-  //   und dann die id mitschleppen um sicher hiet zu haben dasss es nur eien einzige subkategorei g
-
-
-
 
   constructor(public http: HttpClient ) {
   }
